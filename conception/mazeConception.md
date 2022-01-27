@@ -1,5 +1,7 @@
 # Conception du plateau de jeu
 
+[Retour](README.md)
+
 ## Enoncé
 
 Comme la quête du héros est associée à une case particulière du labyrinbthe, il faut nécessairement que le labyrinthe
@@ -39,7 +41,7 @@ quelque un de ces algorithmes pour avoir un idée générale
 
 ### Arbre binaire
 
-Le principe de cette algorithme est très simple : pour chaque cellule de la grille, on efface au hasard un passage vers le sud ou l'ouest. 
+Le principe de cette algorithme est très simple : pour chaque cellule de la grille, on efface au hasard un passage vers le sud ou l'est. 
 
 ##### Exemple
 
