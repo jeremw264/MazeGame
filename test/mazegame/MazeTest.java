@@ -5,8 +5,9 @@ package mazegame;
 
 import static org.junit.Assert.*;
 
+import java.util.List;
+
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import mazegame.generation.BinaryTree;
@@ -37,5 +38,40 @@ public class MazeTest {
 		assertTrue(indexInList == indexMiddleRightCell);
 		
 	}
+	
+	@Test
+	public void cellHasNeighbors() {
+		Cell currentCell = new Cell(0, 0);
+		Cell neighborXCell = new Cell(1, 0);
+		Cell neighborYCell = new Cell(0, 1);
+		List<Cell> neighborsCells = this.maze.getNeighborsCells(currentCell);
+		
+		assertTrue(neighborsCells.contains(neighborXCell));
+		assertTrue(neighborsCells.contains(neighborYCell));
+		assertTrue(neighborsCells.size() == 2);
+	}
+	
+	@Test
+	public void cellHasNeighborsUnvisited() {
+		Cell currentCell = new Cell(0, 0);
+		Cell neighborXCell = new Cell(1, 0);
+		this.maze.getCell(0, 1).setVisited();
+		List<Cell> neighborsCells = this.maze.getUnvisitedNeighborsCells(currentCell);
+		
+		assertTrue(neighborsCells.contains(neighborXCell));
+		assertTrue(neighborsCells.size() == 1);
+	}
+	
+	@Test
+	public void cellHasNotNeighborsUnvisited() {
+		Cell currentCell = new Cell(0, 0);
+		this.maze.getCell(1, 0).setVisited();
+		this.maze.getCell(0, 1).setVisited();
+		List<Cell> neighborsCells = this.maze.getUnvisitedNeighborsCells(currentCell);
+		
+		assertTrue(neighborsCells.size() == 0);
+	}
+	
+	
 
 }
