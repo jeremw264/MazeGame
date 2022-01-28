@@ -58,14 +58,70 @@ public class Maze {
 
 	/**
 	 * Renvoie la hauteur du labyrinthe.
+	 * 
 	 * @return la hauteur du labyrinthe.
 	 */
 	public int getHeigth() {
 		return this.heigth;
 	}
 
+	/**
+	 * Renvoie la liste des cellules du labyrinthe.
+	 * 
+	 * @return la liste des cellules du labyrinthe.
+	 */
 	public List<Cell> getBoard() {
 		return this.board;
+	}
+
+	/**
+	 * Renvoie une liste des cellules voisines de la cellule en paramètre.
+	 * 
+	 * @param currentCell La cellule courante de la quelle on veux obtenir les
+	 *                    voisines
+	 * @return une liste des cellules voisines.
+	 */
+	public List<Cell> getNeighborsCells(Cell currentCell) {
+		List<Cell> neighborsCells = new ArrayList<Cell>(4);
+		int x = currentCell.getX();
+		int y = currentCell.getY();
+
+		if (this.board.contains(new Cell(x + 1, y))) {
+			neighborsCells.add(this.getCell(x + 1, y));
+		}
+		if (this.board.contains(new Cell(x - 1, y))) {
+			neighborsCells.add(this.getCell(x - 1, y));
+		}
+		if (this.board.contains(new Cell(x, y + 1))) {
+			neighborsCells.add(this.getCell(x, y + 1));
+		}
+		if (this.board.contains(new Cell(x, y - 1))) {
+			neighborsCells.add(this.getCell(x, y - 1));
+		}
+
+		return neighborsCells;
+	}
+
+	/**
+	 * Renvoie une liste des cellules voisines non visité de la cellule en paramètre.
+	 * 
+	 * @param currentCell La cellule courante de la quelle on veux obtenir les
+	 *                    voisines
+	 * @return liste des cellules voisines non visité.
+	 */
+	public List<Cell> getUnvisitedNeighborsCells(Cell currentCell) {
+
+		List<Cell> unvisitedNeighborsCells = new ArrayList<Cell>(4);
+
+		List<Cell> neighborsCells = this.getNeighborsCells(currentCell);
+
+		for (Cell neighborCell : neighborsCells) {
+			if (!neighborCell.isVisited()) {
+				unvisitedNeighborsCells.add(neighborCell);
+			}
+		}
+
+		return unvisitedNeighborsCells;
 	}
 
 	/**
