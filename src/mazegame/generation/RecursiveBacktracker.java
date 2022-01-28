@@ -1,5 +1,6 @@
 package mazegame.generation;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
@@ -18,21 +19,44 @@ public class RecursiveBacktracker implements GenerationAlgorithm {
 		startCell.setVisited();
 		this.stack.push(startCell);
 		
-		while (this.stack.empty()) {
-			Cell currentCell = this.stack.pop();
+		while (!this.stack.empty()) {
+			Cell currentCell = this.stack.peek();
 			List<Cell> unvisitedNeightboursCells = maze.getUnvisitedNeighborsCells(currentCell);
 			
-			/**
-			 * Si il y a une voisine non visité:
-			 * 	on choisi une cellule au hasard (Collection.shuffle ?)
-			 * 	on detruit le mur entre les 2
-			 * 	on ajoute à la pile
-			 * 
-			 * sinon:
-			 * 	on retire la premiere cell de la pile
+			/*
+			 * uncomment for see step by step and uncomment in method carvePath
 			 */
+			//System.out.println(currentCell);
+			//System.out.println(maze);
+			
+			if (!unvisitedNeightboursCells.isEmpty()) {
+				Cell nextCell = this.getRandomNeighBor(currentCell,unvisitedNeightboursCells); // 
+				this.carvePath(currentCell,nextCell);
+				nextCell.setVisited();
+				this.stack.push(nextCell);
+			}else {
+				this.stack.pop();
+			}
 		}
-	
 	}
+	
+	public Cell getRandomNeighBor(Cell currentCell,List<Cell> unvisitedNeightboursCells) {
+		Collections.shuffle(unvisitedNeightboursCells);
+		return unvisitedNeightboursCells.get(0);
+
+	}
+	
+	public void carvePath(Cell currentCell,Cell nextCell) {
+		String directionNextCell = currentCell.directionOf(nextCell);
+		currentCell.eraseWall(directionNextCell);
+		String directionCurrentCell = nextCell.directionOf(currentCell);
+		nextCell.eraseWall(directionCurrentCell);
+		
+		// uncomment for step by step
+		// System.out.println(directionNextCell);
+		
+		
+	}
+
 
 }

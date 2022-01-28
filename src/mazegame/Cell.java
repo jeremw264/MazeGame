@@ -60,6 +60,24 @@ public class Cell {
 	public boolean isVisited() {
 		return this.visited;
 	}
+	
+	public String directionOf(Cell otherCell) {
+		if (this.x == otherCell.getX()) {
+			if (otherCell.getY() < this.y) {
+				return "N";
+			} else {
+				return "S";
+			}
+		}else if (this.y == otherCell.getY()) {
+			if (otherCell.getX() < this.x) {
+				return "O";
+			} else {
+				return "E";
+			}
+		}else {
+			return "NONE";
+		}
+	}
 
 	/**
 	 * Efface le mur de la case qui corresponds à la direction en paramètre.
