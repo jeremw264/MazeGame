@@ -9,6 +9,7 @@ public class Cell {
 
 	private final int x, y;
 	private HashMap<String, Boolean> walls;
+	private boolean visited;
 
 	/**
 	 * Constructeur de la classe Cell
@@ -26,6 +27,7 @@ public class Cell {
 		this.walls.put("O", true);
 		this.walls.put("E", true);
 
+		this.visited = false;
 	}
 
 	/**
@@ -42,6 +44,21 @@ public class Cell {
 	 */
 	public int getX() {
 		return this.x;
+	}
+	
+	/**
+	 * Definit la cellule a visité.
+	 */
+	public void setVisited() {
+		this.visited = true;
+	}
+	
+	/**
+	 * Renvoie si la cellule est visité ou non.
+	 * @return true si la celulle est visité, false dans le cas contraire.
+	 */
+	public boolean isVisited() {
+		return this.visited;
 	}
 
 	/**
