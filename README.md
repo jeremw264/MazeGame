@@ -54,6 +54,10 @@ Création de la structure global du projet et réflexion sur le modèle d'implé
 
 Implémentation de la structure et du labyrinthe avec le premier algorithme (Arbre Binaire)
 
+#### Difficulté 
+
+1 : Comment tester si les algorithmes sont bien parfait alors qu'il hérite d'une interface en d'autre terme comment faire pour ne pas réécrire des tests pour chaque algorithmes 
+
 ## Semaine 2
 
 ## Semaine 3
