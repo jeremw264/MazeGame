@@ -147,7 +147,7 @@ public class Maze {
 			mazeString += "|";
 
 			for (int x = 0; x < this.width; x++) {
-				if (this.getCell(x, y).wallExist("E")) {
+				if (this.getCell(x, y).wallExist(Direction.E)) {
 					mazeString += "   |";
 				} else {
 					mazeString += "    ";
@@ -157,7 +157,7 @@ public class Maze {
 			mazeString += "\n+";
 
 			for (int x = 0; x < this.width; x++) {
-				if (this.getCell(x, y).wallExist("S")) {
+				if (this.getCell(x, y).wallExist(Direction.S)) {
 					mazeString += "---+";
 				} else {
 					mazeString += "   +";

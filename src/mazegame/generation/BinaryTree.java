@@ -24,9 +24,9 @@ public class BinaryTree implements GenerationAlgorithm {
 
 				// Condition de suppresion des walls
 				if ((random_int == 1 || y == mazeHeight - 1) && x < mazeWidth - 1) {
-					currentCell.eraseWall("E");
+					currentCell.eraseWall(Direction.E);
 				} else if (y != mazeHeight - 1) {
-					currentCell.eraseWall("S");
+					currentCell.eraseWall(Direction.S);
 				}
 			}
 		}

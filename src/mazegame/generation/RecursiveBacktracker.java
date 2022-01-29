@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Stack;
 
 import mazegame.Cell;
+import mazegame.Direction;
 import mazegame.Maze;
 
 public class RecursiveBacktracker implements GenerationAlgorithm {
@@ -47,9 +48,9 @@ public class RecursiveBacktracker implements GenerationAlgorithm {
 	}
 	
 	public void carvePath(Cell currentCell,Cell nextCell) {
-		String directionNextCell = currentCell.directionOf(nextCell);
+		Direction directionNextCell = Direction.directionOf(currentCell, nextCell);
 		currentCell.eraseWall(directionNextCell);
-		String directionCurrentCell = nextCell.directionOf(currentCell);
+		Direction directionCurrentCell = Direction.directionOf(nextCell, currentCell);
 		nextCell.eraseWall(directionCurrentCell);
 		
 		// uncomment for step by step

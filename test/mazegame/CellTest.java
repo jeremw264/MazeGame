@@ -36,19 +36,19 @@ public class CellTest {
 	
 	@Test
 	public void wallExistOnCreationTest() {
-		assertTrue(this.cell.wallExist("N"));
-		assertTrue(this.cell.wallExist("S"));
-		assertTrue(this.cell.wallExist("O"));
-		assertTrue(this.cell.wallExist("E"));
+		assertTrue(this.cell.wallExist(Direction.N));
+		assertTrue(this.cell.wallExist(Direction.S));
+		assertTrue(this.cell.wallExist(Direction.O));
+		assertTrue(this.cell.wallExist(Direction.E));
 	}
 	
 	@Test
 	public void eraseWallTest() {
-		assertTrue(this.cell.wallExist("N"));
+		assertTrue(this.cell.wallExist(Direction.N));
 		
-		this.cell.eraseWall("N");
+		this.cell.eraseWall(Direction.N);
 		
-		assertFalse(this.cell.wallExist("N"));
+		assertFalse(this.cell.wallExist(Direction.N));
 	}
 	
 	@Test
