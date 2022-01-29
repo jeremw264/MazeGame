@@ -10,11 +10,12 @@ public class MainGame {
 
 	/**
 	 * Class d'execution du programme
+	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
 
-		Maze maze = new Maze(5, 5, new RecursiveBacktracker());
+		Maze maze = new Maze(5, 5, new RecursiveBacktracker(0, 0));
 
 		System.out.println(maze);
 

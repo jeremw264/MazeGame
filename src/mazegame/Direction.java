@@ -1,9 +1,19 @@
 package mazegame;
 
 public enum Direction {
-	N,S,O,E,Unknown;
-	
-	public static Direction directionOf(Cell currentCell,Cell otherCell) {
+	/*
+	 * N : Nord, S : Sud, O : Ouest, E : Est
+	 */
+	N, S, O, E, Unknown;
+
+	/**
+	 * Renvoie la direction d'une cellule par rapport à une autre.
+	 * 
+	 * @param currentCell La cellule courante.
+	 * @param otherCell   La cellule dont on veut connaitre la direction.
+	 * @return La direction le l'autre cellule
+	 */
+	public static Direction directionOf(Cell currentCell, Cell otherCell) {
 		if (currentCell.getX() == otherCell.getX()) {
 			if (otherCell.getY() < currentCell.getY()) {
 				return Direction.N;

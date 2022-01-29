@@ -6,9 +6,11 @@ import mazegame.*;
  * Class BinaryTree
  */
 public class BinaryTree implements GenerationAlgorithm {
-	
+
 	/**
 	 * Algorithme de Génération : Arbre Binaire
+	 * 
+	 * @param maze Le labyrinthe qu'on veut modifié
 	 */
 	public void generation(Maze maze) {
 
