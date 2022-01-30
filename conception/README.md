@@ -10,7 +10,11 @@ Vous pouvez retrouver dans ce document le lien vers chaque parti de conception d
 
 # Documentation de la conception du projet
 
+- [Le scenario](Scenario.md)
 - [Le labyrinthe](mazeConception.md)
+- [Les Objets](ItemsConception.md)
+- [Les Personnages](characterConception.md)
+- [Les Actions](actionsConception.md)
 
 
 /* * Fait avec amour * */

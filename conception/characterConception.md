@@ -1,5 +1,7 @@
 # Conception des personnage du jeu 
 
+[Retour](README.md)
+
 ##Héros
 Le héros est un personnage pouvant se déplacer d'une ou plusieurs cases pendant son tour. 
 Il doit pouvoir discuter avec les différents personnages du jeux.
@@ -47,5 +49,3 @@ Il fournira également ces indices et objets gratuitement en se faisant passant 
 ##PNJ 5 (Compteur) (extensions)
 Le compteur est un pnj se trouvant au début du labyrinthe et à différent point du labyrinthe. Celui ci compte l'aventure du Héros, au début du jeu, il explique en quoi consiste la quête principale ainsi que les règles.
 		
-
-[Retour](README.md)
