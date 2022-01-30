@@ -6,20 +6,20 @@ import java.util.List;
 import mazegame.generation.GenerationAlgorithm;
 
 public class Maze {
-	private final int width, heigth;
+	private final int width, height;
 
 	private List<Cell> board;
 
 	/**
 	 * Constructeur de la classe Maze
 	 * 
-	 * @param heigth Hauteur du labyrinthe
+	 * @param height Hauteur du labyrinthe
 	 * @param width  Largueur du labyrinthe
 	 */
-	public Maze(int heigth, int width, GenerationAlgorithm genAlgo) {
-		this.heigth = heigth;
+	public Maze(int height, int width, GenerationAlgorithm genAlgo) {
+		this.height = height;
 		this.width = width;
-		this.board = new ArrayList<Cell>(this.heigth * this.width);
+		this.board = new ArrayList<Cell>(this.height * this.width);
 		this.fillMaze();
 		genAlgo.generation(this);
 
@@ -61,8 +61,8 @@ public class Maze {
 	 * 
 	 * @return la hauteur du labyrinthe.
 	 */
-	public int getHeigth() {
-		return this.heigth;
+	public int getHeight() {
+		return this.height;
 	}
 
 	/**
@@ -142,7 +142,7 @@ public class Maze {
 
 		// Other Line
 
-		for (int y = 0; y < this.heigth; y++) {
+		for (int y = 0; y < this.height; y++) {
 
 			mazeString += "|";
 
@@ -177,10 +177,10 @@ public class Maze {
 
 	private void fillMaze() {
 
-		for (int i = 0; i < this.heigth * this.width; i++) {
+		for (int i = 0; i < this.height * this.width; i++) {
 
 			int x = i % this.width;
-			int y = i / this.heigth;
+			int y = i / this.height;
 
 			this.board.add(new Cell(x, y));
 

@@ -14,7 +14,7 @@ public class BinaryTree implements GenerationAlgorithm {
 	 */
 	public void generation(Maze maze) {
 
-		int mazeHeight = maze.getHeigth();
+		int mazeHeight = maze.getHeight();
 		int mazeWidth = maze.getWidth();
 
 		for (int y = 0; y < mazeHeight; y++) {
