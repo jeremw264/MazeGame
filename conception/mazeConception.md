@@ -32,7 +32,7 @@ D'après nos recherche on dénombre environ 12 algorithmes classiques pour la g�
 - [ ] Wilson's
 - [ ] Eller
 - [ ] Automaton cellulaire (facile)
-- [ ] Division récursive (très facile)
+- [X] Division récursive (très facile)
 - [ ] Sidewinder (prévisible)
 - [x] Arbre binaire
 
@@ -106,6 +106,22 @@ Dès lors que l'on veut générer de grands labyrinthes (1000 x 1000, par exempl
 
 ##### Algorithme de génération
 
+### Division Récursive 
+
+Le principe de la division récursive peut être expliqué en 4 étapes :
+ - Etape 1 : Commencer avec un terrain vierge / blanc
+ - Etape 2 : Couper en deux le terrain via un mur horizontal ou vertical. Ajouter un point de passage à travers le mur.
+ - Etape 3 : Répéter l'etape 2 de chaque côté du mur.
+ - Etape 4 : Continuer récursivement, jusqu'à obtenir le labyrinthe désiré.
+ 
+##### exemple
+
+##### Pseudo-code
+
+##### Avantage
+
+
+##### Inconvénient
 
 
 ### Test à implémenté

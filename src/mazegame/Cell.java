@@ -72,6 +72,11 @@ public class Cell {
 	public void eraseWall(Direction direction) {
 		this.walls.replace(direction, false);
 	}
+	
+	public void createWall(Direction direction) 
+	{
+		this.walls.replace(direction, true);
+	}
 
 	/**
 	 * Renvoie si un mur existe ou non dans la direction passer en paramètre.
