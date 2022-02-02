@@ -23,7 +23,7 @@ Génération:
 
 D'après nos recherche on dénombre environ 12 algorithmes classiques pour la génération de labyrinthes "parfaits".
 
-- [ ] Kruskal
+- [x] Kruskal
 - [ ] Prim's
 - [x] Recursive Backtracker (ou Exploration exhaustive)
 - [ ] Aldous-Broder
