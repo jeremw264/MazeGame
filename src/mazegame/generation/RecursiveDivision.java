@@ -1,5 +1,10 @@
 package mazegame.generation;
 
+import java.util.Iterator;
+import java.util.Random;
+
+import com.sun.tools.javac.code.Type.ForAll;
+
 import mazegame.*;
 
 public class RecursiveDivision implements GenerationAlgorithm 
@@ -12,13 +17,28 @@ public class RecursiveDivision implements GenerationAlgorithm
 	{
 		this.width = width;
 		this.height = height;
-
+		
 	}
+	
+	
 
-	public void generation(Maze maze) {
+	public void generation(Maze maze) 
+	{
 		this.maze = maze;
 		this.eraseAllWall();
+		
+		// Termine la division récursive techniquement....
+		if(width < 2 || height < 2)
+		return;
+			
 	}
+	
+	public void createWall()
+	{
+		
+	}
+
+
 
 	public void eraseAllWall() 
 	{
