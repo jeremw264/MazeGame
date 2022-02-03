@@ -2,9 +2,12 @@ package mazegame.generation;
 
 import static org.junit.Assert.*;
 
+import java.util.Stack;
+
 import org.junit.Before;
 import org.junit.Test;
 
+import mazegame.Cell;
 import mazegame.Direction;
 import mazegame.Maze;
 
@@ -15,7 +18,7 @@ public class GenerationAlgorirthmTest {
 	protected GenerationAlgorithm algorithm;
 
 	public GenerationAlgorirthmTest(GenerationAlgorithm algorithm) {		
-		this.algorithm = new BinaryTree();
+		this.algorithm = algorithm;
 	}
 
 	@Before
@@ -38,8 +41,11 @@ public class GenerationAlgorirthmTest {
 	}
 	
 	@Test
-	public void perfectMaze() {
+	public void verifyPerfectMaze() {
+		Stack<Cell> stack = new Stack<>();
 		assertTrue(false);
 	}
+	
+	
 
 }

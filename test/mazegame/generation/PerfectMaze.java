@@ -12,57 +12,50 @@ import mazegame.Maze;
 public class PerfectMaze {
 
 	public Maze maze;
+	public List<Cell> cellsTreat;
+	public Stack<Cell> stack;
 
 	public PerfectMaze(Maze maze) {
 		this.maze = maze;
+		this.cellsTreat = new ArrayList<>();
+		this.stack = new Stack<>();
+
 	}
 
 	public void verify(int seedX, int seedY) {
-		List<Cell> cellsTreat = new ArrayList<>();
-		Stack<Cell> stack = new Stack<>();
 		Cell startingCell = this.maze.getCell(seedX, seedY);
-		stack.push(startingCell);
-		cellsTreat.add(startingCell);
-		while (!stack.empty()) {
-			Cell currentCell = stack.peek();
-			Cell nextCell;
-			List<Direction> accesDirections = this.getAccesibleDirections(currentCell);
+		
+		this.stack.push(startingCell);
+		this.cellsTreat.add(startingCell);
+		
+		while (!this.stack.empty()) {
 			
-			int i = 0;
-			// gerer le cas de generation tableau vide 
-			Direction direction = accesDirections.get(0);
-			while (cellsTreat.contains(this.getCellWithDirection(currentCell,direction)) && i < accesDirections.size()-1) {
-				i++;
-				direction = accesDirections.get(i);
-			}
+			Cell currentCell = this.stack.peek();
 			
-			nextCell = this.getCellWithDirection(currentCell, direction);
-			if (!cellsTreat.contains(nextCell)) {
-				cellsTreat.add(nextCell);
-				stack.push(nextCell);
-			} else {
-				stack.pop();
+			if (this.getNextCell(currentCell) != null) {
+				Cell nextCell = this.getNextCell(currentCell);
+				this.stack.push(nextCell);
+				this.cellsTreat.add(nextCell);
+			}else {
+				this.stack.pop();
 			}
-			System.out.println(currentCell);
-			System.out.println(direction);
-			System.out.println(maze);
-
 		}
-		System.err.println(cellsTreat.size());
+		
+		System.out.println(this.cellsTreat.size());
+
 	}
 
-	public void accessiblePath() {
-
-		/*
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 */
-
+	public Cell getNextCell(Cell currentCell) {
+		List<Direction> accesibleDirections = this.getAccesibleDirections(currentCell);
+		
+		for (Direction direction : accesibleDirections) {
+			Cell cellInDirection = this.getCellWithDirection(currentCell, direction); 
+			if (!this.cellsTreat.contains(cellInDirection)) {
+				return cellInDirection;
+			}
+		}
+		
+		return null;
 	}
 
 	/**
