@@ -75,7 +75,8 @@ Etude sur les branch git pour utilisation dans le projet pour avoir une branche 
 
 
 #### Difficulté 
-1 : la methode Maze.fillMaze généré des cases inutile mais ne provoqué pas forcement d'exception donc compliqué à corrigé même avec l'utilisation du débugeur qui ne permeter de voir uniquement les méthodes parcouru de plus le problème provoqué une exception uniquement avec l'algorithme de kruskal. La correction du problème à aussi résolu le fais que les algorithmes sauf BinaryTree ne pouvait pas générer de labyrinthe rectangulaire.
+
+1 : La methode Maze.fillMaze généré des cases inutile mais ne provoqué pas forcement d'exception donc compliqué à corrigé même avec l'utilisation du débugeur qui ne permeter de voir uniquement les méthodes parcouru de plus le problème provoqué une exception uniquement avec l'algorithme de kruskal. La correction du problème à aussi résolu le fais que les algorithmes sauf BinaryTree ne pouvait pas générer de labyrinthe rectangulaire.
 
 2 : Le test pour la vérification de labyrinthe parfait fonctionne mais ne compte pas le nombre de cellules exact lorsqu'il n'est pas parfait actuellement le problème n'est pas résolu (04/02/22-18:28) 
 

@@ -94,6 +94,35 @@ La formulation récursive donne de très bons résultats pour des labyrinthes de
 Dès lors que l'on veut générer de grands labyrinthes (1000 x 1000, par exemple), le programme risque de se terminer brutalement si la taille de la pile est insuffisante.
 
 
+### Kruskal
+
+##### exemple
+
+![Exemple d'affichage de génération](img/maze/labyrinthe_kruskal.png "Exploration exhaustive génération")  
+
+##### Pseudo-code
+```
+	tant que la pile n'est pas vide:
+  		soit c la premiere cellule de la pile
+  		on recherche les voisines non visité de c
+
+  		si il y en a
+     			soit cn une de ces voisines, choisi au hasard 
+      			on détruit le mur entre c et la cellule cn
+      			on indique dans que c est visité
+      			on ajoute cn a la pile
+  		sinon
+      			on retire le premier élément de pile
+```
+
+##### Avantage
+
+La formulation récursive donne de très bons résultats pour des labyrinthes de taille modeste.
+
+##### Inconvénient
+
+Dès lors que l'on veut générer de grands labyrinthes (1000 x 1000, par exemple), le programme risque de se terminer brutalement si la taille de la pile est insuffisante.
+
 ### Implémentation et UML
 
 ##### Labyrinthe
