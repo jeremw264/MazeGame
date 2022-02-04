@@ -34,6 +34,11 @@ public class Kruskal implements GenerationAlgorithm {
 		Collections.shuffle(this.wallsList);
 	}
 
+	/**
+	 * Renvoie une liste de tout les murs existant dans le labyrinthe
+	 * 
+	 * @return une liste de tout les murs existant dans le labyrinthe
+	 */
 	public List<Wall> initWallList() {
 		List<Wall> wallList = new ArrayList<Wall>();
 
@@ -46,6 +51,11 @@ public class Kruskal implements GenerationAlgorithm {
 		return wallList;
 	}
 
+	/**
+	 * Renvoie une liste où chaque cellule est contenu dans un set
+	 * 
+	 * @return une liste où chaque cellule est contenu dans un set
+	 */
 	public List<HashSet<Cell>> initCellSets() {
 
 		List<HashSet<Cell>> cellSets = new ArrayList<>();
@@ -60,6 +70,13 @@ public class Kruskal implements GenerationAlgorithm {
 		return cellSets;
 	}
 
+	/**
+	 * Fusionne les ensembles de cellule si les deux cellule en paramètre sont dans
+	 * des ensembles disjoint
+	 * 
+	 * @param cell1
+	 * @param cell2
+	 */
 	public void mergeCellSet(Cell cell1, Cell cell2) {
 
 		int iCell1 = 0;
@@ -87,6 +104,12 @@ public class Kruskal implements GenerationAlgorithm {
 		}
 	}
 
+	/**
+	 * Détruit les murs entre deux cellule.
+	 * 
+	 * @param currentCell La cellule actuelle.
+	 * @param nextCell    La cellule suivante.
+	 */
 	public void carvePath(Cell cell1, Cell cell2) {
 		Direction directionNextCell = Direction.directionOf(cell1, cell2);
 		cell1.eraseWall(directionNextCell);
