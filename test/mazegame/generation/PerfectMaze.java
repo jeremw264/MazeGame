@@ -1,7 +1,6 @@
 package mazegame.generation;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Stack;
 
@@ -9,12 +8,23 @@ import mazegame.Cell;
 import mazegame.Direction;
 import mazegame.Maze;
 
+/**
+ * Permet de vérifier si un labyrinthe est parfait (toute les cases sont accessible)
+ * 
+ * @author jeremy
+ *
+ */
 public class PerfectMaze {
 
 	public Maze maze;
 	public List<Cell> cellsTreat;
 	public Stack<Cell> stack;
 
+	/**
+	 * Constructeur de l'objet PerfectMaze
+	 * 
+	 * @param maze le labyrinthe aprés génération
+	 */
 	public PerfectMaze(Maze maze) {
 		this.maze = maze;
 		this.cellsTreat = new ArrayList<>();
@@ -26,7 +36,7 @@ public class PerfectMaze {
 	 * Vérifie si le labyrinthe est parfait
 	 * 
 	 * @param seedX Point de départ horizontale
-	 * @param seedY	Point de départ verticale
+	 * @param seedY Point de départ verticale
 	 */
 	public void verify(int seedX, int seedY) {
 		Cell startingCell = this.maze.getCell(seedX, seedY);
