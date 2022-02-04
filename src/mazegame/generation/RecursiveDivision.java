@@ -1,9 +1,7 @@
 package mazegame.generation;
 
-import java.util.Iterator;
 import java.util.Random;
 
-import com.sun.tools.javac.code.Type.ForAll;
 
 import mazegame.*;
 
@@ -28,6 +26,8 @@ public class RecursiveDivision implements GenerationAlgorithm
 		this.eraseAllWall();
 		
 		// Termine la division récursive techniquement....
+		
+		// RQ jerem: impossible car width et heigth sont fixé (constante final) non modifiable
 		if(width < 2 || height < 2)
 		return;
 			
@@ -35,7 +35,10 @@ public class RecursiveDivision implements GenerationAlgorithm
 	
 	public void createWall()
 	{
-		
+	
+		/*
+		 * Pour crée un mur je te conseille de passé en paramètre de la fonction x,y, et la direction (Direction class enum)
+		 */
 	}
 
 
