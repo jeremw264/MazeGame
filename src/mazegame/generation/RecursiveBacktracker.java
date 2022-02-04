@@ -8,7 +8,7 @@ import mazegame.Cell;
 import mazegame.Direction;
 import mazegame.Maze;
 
-public class RecursiveBacktracker implements GenerationAlgorithm {
+public class RecursiveBacktracker extends GenerationAlgorithm {
 
 	private final int seedX;
 	private final int seedY;
@@ -68,22 +68,6 @@ public class RecursiveBacktracker implements GenerationAlgorithm {
 	public Cell getRandomNeighBor(Cell currentCell, List<Cell> unvisitedNeightboursCells) {
 		Collections.shuffle(unvisitedNeightboursCells);
 		return unvisitedNeightboursCells.get(0);
-
-	}
-
-	/**
-	 * Détruit les murs entre deux cellule.
-	 * @param currentCell La cellule actuelle.
-	 * @param nextCell La cellule suivante.
-	 */
-	public void carvePath(Cell currentCell, Cell nextCell) {
-		Direction directionNextCell = Direction.directionOf(currentCell, nextCell);
-		currentCell.eraseWall(directionNextCell);
-		Direction directionCurrentCell = Direction.directionOf(nextCell, currentCell);
-		nextCell.eraseWall(directionCurrentCell);
-
-		// uncomment for step by step
-		// System.out.println(directionNextCell);
 
 	}
 

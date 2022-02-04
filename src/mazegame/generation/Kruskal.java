@@ -10,7 +10,7 @@ import mazegame.Direction;
 import mazegame.Maze;
 import mazegame.Wall;
 
-public class Kruskal implements GenerationAlgorithm {
+public class Kruskal extends GenerationAlgorithm {
 
 	private Maze maze;
 	private List<Wall> wallsList;
@@ -104,18 +104,6 @@ public class Kruskal implements GenerationAlgorithm {
 		}
 	}
 
-	/**
-	 * Détruit les murs entre deux cellule.
-	 * 
-	 * @param currentCell La cellule actuelle.
-	 * @param nextCell    La cellule suivante.
-	 */
-	public void carvePath(Cell cell1, Cell cell2) {
-		Direction directionNextCell = Direction.directionOf(cell1, cell2);
-		cell1.eraseWall(directionNextCell);
-		Direction directionCurrentCell = Direction.directionOf(cell2, cell1);
-		cell2.eraseWall(directionCurrentCell);
-
-	}
+	
 
 }

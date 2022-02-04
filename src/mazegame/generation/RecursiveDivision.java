@@ -5,7 +5,7 @@ import java.util.Random;
 
 import mazegame.*;
 
-public class RecursiveDivision implements GenerationAlgorithm 
+public class RecursiveDivision extends GenerationAlgorithm 
 {
 	private final int width;
 	private final int height;

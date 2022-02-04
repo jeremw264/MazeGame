@@ -2,7 +2,7 @@ package mazegame.generation;
 
 import mazegame.*;
 
-public interface GenerationAlgorithm {
+abstract public class GenerationAlgorithm {
 
 	/**
 	 * Méthode de génération de labyrinthe.
@@ -11,5 +11,19 @@ public interface GenerationAlgorithm {
 	 * 
 	 *             {@literal Le labyrinthe passé en paramètre doit être rempli d'objet Cell et avoir tout les mur existant.}
 	 */
-	public void generation(Maze maze);
+	public abstract void generation(Maze maze);
+	
+	/**
+	 * Détruit les murs entre deux cellule.
+	 * 
+	 * @param currentCell La cellule actuelle.
+	 * @param nextCell    La cellule suivante.
+	 */
+	protected void carvePath(Cell cell1, Cell cell2) {
+		Direction directionNextCell = Direction.directionOf(cell1, cell2);
+		cell1.eraseWall(directionNextCell);
+		Direction directionCurrentCell = Direction.directionOf(cell2, cell1);
+		cell2.eraseWall(directionCurrentCell);
+
+	}
 }

@@ -5,7 +5,7 @@ import mazegame.*;
 /**
  * Class BinaryTree
  */
-public class BinaryTree implements GenerationAlgorithm {
+public class BinaryTree extends GenerationAlgorithm {
 
 	private Maze maze;
 	
@@ -35,23 +35,6 @@ public class BinaryTree implements GenerationAlgorithm {
 				}
 			}
 		}
-	}
-	
-
-	/**
-	 * Détruit les murs entre deux cellule.
-	 * @param currentCell La cellule actuelle.
-	 * @param nextCell La cellule suivante.
-	 */
-	public void carvePath(Cell currentCell, Cell nextCell) {
-		Direction directionNextCell = Direction.directionOf(currentCell, nextCell);
-		currentCell.eraseWall(directionNextCell);
-		Direction directionCurrentCell = Direction.directionOf(nextCell, currentCell);
-		nextCell.eraseWall(directionCurrentCell);
-
-		// uncomment for step by step
-		// System.out.println(directionNextCell);
-
 	}
 	
 	public Cell getCellWithDirection(Cell cell, Direction direction) {
