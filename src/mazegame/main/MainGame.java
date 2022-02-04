@@ -15,9 +15,13 @@ public class MainGame {
 	 */
 	public static void main(String[] args) {
 
-		Maze maze = new Maze(5, 5, new Kruskal());
+		Maze maze = new Maze(5, 6, new Kruskal());
 		
 		System.out.println(maze);
+		
+		PerfectMaze verifyMaze = new PerfectMaze(maze);
+		verifyMaze.verify(0, 0);
+		
 
 	}
 
