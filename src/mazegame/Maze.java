@@ -16,9 +16,9 @@ public class Maze {
 	 * @param height Hauteur du labyrinthe
 	 * @param width  Largueur du labyrinthe
 	 */
-	public Maze(int height, int width, GenerationAlgorithm genAlgo) {
-		this.height = height;
+	public Maze(int width, int height, GenerationAlgorithm genAlgo) {
 		this.width = width;
+		this.height = height;
 		this.board = new ArrayList<Cell>(this.height * this.width);
 		this.fillMaze();
 		genAlgo.generation(this);
@@ -35,6 +35,7 @@ public class Maze {
 	public Cell getCell(int x, int y) {
 
 		int index = 0;
+		int width = this.width;
 
 		if (y == 0) {
 			index = x;
@@ -103,7 +104,8 @@ public class Maze {
 	}
 
 	/**
-	 * Renvoie une liste des cellules voisines non visité de la cellule en paramètre.
+	 * Renvoie une liste des cellules voisines non visité de la cellule en
+	 * paramètre.
 	 * 
 	 * @param currentCell La cellule courante de la quelle on veux obtenir les
 	 *                    voisines
@@ -177,12 +179,10 @@ public class Maze {
 
 	private void fillMaze() {
 
-		for (int i = 0; i < this.height * this.width; i++) {
-
-			int x = i % this.width;
-			int y = i / this.height;
-
-			this.board.add(new Cell(x, y));
+		for (int y = 0; y < this.height; y++) {
+			for (int x = 0; x < this.width; x++) {
+				this.board.add(new Cell(x, y));
+			}
 
 		}
 	}
