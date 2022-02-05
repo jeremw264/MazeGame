@@ -72,9 +72,13 @@ public class Cell {
 	public void eraseWall(Direction direction) {
 		this.walls.replace(direction, false);
 	}
-	
-	public void createWall(Direction direction) 
-	{
+
+	/**
+	 * Crée le mur de la case qui corresponds à la direction en paramètre.
+	 * 
+	 * @param direction Direction
+	 */
+	public void createWall(Direction direction) {
 		this.walls.replace(direction, true);
 	}
 

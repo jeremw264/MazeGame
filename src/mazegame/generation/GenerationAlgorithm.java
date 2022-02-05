@@ -26,4 +26,17 @@ abstract public class GenerationAlgorithm {
 		cell2.eraseWall(directionCurrentCell);
 
 	}
+	
+	/**
+	 * Créé les murs entre deux cellule.
+	 * 
+	 * @param currentCell La cellule actuelle.
+	 * @param nextCell    La cellule suivante.
+	 */
+	protected void closePath(Cell cell1, Cell cell2) {
+		Direction directionNextCell = Direction.directionOf(cell1, cell2);
+		cell1.createWall(directionNextCell);
+		Direction directionCurrentCell = Direction.directionOf(cell2, cell1);
+		cell2.createWall(directionCurrentCell);
+	}
 }
