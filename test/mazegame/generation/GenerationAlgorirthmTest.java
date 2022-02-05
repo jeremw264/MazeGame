@@ -2,12 +2,9 @@ package mazegame.generation;
 
 import static org.junit.Assert.*;
 
-import java.util.Stack;
-
 import org.junit.Before;
 import org.junit.Test;
 
-import mazegame.Cell;
 import mazegame.Direction;
 import mazegame.Maze;
 
@@ -26,7 +23,7 @@ public class GenerationAlgorirthmTest {
 	}
 
 	// See for before class or search initializationError
-	
+
 	@Before
 	public void setUp() throws Exception {
 		this.mazeWidth = 5;
@@ -48,7 +45,6 @@ public class GenerationAlgorirthmTest {
 
 	@Test
 	public void verifyPerfectMaze() {
-		Stack<Cell> stack = new Stack<>();
 		assertTrue(false);
 	}
 

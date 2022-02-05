@@ -6,7 +6,6 @@ import java.util.HashSet;
 import java.util.List;
 
 import mazegame.Cell;
-import mazegame.Direction;
 import mazegame.Maze;
 import mazegame.Wall;
 
@@ -99,7 +98,6 @@ public class Kruskal extends GenerationAlgorithm {
 				this.cellListSets.get(iCell1).add(cell);
 			}
 
-			// this.cellListSets.get(iCell1).add(cell2);
 			this.cellListSets.remove(iCell2);
 		}
 	}

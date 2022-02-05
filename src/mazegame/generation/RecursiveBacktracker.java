@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Stack;
 
 import mazegame.Cell;
-import mazegame.Direction;
 import mazegame.Maze;
 
 public class RecursiveBacktracker extends GenerationAlgorithm {
