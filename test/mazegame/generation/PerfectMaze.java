@@ -9,7 +9,8 @@ import mazegame.Direction;
 import mazegame.Maze;
 
 /**
- * Permet de vérifier si un labyrinthe est parfait (toute les cases sont accessible)
+ * Permet de vérifier si un labyrinthe est parfait (toute les cases sont
+ * accessible)
  * 
  * @author jeremy
  *
@@ -38,7 +39,7 @@ public class PerfectMaze {
 	 * @param seedX Point de départ horizontale
 	 * @param seedY Point de départ verticale
 	 */
-	public void verify(int seedX, int seedY) {
+	public boolean verify(int seedX, int seedY) {
 		Cell startingCell = this.maze.getCell(seedX, seedY);
 
 		this.stack.push(startingCell);
@@ -48,26 +49,16 @@ public class PerfectMaze {
 
 			Cell currentCell = this.stack.peek();
 
-			// if the maze is not perfect the algo don't visited each cell (see in get
-			// nextCell method)
-
-			System.out.println(this.getAccesibleDirections(currentCell));
-
 			if (this.getNextCell(currentCell) != null) {
 				Cell nextCell = this.getNextCell(currentCell);
 				this.stack.push(nextCell);
 				this.cellsTreat.add(nextCell);
-				System.out.println(nextCell);
 			} else {
-				System.err.println("Back");
 				this.stack.pop();
 			}
 		}
 
-		System.out.println("Nombre de cellule parcouru : " + this.cellsTreat.size());
-		// Prédicat a vérifié pour validé le test unitaire
-		System.out.println(
-				"Perfect Maze = " + (this.cellsTreat.size() == (this.maze.getHeight() * this.maze.getWidth())));
+		return this.cellsTreat.size() == (this.maze.getHeight() * this.maze.getWidth());
 
 	}
 

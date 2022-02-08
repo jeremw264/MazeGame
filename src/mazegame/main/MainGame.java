@@ -1,5 +1,6 @@
 package mazegame.main;
 
+import mazegame.Direction;
 import mazegame.Maze;
 import mazegame.generation.*;
 
@@ -19,8 +20,8 @@ public class MainGame {
 		
 		System.out.println(maze);
 		
-		//PerfectMaze verifyMaze = new PerfectMaze(maze);
-		//verifyMaze.verify(0, 0);
+		PerfectMaze verifyMaze = new PerfectMaze(maze);
+		verifyMaze.verify(0, 0);
 		
 
 	}
