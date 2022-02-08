@@ -73,6 +73,11 @@ public class Cell {
 		this.walls.replace(direction, false);
 	}
 	
+	/**
+	 * Crée un mur dans la direction passé en paramètre.
+	 * 
+	 * @param orientation Direction, exemple: N, S, O, E
+	 */
 	public void createWall(Direction direction) 
 	{
 		this.walls.replace(direction, true);
