@@ -29,6 +29,21 @@ public class Cell {
 
 		this.visited = false;
 	}
+	
+	public Cell(int x, int y ,boolean wallsExist) {
+
+		this.x = x;
+		this.y = y;
+		this.walls = new HashMap<>();
+		this.walls.put(Direction.N, wallsExist);
+		this.walls.put(Direction.S, wallsExist);
+		this.walls.put(Direction.O, wallsExist);
+		this.walls.put(Direction.E, wallsExist);
+
+		this.visited = false;
+	}
+	
+	
 
 	/**
 	 * Renvoie la position Y (verticale) de la cellule.

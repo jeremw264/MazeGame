@@ -6,35 +6,37 @@ import mazegame.*;
  * Class BinaryTree
  */
 public class BinaryTree extends GenerationAlgorithm {
-
-	private Maze maze;
 	
 	/**
 	 * Algorithme de Génération : Arbre Binaire
 	 * 
 	 * @param maze Le labyrinthe qu'on veut modifié
+	 * @return 
 	 */
-	public void generation(Maze maze) {
+	public Grid generation(int width,int heigth) {
 
-		this.maze = maze;
-		int mazeHeight = maze.getHeight();
-		int mazeWidth = maze.getWidth();
+		this.grid = new Grid(width, heigth);
+		
+		int gridHeight = grid.getHeight();
+		int gridWidth = grid.getWidth();
 
-		for (int y = 0; y < mazeHeight; y++) {
-			for (int x = 0; x < mazeWidth; x++) {
+		for (int y = 0; y < gridHeight; y++) {
+			for (int x = 0; x < gridWidth; x++) {
 
 				int random_int = (int) Math.floor(Math.random() * (2));
 
-				Cell currentCell = maze.getCell(x, y);
+				Cell currentCell = this.grid.getCell(x, y);
 
 				// Condition de suppresion des walls
-				if ((random_int == 1 || y == mazeHeight - 1) && x < mazeWidth - 1) {
+				if ((random_int == 1 || y == gridHeight - 1) && x < gridWidth - 1) {
 					this.carvePath(currentCell, this.getCellWithDirection(currentCell, Direction.E));
-				} else if (y != mazeHeight - 1) {
+				} else if (y != gridHeight - 1) {
 					this.carvePath(currentCell, this.getCellWithDirection(currentCell, Direction.S));
 				}
 			}
 		}
+		
+		return this.grid;
 	}
 	
 	public Cell getCellWithDirection(Cell cell, Direction direction) {
@@ -43,15 +45,15 @@ public class BinaryTree extends GenerationAlgorithm {
 		int y = cell.getY();
 
 		if (direction == Direction.N)
-			return this.maze.getCell(x, y - 1);
+			return this.grid.getCell(x, y - 1);
 
 		if (direction == Direction.S)
-			return this.maze.getCell(x, y + 1);
+			return this.grid.getCell(x, y + 1);
 
 		if (direction == Direction.O)
-			return this.maze.getCell(x - 1, y);
+			return this.grid.getCell(x - 1, y);
 
-		return this.maze.getCell(x + 1, y);
+		return this.grid.getCell(x + 1, y);
 
 	}
 }

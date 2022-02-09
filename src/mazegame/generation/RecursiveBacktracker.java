@@ -4,8 +4,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
-import mazegame.Cell;
-import mazegame.Maze;
+import mazegame.*;
 
 public class RecursiveBacktracker extends GenerationAlgorithm {
 
@@ -29,15 +28,17 @@ public class RecursiveBacktracker extends GenerationAlgorithm {
 	 *
 	 * @param maze Le labyrinthe qu'on veut modifié.
 	 */
-	public void generation(Maze maze) {
+	public Grid generation(int width,int heigth) {
+		
+		this.grid = new Grid(width, heigth);
 
-		Cell startCell = maze.getCell(this.seedX, this.seedY);
+		Cell startCell = this.grid.getCell(this.seedX, this.seedY);
 		startCell.setVisited();
 		this.stack.push(startCell);
 
 		while (!this.stack.empty()) {
 			Cell currentCell = this.stack.peek();
-			List<Cell> unvisitedNeightboursCells = maze.getUnvisitedNeighborsCells(currentCell);
+			List<Cell> unvisitedNeightboursCells = this.getUnvisitedNeighborsCells(currentCell);
 
 			/*
 			 * uncomment for see step by step and uncomment in method carvePath
@@ -54,6 +55,8 @@ public class RecursiveBacktracker extends GenerationAlgorithm {
 				this.stack.pop();
 			}
 		}
+		
+		return this.grid;
 	}
 
 	/**

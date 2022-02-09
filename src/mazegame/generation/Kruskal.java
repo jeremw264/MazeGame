@@ -1,22 +1,16 @@
 package mazegame.generation;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
-import mazegame.Cell;
-import mazegame.Maze;
-import mazegame.Wall;
+import mazegame.*;
 
 public class Kruskal extends GenerationAlgorithm {
 
-	private Maze maze;
 	private List<Wall> wallsList;
 	private List<HashSet<Cell>> cellListSets;
 
-	public void generation(Maze maze) {
-		this.maze = maze;
+	public Grid generation(int width, int heigth) {
+		this.grid = new Grid(width, heigth);
 		this.init();
 
 		for (Wall wall : this.wallsList) {
@@ -24,6 +18,8 @@ public class Kruskal extends GenerationAlgorithm {
 			Cell cell2 = wall.getCell2();
 			this.mergeCellSet(cell1, cell2);
 		}
+
+		return this.grid;
 	}
 
 	public void init() {
@@ -41,8 +37,8 @@ public class Kruskal extends GenerationAlgorithm {
 	public List<Wall> initWallList() {
 		List<Wall> wallList = new ArrayList<Wall>();
 
-		for (Cell cell : this.maze.getBoard()) {
-			for (Cell neighbor : this.maze.getNeighborsCells(cell)) {
+		for (Cell cell : this.grid.getListsOfCells()) {
+			for (Cell neighbor : this.grid.getNeighborsCells(cell)) {
 				wallList.add(new Wall(cell, neighbor));
 			}
 		}
@@ -59,7 +55,7 @@ public class Kruskal extends GenerationAlgorithm {
 
 		List<HashSet<Cell>> cellSets = new ArrayList<>();
 
-		for (Cell cell : this.maze.getBoard()) {
+		for (Cell cell : this.grid.getListsOfCells()) {
 
 			HashSet<Cell> set = new HashSet<Cell>();
 			set.add(cell);
@@ -101,7 +97,5 @@ public class Kruskal extends GenerationAlgorithm {
 			this.cellListSets.remove(iCell2);
 		}
 	}
-
-	
 
 }
