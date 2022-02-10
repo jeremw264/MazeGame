@@ -6,6 +6,7 @@ import java.util.Stack;
 
 import mazegame.Cell;
 import mazegame.Direction;
+import mazegame.Grid;
 import mazegame.Maze;
 
 /**
@@ -17,7 +18,7 @@ import mazegame.Maze;
  */
 public class PerfectMaze {
 
-	public Maze maze;
+	public Grid grid;
 	public List<Cell> cellsTreat;
 	public Stack<Cell> stack;
 
@@ -27,7 +28,7 @@ public class PerfectMaze {
 	 * @param maze le labyrinthe aprés génération
 	 */
 	public PerfectMaze(Maze maze) {
-		this.maze = maze;
+		this.grid = maze.getGrid();
 		this.cellsTreat = new ArrayList<>();
 		this.stack = new Stack<>();
 
@@ -40,7 +41,7 @@ public class PerfectMaze {
 	 * @param seedY Point de départ verticale
 	 */
 	public boolean verify(int seedX, int seedY) {
-		Cell startingCell = this.maze.getCell(seedX, seedY);
+		Cell startingCell = this.grid.getCell(seedX, seedY);
 
 		this.stack.push(startingCell);
 		this.cellsTreat.add(startingCell);
@@ -58,7 +59,7 @@ public class PerfectMaze {
 			}
 		}
 
-		return this.cellsTreat.size() == (this.maze.getHeight() * this.maze.getWidth());
+		return this.cellsTreat.size() == (this.grid.getHeight() * this.grid.getWidth());
 
 	}
 
@@ -113,15 +114,15 @@ public class PerfectMaze {
 		int y = cell.getY();
 
 		if (direction == Direction.N)
-			return this.maze.getCell(x, y - 1);
+			return this.grid.getCell(x, y - 1);
 
 		if (direction == Direction.S)
-			return this.maze.getCell(x, y + 1);
+			return this.grid.getCell(x, y + 1);
 
 		if (direction == Direction.O)
-			return this.maze.getCell(x - 1, y);
+			return this.grid.getCell(x - 1, y);
 
-		return this.maze.getCell(x + 1, y);
+		return this.grid.getCell(x + 1, y);
 
 	}
 

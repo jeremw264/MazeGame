@@ -13,7 +13,6 @@ public class Grid {
 		this.width = width;
 		this.height = heigth;
 		this.initGrid(true);
-
 	}
 
 	public Grid(int width, int height, boolean wallsExist) {
@@ -32,6 +31,10 @@ public class Grid {
 	
 	public List<Cell> getListsOfCells () {
 		return this.cellsList;
+	}
+	
+	public int size() {
+		return this.cellsList.size();
 	}
 
 	/**
@@ -99,6 +102,8 @@ public class Grid {
 				this.cellsList.add(new Cell(x, y, wallsExist));
 			}
 		}
+		
+
 	}
 
 }
