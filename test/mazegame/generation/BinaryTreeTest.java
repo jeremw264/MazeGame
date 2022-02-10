@@ -2,14 +2,11 @@ package mazegame.generation;
 
 import org.junit.Before;
 
-public class BinaryTreeTest extends GenerationAlgorirthmTest {
-
-	public BinaryTreeTest() {
-		super(new BinaryTree());
-	}
+public class BinaryTreeTest extends GenerationAlgorithmTest {
 
 	@Before
-	public void setUp() throws Exception {
+	public void setUp() {
+		this.grid = new BinaryTree().generation(this.gridWidth, this.gridHeigth);
 	}
 
 }
