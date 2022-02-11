@@ -123,15 +123,44 @@ public class GridTest {
 	@Test
 	public void getCellTest() {
 		int indexMiddleRightCell = 24;
+		
+		Cell cell = this.grid.getCell(4, 4);
 
-		Cell middleRightCell = this.grid.getCell(4, 4);
-
-		int indexInList = this.grid.getListsOfCells().indexOf(middleRightCell);
-
+		int indexInList = this.grid.getListsOfCells().indexOf(cell);
+		assertSame(cell, this.grid.getListsOfCells().get(indexMiddleRightCell));
+		
 		assertTrue(indexInList == indexMiddleRightCell);
 
 	}
+	
+	@Test
+	public void getCellOutOfBound() {
+		Cell cellOut = this.grid.getCell(this.width + 1, this.height);
+		assertNull(cellOut);
+	}
+	
+	@Ignore
+	@Test //(expected=CellNotInGridException.class)
+	public void getCellOutOfBoundException() {
+		Cell cellOut = this.grid.getCell(this.width + 1, this.height);
+	}
+	
+	@Test
+	public void getCellWithDirection() {
+		Cell currentCell = this.grid.getCell(2, 2);
+		Cell nextCell = this.grid.getCell(2, 1);
+		Cell directionCell = this.grid.getCellWithDirection(currentCell, Direction.N);
+		assertSame(nextCell, directionCell);
+		assertEquals(currentCell.getY()-1, directionCell.getY());
+	}
 
+	@Test
+	public void getCellWithDirectionOutOfBoundException() {
+		Cell currentCell = this.grid.getCell(0,0);
+		Cell directionCell = this.grid.getCellWithDirection(currentCell, Direction.N);
+		assertNull(directionCell);
+	}
+	
 	@Test
 	public void cellHasNeighbors() {
 		Cell currentCell = new Cell(0, 0);
@@ -143,21 +172,5 @@ public class GridTest {
 		assertTrue(neighborsCells.contains(neighborYCell));
 		assertTrue(neighborsCells.size() == 2);
 	}
-	/*
-	 * @Test public void cellHasNeighborsUnvisited() { Cell currentCell = new
-	 * Cell(0, 0); Cell neighborXCell = new Cell(1, 0); this.grid.getCell(0,
-	 * 1).setVisited(); List<Cell> neighborsCells =
-	 * this.grid.getUnvisitedNeighborsCells(currentCell);
-	 * 
-	 * assertTrue(neighborsCells.contains(neighborXCell));
-	 * assertTrue(neighborsCells.size() == 1); }
-	 * 
-	 * @Test public void cellHasNotNeighborsUnvisited() { Cell currentCell = new
-	 * Cell(0, 0); this.maze.getCell(1, 0).setVisited(); this.maze.getCell(0,
-	 * 1).setVisited(); List<Cell> neighborsCells =
-	 * this.grid.getUnvisitedNeighborsCells(currentCell);
-	 * 
-	 * assertTrue(neighborsCells.size() == 0); }
-	 */
 
 }
