@@ -43,12 +43,42 @@ public class CellTest {
 	}
 	
 	@Test
+	public void wallDontExistOnCreationTest() {
+		assertFalse(this.cell.wallExist(Direction.N));
+		assertFalse(this.cell.wallExist(Direction.S));
+		assertFalse(this.cell.wallExist(Direction.O));
+		assertFalse(this.cell.wallExist(Direction.E));
+	}
+	
+	@Test
 	public void eraseWallTest() {
 		assertTrue(this.cell.wallExist(Direction.N));
 		
 		this.cell.eraseWall(Direction.N);
 		
 		assertFalse(this.cell.wallExist(Direction.N));
+	}
+	
+	@Test
+	public void createWallTest() {
+		
+		Direction direction = Direction.N;
+		
+		this.cell.eraseWall(direction);		
+		
+		assertFalse(this.cell.wallExist(direction));
+		
+		this.cell.createWall(direction);
+		
+		assertTrue(this.cell.wallExist(direction));
+	}
+	
+	
+	@Test
+	public void visited() {
+		assertFalse(this.cell.isVisited());
+		this.cell.setVisited();
+		assertTrue(this.cell.isVisited());
 	}
 	
 	@Test
