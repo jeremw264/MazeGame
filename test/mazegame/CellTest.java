@@ -44,6 +44,7 @@ public class CellTest {
 	
 	@Test
 	public void wallDontExistOnCreationTest() {
+		this.cell = new Cell(3, 5,false);
 		assertFalse(this.cell.wallExist(Direction.N));
 		assertFalse(this.cell.wallExist(Direction.S));
 		assertFalse(this.cell.wallExist(Direction.O));
