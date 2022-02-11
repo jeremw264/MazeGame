@@ -57,6 +57,32 @@ public class Grid {
 	}
 	
 	/**
+	 * Renvoie la cellule voisine de la cellule courante en fonction de la direction
+	 * 
+	 * @param cell      la cellule courante
+	 * @param direction la direction de la cellule voisine par rapport a la cellule
+	 *                  courante
+	 * @return La cellule voisine
+	 */
+	public Cell getCellWithDirection(Cell cell, Direction direction) {
+
+		int x = cell.getX();
+		int y = cell.getY();
+
+		if (direction == Direction.N)
+			return this.getCell(x, y - 1);
+
+		if (direction == Direction.S)
+			return this.getCell(x, y + 1);
+
+		if (direction == Direction.O)
+			return this.getCell(x - 1, y);
+
+		return this.getCell(x + 1, y);
+
+	}
+	
+	/**
 	 * Renvoie une liste des cellules voisines de la cellule en paramètre.
 	 * 
 	 * @param currentCell La cellule courante de la quelle on veux obtenir les

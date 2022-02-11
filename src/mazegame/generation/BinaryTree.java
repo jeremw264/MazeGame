@@ -29,31 +29,13 @@ public class BinaryTree extends GenerationAlgorithm {
 
 				// Condition de suppresion des walls
 				if ((random_int == 1 || y == gridHeight - 1) && x < gridWidth - 1) {
-					this.carvePath(currentCell, this.getCellWithDirection(currentCell, Direction.E));
+					this.carvePath(currentCell, grid.getCellWithDirection(currentCell, Direction.E));
 				} else if (y != gridHeight - 1) {
-					this.carvePath(currentCell, this.getCellWithDirection(currentCell, Direction.S));
+					this.carvePath(currentCell, grid.getCellWithDirection(currentCell, Direction.S));
 				}
 			}
 		}
 		
 		return this.grid;
-	}
-	
-	public Cell getCellWithDirection(Cell cell, Direction direction) {
-
-		int x = cell.getX();
-		int y = cell.getY();
-
-		if (direction == Direction.N)
-			return this.grid.getCell(x, y - 1);
-
-		if (direction == Direction.S)
-			return this.grid.getCell(x, y + 1);
-
-		if (direction == Direction.O)
-			return this.grid.getCell(x - 1, y);
-
-		return this.grid.getCell(x + 1, y);
-
 	}
 }
