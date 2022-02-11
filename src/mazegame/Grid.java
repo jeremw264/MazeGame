@@ -32,10 +32,6 @@ public class Grid {
 	public List<Cell> getListsOfCells () {
 		return this.cellsList;
 	}
-	
-	public int size() {
-		return this.cellsList.size();
-	}
 
 	/**
 	 * Renvoie la case qui corresponds au coordonnée passé en paramètre.
@@ -58,6 +54,32 @@ public class Grid {
 		}
 
 		return this.cellsList.get(index);
+	}
+	
+	/**
+	 * Renvoie la cellule voisine de la cellule courante en fonction de la direction
+	 * 
+	 * @param cell      la cellule courante
+	 * @param direction la direction de la cellule voisine par rapport a la cellule
+	 *                  courante
+	 * @return La cellule voisine
+	 */
+	public Cell getCellWithDirection(Cell cell, Direction direction) {
+
+		int x = cell.getX();
+		int y = cell.getY();
+
+		if (direction == Direction.N)
+			return this.getCell(x, y - 1);
+
+		if (direction == Direction.S)
+			return this.getCell(x, y + 1);
+
+		if (direction == Direction.O)
+			return this.getCell(x - 1, y);
+
+		return this.getCell(x + 1, y);
+
 	}
 	
 	/**

@@ -73,7 +73,7 @@ public class PerfectMaze {
 		List<Direction> accesibleDirections = this.getAccesibleDirections(currentCell);
 
 		for (Direction direction : accesibleDirections) {
-			Cell cellInDirection = this.getCellWithDirection(currentCell, direction);
+			Cell cellInDirection = this.grid.getCellWithDirection(currentCell, direction);
 			if (!this.cellsTreat.contains(cellInDirection)) {
 				return cellInDirection;
 			}
@@ -100,30 +100,6 @@ public class PerfectMaze {
 		return accesibleDirections;
 	}
 
-	/**
-	 * Renvoie la cellule voisine de la cellule courante en fonction de la direction
-	 * 
-	 * @param cell      la cellule courante
-	 * @param direction la direction de la cellule voisine par rapport a la cellule
-	 *                  courante
-	 * @return La cellule voisine
-	 */
-	public Cell getCellWithDirection(Cell cell, Direction direction) {
-
-		int x = cell.getX();
-		int y = cell.getY();
-
-		if (direction == Direction.N)
-			return this.grid.getCell(x, y - 1);
-
-		if (direction == Direction.S)
-			return this.grid.getCell(x, y + 1);
-
-		if (direction == Direction.O)
-			return this.grid.getCell(x - 1, y);
-
-		return this.grid.getCell(x + 1, y);
-
-	}
+	
 
 }

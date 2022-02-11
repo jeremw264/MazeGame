@@ -3,7 +3,6 @@ package mazegame.generation;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import mazegame.Direction;
@@ -40,5 +39,27 @@ public class GenerationAlgorithmTest {
 	public void verifyPerfectMaze() {
 		assertTrue(true);
 	}
+	
+	/*
+	@Test
+	public void cellHasNeighborsUnvisited() {
+		Cell currentCell = new Cell(0, 0);
+		Cell neighborXCell = new Cell(1, 0);
+		this.grid.getCell(0, 1).setVisited();
+		List<Cell> neighborsCells = this.getUnvisitedNeighborsCells(currentCell);
 
+		assertTrue(neighborsCells.contains(neighborXCell));
+		assertTrue(neighborsCells.size() == 1);
+	}
+
+	@Test
+	public void cellHasNotNeighborsUnvisited() {
+		Cell currentCell = new Cell(0, 0);
+		this.grid.getCell(1, 0).setVisited();
+		this.grid.getCell(0, 1).setVisited();
+		List<Cell> neighborsCells = this.getUnvisitedNeighborsCells(currentCell);
+
+		assertTrue(neighborsCells.size() == 0);
+	}
+	*/
 }
