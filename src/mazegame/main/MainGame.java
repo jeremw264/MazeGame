@@ -18,7 +18,7 @@ public class MainGame {
 	 */
 	public static void main(String[] args) {
 
-		Maze maze = new Maze(5, 5, new RecursiveBacktracker(0,0));
+		Maze maze = new Maze(5, 5, new BinaryTree());
 		
 		System.out.println(maze);
 		
