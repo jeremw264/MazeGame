@@ -32,10 +32,6 @@ public class Grid {
 	public List<Cell> getListsOfCells () {
 		return this.cellsList;
 	}
-	
-	public int size() {
-		return this.cellsList.size();
-	}
 
 	/**
 	 * Renvoie la case qui corresponds au coordonnée passé en paramètre.
