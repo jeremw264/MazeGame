@@ -10,7 +10,11 @@ abstract public class GenerationAlgorithm {
 	protected Grid grid;
 	
 	/**
-	 * Méthode de génération de labyrinthe.
+	 * Méthode de génération de grille de labyrinthe.
+	 * 
+	 * @param width largueur du labyrinthe.
+	 * @param heigth hauteur du labyrinthe.
+	 * @return grille qui représente le labyrinthe.
 	 */
 	public abstract Grid generation(int width,int heigth);
 	

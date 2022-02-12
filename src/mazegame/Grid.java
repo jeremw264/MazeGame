@@ -9,26 +9,55 @@ public class Grid {
 
 	private List<Cell> cellsList;
 
+	/**
+	 * Constructeur de l'objet Grid.
+	 * 
+	 * @param width  Largeur de la grille.
+	 * @param heigth Hauteur de la grille.
+	 */
 	public Grid(int width, int heigth) {
 		this.width = width;
 		this.height = heigth;
 		this.initGrid(true);
 	}
 
+	/**
+	 * Constructeur de l'objet Grid.
+	 * 
+	 * @param width      Largeur de la grille.
+	 * @param heigth     Hauteur de la grille.
+	 * @param wallsExist true il les murs interne doivent être généré, false dans le
+	 *                   cas contraire.
+	 */
 	public Grid(int width, int height, boolean wallsExist) {
 		this.width = width;
 		this.height = height;
 		this.initGrid(wallsExist);
 	}
 
+	/**
+	 * Renvoie la largeur de la grille.
+	 * 
+	 * @return la largeur de la grille.
+	 */
 	public int getWidth() {
 		return width;
 	}
 
+	/**
+	 * Renvoie la hauteur de la grille.
+	 * 
+	 * @return la hauteur de la grille.
+	 */
 	public int getHeight() {
 		return height;
 	}
 
+	/**
+	 * Renvoie la liste des cellules.
+	 * 
+	 * @return la liste des cellules.
+	 */
 	public List<Cell> getListsOfCells() {
 		return this.cellsList;
 	}
@@ -55,10 +84,10 @@ public class Grid {
 
 		if (0 <= index && index < this.cellsList.size()) {
 			return this.cellsList.get(index);
-		}else {
+		} else {
 			return null;
 		}
-		
+
 	}
 
 	/**
@@ -116,9 +145,10 @@ public class Grid {
 	}
 
 	/**
-	 * Crée une représentation de la grille sous la forme d'une liste de cellule
+	 * Crée une représentation de la grille sous la forme d'une liste de cellule.
 	 * 
-	 * @param wallsExist
+	 * @param wallsExist true si la grille crée doit contenir de mur interne, false
+	 *                   dans le cas contraire.
 	 */
 	private void initGrid(boolean wallsExist) {
 
@@ -132,11 +162,13 @@ public class Grid {
 
 		if (!wallsExist) {
 			for (int x = 0; x < this.width; x++) {
-				this.getCell(x, 0).createWall(Direction.N);;
+				this.getCell(x, 0).createWall(Direction.N);
+				;
 				this.getCell(x, this.height - 1).createWall(Direction.S);
 			}
 			for (int y = 0; y < this.height; y++) {
-				this.getCell(0, y).createWall(Direction.O);;
+				this.getCell(0, y).createWall(Direction.O);
+				;
 				this.getCell(this.width - 1, y).createWall(Direction.E);
 			}
 		}

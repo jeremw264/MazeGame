@@ -7,12 +7,17 @@ import java.util.HashMap;
  */
 public class Cell {
 
+	// Représente la position de la cellule.
 	private final int x, y;
+
+	// Représente les murs de la cellule.
 	private HashMap<Direction, Boolean> walls;
+
+	// Etat de visite de la cellule.
 	private boolean visited;
 
 	/**
-	 * Constructeur de la classe Cell
+	 * Constructeur de la classe Cell, les murs sont généré par défault.
 	 * 
 	 * @param y indice Horizontale de la case
 	 * @param x indice Verticale de la case
@@ -29,8 +34,16 @@ public class Cell {
 
 		this.visited = false;
 	}
-	
-	public Cell(int x, int y ,boolean wallsExist) {
+
+	/**
+	 * Constructeur de la classe Cell.
+	 * 
+	 * @param y          indice Horizontale de la case
+	 * @param x          indice Verticale de la case
+	 * @param wallsExist true si les murs doivent etre généré à la création, false
+	 *                   dans le cas contraire.
+	 */
+	public Cell(int x, int y, boolean wallsExist) {
 
 		this.x = x;
 		this.y = y;
@@ -42,8 +55,6 @@ public class Cell {
 
 		this.visited = false;
 	}
-	
-	
 
 	/**
 	 * Renvoie la position Y (verticale) de la cellule.

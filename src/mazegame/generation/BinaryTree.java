@@ -6,17 +6,11 @@ import mazegame.*;
  * Class BinaryTree
  */
 public class BinaryTree extends GenerationAlgorithm {
-	
-	/**
-	 * Algorithme de Génération : Arbre Binaire
-	 * 
-	 * @param maze Le labyrinthe qu'on veut modifié
-	 * @return 
-	 */
-	public Grid generation(int width,int heigth) {
+
+	public Grid generation(int width, int heigth) {
 
 		this.grid = new Grid(width, heigth);
-		
+
 		int gridHeight = grid.getHeight();
 		int gridWidth = grid.getWidth();
 
@@ -35,7 +29,7 @@ public class BinaryTree extends GenerationAlgorithm {
 				}
 			}
 		}
-		
+
 		return this.grid;
 	}
 }
