@@ -17,23 +17,20 @@ public class MainGame {
 	 */
 	public static void main(String[] args) {
 
-		
 		GenerationAlgorithm algorithm;
-		
 
-		
 		Scanner input = new Scanner(System.in);
 		String in = "";
 		do {
-		
-		    System.out.println("Quel algorithme de génération voulez vous utiliser ");
-		    System.out.println("\t 1 : Arbre Binaire");
-		    System.out.println("\t 2 : Recursive BackTracker");
-		    System.out.println("\t 3 : Kruskal");
-		    
-		    in = input.nextLine();
-		    
-		    switch (in) {
+
+			System.out.println("Quel algorithme de génération voulez vous utiliser ");
+			System.out.println("\t 1 : Arbre Binaire");
+			System.out.println("\t 2 : Recursive BackTracker");
+			System.out.println("\t 3 : Kruskal");
+
+			in = input.nextLine();
+
+			switch (in) {
 			case "1":
 				System.out.println("Arbre Binaire");
 				algorithm = new BinaryTree();
@@ -56,21 +53,18 @@ public class MainGame {
 				System.out.println("Invalid");
 				break;
 			}
-		    
-		    if (algorithm != null) {
-		    	Maze maze = new Maze(2, 2, algorithm);
+
+			if (algorithm != null) {
+				Maze maze = new Maze(5, 5, algorithm);
 
 				System.out.println(maze);
 			}
-			
-		} while (!in.equals("exit"));
-		
-		
-		
-		//PerfectMaze verifyMaze = new PerfectMaze(maze);
-		//verifyMaze.verify(0, 0);
 
-		
+		} while (!in.equals("exit"));
+
+		// PerfectMaze verifyMaze = new PerfectMaze(maze);
+		// verifyMaze.verify(0, 0);
+
 	}
 
 }

@@ -6,16 +6,16 @@ import mazegame.*;
 
 public class Kruskal extends GenerationAlgorithm {
 
-	private List<Wall> wallsList;
+	private List<List<Cell>> wallsList;
 	private List<HashSet<Cell>> cellListSets;
 
 	public Grid generation(int width, int heigth) {
 		this.grid = new Grid(width, heigth);
 		this.init();
 
-		for (Wall wall : this.wallsList) {
-			Cell cell1 = wall.getCell1();
-			Cell cell2 = wall.getCell2();
+		for (List<Cell> wall : this.wallsList) {
+			Cell cell1 = wall.get(0);
+			Cell cell2 = wall.get(1);
 			this.mergeCellSet(cell1, cell2);
 		}
 
@@ -34,12 +34,15 @@ public class Kruskal extends GenerationAlgorithm {
 	 * 
 	 * @return une liste de tout les murs existant dans le labyrinthe
 	 */
-	public List<Wall> initWallList() {
-		List<Wall> wallList = new ArrayList<Wall>();
+	public List<List<Cell>> initWallList() {
+		List<List<Cell>> wallList = new ArrayList<List<Cell>>();
 
 		for (Cell cell : this.grid.getListsOfCells()) {
 			for (Cell neighbor : this.grid.getNeighborsCells(cell)) {
-				wallList.add(new Wall(cell, neighbor));
+				List<Cell> wall = new ArrayList<>(2);
+				wall.add(cell);
+				wall.add(neighbor);
+				wallList.add(wall);
 			}
 		}
 
