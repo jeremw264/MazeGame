@@ -2,7 +2,6 @@ package mazegame.main;
 
 import java.util.Scanner;
 
-import mazegame.Direction;
 import mazegame.Maze;
 import mazegame.generation.*;
 
@@ -18,46 +17,56 @@ public class MainGame {
 	 */
 	public static void main(String[] args) {
 
-		Maze maze = new Maze(5, 5, new BinaryTree());
 		
-		System.out.println(maze);
+		GenerationAlgorithm algorithm;
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
 		
 		Scanner input = new Scanner(System.in);
-	    System.out.println("Which tree would you like to test (BST, ST, RBT)? ");
-	    String treeChoice = "";
+		String in = "";
+		boolean continueMenu = true;
+		do {
+		
+		    System.out.println("Quel algorithme de génération voulez vous utiliser ");
+		    System.out.println("\t 1 : Arbre Binaire");
+		    System.out.println("\t 2 : Recursive BackTracker");
+		    System.out.println("\t 3 : Kruskal");
+		    
+		    in = input.nextLine();
+		    
+		    switch (in) {
+			case "1":
+				System.out.println("Arbre Binaire");
+				algorithm = new BinaryTree();
+				break;
+			case "2":
+				System.out.println("Recursive BackTracker");
+				algorithm = new RecursiveBacktracker(0, 0);
+				break;
+			case "3":
+				System.out.println("Kruskal");
+				algorithm = new Kruskal();
+				break;
+			case "exit":
+				algorithm = null;
+				System.out.println("Bye bye");
+				break;
 
-	    while (treeChoice != "ST") {
-	    	
-	    	treeChoice = input.nextLine();
-	    	if(treeChoice == "BST")
-		    {
-		    	System.out.println("BST");
-		    }
-		    else if(treeChoice == "ST")
-		    {
-		        //ST<Integer> myTree = new ST<Integer>();
-		    }
-		    else if(treeChoice == "RBT")
-		    {
-		        //RBT<Integer> myTree = new RBT<Integer>();
-		    }
-		    else
-		    {
-		        System.out.println("Invalid Entry");
-		    }
-		}
+			default:
+				algorithm = null;
+				System.out.println("Invalid");
+				break;
+			}
+		    
+		    if (algorithm != null) {
+		    	Maze maze = new Maze(5, 5, algorithm);
+
+				System.out.println(maze);
+			}
+			
+		} while (!in.equals("exit"));
+		
+		
 		
 		//PerfectMaze verifyMaze = new PerfectMaze(maze);
 		//verifyMaze.verify(0, 0);
