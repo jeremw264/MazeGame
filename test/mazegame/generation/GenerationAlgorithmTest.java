@@ -37,7 +37,8 @@ public class GenerationAlgorithmTest {
 
 	@Test
 	public void verifyPerfectMaze() {
-		assertTrue(true);
+		PerfectMazeValidator validator = new PerfectMazeValidator(this.grid);
+		assertTrue(validator.verify(0, 0));
 	}
 	
 	/*
