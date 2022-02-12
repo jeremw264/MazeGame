@@ -16,10 +16,4 @@ public class Wall {
 	public Cell getCell2() {
 		return cell2;
 	}
-	
-	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return "mur entre"+this.cell1+" et "+this.cell2;
-	}
 }

@@ -4,7 +4,7 @@ public enum Direction {
 	/*
 	 * N : Nord, S : Sud, O : Ouest, E : Est
 	 */
-	N, S, O, E, Unknown;
+	N, S, O, E;
 
 	/**
 	 * Renvoie la direction d'une cellule par rapport à une autre.
@@ -26,8 +26,8 @@ public enum Direction {
 			} else {
 				return Direction.E;
 			}
-		} else {
-			return Direction.Unknown;
 		}
+		return null;
+
 	}
 }

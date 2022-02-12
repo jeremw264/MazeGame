@@ -40,7 +40,7 @@ public class PerfectMazeValidator {
 	 * @param seedX Point de départ horizontale
 	 * @param seedY Point de départ verticale
 	 */
-	public boolean verify(int seedX, int seedY) {
+	public int verify(int seedX, int seedY) {
 		Cell startingCell = this.grid.getCell(seedX, seedY);
 
 		this.stack.push(startingCell);
@@ -58,8 +58,9 @@ public class PerfectMazeValidator {
 				this.stack.pop();
 			}
 		}
+		
 
-		return this.cellsTreat.size() == (this.grid.getHeight() * this.grid.getWidth());
+		return  this.cellsTreat.size();
 
 	}
 

@@ -8,8 +8,6 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import mazegame.generation.BinaryTree;
-
 public class GridTest {
 
 	private Grid grid;
@@ -50,55 +48,72 @@ public class GridTest {
 	}
 
 	public void borderIsNotOpen(boolean containsWall) {
-		for (int x = 0; x < this.width; x++) {
-			Cell topCell = this.grid.getCell(x, 0);
-			assertTrue(topCell.wallExist(Direction.N));
-			for (Direction direction : Direction.values()) {
-				if (direction != Direction.N && x != 0 && x != this.width) {
-					assertEquals(topCell.wallExist(direction), containsWall);
-				} else if (direction != Direction.N && x == 0 && direction != Direction.O) {
-					assertEquals(topCell.wallExist(direction), containsWall);
-				} else if (direction != Direction.N && x == this.width - 1 && direction != Direction.E) {
 
+		int l = Math.max(this.width, this.height)-1;
+			
+		this.cornersIsNotOpen(containsWall);
+		
+		for (int i = 1; i < l; i++) {
+			for (Direction direction : Direction.values()) {
+				if (i < this.height - 1) {
+					Cell leftCell = this.grid.getCell(0, i);
+					Cell rightCell = this.grid.getCell(this.width-1, i);
+					if (direction == Direction.O) {
+						assertTrue(leftCell.wallExist(direction));
+						assertEquals(rightCell.wallExist(direction),containsWall);
+					}
+					else if (direction == Direction.E) {
+						assertEquals(leftCell.wallExist(direction),containsWall);
+						assertTrue(rightCell.wallExist(direction));
+					}
+					else {
+						assertEquals(rightCell.wallExist(direction),containsWall);
+						assertEquals(leftCell.wallExist(direction),containsWall);
+					}
 				}
-			}
-
-			Cell bottomCell = this.grid.getCell(x, this.height - 1);
-			assertTrue(bottomCell.wallExist(Direction.S));
-			for (Direction direction : Direction.values()) {
-				if (direction != Direction.S && x != 0 && x != this.width) {
-					assertEquals(topCell.wallExist(direction), containsWall);
-				} else if (direction != Direction.S && x == 0 && direction != Direction.O) {
-					assertEquals(topCell.wallExist(direction), containsWall);
-				} else if (direction != Direction.S && x == this.width - 1 && direction != Direction.E) {
-
-				}
-			}
-		}
-		for (int y = 0; y < this.height; y++) {
-			Cell leftCell = this.grid.getCell(0, y);
-			assertTrue(leftCell.wallExist(Direction.O));
-			for (Direction direction : Direction.values()) {
-				if (direction != Direction.O && y != 0 && y != this.width) {
-					assertEquals(leftCell.wallExist(direction), containsWall);
-				} else if (direction != Direction.O && y == 0 && direction != Direction.N) {
-					assertEquals(leftCell.wallExist(direction), containsWall);
-				} else if (direction != Direction.O && y == this.width - 1 && direction != Direction.S) {
-
-				}
-			}
-			Cell rightCell = this.grid.getCell(this.width - 1, y);
-			assertTrue(rightCell.wallExist(Direction.E));
-			for (Direction direction : Direction.values()) {
-				if (direction != Direction.E && y != 0 && y != this.width) {
-					assertEquals(leftCell.wallExist(direction), containsWall);
-				} else if (direction != Direction.E && y == 0 && direction != Direction.N) {
-					assertEquals(leftCell.wallExist(direction), containsWall);
-				} else if (direction != Direction.E && y == this.width - 1 && direction != Direction.S) {
-
+				if (i < this.width - 1) {
+					Cell topCell = this.grid.getCell(i,0);
+					Cell bottomCell = this.grid.getCell(i,this.width-1);
+					if (direction == Direction.N) {
+						assertTrue(topCell.wallExist(direction));
+						assertEquals(bottomCell.wallExist(direction),containsWall);
+					}
+					else if (direction == Direction.S) {
+						assertEquals(topCell.wallExist(direction),containsWall);
+						assertTrue(bottomCell.wallExist(direction));
+					}
+					else {
+						assertEquals(topCell.wallExist(direction),containsWall);
+						assertEquals(bottomCell.wallExist(direction),containsWall);
+					}
 				}
 			}
 		}
+	}
+	
+	public void cornersIsNotOpen(boolean containsWall) {
+		Cell c1 = this.grid.getCell(0, 0);
+		Cell c2 = this.grid.getCell(this.width - 1, 0);
+		Cell c3 = this.grid.getCell(0, this.height - 1);
+		Cell c4 = this.grid.getCell(this.width - 1, this.height - 1);
+		
+		assertTrue(c1.wallExist(Direction.O));
+		assertTrue(c1.wallExist(Direction.N));
+		assertTrue(c2.wallExist(Direction.N));
+		assertTrue(c2.wallExist(Direction.E));
+		assertTrue(c3.wallExist(Direction.O));
+		assertTrue(c3.wallExist(Direction.S));
+		assertTrue(c4.wallExist(Direction.S));
+		assertTrue(c4.wallExist(Direction.E));
+		
+		assertEquals(c1.wallExist(Direction.S), containsWall);
+		assertEquals(c1.wallExist(Direction.E), containsWall);
+		assertEquals(c2.wallExist(Direction.O), containsWall);
+		assertEquals(c2.wallExist(Direction.S), containsWall);
+		assertEquals(c3.wallExist(Direction.N), containsWall);
+		assertEquals(c3.wallExist(Direction.E), containsWall);
+		assertEquals(c4.wallExist(Direction.O), containsWall);
+		assertEquals(c4.wallExist(Direction.N), containsWall);
 	}
 
 	@Test
@@ -125,31 +140,31 @@ public class GridTest {
 	@Test
 	public void getCellTest() {
 		int indexMiddleRightCell = 24;
-		
+
 		Cell cell = this.grid.getCell(4, 4);
 
 		int indexInList = this.grid.getListsOfCells().indexOf(cell);
 		assertSame(cell, this.grid.getListsOfCells().get(indexMiddleRightCell));
-		
-		assertTrue(indexInList == indexMiddleRightCell);
+
+		assertEquals(indexInList,indexMiddleRightCell);
 
 	}
-	
+
 	@Test
 	public void getCellOutOfBound() {
 		Cell cellOut = this.grid.getCell(this.width + 1, this.height);
 		assertNull(cellOut);
 	}
-	
+
 	@Test
 	public void getCellWithDirection() {
 		Cell currentCell = this.grid.getCell(2, 2);
 		Cell nextCell = this.grid.getCell(2, 1);
 		Cell directionCell = this.grid.getCellWithDirection(currentCell, Direction.N);
 		assertSame(nextCell, directionCell);
-		assertEquals(currentCell.getY()-1, directionCell.getY());
+		assertEquals(currentCell.getY() - 1, directionCell.getY());
 	}
-	
+
 	@Test
 	public void cellHasNeighbors() {
 		Cell currentCell = new Cell(0, 0);
@@ -159,7 +174,7 @@ public class GridTest {
 
 		assertTrue(neighborsCells.contains(neighborXCell));
 		assertTrue(neighborsCells.contains(neighborYCell));
-		assertTrue(neighborsCells.size() == 2);
+		assertEquals(neighborsCells.size() ,2);
 	}
 
 }

@@ -24,7 +24,6 @@ public class MainGame {
 		
 		Scanner input = new Scanner(System.in);
 		String in = "";
-		boolean continueMenu = true;
 		do {
 		
 		    System.out.println("Quel algorithme de génération voulez vous utiliser ");
@@ -59,7 +58,7 @@ public class MainGame {
 			}
 		    
 		    if (algorithm != null) {
-		    	Maze maze = new Maze(5, 5, algorithm);
+		    	Maze maze = new Maze(2, 2, algorithm);
 
 				System.out.println(maze);
 			}

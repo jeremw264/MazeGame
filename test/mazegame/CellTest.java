@@ -97,5 +97,13 @@ public class CellTest {
 		
 		assertFalse(cell1.equals(cell2));
 	}
+	
+	@Test
+	public void cellNotEqualsWithNotCell() {
+		Cell cell1 = new Cell(2, 5);
+		String obj = "k";
+		
+		assertFalse(cell1.equals(obj));
+	}
 
 }

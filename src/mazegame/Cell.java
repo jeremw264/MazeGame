@@ -104,11 +104,7 @@ public class Cell {
 	 * @return true si le mur existe, false dans le cas contraire
 	 */
 	public boolean wallExist(Direction direction) {
-		if (this.walls.containsKey(direction)) {
-			return this.walls.get(direction);
-		} else {
-			return true;
-		}
+		return this.walls.get(direction);
 	}
 
 	/**
