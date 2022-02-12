@@ -82,6 +82,8 @@ Etude sur les branch git pour utilisation dans le projet pour avoir une branche 
 
 ## Semaine 3
 
+Jérémy: Test labyrinthe parfait terminer, suppression class Wall, car on peut facilement la remplacer par une liste taille 2 car wall n'est utilsé que pour récuperer la cell1 et cell2. Mise en place du premier sys d'intération utilisateur. Ecriture de tous les tests coverage 95% ( > 90% OK) Mise a jour du journal de bord + javaDoc. Sys héritage test algo terminé. Moification a faire au niveau de la gestion des etats des cellules lors de la génération changer d'etat pour ne pas utiliser visiter mais un autre cas l'état visite doit etre true qd le joueur est passé sur la case pas l'algo. Voir pour optimisation ou simplification de certain test (Maze Test) et relecture du code pour géstion des cas particulier.
+
 ## Semaine 4
 
 ## Semaine 5
