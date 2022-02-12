@@ -16,7 +16,7 @@ import mazegame.Maze;
  * @author jeremy
  *
  */
-public class PerfectMaze {
+public class PerfectMazeValidator {
 
 	public Grid grid;
 	public List<Cell> cellsTreat;
@@ -27,8 +27,8 @@ public class PerfectMaze {
 	 * 
 	 * @param maze le labyrinthe aprés génération
 	 */
-	public PerfectMaze(Maze maze) {
-		this.grid = maze.getGrid();
+	public PerfectMazeValidator(Grid grid) {
+		this.grid = grid;
 		this.cellsTreat = new ArrayList<>();
 		this.stack = new Stack<>();
 
