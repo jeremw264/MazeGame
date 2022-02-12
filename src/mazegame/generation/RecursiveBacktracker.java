@@ -1,5 +1,6 @@
 package mazegame.generation;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
@@ -21,6 +22,7 @@ public class RecursiveBacktracker extends GenerationAlgorithm {
 	public RecursiveBacktracker(int seedX, int seedY) {
 		this.seedX = seedX;
 		this.seedY = seedY;
+		this.cellsTreat = new ArrayList<>();
 	}
 
 	/**
@@ -33,7 +35,7 @@ public class RecursiveBacktracker extends GenerationAlgorithm {
 		this.grid = new Grid(width, heigth);
 
 		Cell startCell = this.grid.getCell(this.seedX, this.seedY);
-		startCell.setVisited();
+		this.addToTreatment(startCell);
 		this.stack.push(startCell);
 
 		while (!this.stack.empty()) {
@@ -49,7 +51,7 @@ public class RecursiveBacktracker extends GenerationAlgorithm {
 			if (!unvisitedNeightboursCells.isEmpty()) {
 				Cell nextCell = this.getRandomNeighBor(currentCell, unvisitedNeightboursCells); //
 				this.carvePath(currentCell, nextCell);
-				nextCell.setVisited();
+				this.addToTreatment(nextCell);
 				this.stack.push(nextCell);
 			} else {
 				this.stack.pop();

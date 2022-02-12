@@ -71,10 +71,19 @@ public class Maze {
 			mazeString += "|";
 
 			for (int x = 0; x < this.width; x++) {
-				if (this.grid.getCell(x, y).wallExist(Direction.E)) {
-					mazeString += "   |";
+				Cell cell = this.grid.getCell(x, y);
+				if (cell.wallExist(Direction.E)) {
+					if (cell.isVisited()) {
+						mazeString += "   |";
+					}else {
+						mazeString += " # |";
+					}
 				} else {
-					mazeString += "    ";
+					if (cell.isVisited()) {
+						mazeString += "    ";
+					}else {
+						mazeString += " #  ";
+					}
 				}
 			}
 

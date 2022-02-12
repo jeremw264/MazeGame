@@ -9,6 +9,8 @@ abstract public class GenerationAlgorithm {
 
 	protected Grid grid;
 	
+	protected List<Cell> cellsTreat;
+	
 	/**
 	 * Méthode de génération de grille de labyrinthe.
 	 * 
@@ -18,6 +20,13 @@ abstract public class GenerationAlgorithm {
 	 */
 	public abstract Grid generation(int width,int heigth);
 	
+	protected void addToTreatment(Cell cell) {
+		this.cellsTreat.add(cell);
+	}
+	
+	protected boolean isTreated(Cell cell) {
+		return this.cellsTreat.contains(cell);
+	}
 	
 	/**
 	 * Renvoie une liste des cellules voisines non visité de la cellule en
@@ -34,7 +43,7 @@ abstract public class GenerationAlgorithm {
 		List<Cell> neighborsCells = this.grid.getNeighborsCells(currentCell);
 
 		for (Cell neighborCell : neighborsCells) {
-			if (!neighborCell.isVisited()) {
+			if (!this.isTreated(neighborCell)) {
 				unvisitedNeighborsCells.add(neighborCell);
 			}
 		}
