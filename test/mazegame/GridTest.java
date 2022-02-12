@@ -8,6 +8,8 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import mazegame.generation.BinaryTree;
+
 public class GridTest {
 
 	private Grid grid;
@@ -139,12 +141,6 @@ public class GridTest {
 		assertNull(cellOut);
 	}
 	
-	@Ignore
-	@Test //(expected=CellNotInGridException.class)
-	public void getCellOutOfBoundException() {
-		Cell cellOut = this.grid.getCell(this.width + 1, this.height);
-	}
-	
 	@Test
 	public void getCellWithDirection() {
 		Cell currentCell = this.grid.getCell(2, 2);
@@ -152,13 +148,6 @@ public class GridTest {
 		Cell directionCell = this.grid.getCellWithDirection(currentCell, Direction.N);
 		assertSame(nextCell, directionCell);
 		assertEquals(currentCell.getY()-1, directionCell.getY());
-	}
-
-	@Test
-	public void getCellWithDirectionOutOfBoundException() {
-		Cell currentCell = this.grid.getCell(0,0);
-		Cell directionCell = this.grid.getCellWithDirection(currentCell, Direction.N);
-		assertNull(directionCell);
 	}
 	
 	@Test

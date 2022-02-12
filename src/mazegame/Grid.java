@@ -20,7 +20,7 @@ public class Grid {
 		this.height = height;
 		this.initGrid(wallsExist);
 	}
-	
+
 	public int getWidth() {
 		return width;
 	}
@@ -28,8 +28,8 @@ public class Grid {
 	public int getHeight() {
 		return height;
 	}
-	
-	public List<Cell> getListsOfCells () {
+
+	public List<Cell> getListsOfCells() {
 		return this.cellsList;
 	}
 
@@ -53,9 +53,14 @@ public class Grid {
 			index = y * width + x;
 		}
 
-		return this.cellsList.get(index);
+		if (0 <= index && index < this.cellsList.size()) {
+			return this.cellsList.get(index);
+		}else {
+			return null;
+		}
+		
 	}
-	
+
 	/**
 	 * Renvoie la cellule voisine de la cellule courante en fonction de la direction
 	 * 
@@ -81,7 +86,7 @@ public class Grid {
 		return this.getCell(x + 1, y);
 
 	}
-	
+
 	/**
 	 * Renvoie une liste des cellules voisines de la cellule en paramètre.
 	 * 
@@ -124,7 +129,17 @@ public class Grid {
 				this.cellsList.add(new Cell(x, y, wallsExist));
 			}
 		}
-		
+
+		if (!wallsExist) {
+			for (int x = 0; x < this.width; x++) {
+				this.getCell(x, 0).createWall(Direction.N);;
+				this.getCell(x, this.height - 1).createWall(Direction.S);
+			}
+			for (int y = 0; y < this.height; y++) {
+				this.getCell(0, y).createWall(Direction.O);;
+				this.getCell(this.width - 1, y).createWall(Direction.E);
+			}
+		}
 
 	}
 
