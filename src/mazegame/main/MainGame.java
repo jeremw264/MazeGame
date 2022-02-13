@@ -1,8 +1,11 @@
 package mazegame.main;
 
+import java.util.List;
 import java.util.Scanner;
 
+import mazegame.Direction;
 import mazegame.Maze;
+import mazegame.character.Hero;
 import mazegame.generation.*;
 
 /**
@@ -10,14 +13,17 @@ import mazegame.generation.*;
  */
 public class MainGame {
 
+	
 	/**
 	 * Class d'execution du programme
 	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		
+		Maze maze;
 
-		GenerationAlgorithm algorithm;
+		GenerationAlgorithm algorithm = null;
 
 		Scanner input = new Scanner(System.in);
 		String in = "";
@@ -43,10 +49,6 @@ public class MainGame {
 				System.out.println("Kruskal");
 				algorithm = new Kruskal();
 				break;
-			case "exit":
-				algorithm = null;
-				System.out.println("Bye bye");
-				break;
 
 			default:
 				algorithm = null;
@@ -54,13 +56,34 @@ public class MainGame {
 				break;
 			}
 
-			if (algorithm != null) {
-				Maze maze = new Maze(5, 5, algorithm);
 
-				System.out.println(maze);
+		} while (algorithm == null);
+		
+		maze = new Maze(5, 5, algorithm);
+
+		
+		Hero hero = new Hero(0, 0);
+		maze.setHero(hero);
+		
+		do {
+			System.out.println(maze);
+			
+			List<Direction> directionCells = maze.getHero().getAccesibleDirections();
+
+			
+			System.out.println("Quelle direction ?");
+			
+			for (int i = 0; i < directionCells.size(); i++) {
+				System.out.println(i + " : "+directionCells.get(i));
+				
 			}
-
-		} while (!in.equals("exit"));
+			
+			int choise = input.nextInt();
+			
+			maze.moveHero(directionCells.get(choise));
+			
+			
+		} while (true);
 
 		// PerfectMaze verifyMaze = new PerfectMaze(maze);
 		// verifyMaze.verify(0, 0);
