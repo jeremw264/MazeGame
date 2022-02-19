@@ -61,6 +61,7 @@ public class MainGame {
 			}
 
 		} while (!in.equals("exit"));
+		System.out.println("Bye bye");
 
 		// PerfectMaze verifyMaze = new PerfectMaze(maze);
 		// verifyMaze.verify(0, 0);
