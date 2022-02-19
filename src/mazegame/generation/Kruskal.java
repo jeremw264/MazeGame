@@ -1,30 +1,25 @@
 package mazegame.generation;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
-import mazegame.Cell;
-import mazegame.Direction;
-import mazegame.Maze;
-import mazegame.Wall;
+import mazegame.*;
 
-public class Kruskal implements GenerationAlgorithm {
+public class Kruskal extends GenerationAlgorithm {
 
-	private Maze maze;
-	private List<Wall> wallsList;
+	private List<List<Cell>> wallsList;
 	private List<HashSet<Cell>> cellListSets;
 
-	public void generation(Maze maze) {
-		this.maze = maze;
+	public Grid generation(int width, int heigth) {
+		this.grid = new Grid(width, heigth);
 		this.init();
 
-		for (Wall wall : this.wallsList) {
-			Cell cell1 = wall.getCell1();
-			Cell cell2 = wall.getCell2();
+		for (List<Cell> wall : this.wallsList) {
+			Cell cell1 = wall.get(0);
+			Cell cell2 = wall.get(1);
 			this.mergeCellSet(cell1, cell2);
 		}
+
+		return this.grid;
 	}
 
 	public void init() {
@@ -39,12 +34,15 @@ public class Kruskal implements GenerationAlgorithm {
 	 * 
 	 * @return une liste de tout les murs existant dans le labyrinthe
 	 */
-	public List<Wall> initWallList() {
-		List<Wall> wallList = new ArrayList<Wall>();
+	public List<List<Cell>> initWallList() {
+		List<List<Cell>> wallList = new ArrayList<List<Cell>>();
 
-		for (Cell cell : this.maze.getBoard()) {
-			for (Cell neighbor : this.maze.getNeighborsCells(cell)) {
-				wallList.add(new Wall(cell, neighbor));
+		for (Cell cell : this.grid.getListsOfCells()) {
+			for (Cell neighbor : this.grid.getNeighborsCells(cell)) {
+				List<Cell> wall = new ArrayList<>(2);
+				wall.add(cell);
+				wall.add(neighbor);
+				wallList.add(wall);
 			}
 		}
 
@@ -60,7 +58,7 @@ public class Kruskal implements GenerationAlgorithm {
 
 		List<HashSet<Cell>> cellSets = new ArrayList<>();
 
-		for (Cell cell : this.maze.getBoard()) {
+		for (Cell cell : this.grid.getListsOfCells()) {
 
 			HashSet<Cell> set = new HashSet<Cell>();
 			set.add(cell);
@@ -99,23 +97,8 @@ public class Kruskal implements GenerationAlgorithm {
 				this.cellListSets.get(iCell1).add(cell);
 			}
 
-			// this.cellListSets.get(iCell1).add(cell2);
 			this.cellListSets.remove(iCell2);
 		}
-	}
-
-	/**
-	 * Détruit les murs entre deux cellule.
-	 * 
-	 * @param currentCell La cellule actuelle.
-	 * @param nextCell    La cellule suivante.
-	 */
-	public void carvePath(Cell cell1, Cell cell2) {
-		Direction directionNextCell = Direction.directionOf(cell1, cell2);
-		cell1.eraseWall(directionNextCell);
-		Direction directionCurrentCell = Direction.directionOf(cell2, cell1);
-		cell2.eraseWall(directionCurrentCell);
-
 	}
 
 }

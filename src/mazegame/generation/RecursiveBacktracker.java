@@ -1,14 +1,13 @@
 package mazegame.generation;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
-import mazegame.Cell;
-import mazegame.Direction;
-import mazegame.Maze;
+import mazegame.*;
 
-public class RecursiveBacktracker implements GenerationAlgorithm {
+public class RecursiveBacktracker extends GenerationAlgorithm {
 
 	private final int seedX;
 	private final int seedY;
@@ -23,6 +22,7 @@ public class RecursiveBacktracker implements GenerationAlgorithm {
 	public RecursiveBacktracker(int seedX, int seedY) {
 		this.seedX = seedX;
 		this.seedY = seedY;
+		this.cellsTreat = new ArrayList<>();
 	}
 
 	/**
@@ -30,15 +30,17 @@ public class RecursiveBacktracker implements GenerationAlgorithm {
 	 *
 	 * @param maze Le labyrinthe qu'on veut modifié.
 	 */
-	public void generation(Maze maze) {
+	public Grid generation(int width,int heigth) {
+		
+		this.grid = new Grid(width, heigth);
 
-		Cell startCell = maze.getCell(this.seedX, this.seedY);
-		startCell.setVisited();
+		Cell startCell = this.grid.getCell(this.seedX, this.seedY);
+		this.addToTreatment(startCell);
 		this.stack.push(startCell);
 
 		while (!this.stack.empty()) {
 			Cell currentCell = this.stack.peek();
-			List<Cell> unvisitedNeightboursCells = maze.getUnvisitedNeighborsCells(currentCell);
+			List<Cell> unvisitedNeightboursCells = this.getUnvisitedNeighborsCells(currentCell);
 
 			/*
 			 * uncomment for see step by step and uncomment in method carvePath
@@ -49,12 +51,14 @@ public class RecursiveBacktracker implements GenerationAlgorithm {
 			if (!unvisitedNeightboursCells.isEmpty()) {
 				Cell nextCell = this.getRandomNeighBor(currentCell, unvisitedNeightboursCells); //
 				this.carvePath(currentCell, nextCell);
-				nextCell.setVisited();
+				this.addToTreatment(nextCell);
 				this.stack.push(nextCell);
 			} else {
 				this.stack.pop();
 			}
 		}
+		
+		return this.grid;
 	}
 
 	/**
@@ -68,22 +72,6 @@ public class RecursiveBacktracker implements GenerationAlgorithm {
 	public Cell getRandomNeighBor(Cell currentCell, List<Cell> unvisitedNeightboursCells) {
 		Collections.shuffle(unvisitedNeightboursCells);
 		return unvisitedNeightboursCells.get(0);
-
-	}
-
-	/**
-	 * Détruit les murs entre deux cellule.
-	 * @param currentCell La cellule actuelle.
-	 * @param nextCell La cellule suivante.
-	 */
-	public void carvePath(Cell currentCell, Cell nextCell) {
-		Direction directionNextCell = Direction.directionOf(currentCell, nextCell);
-		currentCell.eraseWall(directionNextCell);
-		Direction directionCurrentCell = Direction.directionOf(nextCell, currentCell);
-		nextCell.eraseWall(directionCurrentCell);
-
-		// uncomment for step by step
-		// System.out.println(directionNextCell);
 
 	}
 

@@ -1,22 +1,12 @@
 package mazegame.generation;
 
-import static org.junit.Assert.*;
-
 import org.junit.Before;
-import org.junit.Test;
 
-import mazegame.Direction;
-
-public class BinaryTreeTest extends GenerationAlgorirthmTest {
-
-	public BinaryTreeTest() {
-		super(new BinaryTree());
-	}
+public class BinaryTreeTest extends GenerationAlgorithmTest {
 
 	@Before
-	public void setUp() throws Exception {
+	public void setUp() {
+		this.grid = new BinaryTree().generation(this.gridWidth, this.gridHeigth);
 	}
-
-	
 
 }
