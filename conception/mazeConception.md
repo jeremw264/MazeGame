@@ -202,6 +202,8 @@ Le principe de la division récursive peut être expliqué en 4 étapes :
 
 ---
 
+## Conception Détaillé
+
 ### Implémentation et UML
 
 #### UML
@@ -232,7 +234,40 @@ L'objet Cell n'est pas très complexe il stocke des données par rapport à sa p
 
 #### Implémentation
 
+
+Pour obtenir un labyrinthe parfait le principe est simple. Quand on crée une instance de Maze, on lui fourni trois paramètres :
+
+- La largueur du labyrinthe.
+- La hauteur du labyrinthe.
+- Une instance de l'algorithme de Génération choisie.
+
+
+Les seules contraintes à respecter sont :
+
+- L'algorithme doit hérité de GenerationAlgorithm
+- Les tests hérité de GenerationAlgorithm doivent tous être passé (car dans le cas contraire le labyrinthe ne sera pas parfait)
+
+Le constructeur de Maze va appeler dans son constructeur la méthode génération de l'algorithme qui va renvoyer un objet grille qui respecte les contraintes pour être un labyrinthe, elle va donc stocker cette grille dans ses attributs. La méthode generate elle va créer un objet Grid qui sera vide ou pleine (càd les murs internes existent ou non) puis elle va modifier cette grille en fonction de l'algorithme avant de renvoyer Grid.
+
+
+Plusieurs méthodes sont disponibles pour facilité la modification de cette grille, tel que récupéré une cellule par rapport à des coordonnées 2d ou obtenir la cellule dans une direction choisie par rapport à une autre, mais aussi des méthodes pour effacer un mur ou le crée, et des méthodes pour le traitement des cellules qui sont beaucoup utilisées pour la génération.
+
 ---
+
+## Ajouter un algorithme comment faire ?
+
+Pour créer un nouvel algorithme rien de bien compliquer :
+
+Etape 1 : Crée une nouvelle classe dans le package mazegame.generation
+Etape 2 : la classe crée doit hérité de la classe abstraite GenerationAlgorithm
+Etape 3 : la méthode generation hérité doit renvoyer **la grille finale** (Bien évidemment une instance de Grid)
+Etape 4 : Crée un nouveau Test Case pour vérifier que l'algorithme génére bien un labyrinthe parfait
+Etape 5 : la classe de test doit hériter de GenerationAlgorithmTest
+Etape 6 : Crée une méthode setUp( avec @Before ) qui affecte la grille généré par le nouvel algorithme dans this.grid
+
+Enjoy !!
+
+> Enjoy si les tests passent&#128513;
 
 ## Source
 
