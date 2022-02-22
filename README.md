@@ -18,6 +18,8 @@
 
 ## Livrable 1
 
+[Nos documents de conception de labyrinthe](conception/mazeConception.md)
+
 ### Atteinte des objectifs
 
 ### Difficultés restant à résoudre

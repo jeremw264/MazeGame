@@ -10,4 +10,5 @@
 ##Objets 2 (Parchemin)
 -Permet d'obtenir des indices sur la quête du Héros ( Action Utiliser )
 -Permet d'effectuer des quêtes annexes (extensions)
+-Permet d'ouvrir des murs (événements)
 		
