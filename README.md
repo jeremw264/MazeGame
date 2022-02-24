@@ -22,7 +22,16 @@
 
 ### Atteinte des objectifs
 
+Pour le premier livrable, tous les objectifs principale on été atteint:
+- Création de labyrinthe
+- Implémentation de deux algorithmes de génération au minimum 
+- Ecriture des tests pour tous le système de génération de labyrinthe
+
+> Des modification seront à apporter pour la classe Maze pour l'implémentation des perssonages et action
+
 ### Difficultés restant à résoudre
+
+Aucune difficultés restante à résoudre pour le premier livrable
 
 ## Livrable 2
 
