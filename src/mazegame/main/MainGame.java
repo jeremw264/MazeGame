@@ -9,6 +9,7 @@ import mazegame.Maze;
 import mazegame.generation.*;
 
 import org.json.*;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
@@ -33,8 +34,10 @@ public class MainGame {
 
             JSONObject jsonObject =  (JSONObject) obj;
             
-            String msg = (String) jsonObject.get("message");
-            System.out.println(jsonObject);
+            Object fouJsonObject = jsonObject.get("fou");
+            
+            
+            System.out.println(jsonObject.keySet());
 		} catch (Exception e) {
 			System.err.println(e);
 			// TODO: handle exception

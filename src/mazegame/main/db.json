@@ -1,5 +1,9 @@
 {
-	"test":{
-	"message": "Hello World"
+	"fou":{
+		"question":" saisir question",
+		"answer":{
+			"good": ["True"],
+			"bad": ["fau","faux","false"]
+		}
 	}
 }

@@ -6,7 +6,7 @@ import java.util.List;
 import mazegame.Cell;
 import mazegame.Direction;
 
-public class Character {
+abstract public class Character {
 
 	public int x,y;
 	public Cell currentCell;
@@ -31,6 +31,8 @@ public class Character {
 	public int getY() {
 		return this.y;
 	}
+	
+	abstract public boolean canBeLeft();
 	
 	public List<Direction> getAccesibleDirections() {
 		List<Direction> accesibleDirections = new ArrayList<>(4);
