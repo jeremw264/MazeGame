@@ -2,13 +2,16 @@
 
 [Retour](README.md)
 
-L'ensemble des personnages du jeu, que ce soit le héros ou le pnj ne peuvent faire qu'une seule action par tour.
+
+##Personnage
+
+Un personnage qu'il soit le héros ou bien un pnj doit pouvoir se déplacer sauf exception (voir ci-dessous) d'une cellule.
+L'ensemble des personnages du jeu, que ce soit le héros ou les pnj ne peuvent faire qu'une seule action par tour.
 C'est à  dire : se déplacer, rester sur place, interroger un autre personnage présent sur la même case, ramasser un objet, utiliser un objet possédé.
-L'achat et la vente d'objet sont considéré comme l'action discuter lorsque cela se produit avec le marchand. 
+L'achat et la vente d'objet sont considéré comme l'action discuter lorsque cela se produit avec le marchand.
+Tout les personnages doivent posséder l'action discuter afin d'intéragir entre le joueur et les pnj.
+
 ##HÃ©ros
-Le hÃ©ros est un personnage pouvant se dÃ©placer d'une ou plusieurs cases pendant son tour.
-Le héros ne peut faire qu'une seule action par tour. 
-Il doit pouvoir discuter avec les diffÃ©rents personnages du jeux.
 Il doit pouvoir ramasser des objets et pouvoir les stocker.
 Il doit pouvoir utiliser des objets stockÃ©.
 Il doit pouvoir accÃ©der Ã  son inventaire ( stockage d'objets )
@@ -54,10 +57,11 @@ Si la rÃ©ponse est bonne, le sphinx fournira un objet ou un indice permettant au
 Le samaritain est un pnj qui ne se dÃ©place pas.
 Il peut en exister plusieurs dans un mÃªme labyrinthe. 
 Ils sont prÃ©sents pour aider le HÃ©ro a terminÃ© sa quÃªte ou lui en apprendre plus sur celle ci. 
-Le samaritain ne demande rien en Ã©change de ses informations / objets.
+Le samaritain ne demande rien en Ã©change de ses informations
 		
 ###Action
 - Discuter
+- Stocker
 		
 ##PNJ 4 (Diablotin)
 Le diablotin est l'inverse du samaritain.
@@ -67,6 +71,7 @@ Il fournira Ã©galement ces indices gratuitement en se faisant passant pour un sa
 		
 ###Action
 - Discuter
+- Stocker
 		
 ##PNJ 5 (Compteur) (extensions)
 Le compteur est un pnj se trouvant au dÃ©but du labyrinthe et Ã  diffÃ©rent point du labyrinthe. Celui ci compte l'aventure du HÃ©ros, au dÃ©but du jeu, il explique en quoi consiste la quÃªte principale ainsi que les rÃ¨gles.
