@@ -1,6 +1,8 @@
 package mazegame;
 
 import java.util.HashMap;
+import mazegame.character.*;
+import mazegame.character.Character;
 
 /**
  * Class Cell
@@ -15,6 +17,8 @@ public class Cell {
 
 	// Etat de visite de la cellule.
 	private boolean visited;
+
+	private Character character;
 
 	/**
 	 * Constructeur de la classe Cell, les murs sont généré par défault.
@@ -33,6 +37,7 @@ public class Cell {
 		this.walls.put(Direction.E, true);
 
 		this.visited = false;
+		this.character = null;
 	}
 
 	/**
@@ -54,6 +59,7 @@ public class Cell {
 		this.walls.put(Direction.E, wallsExist);
 
 		this.visited = false;
+		this.character = null;
 	}
 
 	/**
@@ -72,6 +78,23 @@ public class Cell {
 	 */
 	public int getX() {
 		return this.x;
+	}
+
+	public void setCharacter(Character character) {
+		this.character = character;
+		this.setVisited();
+		character.setCurrentCell(this);
+	}
+
+	public void characterLeft() {
+		this.character = null;
+	}
+	
+	public boolean containHero() {
+		if (this.character instanceof Hero) {
+			return true;
+		}
+		return false;
 	}
 
 	/**

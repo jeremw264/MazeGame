@@ -4,8 +4,14 @@ public enum Direction {
 	/*
 	 * N : Nord, S : Sud, O : Ouest, E : Est
 	 */
-	N, S, O, E;
+	N("Nord"), S("Sud"), O("Ouest"), E("Est");
+	
+	private final String directionDescription;
 
+	private Direction(String stringValue) {
+		this.directionDescription = stringValue;
+	}
+	
 	/**
 	 * Renvoie la direction d'une cellule par rapport à une autre.
 	 * 
@@ -29,5 +35,9 @@ public enum Direction {
 		}
 		return null;
 
+	}
+	
+	public String toString() {
+		return this.directionDescription;
 	}
 }
