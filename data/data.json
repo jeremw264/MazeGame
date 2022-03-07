@@ -1,0 +1,16 @@
+{
+	"Hero":{
+		"talk":[
+			{  	"question": "ça fonctionne ?",
+				"answer":["oui","non"],
+				"correct":["non"]
+			},
+			{	"question": "Je suis un marchand ?",
+				"answer":[],
+				"correct":[]
+			}
+			
+		],
+		"items":{}		
+	}
+}
