@@ -3,29 +3,32 @@
 [Retour](README.md)
 
 ##Objets 1 (Bourse)
-La bourse est un object permettant de stocker la quantité d'or que le joueur ou le pnj as.
+La bourse est un object permettant de stocker la quantitï¿½ d'or que le joueur ou le pnj as.
 
 ### Gold
 
-L'or n'est pas un item à part entière, il s'agira seulement d'un int qui sera stocker dans la bourse.
+L'or n'est pas un item ï¿½ part entiï¿½re, il s'agira seulement d'un int qui sera stocker dans la bourse.
 Celui ci augmentera ou regressera en fonction de l'utilisation du joueurs.
 		
 ##Objets 2 (Parchemin)
-Le parchemin est un item permettant d'obtenir un indice sur la quête du héros, il requiert une action pour l'utiliser / connaître son contenu.
-Il ne peut être utilisé qu'une seule fois, après l'utilisation il sera détruit.
+Le parchemin est un item permettant d'obtenir un indice sur la quï¿½te du hï¿½ros, il requiert une action pour l'utiliser / connaï¿½tre son contenu.
+Il ne peut ï¿½tre utilisï¿½ qu'une seule fois, aprï¿½s l'utilisation il sera dï¿½truit.
 
 
 ### Extensions Parchemin
-Dans l'extensions, le parchemin pourra être utilisé plusieurs et pour servir à des quêtes annexes 
+Dans l'extensions, le parchemin pourra ï¿½tre utilisï¿½ plusieurs et pour servir ï¿½ des quï¿½tes annexes 
 
 ##Objets 3 (Joyaux)
-Ces joyaux ont chaucun une valeur différentes lié à leur couleur ( Vert / Bleu / Rouge ) 
-Le vert possédant la plus petite valeur : 10 Gold
+Ces joyaux ont chaucun une valeur diffï¿½rentes liï¿½ ï¿½ leur couleur ( Vert / Bleu / Rouge ) 
+Le vert possï¿½dant la plus petite valeur : 10 Gold
 Le Bleu, une valeur moyenne : 50 Gold
 le Rouge, la plus grand valeur : 100 Gold
 
 ### Extensions Joyaux 
-Dans l'extensions, deux joyaux pourront être ajoutés : Le violet et le jaune ( Golden )
+Dans l'extensions, deux joyaux pourront ï¿½tre ajoutï¿½s : Le violet et le jaune ( Golden )
 Le violet aura une valeur de 250 Gold.
-Le Golden Joyaux donnera la possibilité aux joueurs d'acheté un item au marchand gratuitement.
+Le Golden Joyaux donnera la possibilitï¿½ aux joueurs d'achetï¿½ un item au marchand gratuitement.
 
+##Objets 4 (Objets de quete)
+L'objets de quete est un objet obligatoire afin de valider la quete principale et donc la sortie du labyrinthe.
+Celui-ci n'as aucune valeur marchande. Il peut Ãªtre obtenus via un samaritan, le sphinx en fonction de la difficultÃ© de l'enigme ou encore en le ramassant par terre.

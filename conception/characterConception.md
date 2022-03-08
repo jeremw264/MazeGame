@@ -7,9 +7,10 @@
 
 Un personnage qu'il soit le heros ou bien un pnj doit pouvoir se deplacer sauf exception (voir ci-dessous) d'une cellule.
 L'ensemble des personnages du jeu, que ce soit le heros ou les pnj ne peuvent faire qu'une seule action par tour.
-C'est a  dire : se deplacer, rester sur place, interroger un autre personnage present sur la meme case, ramasser un objet, utiliser un objet possede.
+C'est a  dire : se deplacer, rester sur place, interroger un autre personnage present sur la meme case, ramasser un objet, utiliser un objet possede, etc
 L'achat et la vente d'objet sont considere comme l'action discuter lorsque cela se produit avec le marchand.
 Tout les personnages doivent posseder l'action discuter afin d'interagir entre le joueur et les pnj.
+Les pnj ainsi que le héros doivent pouvoir stocké des objets.
 
 ##Héros
 Il doit pouvoir ramasser des objets et pouvoir les stocker.
@@ -40,8 +41,7 @@ Le marchand en échange d'or peut vendre des items au Héro ou alors les lui ach
 ##PNJ 2 (Sphinx)
 Le sphinx est un pnj apparaissant sur une cellule du labyrinthe.
 Il ne peut pas se d�placer.
-Le sphinx pose une question auquel le h�ros doit r�pondre, si celui-ci r�ponds correctement la partie est gagn�e.
-
+Le sphinx pose une question auquel le h�ros doit r�pondre, si celui-ci r�ponds correctement, en fonction de la difficulte, une recompense sera fournit
 ###Action
 - Discuter
 - Stocker (extensions)
