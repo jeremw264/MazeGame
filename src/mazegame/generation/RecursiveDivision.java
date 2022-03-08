@@ -29,7 +29,7 @@ public class RecursiveDivision extends GenerationAlgorithm
 			}
 			else // mur verticale
 			{
-				
+				//
 			}
 		}
 	}
