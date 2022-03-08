@@ -1,11 +1,14 @@
 package mazegame;
 
+import mazegame.character.Hero;
 import mazegame.generation.GenerationAlgorithm;
 
 public class Maze {
 	private final int width, height;
 
 	private Grid grid;
+	
+	private Hero hero;
 
 	/**
 	 * Constructeur de la classe Maze
@@ -46,6 +49,29 @@ public class Maze {
 	public Grid getGrid() {
 		return this.grid;
 	}
+	
+	public Hero getHero() {
+		return this.hero;
+	}
+	
+	public void setHero(Hero hero) {
+		this.hero = hero;
+		this.grid.getCell(0, 0).setCharacter(hero);
+	}
+	
+	
+	
+	public boolean moveHero(Direction direction) {
+		if (this.hero.getAccesibleDirections().contains(direction)) {
+			this.hero.currentCell.characterLeft();
+			Cell nextCell = this.grid.getCellWithDirection(this.hero.currentCell, direction);
+			nextCell.setCharacter(hero);
+			System.out.println(nextCell.containHero());
+			return true;
+		}else {
+			return false;
+		}
+	}
 
 
 	/**
@@ -73,13 +99,18 @@ public class Maze {
 			for (int x = 0; x < this.width; x++) {
 				Cell cell = this.grid.getCell(x, y);
 				if (cell.wallExist(Direction.E)) {
-					if (cell.isVisited()) {
+					if (cell.containHero()) {
+						mazeString += " X |";
+					}
+					else if (cell.isVisited()) {
 						mazeString += "   |";
 					}else {
 						mazeString += " # |";
 					}
 				} else {
-					if (cell.isVisited()) {
+					if (cell.containHero()) {
+						mazeString += " X  ";
+					}else if (cell.isVisited()) {
 						mazeString += "    ";
 					}else {
 						mazeString += " #  ";
