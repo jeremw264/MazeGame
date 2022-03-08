@@ -5,11 +5,11 @@
 
 ##Personnage
 
-Un personnage qu'il soit le héros ou bien un pnj doit pouvoir se déplacer sauf exception (voir ci-dessous) d'une cellule.
-L'ensemble des personnages du jeu, que ce soit le héros ou les pnj ne peuvent faire qu'une seule action par tour.
-C'est à  dire : se déplacer, rester sur place, interroger un autre personnage présent sur la même case, ramasser un objet, utiliser un objet possédé.
-L'achat et la vente d'objet sont considéré comme l'action discuter lorsque cela se produit avec le marchand.
-Tout les personnages doivent posséder l'action discuter afin d'intéragir entre le joueur et les pnj.
+Un personnage qu'il soit le heros ou bien un pnj doit pouvoir se deplacer sauf exception (voir ci-dessous) d'une cellule.
+L'ensemble des personnages du jeu, que ce soit le heros ou les pnj ne peuvent faire qu'une seule action par tour.
+C'est a  dire : se deplacer, rester sur place, interroger un autre personnage present sur la meme case, ramasser un objet, utiliser un objet possede.
+L'achat et la vente d'objet sont considere comme l'action discuter lorsque cela se produit avec le marchand.
+Tout les personnages doivent posseder l'action discuter afin d'interagir entre le joueur et les pnj.
 
 ##HÃ©ros
 Il doit pouvoir ramasser des objets et pouvoir les stocker.
@@ -22,12 +22,12 @@ Il doit pouvoir acheter et/ou vendre ses objets
 - Se dÃ©placer
 - Discuter
 - Ramasser
-- Stocker ( lié à ramasser ? )
+- Stocker ( liï¿½ ï¿½ ramasser ? )
 - Utiliser
 - Inventaire
 - Acheter / Vendre
 			
-##Pnj 1 (Marchand)
+##Pnj 1 (Vendor)
 Le marchand est un pnj, se dÃ©plaÃ§ant dans le labyrinthe pendant le tour du HÃ©ros. 
 Il peut y avoir un ou plusieurs marchand selon la taille du labyrinthe.
 Le marchand en Ã©change d'or peut vendre des items au HÃ©ro ou alors les lui acheter.
@@ -39,8 +39,8 @@ Le marchand en Ã©change d'or peut vendre des items au HÃ©ro ou alors les lui ach
 
 ##PNJ 2 (Sphinx)
 Le sphinx est un pnj apparaissant sur une cellule du labyrinthe.
-Il ne peut pas se déplacer.
-Le sphinx pose une question auquel le héros doit répondre, si celui-ci réponds correctement la partie est gagnée.
+Il ne peut pas se dï¿½placer.
+Le sphinx pose une question auquel le hï¿½ros doit rï¿½pondre, si celui-ci rï¿½ponds correctement la partie est gagnï¿½e.
 
 ###Action
 - Discuter
@@ -53,7 +53,7 @@ Si la rÃ©ponse est bonne, le sphinx fournira un objet ou un indice permettant au
 		
 
 		
-##PNJ 3 (Samaritain)
+##PNJ 3 (Samaritan)
 Le samaritain est un pnj qui ne se dÃ©place pas.
 Il peut en exister plusieurs dans un mÃªme labyrinthe. 
 Ils sont prÃ©sents pour aider le HÃ©ro a terminÃ© sa quÃªte ou lui en apprendre plus sur celle ci. 
@@ -63,7 +63,7 @@ Le samaritain ne demande rien en Ã©change de ses informations
 - Discuter
 - Stocker
 		
-##PNJ 4 (Diablotin)
+##PNJ 4 (Imp)
 Le diablotin est l'inverse du samaritain.
 Il est lÃ  pour dÃ©stabiliser le HÃ©ros dans sa partie. 
 Il fournis de faux indices.
