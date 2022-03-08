@@ -1,4 +1,58 @@
 {
+	"Vendor":{
+		"talk":[
+			{ 
+				"sentence": [ 
+					"Weeeelllllcoooooommmmmeeee…",
+					"Got some rare things on sale, stranger!",
+					"What are you buyin' ?",
+					"What are you sellin' ?",
+					"Is that all, stranger ?",
+					"Not enough cash, stranger!",
+					"He he he... Thank you"
+				]
+			}
+		]			
+	
+	},
+	
+	"Sphinx":{
+		"talk":[
+			{ 
+				"enigme": "Je commence la nuit et termine le matin, qui suis je ?",
+				"answer": [ 
+				 "la lune", 
+				 "le n",
+				 "Une soirée"
+				],
+				"correct":"le n",
+				"difficulty":"Easy"
+				
+			},
+			{ 
+				"enigme": "Il t'appartient complètement, cependant, tous le monde l'utilise... qu'est-ce ?",
+				"answer": [
+				 "Ton nom",
+				 "Ton anniversaire",
+				 "Ton corps"
+				],
+				"correct":"Ton nom",
+				"difficulty":"Medium"
+			},
+			{
+				"enigme": "Quel objet peut avoir un visage mais pas de corps ?",
+				"answer": [
+					"Un jeu de carte",
+					"Une peinture",
+					"Une piéce"
+				],
+				"correct":"Une piéce",
+				"difficulty":"Hard"
+			}
+		] 
+		
+	},
+	 
 	"Hero":{
 		"talk":[
 			{  	"question": "ça fonctionne ?",
@@ -12,5 +66,28 @@
 			
 		],
 		"items":{}		
+	},
+	
+	"Imp":{
+		"talk":[
+			{
+				"approche": [
+					"Jeune homme, attendez ! Votre visage met famillier",
+					"Etranger, pourriez vous m'accordez un peu de votre temps ?",
+					"Quelqu'un d'autre ici ? Je ne m'y attendais pas"
+				],
+				"suite": [
+					"Hmm, votre visage ressemble étrangement a notre souverain, serait il possible que vous soyez de lignee royal ?",
+					"Maintenant que je vous vois de plus près, j'ai l'impression de vous connaître",
+					"Cela doit être le destin ! laissez moi vous donnez un conseil"
+				],
+				"fin":[
+					"",
+					"",
+					"Des bandits occupes les environs, je vous conseilles de passer par"
+				]
+			}
+		]
 	}
+			
 }
