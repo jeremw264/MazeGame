@@ -13,21 +13,19 @@ import mazegame.Direction;
 abstract public class Character {
 
 	// Position du personnage.
-	public int x, y;
+	public int x;
+	public int y;
 	// Cellule courante du personnage.
 	public Cell currentCell;
-	// Indice de la discusion courante.
-	private int talkIndex;
 
 	/**
 	 * Constructeur de l'objet Character.
 	 * @param seedX Position de départ horizontale.
 	 * @param seedY Position de départ verticale.
 	 */
-	public Character(int seedX, int seedY) {
+	protected Character(int seedX, int seedY) {
 		this.x = seedX;
 		this.y = seedY;
-		this.talkIndex = -1;
 	}
 
 	/**
@@ -71,7 +69,7 @@ abstract public class Character {
 	 * 
 	 * @return True si le personnage peut bouger, False sinon.
 	 */
-	abstract public boolean canBeLeft();
+	public abstract boolean canBeLeft();
 
 	public boolean speak() {
 		
@@ -81,12 +79,12 @@ abstract public class Character {
 			
 			// On recupere le fichier qu'on transforme en String pour crée l'objet JSON
 			String jsonData = Files.readString(Paths.get(System.getProperty("user.dir") + "/data/data.json"));
-			JSONObject JsonObject = new JSONObject(jsonData);
+			JSONObject jsonObject = new JSONObject(jsonData);
 			
 			// On recupere les données pour le personnage concerner
-			JsonObject = JsonObject.getJSONObject(this.getClass().getSimpleName());
+			jsonObject = jsonObject.getJSONObject(this.getClass().getSimpleName());
 			// On recupere les dialogues
-			JSONArray discusions = JsonObject.getJSONArray("talk");
+			JSONArray discusions = jsonObject.getJSONArray("talk");
 			
 			// On recupere un dialogue de maniere aléatoire
 			int discutionIndex = (int)Math.random()*discusions.length();

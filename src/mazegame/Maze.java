@@ -4,7 +4,8 @@ import mazegame.character.Hero;
 import mazegame.generation.GenerationAlgorithm;
 
 public class Maze {
-	private final int width, height;
+	private final int width;
+	private final int height;
 
 	private Grid grid;
 	

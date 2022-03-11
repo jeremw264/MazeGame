@@ -5,7 +5,8 @@ import java.util.List;
 
 public class Grid {
 
-	private int width, height;
+	private int width;
+	private int height;
 
 	private List<Cell> cellsList;
 
@@ -72,14 +73,13 @@ public class Grid {
 	public Cell getCell(int x, int y) {
 
 		int index = 0;
-		int width = this.width;
 
 		if (y == 0) {
 			index = x;
 		} else if (x == 0) {
-			index = y * width;
+			index = y * this.width;
 		} else {
-			index = y * width + x;
+			index = y * this.width + x;
 		}
 
 		if (0 <= index && index < this.cellsList.size()) {
@@ -124,7 +124,7 @@ public class Grid {
 	 * @return une liste des cellules voisines.
 	 */
 	public List<Cell> getNeighborsCells(Cell currentCell) {
-		List<Cell> neighborsCells = new ArrayList<Cell>(4);
+		List<Cell> neighborsCells = new ArrayList<>(4);
 		int x = currentCell.getX();
 		int y = currentCell.getY();
 
@@ -163,12 +163,10 @@ public class Grid {
 		if (!wallsExist) {
 			for (int x = 0; x < this.width; x++) {
 				this.getCell(x, 0).createWall(Direction.N);
-				;
 				this.getCell(x, this.height - 1).createWall(Direction.S);
 			}
 			for (int y = 0; y < this.height; y++) {
 				this.getCell(0, y).createWall(Direction.O);
-				;
 				this.getCell(this.width - 1, y).createWall(Direction.E);
 			}
 		}

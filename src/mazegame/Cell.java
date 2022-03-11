@@ -1,6 +1,6 @@
 package mazegame;
 
-import java.util.HashMap;
+import java.util.EnumMap;
 import mazegame.character.*;
 import mazegame.character.Character;
 
@@ -10,10 +10,11 @@ import mazegame.character.Character;
 public class Cell {
 
 	// Représente la position de la cellule.
-	private final int x, y;
+	private final int x;
+	private final int y;
 
 	// Représente les murs de la cellule.
-	private HashMap<Direction, Boolean> walls;
+	private EnumMap<Direction, Boolean> walls;
 
 	// Etat de visite de la cellule.
 	private boolean visited;
@@ -30,7 +31,7 @@ public class Cell {
 
 		this.x = x;
 		this.y = y;
-		this.walls = new HashMap<>();
+		this.walls = new EnumMap<>(Direction.class);
 		this.walls.put(Direction.N, true);
 		this.walls.put(Direction.S, true);
 		this.walls.put(Direction.O, true);
@@ -52,7 +53,7 @@ public class Cell {
 
 		this.x = x;
 		this.y = y;
-		this.walls = new HashMap<>();
+		this.walls = new EnumMap<>(Direction.class);
 		this.walls.put(Direction.N, wallsExist);
 		this.walls.put(Direction.S, wallsExist);
 		this.walls.put(Direction.O, wallsExist);
@@ -91,10 +92,7 @@ public class Cell {
 	}
 	
 	public boolean containHero() {
-		if (this.character instanceof Hero) {
-			return true;
-		}
-		return false;
+		return this.character instanceof Hero;
 	}
 
 	/**

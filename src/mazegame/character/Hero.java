@@ -8,7 +8,6 @@ public class Hero extends Character{
 
 	@Override
 	public boolean canBeLeft() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 	
