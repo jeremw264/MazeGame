@@ -1,8 +1,8 @@
 {
-	"Vendor":{
-		"talk":[
-			{ 
-				"sentence": [ 
+	"Vendor": {
+		"talk": [
+			{
+				"sentence": [
 					"Weeeelllllcoooooommmmmeeee…",
 					"Got some rare things on sale, stranger!",
 					"What are you buyin' ?",
@@ -12,32 +12,29 @@
 					"He he he... Thank you"
 				]
 			}
-		]			
-	
+		]
 	},
-	
-	"Sphinx":{
-		"talk":[
-			{ 
+	"Sphinx": {
+		"talk": [
+			{
 				"enigme": "Je commence la nuit et termine le matin, qui suis je ?",
-				"answer": [ 
-				 "la lune", 
-				 "le n",
-				 "Une soirée"
+				"answer": [
+					"la lune",
+					"le n",
+					"Une soirée"
 				],
-				"correct":"le n",
-				"difficulty":"Easy"
-				
+				"correct": "le n",
+				"next": null
 			},
-			{ 
+			{
 				"enigme": "Il t'appartient complètement, cependant, tous le monde l'utilise... qu'est-ce ?",
 				"answer": [
-				 "Ton nom",
-				 "Ton anniversaire",
-				 "Ton corps"
+					"Ton nom",
+					"Ton anniversaire",
+					"Ton corps"
 				],
-				"correct":"Ton nom",
-				"difficulty":"Medium"
+				"correct": "Ton nom",
+				"next": null
 			},
 			{
 				"enigme": "Quel objet peut avoir un visage mais pas de corps ?",
@@ -46,30 +43,38 @@
 					"Une peinture",
 					"Une piéce"
 				],
-				"correct":"Une piéce",
-				"difficulty":"Hard"
+				"correct": "Une piéce",
+				"next": null
 			}
-		] 
-		
+		]
 	},
-	 
-	"Hero":{
-		"talk":[
-			{  	"question": "ça fonctionne ?",
-				"answer":["oui","non"],
-				"correct":["non"]
+	"Hero": {
+		"talk": [
+			{
+				"question": "ça fonctionne ?",
+				"answer": [
+					"oui",
+					"non"
+				],
+				"correct": [
+					"non"
+				],
+				"next": null
 			},
-			{	"question": "Je suis un marchand ?",
-				"answer":[],
-				"correct":[]
+			{
+				"question": "Je suis un marchand ?",
+				"answer": [
+				],
+				"correct": [
+				],
+				"next": null
 			}
-			
 		],
-		"items":{}		
+		"items": {
+		}
 	},
-	
-	"Imp":{
-		"talk":[
+	"Imp": {
+		"talk": [
 			{
 				"approche": [
 					"Jeune homme, attendez ! Votre visage met famillier",
@@ -81,7 +86,7 @@
 					"Maintenant que je vous vois de plus près, j'ai l'impression de vous connaître",
 					"Cela doit être le destin ! laissez moi vous donnez un conseil"
 				],
-				"fin":[
+				"fin": [
 					"",
 					"",
 					"Des bandits occupes les environs, je vous conseilles de passer par"
@@ -89,5 +94,4 @@
 			}
 		]
 	}
-			
 }
