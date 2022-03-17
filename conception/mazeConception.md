@@ -82,7 +82,7 @@ Que se passe-t-il quand on appelle la fonction génération ? La méthode géné
 D'après nos recherche on dénombre environ 12 algorithmes classiques pour la génération de labyrinthes "parfaits".
 
 -   [x] Kruskal
--   [ ] Prim's
+-   [x] Prim's
 -   [x] Recursive Backtracker (ou Exploration exhaustive)
 -   [ ] Aldous-Broder
 -   [ ] Arbre en croissance
