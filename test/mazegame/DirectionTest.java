@@ -12,5 +12,13 @@ public class DirectionTest {
 		Cell cell2 = new Cell(1,1);
 		assertNull(Direction.directionOf(cell1, cell2));
 	}
+	
+	@Test
+	public void toStringTest() {
+		assertEquals("Sud", Direction.S.toString());
+		assertEquals("Nord", Direction.N.toString());
+		assertEquals("Est", Direction.E.toString());
+		assertEquals("Ouest", Direction.O.toString());
+	}
 
 }
