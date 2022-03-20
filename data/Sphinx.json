@@ -3,21 +3,21 @@
 		"1":{
 			"content": "Je commence la nuit et termine le matin, qui suis je ?",
 			"answers":["La lune","Le n","La soirée"],
-			"correct":["rep2"],
+			"correct":["Le n"],
 			"nextCorrect":[2],
 			"nextIncorrect":[3]
 		},
 		"2":{
 			"content": "Il t'appartient complétement, cependant, tous le monde l'utilise... qu'est-ce ?",
 			"answers":["Ton anniversaire","Ton corps","Ton nom"],
-			"correct":["rep3"],
+			"correct":["Ton nom"],
 			"nextCorrect":[2],
 			"nextIncorrect":[3]
 		},
 		"3":{
 			"content": "Quel objet peut avoir un visage mais pas de corps ?",
 			"answers":["Une piéce","Une peinture","Un jeu de cartes"],
-			"correct":["rep1"],
+			"correct":["Une piéce"],
 			"nextCorrect":[2],
 			"nextIncorrect":[3]
 		}
