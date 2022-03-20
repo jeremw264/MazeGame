@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import mazegame.character.Character;
-import mazegame.character.Hero;
+import mazegame.character.player.Hero;
 
 /**
  * @author jeremy

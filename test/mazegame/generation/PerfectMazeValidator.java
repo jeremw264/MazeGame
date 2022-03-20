@@ -7,7 +7,6 @@ import java.util.Stack;
 import mazegame.Cell;
 import mazegame.Direction;
 import mazegame.Grid;
-import mazegame.Maze;
 
 /**
  * Permet de vérifier si un labyrinthe est parfait (toute les cases sont

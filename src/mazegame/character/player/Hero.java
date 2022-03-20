@@ -1,6 +1,8 @@
-package mazegame.character;
+package mazegame.character.player;
 
-public class Hero extends Character{
+import mazegame.character.Player;
+
+public class Hero extends Player{
 
 	public Hero(int seedX,int seedY) {
 		super(seedX, seedY);

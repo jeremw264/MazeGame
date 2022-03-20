@@ -1,6 +1,6 @@
 package mazegame.main;
 
-import mazegame.character.Hero;
+import mazegame.Game;
 
 /**
  * Class MainGame
@@ -14,13 +14,18 @@ public class MainGame {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-
 		
-		Hero hero = new Hero(0, 0);
 		
-		hero.speak();
+		Game game = new Game(5, 5);
+		game.run();
+		
+		/*Hero hero = new Hero(0, 0);
+		
+		hero.speak();*/
 		
 
 	}
+	
+	
 
 }

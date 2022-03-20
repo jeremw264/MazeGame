@@ -3,6 +3,7 @@ package mazegame;
 import java.util.List;
 
 import mazegame.character.Character;
+import mazegame.character.Player;
 import mazegame.generation.GenerationAlgorithm;
 
 public class Maze {
@@ -61,25 +62,15 @@ public class Maze {
 			int x = character.getX();
 			int y = character.getY();
 
+			Cell cell = this.grid.getCell(x, y);
 			// TODO: gerer cas ou x et y sup a width et heigh
 
-			this.grid.getCell(x, y).setCharacter(character);
+			cell.setCharacter(character);
+			
+			if (character instanceof Player) cell.setVisited();
 		}
 	}
 
-	/**
-	 * Deplace le personnage passer en paramètre jusque la cellule passer en
-	 * paramettre
-	 * 
-	 * @param character Personnage à déplacer
-	 * @param nextCell  Cellule de destination
-	 */
-	public void moveCharacterTo(Character character, Cell nextCell) {
-		Cell currentCell = character.getCurrentCell();
-		currentCell.removeCharacter(character);
-		nextCell.setCharacter(character);
-
-	}
 
 	/**
 	 * Renvoie la représentation du labyrinte en chaine de caractère.
@@ -87,54 +78,64 @@ public class Maze {
 	 * @return la représentation du labyrinte en chaine de caractère.
 	 */
 	public String toString() {
-		String mazeString = "";
-
+		
+		StringBuilder mazeStringBuilder = new StringBuilder();
+		
 		// First Line
 
 		for (int x = 0; x < this.width; x++) {
-			mazeString += "+---";
+			mazeStringBuilder.append("+---");
 		}
 
-		mazeString += "+\n";
+		mazeStringBuilder.append("+\n");
 
 		// Other Line
 
 		for (int y = 0; y < this.height; y++) {
 
-			mazeString += "|";
+			mazeStringBuilder.append("|");
 
 			for (int x = 0; x < this.width; x++) {
 				Cell cell = this.grid.getCell(x, y);
 				if (cell.wallExist(Direction.E)) {
 
-					if (cell.isVisited()) {
-						mazeString += "   |";
+					if (cell.containHero()) {
+						mazeStringBuilder.append(" H |");
+					}
+					else if (cell.isVisited()) {
+						mazeStringBuilder.append("   |");
 					} else {
-						mazeString += " # |";
+						mazeStringBuilder.append(" # |");
 					}
 				} else {
-					if (cell.isVisited()) {
-						mazeString += "    ";
+					if (cell.containHero()) {
+						mazeStringBuilder.append(" P  ");
+					}
+					else if (cell.isVisited()) {
+						mazeStringBuilder.append("    ");
 					} else {
-						mazeString += " #  ";
+						mazeStringBuilder.append(" #  ");
 					}
 				}
 			}
 
-			mazeString += "\n+";
+			mazeStringBuilder.append("\n+");
+
 
 			for (int x = 0; x < this.width; x++) {
 				if (this.grid.getCell(x, y).wallExist(Direction.S)) {
-					mazeString += "---+";
+					mazeStringBuilder.append("---+");
 				} else {
-					mazeString += "   +";
+					mazeStringBuilder.append("   +");
 				}
 			}
 
-			mazeString += "\n";
+			mazeStringBuilder.append("\n");
 
 		}
+		
+		
 
-		return mazeString;
+		return mazeStringBuilder.toString();
 	}
 }

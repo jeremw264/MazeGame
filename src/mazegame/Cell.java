@@ -5,6 +5,7 @@ import java.util.EnumMap;
 import java.util.List;
 
 import mazegame.character.Character;
+import mazegame.character.player.Hero;
 
 /**
  * Class Cell
@@ -177,5 +178,15 @@ public class Cell {
 			this.characters.remove(character);
 			character.setCurrentCell(null);
 		}
+	}
+
+	public boolean containHero() {
+		for (Character character : characters) {
+			if (character instanceof Hero) {
+				return true;
+			}
+		}
+		
+		return false;
 	}
 }

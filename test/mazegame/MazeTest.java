@@ -15,7 +15,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import mazegame.character.Character;
-import mazegame.character.Hero;
+import mazegame.character.player.Hero;
 import mazegame.generation.BinaryTree;
 
 /**
@@ -64,22 +64,6 @@ public class MazeTest {
 			assertTrue(this.maze.getGrid().getCell(x, y).getCharacters().contains(character));
 			assertEquals(character.getCurrentCell(), this.maze.getGrid().getCell(x, y));
 		}
-	}
-
-	@Test
-	public void moveCharacterTest() {
-		Character heroCharacter = this.characters.get(0);
-		
-		Cell currentCell = this.maze.getGrid().getCell(0, 0);
-		Cell nextCell = this.maze.getGrid().getCell(1, 0);
-		
-		assertEquals(heroCharacter.getCurrentCell(), currentCell);
-		
-		this.maze.moveCharacterTo(heroCharacter, nextCell);
-		
-		assertEquals(heroCharacter.getCurrentCell(), nextCell);
-		
-		assertTrue(this.maze.getGrid().getCell(1, 0).getCharacters().contains(heroCharacter));
 	}
 	
 	private void setCharactersList() {

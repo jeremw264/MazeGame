@@ -105,9 +105,24 @@ Jérémy: Test labyrinthe parfait terminer, suppression class Wall, car on peut 
 
 ## Semaine 6
 
+Répléxion sur l'implémentation des personnages en groupe et sur le système de discution entre les personnages. Nous avons decider de stocker les phrase et autre interation texte dans un fichier JSON pour ne pas surcharger les classes
+
+Jérémy : Recherche pour utilisation de JSON en java (org.json) puis test d'utilisation de la lib
+
 ## Semaine 7
 
+Refléxion sur la structure du JSON en groupe
+
+Franck : Ecriture des dialogues pour les personnages
+
 ## Semaine 8
+
+Jérémy : Mise en place du systeme de déplacement des personnages et ecriture des test complementaire. Création de la classe game qui s'occupe de la gestion du jeu 
+
+
+#### Difficulté 
+
+Comment gerer les differentes interation entre personnage quand on attends des saisie utilistateur
 
 ## Semaine 9
 

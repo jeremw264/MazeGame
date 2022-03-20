@@ -1,14 +1,12 @@
 package mazegame.character;
 
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
-
-import org.json.*;
 
 import mazegame.Cell;
 import mazegame.Direction;
+import mazegame.item.Item;
 
 abstract public class Character {
 
@@ -17,6 +15,8 @@ abstract public class Character {
 	public int y;
 	// Cellule courante du personnage.
 	public Cell currentCell;
+	// Inventaire du personnage
+	public List<Item> inventory;
 
 	/**
 	 * Constructeur de l'objet Character.
@@ -26,6 +26,7 @@ abstract public class Character {
 	protected Character(int seedX, int seedY) {
 		this.x = seedX;
 		this.y = seedY;
+		this.inventory = new LinkedList<Item>();
 	}
 
 	/**
@@ -70,52 +71,15 @@ abstract public class Character {
 	 * @return True si le personnage peut bouger, False sinon.
 	 */
 	public abstract boolean canBeLeft();
-
-	public boolean speak() {
 		
-		List<String> responceList = new ArrayList<String>();
-
-		try {
-			
-			// On recupere le fichier qu'on transforme en String pour crée l'objet JSON
-			String jsonData = Files.readString(Paths.get(System.getProperty("user.dir") + "/data/data.json"));
-			JSONObject jsonObject = new JSONObject(jsonData);
-			
-			// On recupere les données pour le personnage concerner
-			jsonObject = jsonObject.getJSONObject(this.getClass().getSimpleName());
-			// On recupere les dialogues
-			JSONArray discusions = jsonObject.getJSONArray("talk");
-			
-			// On recupere un dialogue de maniere aléatoire
-			int discutionIndex = (int)Math.random()*discusions.length();
-			JSONObject objetDiscusion = new JSONObject(discusions.get(discutionIndex).toString());
-			
-			// On recupere la question
-			String questionString = objetDiscusion.getString("question");
-			// On récupere les réponses possible
-			JSONArray answersArray = objetDiscusion.getJSONArray("answer");
-			
-			for (Object object : answersArray) {
-				responceList.add((String)object);
-			}
-			
-			// Affichage Question
-			System.out.println(questionString);
-			
-			// Affichage Reponse possible
-			for (String answer : responceList) {
-				System.out.println(answer);
-			}
-
-		} catch (Exception e) {
-			System.err.println(e);
-			// TODO: handle exception
-		}
-		
-		return false;
-	}
+	/**
+	 * Deplace le personnage jusque la cellule passer en
+	 * paramettre
+	 * 
+	 * @param nextCell  Cellule de destination
+	 */
+	public abstract void moveTo(Cell nextCell);
 	
-
 	/**
 	 * Renvoie toute les directions accesible dupuis la case courante du personnage.
 	 * 
