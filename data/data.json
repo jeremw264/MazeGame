@@ -1,97 +1,80 @@
 {
-	"Vendor": {
-		"talk": [
-			{
-				"sentence": [
-					"Weeeelllllcoooooommmmmeeeeâ€¦",
-					"Got some rare things on sale, stranger!",
-					"What are you buyin' ?",
-					"What are you sellin' ?",
-					"Is that all, stranger ?",
-					"Not enough cash, stranger!",
-					"He he he... Thank you"
-				]
-			}
-		]
+	"1" : {
+		"1":{
+			"content": "Bonjour jeune étranger, que puis je faire pour vous aider ?",
+			"answers":["Je suis à la recherche de mon père, peut être me reconnaisez vous ?","Je suis entrain de parcourir le royaume, auriez vous des conseilles à me donner ?"],
+			"correct":["rep1"],
+			"nextCorrect":[2],
+			"nextIncorrect":[4]
+		},
+		"2":{
+			"content": "Question || Phrase",
+			"answers":["rep1","rep2"],
+			"correct":["rep1"],
+			"nextCorrect":[2],
+			"nextIncorrect":[]
+		},
+		"3":{
+			"content": "Question || Phrase",
+			"answers":["rep1","rep2"],
+			"correct":["rep1"],
+			"nextCorrect":[2],
+			"nextIncorrect":[]
+		}
+		
 	},
-	"Sphinx": {
-		"talk": [
-			{
-				"enigme": "Je commence la nuit et termine le matin, qui suis je ?",
-				"answer": [
-					"la lune",
-					"le n",
-					"Une soirÃ©e"
-				],
-				"correct": "le n",
-				"next": null
-			},
-			{
-				"enigme": "Il t'appartient complÃ¨tement, cependant, tous le monde l'utilise... qu'est-ce ?",
-				"answer": [
-					"Ton nom",
-					"Ton anniversaire",
-					"Ton corps"
-				],
-				"correct": "Ton nom",
-				"next": null
-			},
-			{
-				"enigme": "Quel objet peut avoir un visage mais pas de corps ?",
-				"answer": [
-					"Un jeu de carte",
-					"Une peinture",
-					"Une piÃ©ce"
-				],
-				"correct": "Une piÃ©ce",
-				"next": null
-			}
-		]
-	},
-	"Hero": {
-		"talk": [
-			{
-				"question": "Ã§a fonctionne ?",
-				"answer": [
-					"oui",
-					"non"
-				],
-				"correct": [
-					"non"
-				],
-				"next": null
-			},
-			{
-				"question": "Je suis un marchand ?",
-				"answer": [
-				],
-				"correct": [
-				],
-				"next": null
-			}
-		],
-		"items": {
+	"2" : {
+		"2":{
+			"content": "Hmmm, maintenant que vous me le dites, votre visage me dis quelque chose...",
+			"answers":["Vraiment ?!","Comme par hasard, vous n'êtes pas le premier à me dire cela !"],
+			"correct":["rep1"],
+			"nextCorrect":[3],
+			"nextIncorrect":[6]
 		}
 	},
-	"Imp": {
-		"talk": [
-			{
-				"approche": [
-					"Jeune homme, attendez ! Votre visage met famillier",
-					"Etranger, pourriez vous m'accordez un peu de votre temps ?",
-					"Quelqu'un d'autre ici ? Je ne m'y attendais pas"
-				],
-				"suite": [
-					"Hmm, votre visage ressemble Ã©trangement a notre souverain, serait il possible que vous soyez de lignee royal ?",
-					"Maintenant que je vous vois de plus prÃ¨s, j'ai l'impression de vous connaÃ®tre",
-					"Cela doit Ãªtre le destin ! laissez moi vous donnez un conseil"
-				],
-				"fin": [
-					"",
-					"",
-					"Des bandits occupes les environs, je vous conseilles de passer par"
-				]
-			}
-		]
+	"3" : {
+		"1":{
+			"content": "Oui vraiment, je pense avoir aperçu un homme vous ressemblant en direction de...",
+			"answers":["Merci Beaucoup. Aurevoir !"],
+			"correct":["rep1"],
+			"nextCorrect":[],
+			"nextIncorrect":[]
+		}
+	}
+	"4" : {
+		"1":{
+			"content": "Un jeune aventurier ?! Il y'a énormément de choses à voir dans ce magnifique royaume mais je vous conseille d'aller en direction de...",
+			"answers":["Merci ! Je m'y rend de ce pas !","Je viens justement de cette direction, peut être pourriez vous me conseillez autre chose ?"],
+			"correct":["rep1"],
+			"nextCorrect":[],
+			"nextIncorrect":[5]
+		}
+	}
+	"5" : {
+		"1":{
+			"content":"Hmm dans ce cas là, je vous conseillerais plutôt de vous rendre dans la direction suivante...",
+			"answers":["Très bien, merci beaucoup pour votre temps"],
+			"correct":["rep1"],
+			"nextCorrect":[],
+			"nextIncorrect":[]
+		}
+	}
+	"6" : {
+		"1":{
+			"content":"Je vous donne une direction et c'est comme celà que vous me remerciez ? En me traitant de menteur ! Partez ! Et ne revenez jamais, ou vous verrez de quel bois je me chauffe, Etranger !",
+			"answers":["Je voulais pas, je suis désolé, pardonnez moi"],
+			"correct":["rep1"],
+			"nextCorrect":[7],
+			"nextIncorrect":[]
+		}
+	}
+	"7" : {
+		"1":{
+			"content":"Vous m'avez l'air d'un gentil jeune homme, je vais vous pardonnez. Vous trouverez ce que vous désirez le plus dans cette direction",
+			"answers":["Merci énormément ! Je m'excuse à nouveau pour mon corportement. Laissez moi vous offrir ceci"],
+			"correct":["rep1"],
+			"nextCorrect":[],
+			"nextIncorrect":[]
+		}
 	}
 }
