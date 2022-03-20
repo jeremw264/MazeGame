@@ -38,4 +38,6 @@ public interface Displayer {
 	public void displayHelp(List<String> commmandList);
 
 	public void displayCommand(List<String> choiseList);
+
+	public void displayEndGame();
 }

@@ -1,32 +1,42 @@
 package mazegame;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 import mazegame.generation.GenerationAlgorithm;
 import mazegame.generation.RecursiveBacktracker;
 import mazegame.utils.ConsoleDisplayer;
+import mazegame.utils.ConsoleInput;
 import mazegame.utils.Displayer;
+import mazegame.utils.Input;
 import mazegame.character.Character;
+import mazegame.character.Player;
+import mazegame.character.Pnj;
 import mazegame.character.player.Hero;
 
 public class Game {
 	
 	public static final Displayer DISPLAYER = new ConsoleDisplayer();
+	public static final Input INPUT = new ConsoleInput();
 	private Maze maze;
-	private Character hero;
-	private List<Character> characters;
+	private Player player;
+	private List<Pnj> pnjList;
 	private boolean interaction;
+	private boolean endGame;
 	
 	public Game(int width,int height) {
 		
 		this.initCharacter();
 		
 		GenerationAlgorithm algorithm = new RecursiveBacktracker(0,0);
-		this.maze = new Maze(width, height, algorithm,this.characters);
+		this.maze = new Maze(width, height, algorithm,this.pnjList,this.player);
 		this.interaction = false;
+		this.endGame = false;
+		
 		
 	}
 	
@@ -51,7 +61,7 @@ public class Game {
 		 */
 		
 		// Ici il faudra placer la condition d'arret du jeu
-		while (i < 100) {
+		while (!this.endGame) {
 			
 			this.interaction = false;
 			
@@ -76,19 +86,23 @@ public class Game {
 			 *  
 			 */
 			
-			// Faire deplacer tous les personnage sauf le hero.
+			//TODO voir si on le fait quand la partie est fini
+			// Deplace tous les pnj
+			for (Pnj pnj : this.pnjList) {
+				Cell nextCell = pnj.computeNextCell();
+				pnj.moveTo(nextCell);
+			}
+			
 		}
 		
 	}
 	
 	private void menu() {
 		
-		List<String> commmandList = Arrays.asList("aide","bouger");
-		
-		Scanner userInput = new Scanner(System.in);
-		
+		List<String> commmandList = Arrays.asList("aide","bouger","ramasser","quitter");
+				
 		Game.DISPLAYER.displayMsg("Votre choix : ");
-		String choise = userInput.nextLine().toLowerCase();
+		String choise = Game.INPUT.getString().toLowerCase();
 		
 		if (!commmandList.contains(choise)) {
 			Game.DISPLAYER.displayError("Ce choix n'existe pas !! ");
@@ -102,19 +116,28 @@ public class Game {
 				this.movePlayer();
 				break;
 				
+			case "ramasser":
+				this.getItem();
+				break;
+				
+			case "quitter":
+				this.interaction = true;
+				this.endGame = true;
+				Game.DISPLAYER.displayEndGame();
+				break;
+				
 			default:
 				break;
 			}
 		}
 		
-		userInput.close();
 		
 	}
 
 	private void movePlayer() {
 		
 		
-		List<Direction> possibleDirections = this.hero.getAccesibleDirections();
+		List<Direction> possibleDirections = this.player.getAccesibleDirections();
 		List<String> commmandList = new LinkedList<String>();
 		
 		String exitCommandString = "none";
@@ -125,13 +148,12 @@ public class Game {
 			commmandList.add(direction.toString().toLowerCase());
 		}
 
-		Scanner userInput = new Scanner(System.in);		
 		String choise = "";
 		
 		do {
 			Game.DISPLAYER.displayMsg("Ou voulez-vous aller ?");
 			Game.DISPLAYER.displayCommand(commmandList);
-			choise = userInput.nextLine().toLowerCase();
+			choise = Game.INPUT.getString().toLowerCase();
 			
 			if (!commmandList.contains(choise) && !exitCommandString.equals(choise)) {
 				Game.DISPLAYER.displayError("Ce choix n'existe pas !! ");
@@ -146,15 +168,20 @@ public class Game {
 			else if (choise.equals(Direction.O.toString().toLowerCase())) direction = Direction.O;
 			else direction = Direction.E;
 			
-			Cell nextCell = this.maze.getGrid().getCellWithDirection(this.hero.getCurrentCell(), direction);
+			Cell nextCell = this.maze.getGrid().getCellWithDirection(this.player.getCurrentCell(), direction);
 			
-			this.hero.moveTo(nextCell);
+			this.player.moveTo(nextCell);
 			
 			this.interaction = true;
 		}
 		
-		userInput.close();
 		
+	}
+	
+	private void getItem() {
+		
+		//TODO: systeme de ramassage d'objet
+
 	}
 
 	/**
@@ -162,8 +189,8 @@ public class Game {
 	 * 
 	 * @return Le hero que controle le joueur.
 	 */
-	public Character getHero() {
-		return this.hero;
+	public Character getPlayer() {
+		return this.player;
 	}
 	
 	
@@ -173,15 +200,12 @@ public class Game {
 	 */
 	private void initCharacter() {
 		
-		this.characters = new LinkedList<>();
+		this.pnjList = new LinkedList<>();
 
 		
-		Character playerHero = new Hero(0, 0);
+		Player playerHero = new Hero(0, 0);
 		
-		this.hero = playerHero;
-		
-		this.characters.add(playerHero);
-		
+		this.player = playerHero;		
 	}
 	
 	

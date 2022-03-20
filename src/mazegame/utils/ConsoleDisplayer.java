@@ -38,7 +38,7 @@ public class ConsoleDisplayer implements Displayer{
 	@Override
 	public void displayStateGame(Game game) {
 		
-		String message = "Vous êtes sur la case ("+game.getHero().getX()+" , "+game.getHero().getY()+")";
+		String message = "Vous êtes sur la case ("+game.getPlayer().getX()+" , "+game.getPlayer().getY()+")";
 		
 		this.displayMsg(message);
 	}
@@ -69,6 +69,12 @@ public class ConsoleDisplayer implements Displayer{
 		for (String string : choiseList) {
 			this.displayMsg(" - "+string);
 		}
+		
+	}
+
+	@Override
+	public void displayEndGame() {
+		this.displayMsg("Fin de jeu ...\nMerci d'avoir jouer :)");
 		
 	}
 
