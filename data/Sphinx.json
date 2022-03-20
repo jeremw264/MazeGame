@@ -1,3 +1,44 @@
 {
-
+	"1" : {
+		"1":{
+			"content": "Je commence la nuit et termine le matin, qui suis je ?",
+			"answers":["La lune","Le n","La soirée"],
+			"correct":["rep2"],
+			"nextCorrect":[2],
+			"nextIncorrect":[3]
+		},
+		"2":{
+			"content": "Il t'appartient complétement, cependant, tous le monde l'utilise... qu'est-ce ?",
+			"answers":["Ton anniversaire","Ton corps","Ton nom"],
+			"correct":["rep3"],
+			"nextCorrect":[2],
+			"nextIncorrect":[3]
+		},
+		"3":{
+			"content": "Quel objet peut avoir un visage mais pas de corps ?",
+			"answers":["Une piéce","Une peinture","Un jeu de cartes"],
+			"correct":["rep1"],
+			"nextCorrect":[2],
+			"nextIncorrect":[3]
+		}
+		
+	},
+	"2" : {
+		"1":{
+			"content": "Félicitation jeune Hero, tu as trouvé la réponse à l'énigme. Prend donc ceci",
+			"answers":[],
+			"correct":[],
+			"nextCorrect":[],
+			"nextIncorrect":[]
+		}
+	},
+	"3" : {
+		"1":{
+			"content": "Malheureusement jeune Hero, ceci n'était pas la réponse attendu. Je vais te demander de partir, Bon courage pour ta quête",
+			"answers":[],
+			"correct":[],
+			"nextCorrect":[],
+			"nextIncorrect":[]
+		}
+	}
 }
