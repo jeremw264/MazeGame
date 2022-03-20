@@ -8,6 +8,9 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import mazegame.character.Character;
+import mazegame.character.Hero;
+
 /**
  * @author jeremy
  *
@@ -83,6 +86,42 @@ public class CellTest {
 	}
 	
 	@Test
+	public void setCharacterTest() {
+		
+		Character heroCharacter = new Hero(3, 5);
+		
+		this.cell.setCharacter(heroCharacter);
+		assertTrue(this.cell.getCharacters().contains(heroCharacter));
+	}
+	
+	@Test
+	public void removeCharacterTest() {
+		Character heroCharacter = new Hero(3, 5);
+		
+		this.cell.setCharacter(heroCharacter);
+		assertTrue(this.cell.getCharacters().contains(heroCharacter));
+		
+		this.cell.removeCharacter(heroCharacter);
+		assertTrue(this.cell.getCharacters().isEmpty());
+	}
+	
+	@Test
+	public void getCharactersTest() {
+		Character heroCharacter = new Hero(3, 5);
+		this.cell.setCharacter(heroCharacter);
+		
+		assertSame(heroCharacter, this.cell.getCharacters().get(0));
+	}
+	
+	@Test
+	public void toStringTest() {
+		int x = this.cell.getX();
+		int y = this.cell.getY();
+		String resString = "Case de coordonnée: x = " + x + " y = " + y;
+		assertEquals(resString, this.cell.toString());
+	}
+	
+	@Test
 	public void cellIsEqualsTest() {
 		Cell cell1 = new Cell(0, 0);
 		Cell cell2 = new Cell(0, 0);
@@ -105,5 +144,7 @@ public class CellTest {
 		
 		assertFalse(cell1.equals(obj));
 	}
+	
+	
 
 }

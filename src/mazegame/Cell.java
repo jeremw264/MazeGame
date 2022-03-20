@@ -1,7 +1,9 @@
 package mazegame;
 
+import java.util.ArrayList;
 import java.util.EnumMap;
-import mazegame.character.*;
+import java.util.List;
+
 import mazegame.character.Character;
 
 /**
@@ -18,8 +20,9 @@ public class Cell {
 
 	// Etat de visite de la cellule.
 	private boolean visited;
-
-	private Character character;
+	
+	// Liste des personnages dans la cellule
+	private List<Character> characters;
 
 	/**
 	 * Constructeur de la classe Cell, les murs sont généré par défault.
@@ -38,7 +41,7 @@ public class Cell {
 		this.walls.put(Direction.E, true);
 
 		this.visited = false;
-		this.character = null;
+		this.characters = new ArrayList<Character>();
 	}
 
 	/**
@@ -60,7 +63,7 @@ public class Cell {
 		this.walls.put(Direction.E, wallsExist);
 
 		this.visited = false;
-		this.character = null;
+		this.characters = new ArrayList<Character>();
 	}
 
 	/**
@@ -79,20 +82,6 @@ public class Cell {
 	 */
 	public int getX() {
 		return this.x;
-	}
-
-	public void setCharacter(Character character) {
-		this.character = character;
-		this.setVisited();
-		character.setCurrentCell(this);
-	}
-
-	public void characterLeft() {
-		this.character = null;
-	}
-	
-	public boolean containHero() {
-		return this.character instanceof Hero;
 	}
 
 	/**
@@ -157,5 +146,36 @@ public class Cell {
 			return this.x == otherCell.getX() && this.y == otherCell.getY();
 		}
 		return false;
+	}
+	
+	/**
+	 * Renvoie la liste des personnage sur la cellule.
+	 * @return la liste des personnage sur la cellule.
+	 */
+	public List<Character> getCharacters() {
+		return this.characters;
+	}
+
+	/**
+	 * Ajoute un personnage sur la cellule et indique au personnage qu'il est sur cette cellule
+	 * 
+	 * @param character Le personnage à placer.
+	 */
+	public void setCharacter(Character character) {
+		this.characters.add(character);
+		character.setCurrentCell(this);
+		
+	}
+	
+	/**
+	 * Supprime un personnage de la cellule et lui indique qu'il n'est plus sur la cellule
+	 * 
+	 * @param character Le personnage à enlever.
+	 */
+	public void removeCharacter(Character character) {
+		if(this.characters.contains(character)){
+			this.characters.remove(character);
+			character.setCurrentCell(null);
+		}
 	}
 }

@@ -1,6 +1,8 @@
 package mazegame;
 
-import mazegame.character.Hero;
+import java.util.List;
+
+import mazegame.character.Character;
 import mazegame.generation.GenerationAlgorithm;
 
 public class Maze {
@@ -8,8 +10,6 @@ public class Maze {
 	private final int height;
 
 	private Grid grid;
-	
-	private Hero hero;
 
 	/**
 	 * Constructeur de la classe Maze
@@ -17,12 +17,12 @@ public class Maze {
 	 * @param height Hauteur du labyrinthe
 	 * @param width  Largueur du labyrinthe
 	 */
-	public Maze(int width, int height, GenerationAlgorithm genAlgo) {
+	public Maze(int width, int height, GenerationAlgorithm genAlgo, List<Character> characters) {
 		this.width = width;
 		this.height = height;
-		this.grid = genAlgo.generation(width,height);
+		this.grid = genAlgo.generation(width, height);
+		this.setCharacters(characters);
 	}
-
 
 	/**
 	 * Renvoie la largueur du labyrinthe.
@@ -50,30 +50,36 @@ public class Maze {
 	public Grid getGrid() {
 		return this.grid;
 	}
-	
-	public Hero getHero() {
-		return this.hero;
-	}
-	
-	public void setHero(Hero hero) {
-		this.hero = hero;
-		this.grid.getCell(0, 0).setCharacter(hero);
-	}
-	
-	
-	
-	public boolean moveHero(Direction direction) {
-		if (this.hero.getAccesibleDirections().contains(direction)) {
-			this.hero.currentCell.characterLeft();
-			Cell nextCell = this.grid.getCellWithDirection(this.hero.currentCell, direction);
-			nextCell.setCharacter(hero);
-			System.out.println(nextCell.containHero());
-			return true;
-		}else {
-			return false;
+
+	/**
+	 * Place tous les personnage dans le labyrinthe.
+	 * 
+	 * @param characters la liste des personnages à placer
+	 */
+	private void setCharacters(List<Character> characters) {
+		for (Character character : characters) {
+			int x = character.getX();
+			int y = character.getY();
+
+			// TODO: gerer cas ou x et y sup a width et heigh
+
+			this.grid.getCell(x, y).setCharacter(character);
 		}
 	}
 
+	/**
+	 * Deplace le personnage passer en paramètre jusque la cellule passer en
+	 * paramettre
+	 * 
+	 * @param character Personnage à déplacer
+	 * @param nextCell  Cellule de destination
+	 */
+	public void moveCharacterTo(Character character, Cell nextCell) {
+		Cell currentCell = character.getCurrentCell();
+		currentCell.removeCharacter(character);
+		nextCell.setCharacter(character);
+
+	}
 
 	/**
 	 * Renvoie la représentation du labyrinte en chaine de caractère.
@@ -100,20 +106,16 @@ public class Maze {
 			for (int x = 0; x < this.width; x++) {
 				Cell cell = this.grid.getCell(x, y);
 				if (cell.wallExist(Direction.E)) {
-					if (cell.containHero()) {
-						mazeString += " X |";
-					}
-					else if (cell.isVisited()) {
+
+					if (cell.isVisited()) {
 						mazeString += "   |";
-					}else {
+					} else {
 						mazeString += " # |";
 					}
 				} else {
-					if (cell.containHero()) {
-						mazeString += " X  ";
-					}else if (cell.isVisited()) {
+					if (cell.isVisited()) {
 						mazeString += "    ";
-					}else {
+					} else {
 						mazeString += " #  ";
 					}
 				}
