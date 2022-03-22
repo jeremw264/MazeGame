@@ -129,16 +129,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="16" language="java" name="mazegame.utils.Discussion" project="l2s4-projet-2022" 
-    file="/l2s4-projet-2022/src/mazegame/utils/Discussion.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="223" width="186" x="1338" y="244"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="17" language="java" name="mazegame.Maze" project="l2s4-projet-2022" 
+  <class id="16" language="java" name="mazegame.Maze" project="l2s4-projet-2022" 
     file="/l2s4-projet-2022/src/mazegame/Maze.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="223" width="265" x="2426" y="525"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
@@ -147,17 +138,17 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <package id="18" language="java" name="mazegame.generation" project="l2s4-projet-2022" 
+  <package id="17" language="java" name="mazegame.generation" project="l2s4-projet-2022" 
     file="/l2s4-projet-2022/src/mazegame/generation" binary="false" corner="BOTTOM_RIGHT">    
     <position height="47" width="151" x="1788" y="244"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
-  <package id="19" language="java" name="mazegame" project="l2s4-projet-2022" file="/l2s4-projet-2022/src/mazegame" 
+  <package id="18" language="java" name="mazegame" project="l2s4-projet-2022" file="/l2s4-projet-2022/src/mazegame" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="47" width="100" x="1979" y="244"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
-  <class id="20" language="java" name="mazegame.utils.ConsoleInput" project="l2s4-projet-2022" 
+  <class id="19" language="java" name="mazegame.utils.ConsoleInput" project="l2s4-projet-2022" 
     file="/l2s4-projet-2022/src/mazegame/utils/ConsoleInput.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="115" width="117" x="2882" y="244"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
@@ -166,7 +157,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="21" language="java" name="mazegame.generation.RecursiveBacktracker" project="l2s4-projet-2022" 
+  <class id="20" language="java" name="mazegame.generation.RecursiveBacktracker" project="l2s4-projet-2022" 
     file="/l2s4-projet-2022/src/mazegame/generation/RecursiveBacktracker.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="151" width="223" x="1591" y="788"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
@@ -175,154 +166,142 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <package id="22" language="java" name="mazegame.utils" project="l2s4-projet-2022" 
+  <package id="21" language="java" name="mazegame.utils" project="l2s4-projet-2022" 
     file="/l2s4-projet-2022/src/mazegame/utils" binary="false" corner="BOTTOM_RIGHT">    
     <position height="47" width="114" x="2324" y="244"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
-  <association id="23">    
-    <end type="SOURCE" refId="21" navigable="false">      
-      <attribute id="24" name="stack">        
+  <association id="22">    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="23" name="stack">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="25" minimum="0" maximum="2147483647">        
+      <multiplicity id="24" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="26">    
+  <generalization id="25">    
     <end type="SOURCE" refId="4"/>    
     <end type="TARGET" refId="8"/>  
   </generalization>  
-  <association id="27">    
+  <association id="26">    
     <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="28" name="maze">        
+      <attribute id="27" name="INPUT">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="29" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="17" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="30">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="31" name="INPUT">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="32" minimum="0" maximum="1">        
+      <multiplicity id="28" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="12" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="33">    
+  <generalization id="29">    
     <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="8"/>  
   </generalization>  
-  <generalization id="34">    
+  <generalization id="30">    
     <end type="SOURCE" refId="15"/>    
     <end type="TARGET" refId="8"/>  
   </generalization>  
-  <association id="35">    
+  <association id="31">    
     <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="36" name="neighbors">        
+      <attribute id="32" name="neighbors">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="37" minimum="0" maximum="2147483647">        
+      <multiplicity id="33" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="38">    
+  <association id="34">    
     <bendpoint x="1844" y="788"/>    
     <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="39" name="cellsTreat">        
+      <attribute id="35" name="cellsTreat">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="40" minimum="0" maximum="2147483647">        
+      <multiplicity id="36" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="41">    
+  <association id="37">    
     <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="42" name="cellsList">        
+      <attribute id="38" name="cellsList">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="43" minimum="0" maximum="2147483647">        
+      <multiplicity id="39" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="44">    
-    <end type="SOURCE" refId="20"/>    
+  <realization id="40">    
+    <end type="SOURCE" refId="19"/>    
     <end type="TARGET" refId="12"/>  
   </realization>  
-  <association id="45">    
+  <association id="41">    
     <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="46" name="grid">        
+      <attribute id="42" name="grid">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="47" minimum="0" maximum="1">        
+      <multiplicity id="43" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="11" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="48">    
+  <generalization id="44">    
     <end type="SOURCE" refId="7"/>    
     <end type="TARGET" refId="8"/>  
   </generalization>  
-  <realization id="49">    
+  <realization id="45">    
     <end type="SOURCE" refId="2"/>    
     <end type="TARGET" refId="3"/>  
   </realization>  
-  <association id="50">    
+  <association id="46">    
     <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="51" name="start">        
+      <attribute id="47" name="start">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="52" minimum="0" maximum="1">        
+      <multiplicity id="48" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="53">    
+  <association id="49">    
     <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="54" name="DISPLAYER">        
+      <attribute id="50" name="DISPLAYER">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="55" minimum="0" maximum="1">        
+      <multiplicity id="51" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="56">    
-    <end type="SOURCE" refId="21"/>    
+  <generalization id="52">    
+    <end type="SOURCE" refId="20"/>    
     <end type="TARGET" refId="8"/>  
   </generalization>  
-  <association id="57">    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="58" name="grid">        
+  <association id="53">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="54" name="grid">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="59" minimum="0" maximum="1">        
+      <multiplicity id="55" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    

@@ -1,13 +1,6 @@
 package mazegame;
 
-import java.util.ArrayList;
 import java.util.EnumMap;
-import java.util.List;
-
-import mazegame.character.Character;
-import mazegame.character.Player;
-import mazegame.character.Pnj;
-import mazegame.item.Item;
 
 /**
  * Class Cell
@@ -23,12 +16,6 @@ public class Cell {
 
 	// Etat de visite de la cellule.
 	private boolean visited;
-
-	// Liste des personnages dans la cellule
-	private List<Character> characters;
-
-	// Liste des items dans la cellule
-	private List<Item> items;
 
 	/**
 	 * Constructeur de la classe Cell, les murs sont généré par défault.
@@ -47,7 +34,6 @@ public class Cell {
 		this.walls.put(Direction.E, true);
 
 		this.visited = false;
-		this.characters = new ArrayList<Character>();
 	}
 
 	/**
@@ -69,7 +55,6 @@ public class Cell {
 		this.walls.put(Direction.E, wallsExist);
 
 		this.visited = false;
-		this.characters = new ArrayList<Character>();
 	}
 
 	/**
@@ -105,75 +90,6 @@ public class Cell {
 	public boolean isVisited() {
 		return this.visited;
 	}
-
-	/**
-	 * Renvoie la liste des personnage sur la cellule.
-	 * 
-	 * @return la liste des personnage sur la cellule.
-	 */
-	public List<Character> getCharacters() {
-		return this.characters;
-	}
-
-	/**
-	 * Ajoute un personnage sur la cellule et indique au personnage qu'il est sur
-	 * cette cellule
-	 * 
-	 * @param character Le personnage à placer.
-	 */
-	public void setCharacter(Character character) {
-		this.characters.add(character);
-		character.setCurrentCell(this);
-
-	}
-
-	/**
-	 * Supprime un personnage de la cellule et lui indique qu'il n'est plus sur la
-	 * cellule
-	 * 
-	 * @param character Le personnage à enlever.
-	 */
-	public void removeCharacter(Character character) {
-		if (this.characters.contains(character)) {
-			this.characters.remove(character);
-			character.setCurrentCell(null);
-		}
-	}
-
-	/**
-	 * Renvoie si la case contient le joueurs
-	 * 
-	 * @return True si la case contient le joueur, False sinon.
-	 */
-	public boolean containPlayer() {
-		for (Character character : characters) {
-			if (character instanceof Player) {
-				return true;
-			}
-		}
-
-		return false;
-	}
-	
-	/**
-	 * Renvoie une liste qui contient tous les objets du jeu présent sur la case.
-	 * @return Les objets de la case.
-	 */
-	public List<Item> getItems() {
-		return this.items;
-	}
-	
-	public void addItem(Item item) {
-		this.items.add(item);
-	}
-	
-	public Item removeItem(int index) {
-		Item item = this.items.get(index);
-		this.items.remove(index);
-		return item;
-	}
-	
-	
 
 	/**
 	 * Efface le mur de la case qui corresponds à la direction en paramètre.
@@ -223,12 +139,4 @@ public class Cell {
 		return false;
 	}
 
-	public boolean containPnj() {
-		for (Character character : characters) {
-			if (character instanceof Pnj) {
-				return true;
-			}
-		}
-		return false;
-	}
 }
