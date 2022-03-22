@@ -1,45 +1,69 @@
 {
 	"1" : {
 		"1":{
+<<<<<<< HEAD
 			"content": "Bonjour jeune �tranger, que puis je faire pour vous aider ?",
 			"answers":["Je suis � la recherche de mon p�re, peut �tre me reconnaisez vous ?","Je suis entrain de parcourir le royaume, auriez vous des conseilles � me donner ?"],
 			"correct":["Je suis � la recherche de mon p�re, peut �tre me reconnaisez vous ?"],
 			"nextCorrect":[2],
 			"nextIncorrect":[4]
+=======
+			"content": "",
+			"answers":[""],
+			"correct":[""],
+			"nextCorrect":[],
+			"nextIncorrect":[]
+>>>>>>> branch 'main' of git@gitlab-etu.fil.univ-lille1.fr:woirhaye/l2s4-projet-2022.git
 		},
 		"2":{
-			"content": "Question || Phrase",
-			"answers":["rep1","rep2"],
-			"correct":["rep1"],
-			"nextCorrect":[2],
+			"content": "",
+			"answers":[""],
+			"correct":[""],
+			"nextCorrect":[],
 			"nextIncorrect":[]
 		},
 		"3":{
-			"content": "Question || Phrase",
-			"answers":["rep1","rep2"],
-			"correct":["rep1"],
-			"nextCorrect":[2],
+			"content": "",
+			"answers":[""],
+			"correct":[""],
+			"nextCorrect":[],
 			"nextIncorrect":[]
 		}
 		
 	},
 	"2" : {
+<<<<<<< HEAD
 		"2":{
 			"content": "Hmmm, maintenant que vous me le dites, votre visage me dis quelque chose...",
 			"answers":["Vraiment ?!","Comme par hasard, vous n'�tes pas le premier � me dire cela !"],
 			"correct":["Vraiment ?!"],
 			"nextCorrect":[3],
 			"nextIncorrect":[6]
+=======
+		"1":{
+			"content": "",
+			"answers":[],
+			"correct":[],
+			"nextCorrect":[],
+			"nextIncorrect":[]
+>>>>>>> branch 'main' of git@gitlab-etu.fil.univ-lille1.fr:woirhaye/l2s4-projet-2022.git
 		}
 	},
 	"3" : {
 		"1":{
+<<<<<<< HEAD
 			"content": "Oui vraiment, je pense avoir aper�u un homme vous ressemblant en direction de...",
 			"answers":["Merci Beaucoup. Aurevoir !"],
 			"correct":["Merci Beaucoup. Aurevoir !"],
+=======
+			"content": "",
+			"answers":[],
+			"correct":[],
+>>>>>>> branch 'main' of git@gitlab-etu.fil.univ-lille1.fr:woirhaye/l2s4-projet-2022.git
 			"nextCorrect":[],
 			"nextIncorrect":[]
 		}
+<<<<<<< HEAD
 	},
 	"4" : {
 		"1":{
@@ -76,6 +100,8 @@
 			"nextIncorrect":[]
 		}
 	}
+=======
+>>>>>>> branch 'main' of git@gitlab-etu.fil.univ-lille1.fr:woirhaye/l2s4-projet-2022.git
 	}
 	
 }
