@@ -1,24 +1,24 @@
 {
 	"1" : {
 		"1":{
-			"content": "Bonjour jeune étranger, que puis je faire pour vous aider ?",
-			"answers":["Je suis à la recherche de mon père, peut être me reconnaisez vous ?","Je suis entrain de parcourir le royaume, auriez vous des conseilles à me donner ?"],
-			"correct":["Je suis à la recherche de mon père, peut être me reconnaisez vous ?"],
+			"content": "Bonjour jeune ï¿½tranger, que puis je faire pour vous aider ?",
+			"answers":["Je suis ï¿½ la recherche de mon pï¿½re, peut ï¿½tre me reconnaisez vous ?","Je suis entrain de parcourir le royaume, auriez vous des conseilles ï¿½ me donner ?"],
+			"correct":["Je suis ï¿½ la recherche de mon pï¿½re, peut ï¿½tre me reconnaisez vous ?"],
 			"nextCorrect":[2],
 			"nextIncorrect":[4]
 		},
 		"2":{
-			"content": "Question || Phrase",
-			"answers":["rep1","rep2"],
-			"correct":["rep1"],
+			"content": "Un Ã©tranger dans notre beau royaume ?! Avez vous besoin d'aide ?",
+			"answers":["J'aimerai dÃ©couvrir d'oÃ¹ je viens, mon pÃ¨re serait d'ici.","Pourriez vous me conseillez des endroits Ã  visiter dans votre beau royaume ?"],
+			"correct":["J'aimerai dÃ©couvrir d'oÃ¹ je viens, mon pÃ¨re serait d'ici."],
 			"nextCorrect":[2],
-			"nextIncorrect":[]
+			"nextIncorrect":[4]
 		},
 		"3":{
-			"content": "Question || Phrase",
-			"answers":["rep1","rep2"],
-			"correct":["rep1"],
-			"nextCorrect":[2],
+			"content": "Ce n'est pas possible, vous... vous... vous lui ressemblez !",
+			"answers":["De qui parlez vous ?"],
+			"correct":["De qui parlez vous ?"],
+			"nextCorrect":[8],
 			"nextIncorrect":[]
 		}
 		
@@ -26,7 +26,7 @@
 	"2" : {
 		"2":{
 			"content": "Hmmm, maintenant que vous me le dites, votre visage me dis quelque chose...",
-			"answers":["Vraiment ?!","Comme par hasard, vous n'êtes pas le premier à me dire cela !"],
+			"answers":["Vraiment ?!","Comme par hasard, vous n'ï¿½tes pas le premier ï¿½ me dire cela !"],
 			"correct":["Vraiment ?!"],
 			"nextCorrect":[3],
 			"nextIncorrect":[6]
@@ -34,7 +34,7 @@
 	},
 	"3" : {
 		"1":{
-			"content": "Oui vraiment, je pense avoir aperçu un homme vous ressemblant en direction de...",
+			"content": "Oui vraiment, je pense avoir aperï¿½u un homme vous ressemblant en direction de...",
 			"answers":["Merci Beaucoup. Aurevoir !"],
 			"correct":["Merci Beaucoup. Aurevoir !"],
 			"nextCorrect":[],
@@ -43,8 +43,8 @@
 	}
 	"4" : {
 		"1":{
-			"content": "Un jeune aventurier ?! Il y'a énormément de choses à voir dans ce magnifique royaume mais je vous conseille d'aller en direction de...",
-			"answers":["Merci ! Je m'y rend de ce pas !","Je viens justement de cette direction, peut être pourriez vous me conseillez autre chose ?"],
+			"content": "Un jeune aventurier ?! Il y'a ï¿½normï¿½ment de choses ï¿½ voir dans ce magnifique royaume mais je vous conseille d'aller en direction de...",
+			"answers":["Merci ! Je m'y rend de ce pas !","Je viens justement de cette direction, peut ï¿½tre pourriez vous me conseillez autre chose ?"],
 			"correct":["Merci ! Je m'y rend de ce pas !"],
 			"nextCorrect":[],
 			"nextIncorrect":[5]
@@ -52,27 +52,36 @@
 	}
 	"5" : {
 		"1":{
-			"content":"Hmm dans ce cas là, je vous conseillerais plutôt de vous rendre dans la direction suivante...",
-			"answers":["Très bien, merci beaucoup pour votre temps"],
-			"correct":["Très bien, merci beaucoup pour votre temps"],
+			"content":"Hmm dans ce cas lï¿½, je vous conseillerais plutï¿½t de vous rendre dans la direction suivante...",
+			"answers":["Trï¿½s bien, merci beaucoup pour votre temps"],
+			"correct":["Trï¿½s bien, merci beaucoup pour votre temps"],
 			"nextCorrect":[],
 			"nextIncorrect":[]
 		}
 	}
 	"6" : {
 		"1":{
-			"content":"Je vous donne une direction et c'est comme celà que vous me remerciez ? En me traitant de menteur ! Partez ! Et ne revenez jamais, ou vous verrez de quel bois je me chauffe, Etranger !",
-			"answers":["Je voulais pas, je suis désolé, pardonnez moi"],
-			"correct":["Je voulais pas, je suis désolé, pardonnez moi"],
+			"content":"Je vous donne une direction et c'est comme celï¿½ que vous me remerciez ? En me traitant de menteur ! Partez ! Et ne revenez jamais, ou vous verrez de quel bois je me chauffe, Etranger !",
+			"answers":["Je voulais pas, je suis dï¿½solï¿½, pardonnez moi"],
+			"correct":["Je voulais pas, je suis dï¿½solï¿½, pardonnez moi"],
 			"nextCorrect":[7],
 			"nextIncorrect":[]
 		}
 	}
 	"7" : {
 		"1":{
-			"content":"Vous m'avez l'air d'un gentil jeune homme, je vais vous pardonnez. Vous trouverez ce que vous désirez le plus dans cette direction",
-			"answers":["Merci énormément ! Je m'excuse à nouveau pour mon corportement. Laissez moi vous offrir ceci"],
-			"correct":["Merci énormément ! Je m'excuse à nouveau pour mon corportement. Laissez moi vous offrir ceci"],
+			"content":"Vous m'avez l'air d'un gentil jeune homme, je vais vous pardonnez. Vous trouverez ce que vous dï¿½sirez le plus dans cette direction",
+			"answers":["Merci ï¿½normï¿½ment ! Je m'excuse ï¿½ nouveau pour mon corportement. Laissez moi vous offrir ceci"],
+			"correct":["Merci ï¿½normï¿½ment ! Je m'excuse ï¿½ nouveau pour mon corportement. Laissez moi vous offrir ceci"],
+			"nextCorrect":[],
+			"nextIncorrect":[]
+		}
+	}
+	"8" : {
+		"1":{
+			"content":"Je ne peux pas vous le dire, cela est trop dangereux pour moi. Vous trouverez les rÃ©ponses Ã  vos questions en allant dans cette direction !",
+			"answers":["D'accord... Merci...."],
+			"correct":["D'accord... Merci..."],
 			"nextCorrect":[],
 			"nextIncorrect":[]
 		}
