@@ -20,10 +20,19 @@ abstract public class GenerationAlgorithm {
 	 */
 	public abstract Map generation(int width,int heigth);
 	
+	/**
+	 * Ajoute la cellule au cellule traité .
+	 * @param cell Cellule traité. 
+	 */
 	protected void addToTreatment(Cell cell) {
 		this.cellsTreat.add(cell);
 	}
 	
+	/**
+	 * Renvoie si la cellule en paramètre est traiter ou non.
+	 * @param cell La cellule dont on veut connaitre l'etat de traitement
+	 * @return True si la cellule est traité, False dans le cas contraire.
+	 */
 	protected boolean isTreated(Cell cell) {
 		return this.cellsTreat.contains(cell);
 	}
