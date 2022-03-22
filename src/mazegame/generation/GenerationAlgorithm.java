@@ -36,19 +36,19 @@ abstract public class GenerationAlgorithm {
 	 *                    voisines
 	 * @return liste des cellules voisines non visité.
 	 */
-	public List<Cell> getUnvisitedNeighborsCells(Cell currentCell) {
+	protected List<Cell> getUntreatedNeighborsCells(Cell currentCell) {
 
-		List<Cell> unvisitedNeighborsCells = new ArrayList<Cell>(4);
+		List<Cell> untreatedNeighborsCells = new ArrayList<Cell>(4);
 
 		List<Cell> neighborsCells = this.map.getNeighborsCells(currentCell);
 
 		for (Cell neighborCell : neighborsCells) {
 			if (!this.isTreated(neighborCell)) {
-				unvisitedNeighborsCells.add(neighborCell);
+				untreatedNeighborsCells.add(neighborCell);
 			}
 		}
 
-		return unvisitedNeighborsCells;
+		return untreatedNeighborsCells;
 	}
 	
 	/**

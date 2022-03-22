@@ -30,7 +30,7 @@ public class Prim extends GenerationAlgorithm{
         this.start = new Cell(this.x,this.y,true);
         System.out.println(this.x);
         System.out.println(this.y);
-        this.neighbors.addAll(this.getUnvisitedNeighborsCells(start));
+        this.neighbors.addAll(this.getUntreatedNeighborsCells(start));
         
         this.init();
         return this.map;

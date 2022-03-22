@@ -12,7 +12,11 @@ public class Kruskal extends GenerationAlgorithm {
 
 	public Map generation(int width, int heigth) {
 		this.map = new Map(width, heigth);
-		this.init();
+
+		this.wallsList = this.initWallList();
+		this.cellListSets = this.initCellSets();
+
+		Collections.shuffle(this.wallsList);
 
 		for (List<Cell> wall : this.wallsList) {
 			Cell cell1 = wall.get(0);
@@ -23,19 +27,12 @@ public class Kruskal extends GenerationAlgorithm {
 		return this.map;
 	}
 
-	public void init() {
-		this.wallsList = this.initWallList();
-		this.cellListSets = this.initCellSets();
-
-		Collections.shuffle(this.wallsList);
-	}
-
 	/**
 	 * Renvoie une liste de tout les murs existant dans le labyrinthe
 	 * 
 	 * @return une liste de tout les murs existant dans le labyrinthe
 	 */
-	public List<List<Cell>> initWallList() {
+	private List<List<Cell>> initWallList() {
 		List<List<Cell>> wallList = new ArrayList<List<Cell>>();
 
 		for (Cell cell : this.map.getListsOfCells()) {
@@ -55,7 +52,7 @@ public class Kruskal extends GenerationAlgorithm {
 	 * 
 	 * @return une liste où chaque cellule est contenu dans un set
 	 */
-	public List<HashSet<Cell>> initCellSets() {
+	private List<HashSet<Cell>> initCellSets() {
 
 		List<HashSet<Cell>> cellSets = new ArrayList<>();
 
@@ -76,7 +73,7 @@ public class Kruskal extends GenerationAlgorithm {
 	 * @param cell1
 	 * @param cell2
 	 */
-	public void mergeCellSet(Cell cell1, Cell cell2) {
+	private void mergeCellSet(Cell cell1, Cell cell2) {
 
 		int iCell1 = 0;
 		int iCell2 = 0;

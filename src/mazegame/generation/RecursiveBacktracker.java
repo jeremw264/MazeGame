@@ -40,7 +40,7 @@ public class RecursiveBacktracker extends GenerationAlgorithm {
 
 		while (!this.stack.empty()) {
 			Cell currentCell = this.stack.peek();
-			List<Cell> unvisitedNeightboursCells = this.getUnvisitedNeighborsCells(currentCell);
+			List<Cell> unvisitedNeightboursCells = this.getUntreatedNeighborsCells(currentCell);
 
 			/*
 			 * uncomment for see step by step and uncomment in method carvePath
@@ -69,7 +69,7 @@ public class RecursiveBacktracker extends GenerationAlgorithm {
 	 * @param unvisitedNeightboursCells Liste des cellule voisine.
 	 * @return une cellule voisine aléatoire
 	 */
-	public Cell getRandomNeighBor(Cell currentCell, List<Cell> unvisitedNeightboursCells) {
+	private Cell getRandomNeighBor(Cell currentCell, List<Cell> unvisitedNeightboursCells) {
 		Collections.shuffle(unvisitedNeightboursCells);
 		return unvisitedNeightboursCells.get(0);
 
