@@ -6,7 +6,7 @@ import java.util.Stack;
 
 import mazegame.Cell;
 import mazegame.Direction;
-import mazegame.Grid;
+import mazegame.Map;
 
 /**
  * Permet de vérifier si un labyrinthe est parfait (toute les cases sont
@@ -17,7 +17,7 @@ import mazegame.Grid;
  */
 public class PerfectMazeValidator {
 
-	public Grid grid;
+	public Map map;
 	public List<Cell> cellsTreat;
 	public Stack<Cell> stack;
 
@@ -26,8 +26,8 @@ public class PerfectMazeValidator {
 	 * 
 	 * @param maze le labyrinthe aprés génération
 	 */
-	public PerfectMazeValidator(Grid grid) {
-		this.grid = grid;
+	public PerfectMazeValidator(Map map) {
+		this.map = map;
 		this.cellsTreat = new ArrayList<>();
 		this.stack = new Stack<>();
 
@@ -40,7 +40,7 @@ public class PerfectMazeValidator {
 	 * @param seedY Point de départ verticale
 	 */
 	public int verify(int seedX, int seedY) {
-		Cell startingCell = this.grid.getCell(seedX, seedY);
+		Cell startingCell = this.map.getCell(seedX, seedY);
 
 		this.stack.push(startingCell);
 		this.cellsTreat.add(startingCell);
@@ -73,7 +73,7 @@ public class PerfectMazeValidator {
 		List<Direction> accesibleDirections = this.getAccesibleDirections(currentCell);
 
 		for (Direction direction : accesibleDirections) {
-			Cell cellInDirection = this.grid.getCellWithDirection(currentCell, direction);
+			Cell cellInDirection = this.map.getCellWithDirection(currentCell, direction);
 			if (!this.cellsTreat.contains(cellInDirection)) {
 				return cellInDirection;
 			}

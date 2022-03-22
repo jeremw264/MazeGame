@@ -3,7 +3,7 @@ package mazegame;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Grid {
+public class Map {
 
 	private int width;
 	private int height;
@@ -16,10 +16,10 @@ public class Grid {
 	 * @param width  Largeur de la grille.
 	 * @param heigth Hauteur de la grille.
 	 */
-	public Grid(int width, int heigth) {
+	public Map(int width, int heigth) {
 		this.width = width;
 		this.height = heigth;
-		this.initGrid(true);
+		this.initMap(true);
 	}
 
 	/**
@@ -30,10 +30,10 @@ public class Grid {
 	 * @param wallsExist true il les murs interne doivent être généré, false dans le
 	 *                   cas contraire.
 	 */
-	public Grid(int width, int height, boolean wallsExist) {
+	public Map(int width, int height, boolean wallsExist) {
 		this.width = width;
 		this.height = height;
-		this.initGrid(wallsExist);
+		this.initMap(wallsExist);
 	}
 
 	/**
@@ -143,6 +143,64 @@ public class Grid {
 
 		return neighborsCells;
 	}
+	
+	/**
+	 * Renvoie la représentation du labyrinte en chaine de caractère.
+	 * 
+	 * @return la représentation du labyrinte en chaine de caractère.
+	 */
+	public String toString() {
+
+		StringBuilder mazeStringBuilder = new StringBuilder();
+
+		// First Line
+
+		for (int x = 0; x < this.width; x++) {
+			mazeStringBuilder.append("+---");
+		}
+
+		mazeStringBuilder.append("+\n");
+
+		// Other Line
+
+		for (int y = 0; y < this.height; y++) {
+
+			mazeStringBuilder.append("|");
+
+			for (int x = 0; x < this.width; x++) {
+				Cell cell = this.getCell(x, y);
+				if (cell.wallExist(Direction.E)) {
+
+					if (cell.isVisited()) {
+						mazeStringBuilder.append("   |");
+					} else {
+						mazeStringBuilder.append(" # |");
+					}
+				} else {
+					if (cell.isVisited()) {
+						mazeStringBuilder.append("    ");
+					} else {
+						mazeStringBuilder.append(" #  ");
+					}
+				}
+			}
+
+			mazeStringBuilder.append("\n+");
+
+			for (int x = 0; x < this.width; x++) {
+				if (this.getCell(x, y).wallExist(Direction.S)) {
+					mazeStringBuilder.append("---+");
+				} else {
+					mazeStringBuilder.append("   +");
+				}
+			}
+
+			mazeStringBuilder.append("\n");
+
+		}
+
+		return mazeStringBuilder.toString();
+	}
 
 	/**
 	 * Crée une représentation de la grille sous la forme d'une liste de cellule.
@@ -150,7 +208,7 @@ public class Grid {
 	 * @param wallsExist true si la grille crée doit contenir de mur interne, false
 	 *                   dans le cas contraire.
 	 */
-	private void initGrid(boolean wallsExist) {
+	private void initMap(boolean wallsExist) {
 
 		this.cellsList = new ArrayList<>(this.height * this.width);
 

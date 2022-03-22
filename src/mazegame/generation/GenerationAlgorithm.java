@@ -7,7 +7,7 @@ import mazegame.*;
 
 abstract public class GenerationAlgorithm {
 
-	protected Grid grid;
+	protected Map map;
 	
 	protected List<Cell> cellsTreat;
 	
@@ -18,7 +18,7 @@ abstract public class GenerationAlgorithm {
 	 * @param heigth hauteur du labyrinthe.
 	 * @return grille qui représente le labyrinthe.
 	 */
-	public abstract Grid generation(int width,int heigth);
+	public abstract Map generation(int width,int heigth);
 	
 	protected void addToTreatment(Cell cell) {
 		this.cellsTreat.add(cell);
@@ -40,7 +40,7 @@ abstract public class GenerationAlgorithm {
 
 		List<Cell> unvisitedNeighborsCells = new ArrayList<Cell>(4);
 
-		List<Cell> neighborsCells = this.grid.getNeighborsCells(currentCell);
+		List<Cell> neighborsCells = this.map.getNeighborsCells(currentCell);
 
 		for (Cell neighborCell : neighborsCells) {
 			if (!this.isTreated(neighborCell)) {

@@ -1,5 +1,7 @@
 package mazegame.character.player;
 
-public class Hero {
+import mazegame.character.Player;
+
+public class Hero extends Player {
 
 }

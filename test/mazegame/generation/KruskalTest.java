@@ -8,7 +8,7 @@ public class KruskalTest extends GenerationAlgorithmTest{
 	@Before
 	public void setUp()  {
 		GenerationAlgorithm algorithm = new Kruskal();
-		this.grid = algorithm.generation(this.gridWidth, this.gridHeigth);
+		this.map = algorithm.generation(this.gridWidth, this.gridHeigth);
 	}
 
 }

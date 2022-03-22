@@ -3,7 +3,7 @@ package mazegame.utils;
 import java.util.List;
 
 import mazegame.Game;
-import mazegame.Maze;
+import mazegame.Map;
 
 /**
  * Classe Responsable des affichage en console.
@@ -31,8 +31,8 @@ public class ConsoleDisplayer implements Displayer {
 	}
 
 	@Override
-	public void displayMaze(Maze maze) {
-		System.out.println(maze);
+	public void displayMap(Map map) {
+		System.out.println(map);
 	}
 
 	@Override

@@ -2,16 +2,16 @@ package mazegame.generation;
 
 import java.util.Random;
 
-import mazegame.Grid;
+import mazegame.Map;
 
 public class RecursiveDivision extends GenerationAlgorithm
 {
 	
 	@Override
-	public Grid generation(int width, int height) 
+	public Map generation(int width, int height) 
 	{
-		this.grid = new Grid(width, height, false);	
-		return this.grid;
+		this.map = new Map(width, height, false);	
+		return this.map;
 	}
 	
 	private void divide(int x, int y, int width, int height)

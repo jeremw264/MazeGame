@@ -3,14 +3,15 @@ package mazegame.generation;
 import java.util.*;
 
 import mazegame.*;
+import mazegame.Map;
 
 public class Kruskal extends GenerationAlgorithm {
 
 	private List<List<Cell>> wallsList;
 	private List<HashSet<Cell>> cellListSets;
 
-	public Grid generation(int width, int heigth) {
-		this.grid = new Grid(width, heigth);
+	public Map generation(int width, int heigth) {
+		this.map = new Map(width, heigth);
 		this.init();
 
 		for (List<Cell> wall : this.wallsList) {
@@ -19,7 +20,7 @@ public class Kruskal extends GenerationAlgorithm {
 			this.mergeCellSet(cell1, cell2);
 		}
 
-		return this.grid;
+		return this.map;
 	}
 
 	public void init() {
@@ -37,8 +38,8 @@ public class Kruskal extends GenerationAlgorithm {
 	public List<List<Cell>> initWallList() {
 		List<List<Cell>> wallList = new ArrayList<List<Cell>>();
 
-		for (Cell cell : this.grid.getListsOfCells()) {
-			for (Cell neighbor : this.grid.getNeighborsCells(cell)) {
+		for (Cell cell : this.map.getListsOfCells()) {
+			for (Cell neighbor : this.map.getNeighborsCells(cell)) {
 				List<Cell> wall = new ArrayList<>(2);
 				wall.add(cell);
 				wall.add(neighbor);
@@ -58,7 +59,7 @@ public class Kruskal extends GenerationAlgorithm {
 
 		List<HashSet<Cell>> cellSets = new ArrayList<>();
 
-		for (Cell cell : this.grid.getListsOfCells()) {
+		for (Cell cell : this.map.getListsOfCells()) {
 
 			HashSet<Cell> set = new HashSet<Cell>();
 			set.add(cell);

@@ -3,7 +3,7 @@ package mazegame.utils;
 import java.util.List;
 
 import mazegame.Game;
-import mazegame.Maze;
+import mazegame.Map;
 
 public interface Displayer {
 
@@ -20,7 +20,7 @@ public interface Displayer {
 	/**
 	 * Affiche le labyrinthe.
 	 */
-	public void displayMaze(Maze maze);
+	public void displayMap(Map map);
 
 	/**
 	 * Affiche l'état du jeu.

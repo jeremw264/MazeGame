@@ -30,11 +30,11 @@ public class RecursiveBacktracker extends GenerationAlgorithm {
 	 *
 	 * @param maze Le labyrinthe qu'on veut modifié.
 	 */
-	public Grid generation(int width,int heigth) {
+	public Map generation(int width,int heigth) {
 		
-		this.grid = new Grid(width, heigth);
+		this.map = new Map(width, heigth);
 
-		Cell startCell = this.grid.getCell(this.seedX, this.seedY);
+		Cell startCell = this.map.getCell(this.seedX, this.seedY);
 		this.addToTreatment(startCell);
 		this.stack.push(startCell);
 
@@ -58,7 +58,7 @@ public class RecursiveBacktracker extends GenerationAlgorithm {
 			}
 		}
 		
-		return this.grid;
+		return this.map;
 	}
 
 	/**

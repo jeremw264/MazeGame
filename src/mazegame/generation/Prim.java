@@ -3,6 +3,8 @@ package mazegame.generation;
 import java.util.*;
 
 import mazegame.*;
+import mazegame.Map;
+
 
 public class Prim extends GenerationAlgorithm{
 
@@ -21,17 +23,17 @@ public class Prim extends GenerationAlgorithm{
     }
     
     /*Génération d'une grille avec tous les murs placés*/
-    public Grid generation(int width, int height){
-        this.grid = new Grid(width, height);
-        this.x = (int)Math.random()*(this.grid.getWidth());
-        this.y = (int)Math.random()*(this.grid.getHeight());
+    public Map generation(int width, int height){
+        this.map = new Map(width, height);
+        this.x = (int)Math.random()*(this.map.getWidth());
+        this.y = (int)Math.random()*(this.map.getHeight());
         this.start = new Cell(this.x,this.y,true);
         System.out.println(this.x);
         System.out.println(this.y);
         this.neighbors.addAll(this.getUnvisitedNeighborsCells(start));
         
         this.init();
-        return this.grid;
+        return this.map;
     }
     
     /*Mise en place de coordonnées aléatoires pour le point de départ*/

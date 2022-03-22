@@ -7,24 +7,24 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-public class GridTest {
+public class MapTest {
 
-	private Grid grid;
+	private Map map;
 	private int width = 5;
 	private int height = 5;
 
 	@Before
 	public void setUp() throws Exception {
-		this.grid = new Grid(this.width, this.height);
+		this.map = new Map(this.width, this.height);
 	}
 
 	@Test
-	public void createGridWithWall() {
+	public void createMapWithWall() {
 		this.borderIsNotOpen(true);
 		for (int y = 1; y < this.height - 2; y++) {
 			for (int x = 1; x < this.width - 2; x++) {
 				for (Direction direction : Direction.values()) {
-					assertTrue(this.grid.getCell(x, y).wallExist(direction));
+					assertTrue(this.map.getCell(x, y).wallExist(direction));
 				}
 			}
 
@@ -32,13 +32,13 @@ public class GridTest {
 	}
 
 	@Test
-	public void createGridWithoutWall() {
-		this.grid = new Grid(this.width, this.height, false);
+	public void createMapWithoutWall() {
+		this.map = new Map(this.width, this.height, false);
 		this.borderIsNotOpen(false);
 		for (int y = 1; y < this.height - 2; y++) {
 			for (int x = 1; x < this.width - 2; x++) {
 				for (Direction direction : Direction.values()) {
-					assertFalse(this.grid.getCell(x, y).wallExist(direction));
+					assertFalse(this.map.getCell(x, y).wallExist(direction));
 				}
 			}
 
@@ -55,8 +55,8 @@ public class GridTest {
 		for (int i = 1; i < l; i++) {
 			for (Direction direction : Direction.values()) {
 				if (i < this.height - 1) {
-					Cell leftCell = this.grid.getCell(0, i);
-					Cell rightCell = this.grid.getCell(this.width-1, i);
+					Cell leftCell = this.map.getCell(0, i);
+					Cell rightCell = this.map.getCell(this.width-1, i);
 					if (direction == Direction.O) {
 						assertTrue(leftCell.wallExist(direction));
 						assertEquals(rightCell.wallExist(direction),containsWall);
@@ -71,8 +71,8 @@ public class GridTest {
 					}
 				}
 				if (i < this.width - 1) {
-					Cell topCell = this.grid.getCell(i,0);
-					Cell bottomCell = this.grid.getCell(i,this.width-1);
+					Cell topCell = this.map.getCell(i,0);
+					Cell bottomCell = this.map.getCell(i,this.width-1);
 					if (direction == Direction.N) {
 						assertTrue(topCell.wallExist(direction));
 						assertEquals(bottomCell.wallExist(direction),containsWall);
@@ -91,10 +91,10 @@ public class GridTest {
 	}
 	
 	public void cornersIsNotOpen(boolean containsWall) {
-		Cell c1 = this.grid.getCell(0, 0);
-		Cell c2 = this.grid.getCell(this.width - 1, 0);
-		Cell c3 = this.grid.getCell(0, this.height - 1);
-		Cell c4 = this.grid.getCell(this.width - 1, this.height - 1);
+		Cell c1 = this.map.getCell(0, 0);
+		Cell c2 = this.map.getCell(this.width - 1, 0);
+		Cell c3 = this.map.getCell(0, this.height - 1);
+		Cell c4 = this.map.getCell(this.width - 1, this.height - 1);
 		
 		assertTrue(c1.wallExist(Direction.O));
 		assertTrue(c1.wallExist(Direction.N));
@@ -118,21 +118,21 @@ public class GridTest {
 	@Test
 	public void getWidthTest() {
 		int width = 10;
-		this.grid = new Grid(width, this.height);
-		assertEquals(this.grid.getWidth(), width);
+		this.map = new Map(width, this.height);
+		assertEquals(this.map.getWidth(), width);
 	}
 
 	@Test
 	public void getHeightTest() {
 		int height = 7;
-		this.grid = new Grid(this.width, height);
-		assertEquals(this.grid.getHeight(), height);
+		this.map = new Map(this.width, height);
+		assertEquals(this.map.getHeight(), height);
 	}
 
 	@Test
 	public void correctSizeForListOfCells() {
 		int normalSize = this.height * this.width;
-		List<Cell> cellsList = this.grid.getListsOfCells();
+		List<Cell> cellsList = this.map.getListsOfCells();
 		assertEquals(normalSize, cellsList.size());
 	}
 
@@ -140,10 +140,10 @@ public class GridTest {
 	public void getCellTest() {
 		int indexMiddleRightCell = 24;
 
-		Cell cell = this.grid.getCell(4, 4);
+		Cell cell = this.map.getCell(4, 4);
 
-		int indexInList = this.grid.getListsOfCells().indexOf(cell);
-		assertSame(cell, this.grid.getListsOfCells().get(indexMiddleRightCell));
+		int indexInList = this.map.getListsOfCells().indexOf(cell);
+		assertSame(cell, this.map.getListsOfCells().get(indexMiddleRightCell));
 
 		assertEquals(indexInList,indexMiddleRightCell);
 
@@ -151,15 +151,15 @@ public class GridTest {
 
 	@Test
 	public void getCellOutOfBound() {
-		Cell cellOut = this.grid.getCell(this.width + 1, this.height);
+		Cell cellOut = this.map.getCell(this.width + 1, this.height);
 		assertNull(cellOut);
 	}
 
 	@Test
 	public void getCellWithDirection() {
-		Cell currentCell = this.grid.getCell(2, 2);
-		Cell nextCell = this.grid.getCell(2, 1);
-		Cell directionCell = this.grid.getCellWithDirection(currentCell, Direction.N);
+		Cell currentCell = this.map.getCell(2, 2);
+		Cell nextCell = this.map.getCell(2, 1);
+		Cell directionCell = this.map.getCellWithDirection(currentCell, Direction.N);
 		assertSame(nextCell, directionCell);
 		assertEquals(currentCell.getY() - 1, directionCell.getY());
 	}
@@ -169,7 +169,7 @@ public class GridTest {
 		Cell currentCell = new Cell(0, 0);
 		Cell neighborXCell = new Cell(1, 0);
 		Cell neighborYCell = new Cell(0, 1);
-		List<Cell> neighborsCells = this.grid.getNeighborsCells(currentCell);
+		List<Cell> neighborsCells = this.map.getNeighborsCells(currentCell);
 
 		assertTrue(neighborsCells.contains(neighborXCell));
 		assertTrue(neighborsCells.contains(neighborYCell));

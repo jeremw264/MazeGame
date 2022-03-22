@@ -6,12 +6,12 @@ import org.junit.Before;
 import org.junit.Test;
 
 import mazegame.Direction;
-import mazegame.Grid;
+import mazegame.Map;
 
 public class GenerationAlgorithmTest {
 
 	protected int gridWidth, gridHeigth;
-	protected Grid grid;
+	protected Map map;
 
 	public GenerationAlgorithmTest() {
 		this.gridWidth = 5;
@@ -20,24 +20,24 @@ public class GenerationAlgorithmTest {
 
 	@Before
 	public void setUp() {
-		this.grid = new Grid(gridWidth, gridHeigth, false);
+		this.map = new Map(gridWidth, gridHeigth, false);
 	}
 
 	@Test
 	public void borderIsNotOpen() {
 		for (int x = 0; x < this.gridWidth; x++) {
-			assertTrue(this.grid.getCell(x, 0).wallExist(Direction.N));
-			assertTrue(this.grid.getCell(x, this.gridHeigth - 1).wallExist(Direction.S));
+			assertTrue(this.map.getCell(x, 0).wallExist(Direction.N));
+			assertTrue(this.map.getCell(x, this.gridHeigth - 1).wallExist(Direction.S));
 		}
 		for (int y = 0; y < this.gridHeigth; y++) {
-			assertTrue(this.grid.getCell(0, y).wallExist(Direction.O));
-			assertTrue(this.grid.getCell(this.gridWidth - 1, y).wallExist(Direction.E));
+			assertTrue(this.map.getCell(0, y).wallExist(Direction.O));
+			assertTrue(this.map.getCell(this.gridWidth - 1, y).wallExist(Direction.E));
 		}
 	}
 
 	@Test
 	public void verifyPerfectMaze() {
-		PerfectMazeValidator validator = new PerfectMazeValidator(this.grid);
+		PerfectMazeValidator validator = new PerfectMazeValidator(this.map);
 		assertEquals(validator.verify(0, 0),this.gridHeigth*this.gridWidth);
 	}
 	
