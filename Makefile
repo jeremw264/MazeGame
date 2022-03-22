@@ -1,0 +1,6 @@
+
+JC = javac
+
+all: 
+
+clean:
