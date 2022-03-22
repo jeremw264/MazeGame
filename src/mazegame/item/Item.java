@@ -1,5 +1,5 @@
 package mazegame.item;
 
-public class Item {
+public interface Item {
 	
 }

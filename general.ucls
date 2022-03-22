@@ -16,12 +16,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <package id="3" language="java" name="mazegame.character" project="l2s4-projet-2022" 
-    file="/l2s4-projet-2022/src/mazegame/character" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="47" width="146" x="632" y="244"/>    
-    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
-  </package>  
-  <interface id="4" language="java" name="mazegame.utils.Displayer" project="l2s4-projet-2022" 
+  <interface id="3" language="java" name="mazegame.utils.Displayer" project="l2s4-projet-2022" 
     file="/l2s4-projet-2022/src/mazegame/utils/Displayer.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="205" width="194" x="2192" y="525"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
@@ -30,7 +25,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="5" language="java" name="mazegame.generation.Prim" project="l2s4-projet-2022" 
+  <class id="4" language="java" name="mazegame.generation.Prim" project="l2s4-projet-2022" 
     file="/l2s4-projet-2022/src/mazegame/generation/Prim.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="187" width="203" x="1348" y="788"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
@@ -39,7 +34,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="mazegame.Cell" project="l2s4-projet-2022" 
+  <class id="5" language="java" name="mazegame.Cell" project="l2s4-projet-2022" 
     file="/l2s4-projet-2022/src/mazegame/Cell.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="475" width="200" x="1835" y="1087"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
@@ -48,7 +43,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="mazegame.generation.Kruskal" project="l2s4-projet-2022" 
+  <class id="6" language="java" name="mazegame.generation.Kruskal" project="l2s4-projet-2022" 
     file="/l2s4-projet-2022/src/mazegame/generation/Kruskal.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="205" width="188" x="1120" y="788"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
@@ -57,7 +52,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="mazegame.generation.RecursiveDivision" project="l2s4-projet-2022" 
+  <class id="7" language="java" name="mazegame.generation.RecursiveDivision" project="l2s4-projet-2022" 
     file="/l2s4-projet-2022/src/mazegame/generation/RecursiveDivision.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="115" width="136" x="1875" y="788"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
@@ -66,25 +61,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="mazegame.character.pnj.Samaritan" project="l2s4-projet-2022" 
-    file="/l2s4-projet-2022/src/mazegame/character/pnj/Samaritan.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="169" width="136" x="2182" y="1602"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="10" language="java" name="mazegame.character.Pnj" project="l2s4-projet-2022" 
-    file="/l2s4-projet-2022/src/mazegame/character/Pnj.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="187" width="136" x="2534" y="1087"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="11" language="java" name="mazegame.generation.GenerationAlgorithm" project="l2s4-projet-2022" 
+  <class id="8" language="java" name="mazegame.generation.GenerationAlgorithm" project="l2s4-projet-2022" 
     file="/l2s4-projet-2022/src/mazegame/generation/GenerationAlgorithm.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="187" width="231" x="1835" y="525"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
@@ -93,7 +70,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="mazegame.main.MainGame" project="l2s4-projet-2022" 
+  <class id="9" language="java" name="mazegame.main.MainGame" project="l2s4-projet-2022" 
     file="/l2s4-projet-2022/src/mazegame/main/MainGame.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="97" width="113" x="818" y="244"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
@@ -102,16 +79,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="13" language="java" name="mazegame.character.pnj.Sphinx" project="l2s4-projet-2022" 
-    file="/l2s4-projet-2022/src/mazegame/character/pnj/Sphinx.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="169" width="136" x="2358" y="1602"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="14" language="java" name="mazegame.Game" project="l2s4-projet-2022" 
+  <class id="10" language="java" name="mazegame.Game" project="l2s4-projet-2022" 
     file="/l2s4-projet-2022/src/mazegame/Game.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="241" width="130" x="2712" y="244"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
@@ -120,7 +88,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="15" language="java" name="mazegame.Grid" project="l2s4-projet-2022" 
+  <class id="11" language="java" name="mazegame.Grid" project="l2s4-projet-2022" 
     file="/l2s4-projet-2022/src/mazegame/Grid.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="259" width="214" x="2224" y="788"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
@@ -129,7 +97,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="16" language="java" name="mazegame.utils.Input" project="l2s4-projet-2022" 
+  <interface id="12" language="java" name="mazegame.utils.Input" project="l2s4-projet-2022" 
     file="/l2s4-projet-2022/src/mazegame/utils/Input.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="79" width="108" x="2797" y="525"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
@@ -138,16 +106,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="17" language="java" name="mazegame.character.pnj.Vendor" project="l2s4-projet-2022" 
-    file="/l2s4-projet-2022/src/mazegame/character/pnj/Vendor.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="169" width="136" x="2534" y="1602"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <enumeration id="18" language="java" name="mazegame.Direction" project="l2s4-projet-2022" 
+  <enumeration id="13" language="java" name="mazegame.Direction" project="l2s4-projet-2022" 
     file="/l2s4-projet-2022/src/mazegame/Direction.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="205" width="169" x="971" y="244"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
@@ -156,12 +115,12 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <package id="19" language="java" name="mazegame.main" project="l2s4-projet-2022" 
+  <package id="14" language="java" name="mazegame.main" project="l2s4-projet-2022" 
     file="/l2s4-projet-2022/src/mazegame/main" binary="false" corner="BOTTOM_RIGHT">    
     <position height="47" width="118" x="1180" y="244"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
-  <class id="20" language="java" name="mazegame.generation.BinaryTree" project="l2s4-projet-2022" 
+  <class id="15" language="java" name="mazegame.generation.BinaryTree" project="l2s4-projet-2022" 
     file="/l2s4-projet-2022/src/mazegame/generation/BinaryTree.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="97" width="133" x="2051" y="788"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
@@ -170,7 +129,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="21" language="java" name="mazegame.utils.Discussion" project="l2s4-projet-2022" 
+  <class id="16" language="java" name="mazegame.utils.Discussion" project="l2s4-projet-2022" 
     file="/l2s4-projet-2022/src/mazegame/utils/Discussion.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="223" width="186" x="1338" y="244"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
@@ -179,25 +138,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="22" language="java" name="mazegame.character.player.Hero" project="l2s4-projet-2022" 
-    file="/l2s4-projet-2022/src/mazegame/character/player/Hero.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="97" width="126" x="2873" y="1602"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="23" language="java" name="mazegame.item.Item" project="l2s4-projet-2022" 
-    file="/l2s4-projet-2022/src/mazegame/item/Item.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="79" width="85" x="2057" y="1602"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="24" language="java" name="mazegame.Maze" project="l2s4-projet-2022" 
+  <class id="17" language="java" name="mazegame.Maze" project="l2s4-projet-2022" 
     file="/l2s4-projet-2022/src/mazegame/Maze.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="223" width="265" x="2426" y="525"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
@@ -206,40 +147,17 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="25" language="java" name="mazegame.character.Character" project="l2s4-projet-2022" 
-    file="/l2s4-projet-2022/src/mazegame/character/Character.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="241" width="213" x="2478" y="788"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <package id="26" language="java" name="mazegame.character.player" project="l2s4-projet-2022" 
-    file="/l2s4-projet-2022/src/mazegame/character/player" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="47" width="184" x="1564" y="244"/>    
-    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
-  </package>  
-  <class id="27" language="java" name="mazegame.character.Player" project="l2s4-projet-2022" 
-    file="/l2s4-projet-2022/src/mazegame/character/Player.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="115" width="123" x="2733" y="1087"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <package id="28" language="java" name="mazegame.generation" project="l2s4-projet-2022" 
+  <package id="18" language="java" name="mazegame.generation" project="l2s4-projet-2022" 
     file="/l2s4-projet-2022/src/mazegame/generation" binary="false" corner="BOTTOM_RIGHT">    
     <position height="47" width="151" x="1788" y="244"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
-  <package id="29" language="java" name="mazegame" project="l2s4-projet-2022" file="/l2s4-projet-2022/src/mazegame" 
+  <package id="19" language="java" name="mazegame" project="l2s4-projet-2022" file="/l2s4-projet-2022/src/mazegame" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="47" width="100" x="1979" y="244"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
-  <class id="30" language="java" name="mazegame.utils.ConsoleInput" project="l2s4-projet-2022" 
+  <class id="20" language="java" name="mazegame.utils.ConsoleInput" project="l2s4-projet-2022" 
     file="/l2s4-projet-2022/src/mazegame/utils/ConsoleInput.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="115" width="117" x="2882" y="244"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
@@ -248,21 +166,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <package id="31" language="java" name="mazegame.character.pnj" project="l2s4-projet-2022" 
-    file="/l2s4-projet-2022/src/mazegame/character/pnj" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="47" width="165" x="2119" y="244"/>    
-    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
-  </package>  
-  <class id="32" language="java" name="mazegame.character.pnj.Imp" project="l2s4-projet-2022" 
-    file="/l2s4-projet-2022/src/mazegame/character/pnj/Imp.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="151" width="123" x="2710" y="1602"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="33" language="java" name="mazegame.generation.RecursiveBacktracker" project="l2s4-projet-2022" 
+  <class id="21" language="java" name="mazegame.generation.RecursiveBacktracker" project="l2s4-projet-2022" 
     file="/l2s4-projet-2022/src/mazegame/generation/RecursiveBacktracker.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="151" width="223" x="1591" y="788"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
@@ -271,199 +175,158 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <package id="34" language="java" name="mazegame.utils" project="l2s4-projet-2022" 
+  <package id="22" language="java" name="mazegame.utils" project="l2s4-projet-2022" 
     file="/l2s4-projet-2022/src/mazegame/utils" binary="false" corner="BOTTOM_RIGHT">    
     <position height="47" width="114" x="2324" y="244"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
-  <association id="35">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="36" name="items"/>      
-      <multiplicity id="37" minimum="0" maximum="2147483647"/>    
+  <association id="23">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="24" name="stack">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="25" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="23" navigable="true"/>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="26">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="8"/>  
+  </generalization>  
+  <association id="27">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="28" name="maze">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="29" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="30">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="31" name="INPUT">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="32" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="33">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="8"/>  
+  </generalization>  
+  <generalization id="34">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="8"/>  
+  </generalization>  
+  <association id="35">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="36" name="neighbors">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="37" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="38">    
-    <end type="SOURCE" refId="25" navigable="false">      
-      <attribute id="39" name="currentCell"/>      
-      <multiplicity id="40" minimum="0" maximum="1"/>    
+    <bendpoint x="1844" y="788"/>    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="39" name="cellsTreat">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="40" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
+    <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="41">    
-    <end type="SOURCE" refId="27"/>    
-    <end type="TARGET" refId="25"/>  
-  </generalization>  
-  <generalization id="42">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="11"/>  
-  </generalization>  
-  <generalization id="43">    
-    <end type="SOURCE" refId="33"/>    
-    <end type="TARGET" refId="11"/>  
-  </generalization>  
-  <generalization id="44">    
+  <association id="41">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="42" name="cellsList">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="43" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="44">    
     <end type="SOURCE" refId="20"/>    
-    <end type="TARGET" refId="11"/>  
-  </generalization>  
-  <generalization id="45">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="11"/>  
-  </generalization>  
-  <association id="46">    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="47" name="maze"/>      
-      <multiplicity id="48" minimum="0" maximum="1"/>    
+    <end type="TARGET" refId="12"/>  
+  </realization>  
+  <association id="45">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="46" name="grid">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="47" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="24" navigable="true"/>    
+    <end type="TARGET" refId="11" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="49">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="11"/>  
+  <generalization id="48">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="8"/>  
   </generalization>  
+  <realization id="49">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="3"/>  
+  </realization>  
   <association id="50">    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="51" name="DISPLAYER"/>      
-      <multiplicity id="52" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="51" name="start">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="52" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
+    <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="53">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="54" name="grid"/>      
-      <multiplicity id="55" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="54" name="DISPLAYER">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="55" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="15" navigable="true"/>    
+    <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="56">    
-    <end type="SOURCE" refId="30"/>    
-    <end type="TARGET" refId="16"/>  
-  </realization>  
-  <generalization id="57">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="10"/>  
+  <generalization id="56">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="8"/>  
   </generalization>  
-  <generalization id="58">    
-    <end type="SOURCE" refId="17"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <association id="59">    
-    <bendpoint x="2721" y="525"/>    
-    <bendpoint x="2721" y="788"/>    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="60" name="pnjList"/>      
-      <multiplicity id="61" minimum="0" maximum="2147483647"/>    
+  <association id="57">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="58" name="grid">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="59" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="62">    
-    <bendpoint x="2742" y="525"/>    
-    <bendpoint x="2742" y="788"/>    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="63" name="player"/>      
-      <multiplicity id="64" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="27" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="65">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <generalization id="66">    
-    <end type="SOURCE" refId="32"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <association id="67">    
-    <bendpoint x="2276" y="1087"/>    
-    <end type="SOURCE" refId="25" navigable="false">      
-      <attribute id="68" name="inventory"/>      
-      <multiplicity id="69" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="23" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="70">    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="71" name="cellsList"/>      
-      <multiplicity id="72" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="73">    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="74" name="INPUT"/>      
-      <multiplicity id="75" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="76">    
-    <end type="SOURCE" refId="24" navigable="false">      
-      <attribute id="77" name="grid"/>      
-      <multiplicity id="78" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="15" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="79">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="80" name="characters"/>      
-      <multiplicity id="81" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="25" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="82">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="83" name="start"/>      
-      <multiplicity id="84" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="85">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="4"/>  
-  </realization>  
-  <association id="86">    
-    <end type="SOURCE" refId="33" navigable="false">      
-      <attribute id="87" name="stack"/>      
-      <multiplicity id="88" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="89">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="25"/>  
-  </generalization>  
-  <generalization id="90">    
-    <end type="SOURCE" refId="22"/>    
-    <end type="TARGET" refId="27"/>  
-  </generalization>  
-  <association id="91">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="92" name="neighbors"/>      
-      <multiplicity id="93" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="94">    
-    <bendpoint x="1844" y="788"/>    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="95" name="cellsTreat"/>      
-      <multiplicity id="96" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
+    <end type="TARGET" refId="11" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
