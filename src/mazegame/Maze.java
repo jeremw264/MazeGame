@@ -111,6 +111,9 @@ public class Maze {
 					if (cell.containPlayer()) {
 						mazeStringBuilder.append(" H |");
 					}
+					else if (cell.containPnj()) {
+						mazeStringBuilder.append(" C |");
+					}
 					else if (cell.isVisited()) {
 						mazeStringBuilder.append("   |");
 					} else {

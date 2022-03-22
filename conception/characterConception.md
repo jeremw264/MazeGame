@@ -84,13 +84,38 @@ Precedement nous avons défini les caractéristique de chaque personnage ainsi q
 
 Maintenant comment l'implémenter puisque l'idéale serait de pouvoir appliqué plusieurs contrainte :
 
-- Générisité entre chaque personage
+- Générisité entre les personages
 - Code facilement testable
 - Facilement modifiable
 
-Premierement l'idéale serait de faire une classe abstraite pour les personnages, car comme on peut le voir ci-dessus les personnages on des actions similaire (bouger,discuter,stocker) puis chaque personnage héritera de cette classe et modifira certaine méthode ou en définira selon sa particularité, pour pouvoir facilement teste le code il serait très pratique de ne pas faire de rendu de trace en console mais de gérér cela dans la classe principale de notre jeu (Classe Game) même si elle n'est pas encore défini cela nous permettra d'obtenir un code facilement testable et stable la seule dificulter poura etre l'attende de saisie utilisateur.
+Ici nous pouvons distinguer deux type de personnage, le Hero qui va ce deplacer en fonction des saisie de l'utilisateur (joueur) et les autres personnages qui n'ont pas a attendre de saisie de l'utilisateur. Même si les deux type sont different il est utile de les distinger car même si leurs comportement est similaire, il va varier a cause de l'utilisateur.
 
-Donc nos personnages hériterons de la classe Character, ils auront des methodes pour savoir si il peuveut bouger, parler , vendre ou autre
+Nous avons donc le Joueur qui controlle le Hero et les Pnj donc les autres personnage. Nous avons choisie de crée une classe abstraite Character pour representer les personnages.
+
+Puis nos deux type de personnage qui sont également des personnages, Pnj et Player qui hérite de Character. Puis nous avons Hero qui hérite de Player et les autre de Pnj.
+
+On obtient donc:
+
+```
+Character:
+	- Player:
+		- Hero
+	- Pnj:
+		- Imp
+		- Samaritan
+		- Sphinx
+		- Vendor
+	
+```
+
+#### Interaction Utilisateur
+
+Ici dans la classe Game nous allons utiliser deux objet un displayer et un input mais pourquoi ce choix ?
+
+Il est très simple et pratique. Il nous permet de garder une ouverture vers les extensions et garde le principe ouvert-fermer car si dans le futur on ne veut plus faire un affichage en console, il suffira de crée une nouvelle classe qui implémente Displayer et qui s'occupera des affichages le même fonctionnement pour Input.
+
+Les gestion avec l'utilisateur sont un peu complique, car part exemple prenons l'exemple des discutions avec les personnages si on veut centraliser les saisie utilisateur il faut donc que le personnage nous parle puis il doit attendre que l'utilisateur réponds et le probleme est ici. Donc si on veut garder un code facilement testable il faut bien faire attention a ce que l'entre de l'utilisateur soit prise en compte. Il faudra donc gerer cela au plus haut niveau du jeu donc dans Game 
+
 
 #### Discuter 
 

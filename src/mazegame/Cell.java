@@ -6,7 +6,7 @@ import java.util.List;
 
 import mazegame.character.Character;
 import mazegame.character.Player;
-import mazegame.character.player.Hero;
+import mazegame.character.Pnj;
 import mazegame.item.Item;
 
 /**
@@ -219,6 +219,15 @@ public class Cell {
 		if (obj instanceof Cell) {
 			Cell otherCell = (Cell) obj;
 			return this.x == otherCell.getX() && this.y == otherCell.getY();
+		}
+		return false;
+	}
+
+	public boolean containPnj() {
+		for (Character character : characters) {
+			if (character instanceof Pnj) {
+				return true;
+			}
 		}
 		return false;
 	}

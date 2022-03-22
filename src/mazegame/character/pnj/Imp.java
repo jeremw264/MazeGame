@@ -18,12 +18,6 @@ public class Imp extends Pnj{
 	}
 
 	@Override
-	public Cell computeNextCell() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public boolean canSpeak() {
 		// TODO Auto-generated method stub
 		return false;

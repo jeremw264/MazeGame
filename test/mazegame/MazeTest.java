@@ -15,6 +15,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import mazegame.character.Character;
+import mazegame.character.Pnj;
 import mazegame.character.player.Hero;
 import mazegame.generation.BinaryTree;
 
@@ -25,7 +26,7 @@ public class MazeTest {
 
 	private Maze maze;
 	private int mazeWidth , mazeHeight;
-	private List<Character> characters;
+	private List<Pnj> pnjList;
 
 	/**
 	 * @throws java.lang.Exception
@@ -34,8 +35,8 @@ public class MazeTest {
 	public void setUp() throws Exception {
 		this.mazeWidth = 5;
 		this.mazeHeight = 5;
-		this.setCharactersList();
-		this.maze = new Maze(this.mazeWidth,this.mazeHeight, new BinaryTree(),this.characters);
+		this.setPnjList();
+		this.maze = new Maze(this.mazeWidth,this.mazeHeight, new BinaryTree(),this.pnjList,new Hero(0, 0));
 	}
 	
 	@Test
@@ -57,19 +58,18 @@ public class MazeTest {
 	
 	@Test
 	public void setCharactersTest() {
-		for (Character character : this.characters) {
-			int x = character.getX();
-			int y = character.getY();
+		for (Pnj pnj: this.pnjList) {
+			int x = pnj.getX();
+			int y = pnj.getY();
 			
-			assertTrue(this.maze.getGrid().getCell(x, y).getCharacters().contains(character));
-			assertEquals(character.getCurrentCell(), this.maze.getGrid().getCell(x, y));
+			assertTrue(this.maze.getGrid().getCell(x, y).getCharacters().contains(pnj));
+			assertEquals(pnj.getCurrentCell(), this.maze.getGrid().getCell(x, y));
 		}
 	}
 	
-	private void setCharactersList() {
-		this.characters = new LinkedList<Character>();
+	private void setPnjList() {
+		this.pnjList = new LinkedList<Pnj>();
 		
-		characters.add(new Hero(0, 0));
 		
 	}
 	

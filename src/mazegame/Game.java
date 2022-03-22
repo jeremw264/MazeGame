@@ -1,11 +1,10 @@
 package mazegame;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
 
 import mazegame.generation.GenerationAlgorithm;
 import mazegame.generation.RecursiveBacktracker;
@@ -17,6 +16,7 @@ import mazegame.character.Character;
 import mazegame.character.Player;
 import mazegame.character.Pnj;
 import mazegame.character.player.Hero;
+import mazegame.character.pnj.Imp;
 
 public class Game {
 	
@@ -48,8 +48,6 @@ public class Game {
 		Game.DISPLAYER.displayGameTitle();
 		
 		
-		int i = 0;
-		
 		/**
 		 * Ecrire une methode dans maze qui determine la case final du labyrinthe
 		 * 
@@ -71,8 +69,6 @@ public class Game {
 			while (!interaction) {
 				this.menu();
 			}
-			
-			i++;
 			
 			// Regarder les posibilité du hero et les listerer
 			
@@ -99,10 +95,11 @@ public class Game {
 	
 	private void menu() {
 		
-		List<String> commmandList = Arrays.asList("aide","bouger","ramasser","quitter");
+		List<String> commmandList = Arrays.asList("aide","bouger","ramasser","interroger","quitter","test");
 				
 		Game.DISPLAYER.displayMsg("Votre choix : ");
 		String choise = Game.INPUT.getString().toLowerCase();
+		
 		
 		if (!commmandList.contains(choise)) {
 			Game.DISPLAYER.displayError("Ce choix n'existe pas !! ");
@@ -117,7 +114,11 @@ public class Game {
 				break;
 				
 			case "ramasser":
+				//TODO: à faire
 				this.getItem();
+				break;
+			case "interroger":
+				this.talk();
 				break;
 				
 			case "quitter":
@@ -131,6 +132,12 @@ public class Game {
 			}
 		}
 		
+		
+	}
+
+	private void talk() {
+		// TODO: discuter avec le personnage selectionner
+		this.interaction = true;
 		
 	}
 
@@ -176,11 +183,13 @@ public class Game {
 		}
 		
 		
+		
 	}
 	
 	private void getItem() {
 		
 		//TODO: systeme de ramassage d'objet
+		this.interaction = true;
 
 	}
 
@@ -204,6 +213,10 @@ public class Game {
 
 		
 		Player playerHero = new Hero(0, 0);
+		
+		Pnj imp1 = new Imp(3, 3);
+		
+		this.pnjList.add(imp1);
 		
 		this.player = playerHero;		
 	}

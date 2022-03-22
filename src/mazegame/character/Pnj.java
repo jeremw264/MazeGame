@@ -34,7 +34,9 @@ public abstract class Pnj extends Character {
 	 * 
 	 * @return La prochaine cellule.
 	 */
-	public abstract Cell computeNextCell();
+	public Cell computeNextCell() {
+		return this.currentCell;
+	}
 	
 	/**
 	 * Renvoie si le personnage peut parler.

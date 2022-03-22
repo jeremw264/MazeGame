@@ -118,6 +118,7 @@ Franck : Ecriture des dialogues pour les personnages
 ## Semaine 8
 
 Jérémy : Mise en place du systeme de déplacement des personnages et ecriture des test complementaire. Création de la classe game qui s'occupe de la gestion du jeu 
+Mise en place de l'interation utilisateur + Implementation d'un Displayer et Input qui permette de rendre l'entrer utilisateur et l'affichage generique en cas d'extension.
 
 
 #### Difficulté 
