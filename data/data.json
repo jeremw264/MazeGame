@@ -1,87 +1,42 @@
 {
 	"1" : {
 		"1":{
-			"content": "Bonjour jeune �tranger, que puis je faire pour vous aider ?",
-			"answers":["Je suis � la recherche de mon p�re, peut �tre me reconnaisez vous ?","Je suis entrain de parcourir le royaume, auriez vous des conseilles � me donner ?"],
-			"correct":["Je suis � la recherche de mon p�re, peut �tre me reconnaisez vous ?"],
-			"nextCorrect":[2],
-			"nextIncorrect":[4]
+			"content": "",
+			"answers":[""],
+			"correct":[""],
+			"nextCorrect":[],
+			"nextIncorrect":[]
 		},
 		"2":{
-			"content": "Un étranger dans notre beau royaume ?! Avez vous besoin d'aide ?",
-			"answers":["J'aimerai découvrir d'où je viens, mon père serait d'ici.","Pourriez vous me conseillez des endroits à visiter dans votre beau royaume ?"],
-			"correct":["J'aimerai découvrir d'où je viens, mon père serait d'ici."],
-			"nextCorrect":[2],
-			"nextIncorrect":[4]
+			"content": "",
+			"answers":[""],
+			"correct":[""],
+			"nextCorrect":[],
+			"nextIncorrect":[]
 		},
 		"3":{
-			"content": "Ce n'est pas possible, vous... vous... vous lui ressemblez !",
-			"answers":["De qui parlez vous ?"],
-			"correct":["De qui parlez vous ?"],
-			"nextCorrect":[8],
+			"content": "",
+			"answers":[""],
+			"correct":[""],
+			"nextCorrect":[],
 			"nextIncorrect":[]
 		}
 		
 	},
 	"2" : {
-		"2":{
-			"content": "Hmmm, maintenant que vous me le dites, votre visage me dis quelque chose...",
-			"answers":["Vraiment ?!","Comme par hasard, vous n'�tes pas le premier � me dire cela !"],
-			"correct":["Vraiment ?!"],
-			"nextCorrect":[3],
-			"nextIncorrect":[6]
+		"1":{
+			"content": "",
+			"answers":[],
+			"correct":[],
+			"nextCorrect":[],
+			"nextIncorrect":[]
 		}
 	},
 	"3" : {
 		"1":{
-			"content": "Oui vraiment, je pense avoir aper�u un homme vous ressemblant en direction de...",
-			"answers":["Merci Beaucoup. Aurevoir !"],
-			"correct":["Merci Beaucoup. Aurevoir !"],
-			"nextCorrect":[],
-			"nextIncorrect":[]
-		}
-	}
-	"4" : {
-		"1":{
-			"content": "Un jeune aventurier ?! Il y'a �norm�ment de choses � voir dans ce magnifique royaume mais je vous conseille d'aller en direction de...",
-			"answers":["Merci ! Je m'y rend de ce pas !","Je viens justement de cette direction, peut �tre pourriez vous me conseillez autre chose ?"],
-			"correct":["Merci ! Je m'y rend de ce pas !"],
-			"nextCorrect":[],
-			"nextIncorrect":[5]
-		}
-	}
-	"5" : {
-		"1":{
-			"content":"Hmm dans ce cas l�, je vous conseillerais plut�t de vous rendre dans la direction suivante...",
-			"answers":["Tr�s bien, merci beaucoup pour votre temps"],
-			"correct":["Tr�s bien, merci beaucoup pour votre temps"],
-			"nextCorrect":[],
-			"nextIncorrect":[]
-		}
-	}
-	"6" : {
-		"1":{
-			"content":"Je vous donne une direction et c'est comme cel� que vous me remerciez ? En me traitant de menteur ! Partez ! Et ne revenez jamais, ou vous verrez de quel bois je me chauffe, Etranger !",
-			"answers":["Je voulais pas, je suis d�sol�, pardonnez moi"],
-			"correct":["Je voulais pas, je suis d�sol�, pardonnez moi"],
-			"nextCorrect":[7],
-			"nextIncorrect":[]
-		}
-	}
-	"7" : {
-		"1":{
-			"content":"Vous m'avez l'air d'un gentil jeune homme, je vais vous pardonnez. Vous trouverez ce que vous d�sirez le plus dans cette direction",
-			"answers":["Merci �norm�ment ! Je m'excuse � nouveau pour mon corportement. Laissez moi vous offrir ceci"],
-			"correct":["Merci �norm�ment ! Je m'excuse � nouveau pour mon corportement. Laissez moi vous offrir ceci"],
-			"nextCorrect":[],
-			"nextIncorrect":[]
-		}
-	}
-	"8" : {
-		"1":{
-			"content":"Je ne peux pas vous le dire, cela est trop dangereux pour moi. Vous trouverez les réponses à vos questions en allant dans cette direction !",
-			"answers":["D'accord... Merci...."],
-			"correct":["D'accord... Merci..."],
+			"content": "",
+			"answers":[],
+			"correct":[],
 			"nextCorrect":[],
 			"nextIncorrect":[]
 		}
