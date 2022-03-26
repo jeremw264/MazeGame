@@ -35,6 +35,34 @@ Aucune difficultés restante à résoudre pour le premier livrable
 
 ## Livrable 2
 
+Pour le livrable 2 nous avons du modéliser les personnages et les objets.
+
+#### Les personnages
+
+On peut facilement distinguer deux classe de personnage, les personnage qui vont agir en fonction du joueur, et les personnage non joueur donc ceux qui n'ont pas besoin d'interaction avec le l'utilisateur (donc le joueur).
+
+A ce stade nous avons donc trois classe :
+- Character (Personnage)
+- Player (Joueur donc les personnage controlé par l'utilisateur)
+- Npc (Personnage Non Joueur)
+
+Ici nos trois classes sont des classes abtraite, la classe Character va définit certaine méthode et attribut qui sont générale à un personnage, par exemple stocké et récupérer sa position. Les classe Player et Npc qui hérite de la classe Character d'autre méthode et attribut relative à leur personnage.
+
+Par exemple les Player doivent attendre une saisie utilisateur pour effectuer un action en fonction de sa demande, alors que les Npc peuvent effectuer une action automatique car c'est notre code qui vas la calculer.
+
+Par exemple un Player est controller par l'utilisateur, si l'utilisateur veut faire bouger le personnage Player à droite on doit récupérer la saisie utilisateur pour lui dire de bouger à droite, alors que pour un Npc son comportement est indépendant des choix du joueur, donc on peut définir un comportement propre a ce type de personnage.
+
+Donc Hero héritera de la classe abstraite Joueur et le Sphinx par exemple de la classe abstraite Npc.
+
+![UML Personnages](conception/img/UMLCharacter.png)
+
+Cette modélisation nous permet d'ajouter les personnage jouable et non jouable de manière simple sans avoir à modifier de code existant.
+
+Bien sur pour établir cette modélistation nous avons du prendre en compte de futur action etc
+
+[Nos documents de conception des personnage](conception/characterConception.md)
+
+
 ### Atteinte des objectifs
 
 ### Difficultés restant à résoudre
@@ -103,6 +131,8 @@ Jérémy: Test labyrinthe parfait terminer, suppression class Wall, car on peut 
 
 ## Semaine 5
 
+Semaine d'examen nous n'avons donc pas avancer pour nous consacrer au examen.
+
 ## Semaine 6
 
 Répléxion sur l'implémentation des personnages en groupe et sur le système de discution entre les personnages. Nous avons decider de stocker les phrase et autre interation texte dans un fichier JSON pour ne pas surcharger les classes
@@ -120,6 +150,17 @@ Franck : Ecriture des dialogues pour les personnages
 Jérémy : Mise en place du systeme de déplacement des personnages et ecriture des test complementaire. Création de la classe game qui s'occupe de la gestion du jeu 
 Mise en place de l'interation utilisateur + Implementation d'un Displayer et Input qui permette de rendre l'entrer utilisateur et l'affichage generique en cas d'extension.
 
+Nons avons décider de faire un réorganiser le projet en etablisant un UML global pour pouvoir avoir une vu d'ensemble pour pouvoir définir ou ajouter les nouvelle implémentation et affiner pendant l'implémentation au niveau du code.
+
+Nous avons donc décider :
+
+- De supprimer toute la conception precedante des personnages pour la refaire au propre.
+- De réorganiser la génération du labyrinthe.
+- Bien réorganiser le projet et les classes
+
+Franck : Pour le 27/03/22 Commencer l'implémentation des Personnages
+Timothe : Pour le 27/03/22 Commencer l'implémentation des Objets
+Jérémy : Pour le 27/03/22 Refonte de la structure du projet et du Plateau de jeu + Nettoyage du code
 
 #### Difficulté 
 

@@ -21,6 +21,7 @@ Character
 --
 - x : int
 - y : int
+- map : Map
 - currentCell : Cell
 + inventory : List&lt;Item&gt;
 --
