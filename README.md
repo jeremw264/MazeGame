@@ -171,7 +171,8 @@ Nous avons donc dÃ©cider :
 - De rÃ©organiser la gÃ©nÃ©ration du labyrinthe.
 - Bien rÃ©organiser le projet et les classes
 
-Franck : Création de la class abstraite Character. Création des class concrete des npc.  
+Franck : Pour le 27/03/22 Commencer l'implémentation des Personnages. 
+	Création de la class abstraite Character. Création des class concrete des npc.  
 Timothe : Pour le 27/03/22 Commencer l'implÃ©mentation des Objets
 JÃ©rÃ©my : Pour le 27/03/22 Refonte de la structure du projet et du Plateau de jeu + Nettoyage du code
 
