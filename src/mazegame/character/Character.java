@@ -13,7 +13,7 @@ public abstract class Character {
 		private Cell currentCell;
 		private Map map;
 		
-		public List<Item> inventory;
+		private List<Item> inventory;
 		
 		public Character(int x, int y) {
 			this.x = x;
@@ -36,4 +36,16 @@ public abstract class Character {
 			return currentCell;
 			
 		}
+		
+		
+		public String CheckInv(){			
+			if(inventory.isEmpty() == true)
+				return "ton inventaire est vide";
+			/*else
+				for (int i = 0; i < inventory.size(); i++)
+					 System.out.println(inventory.get(i));*/
+			return ""+ this.inventory;
+					
+		}
+		
 }
