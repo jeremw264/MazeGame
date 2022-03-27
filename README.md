@@ -72,6 +72,9 @@ Chaque objet héritera donc de cette classe.
 
 [Nos documents de conception des objets](conception/ItemsConception.md)
 
+Pour la conception des objets, nous avons écrit une classe Item et les classes objets qui en héritent, tout les objets ont un comportement similaires donc nous allons transformer la classe Item en classe abstraite et les classes concrètes seront chaque type d'objet voulu.
+Ils restera à gerer les interactions entre item et character pour gérer les ventes et les utilisations d'objet et ce que verra le joueur lors de ces utilisations.
+
 
 ### Atteinte des objectifs
 
