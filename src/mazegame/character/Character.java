@@ -13,7 +13,7 @@ public abstract class Character {
 		private Cell currentCell;
 		private Map map;
 		
-		private List<Item> inventory;
+		public List<Item> inventory;
 		
 		public Character(int x, int y) {
 			this.x = x;
