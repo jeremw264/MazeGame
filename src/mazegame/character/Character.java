@@ -29,7 +29,7 @@ public abstract class Character {
 		}
 		
 		public void setCell(Cell nextCell) {
-			
+			this.currentCell = nextCell;
 		}
 		
 		public Cell getCell() {
