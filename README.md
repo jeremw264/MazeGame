@@ -54,13 +54,23 @@ Par exemple un Player est controller par l'utilisateur, si l'utilisateur veut fa
 
 Donc Hero héritera de la classe abstraite Joueur et le Sphinx par exemple de la classe abstraite Npc.
 
-![UML Personnages](conception/img/UMLCharacter.png)
+![UML Personnages](conception/img/uml/UMLCharacter.png)
 
 Cette modélisation nous permet d'ajouter les personnage jouable et non jouable de manière simple sans avoir à modifier de code existant.
 
 Bien sur pour établir cette modélistation nous avons du prendre en compte de futur action etc
 
 [Nos documents de conception des personnage](conception/characterConception.md)
+
+#### Les objets
+
+Pour les objets nous allons juste définir une classe Item qui généralisera le comportement des objets.
+
+Chaque objet héritera donc de cette classe.
+
+![UML Personnages](conception/img/uml/UMLItem.png)
+
+[Nos documents de conception des objets](conception/ItemsConception.md)
 
 
 ### Atteinte des objectifs

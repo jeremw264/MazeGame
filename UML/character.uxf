@@ -4,7 +4,7 @@ Character
 - x : int
 - y : int
 - currentCell : Cell
-+ inventory : List&lt;Item&gt;
+- inventory : List&lt;Item&gt;
 --
 + Character( int x , int y) : void
 + getX() : int

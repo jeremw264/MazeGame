@@ -1,4 +1,4 @@
-<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>523</x><y>210</y><w>110</w><h>70</h></coordinates><panel_attributes>Map
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>413</x><y>140</y><w>110</w><h>70</h></coordinates><panel_attributes>Map
 --
 - width : int
 - height : int
@@ -14,7 +14,7 @@
 + getNeighborsCells(Cell currentCell) : List&lt;Cell&gt; 
 + toString() : String
 - initMap(boolean wallsExist) : void
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>403</x><y>390</y><w>340</w><h>190</h></coordinates><panel_attributes>&lt;&lt;abstact&gt;&gt;
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>293</x><y>320</y><w>340</w><h>190</h></coordinates><panel_attributes>&lt;&lt;abstact&gt;&gt;
 AlgotithmeGeneration
 --
 # map : Map
@@ -25,7 +25,7 @@ AlgotithmeGeneration
 # isTreated(Cell cell) : boolean
 # getUntreatedNeighborsCells(Cell currentCell) : List&lt;Cell&gt; 
 # carvePath(Cell cell1, Cell cell2) : void
-# closePath(Cell cell1, Cell cell2) : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>853</x><y>210</y><w>280</w><h>240</h></coordinates><panel_attributes>Cell
+# closePath(Cell cell1, Cell cell2) : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>743</x><y>140</y><w>280</w><h>240</h></coordinates><panel_attributes>Cell
 --
 - x : int
 - y : int
@@ -42,14 +42,14 @@ AlgotithmeGeneration
 + eraseWall( Direction direction ) : void
 + equals( Object obj) : boolean
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>123</x><y>630</y><w>240</w><h>130</h></coordinates><panel_attributes>Kruskal
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>13</x><y>560</y><w>240</w><h>130</h></coordinates><panel_attributes>Kruskal
 --
 - wallsList : List&lt;List&lt;Cell&gt;&gt; 
 - cellListSets : List&lt;HashSet&lt;Cell&gt;&gt;
 --
 - initWallList() : List&lt;List&lt;Cell&gt;&gt;
 - initCellSets() : List&lt;HashSet&lt;Cell&gt;&gt;
-- mergeCellSet(Cell cell1, Cell cell2) : void </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>393</x><y>630</y><w>470</w><h>130</h></coordinates><panel_attributes>RecursiveBacktracker
+- mergeCellSet(Cell cell1, Cell cell2) : void </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>283</x><y>560</y><w>470</w><h>130</h></coordinates><panel_attributes>RecursiveBacktracker
 --
 - seedX : int
 - seedY : int
@@ -57,9 +57,9 @@ AlgotithmeGeneration
 --
 + RecursiveBacktracker(int seedX, int seedY) : void
 - getRandomNeighBor(Cell currentCell, List&lt;Cell&gt; unvisitedNeightboursCells) : Cell
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>903</x><y>630</y><w>120</w><h>130</h></coordinates><panel_attributes>BinaryTree
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>793</x><y>560</y><w>120</w><h>130</h></coordinates><panel_attributes>BinaryTree
 --
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1753</x><y>350</y><w>190</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;170;10</additional_attributes></element><element><id>Relation</id><coordinates><x>623</x><y>210</y><w>250</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;230;10</additional_attributes></element><element><id>Relation</id><coordinates><x>563</x><y>270</y><w>80</w><h>140</h></coordinates><panel_attributes>lt=-
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1643</x><y>280</y><w>190</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;170;10</additional_attributes></element><element><id>Relation</id><coordinates><x>513</x><y>140</y><w>250</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;230;10</additional_attributes></element><element><id>Relation</id><coordinates><x>453</x><y>200</y><w>80</w><h>140</h></coordinates><panel_attributes>lt=-
 m1=1
 m2=1..*
-gérérer ^</panel_attributes><additional_attributes>10;10;10;120</additional_attributes></element><element><id>Relation</id><coordinates><x>593</x><y>570</y><w>380</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;360;60</additional_attributes></element><element><id>Relation</id><coordinates><x>563</x><y>570</y><w>120</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;100;60</additional_attributes></element><element><id>Relation</id><coordinates><x>223</x><y>570</y><w>350</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>330;10;10;60</additional_attributes></element></diagram>
+gérérer ^</panel_attributes><additional_attributes>10;10;10;120</additional_attributes></element><element><id>Relation</id><coordinates><x>483</x><y>500</y><w>380</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;360;60</additional_attributes></element><element><id>Relation</id><coordinates><x>453</x><y>500</y><w>120</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;100;60</additional_attributes></element><element><id>Relation</id><coordinates><x>113</x><y>500</y><w>350</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>330;10;10;60</additional_attributes></element></diagram>
