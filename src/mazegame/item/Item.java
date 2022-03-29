@@ -1,35 +1,27 @@
 package mazegame.item;
 
-public class Item {
+abstract public class Item {
 	
 	protected int value;
 	protected boolean sellability;
 	
-	public Item(int value) {
-		this.value = value;
-		this.sellability = true;
-	}
+	public Item() {}
 	
-	public boolean canSell(){
+	
+	protected boolean canSell(){
 		return this.sellability;
 	}
 	
-	public void switchSellability() {
+	protected void switchSellability() {
 		this.sellability = !(this.sellability);
 	}
 	
-	public int getValue() {
+	protected int getValue() {
 		return this.value;
 	}
 	
-	public void setValue(int newValue) {
+	protected void setValue(int newValue) {
 		this.value = newValue;
-	}
-	
-	public String toString() {
-		if (this.sellability == true)
-				return "Cet objet n'est pas vendable mais il vaut " + this.value ;
-		return "Cet objet peut se vendre et vaut " + this.value;
 	}
 	
 	public boolean equals(Object o) {
@@ -39,7 +31,6 @@ public class Item {
 					&& this.sellability == other.sellability;		
 		}
 		return false;
-		}
-	
+	}
 }
 
