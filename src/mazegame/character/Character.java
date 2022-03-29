@@ -1,6 +1,9 @@
 package mazegame.character;
 
 import java.util.List;
+import java.util.PrimitiveIterator.OfDouble;
+
+import javax.swing.text.StyledEditorKit.ForegroundAction;
 
 import mazegame.Cell;
 import mazegame.Map;
@@ -37,15 +40,24 @@ public abstract class Character {
 			
 		}
 		
+		public List<Item> getListOfItems(){
+			return this.inventory;
+		}
 		
-		public String CheckInv(){			
-			if(inventory.isEmpty() == true)
-				return "ton inventaire est vide";
-			/*else
-				for (int i = 0; i < inventory.size(); i++)
-					 System.out.println(inventory.get(i));*/
-			return ""+ this.inventory;
-					
+		public boolean checkItems(Object o){
+			//for(int i = 0; i < inventory.size(); i++){
+			if (inventory.contains(o))
+				return true;	
+			else
+				return false;
+		}
+
+		public void addInv(Object o){
+			inventory.add((Item) o);		
+		}
+		
+		public void removeInv(Object o) {
+			inventory.remove(o);
 		}
 		
 }
