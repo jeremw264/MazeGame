@@ -5,10 +5,10 @@ import java.util.List;
 import mazegame.challenge.Challenge;
 
 public class Quest {
-	private List<Challenge> listofChallenges;
+	private List<Challenge> listOfChallenges;
 
-	public Quest() {
-		// TODO Auto-generated constructor stub
+	public Quest(List<Challenge> listOfChallenges) {
+		this.listOfChallenges = listOfChallenges;
 	}
 
 	/**
@@ -17,20 +17,16 @@ public class Quest {
 	 * @return True si la quete est terminé, False sinon
 	 */
 	public boolean isComplete() {
-		for (Challenge challenge : listofChallenges) {
-			if (!challenge.isFinish()) {
-				return false;
+		
+		boolean isFinish = true;
+		
+		for (Challenge challenge : listOfChallenges) {
+			if (!challenge.isCheck()) {
+				isFinish = false;
 			}
 		}
 
-		return true;
+		return isFinish;
 	}
 
-	/**
-	 * Initialise les challenges donc créé est ajoute des challenges à la liste des
-	 * challenges
-	 */
-	private void initChallenge() {
-		// Ajouter les challenge souhaité
-	}
 }

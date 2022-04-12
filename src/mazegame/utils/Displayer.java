@@ -13,6 +13,12 @@ public interface Displayer {
 	public void displayMsg(String message);
 
 	/**
+	 * Affiche un message d'erreur
+	 * @param string
+	 */
+	public void displayError(String message);
+	
+	/**
 	 * Affiche le titre du jeu.
 	 */
 	public void displayGameTitle();
@@ -29,11 +35,6 @@ public interface Displayer {
 	 */
 	public void displayStateGame(Game game);
 
-	/**
-	 * Affiche un message d'erreur
-	 * @param string
-	 */
-	public void displayError(String message);
 
 	public void displayHelp(List<String> commmandList);
 

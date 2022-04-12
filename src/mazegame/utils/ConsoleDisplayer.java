@@ -19,6 +19,12 @@ public class ConsoleDisplayer implements Displayer {
 		System.out.println(message);
 	}
 
+	@Override
+	public void displayError(String message) {
+		System.err.println(message);
+		
+	}
+
 	public void displayGameTitle() {
 		String title = "                                                                     \n"
 				+ ",--.   ,--.                       ,----.                             \n"
@@ -40,11 +46,6 @@ public class ConsoleDisplayer implements Displayer {
 
 	}
 
-	@Override
-	public void displayError(String message) {
-		System.err.println(message);
-
-	}
 
 	@Override
 	public void displayHelp(List<String> commmandList) {

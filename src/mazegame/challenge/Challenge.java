@@ -1,11 +1,16 @@
 package mazegame.challenge;
 
+import mazegame.character.Player;
+
 public abstract class Challenge {
 
 	// Sauvegarde l'état du challenge si il a été validé
 	private boolean finished;
+	
+	private Player player;
 
-	public Challenge() {
+	public Challenge(Player player) {
+		this.player = player;
 		this.finished = false;
 	}
 
@@ -18,7 +23,8 @@ public abstract class Challenge {
 		if (this.finished) {
 			return true;
 		} else {
-			return this.isFinish();
+			this.finished = this.isFinish();
+			return this.finished;
 		}
 	}
 
