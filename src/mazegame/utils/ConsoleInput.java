@@ -17,4 +17,10 @@ public class ConsoleInput implements Input {
 		return data;
 	}
 
+	@Override
+	public void closeInput() {
+		this.userInput.close();
+		
+	}
+
 }

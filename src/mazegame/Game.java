@@ -3,6 +3,7 @@ package mazegame;
 import java.util.LinkedList;
 import java.util.List;
 
+import mazegame.action.LookAround;
 import mazegame.challenge.Challenge;
 import mazegame.challenge.WaitRound;
 import mazegame.challenge.WaitThreeRounds;
@@ -23,25 +24,23 @@ public class Game {
 	private Map map;
 	private List<Character> listOfCharacters;
 	private Quest quest;
-	
+
 	private Player player;
 
 	public Game(int width, int height) {
 		this.map = new Kruskal().generation(width, height);
-		
+
 		this.initCharacter();
 		this.initQuest();
-		
+
 	}
 
 	private void initCharacter() {
 		this.listOfCharacters = new LinkedList<Character>();
-		Player player = new Hero(0, 0);
-		
-		
-		
+		Player player = new Hero(0, 0, this.map);
+
 		listOfCharacters.add(player);
-		
+
 		this.player = player;
 	}
 
@@ -50,7 +49,6 @@ public class Game {
 		/*
 		 * Ajouter les Challenges
 		 */
-		listOfChallenges.add(new WaitThreeRounds(this.player));
 		listOfChallenges.add(new WaitRound(this.player));
 
 		this.quest = new Quest(listOfChallenges);
@@ -58,13 +56,25 @@ public class Game {
 	}
 
 	public void run() {
+		Game.DISPLAYER.displayMap(this.map);
+		new LookAround().run(this.player);
+		
 		while (!this.quest.isComplete()) {
-			Game.DISPLAYER.displayMap(this.map);
 
+			Game.DISPLAYER.displayMsg("--------------------------------------------------");
+			
 			for (Character character : listOfCharacters) {
-				/*Action */
+				character.getAction().run(character);
 			}
+			
 		}
+		
+		Game.DISPLAYER.displayEndGame();
+		this.closeGame();
+	}
+	
+	private void closeGame() {
+		Game.INPUT.closeInput();
 	}
 
 }

@@ -22,7 +22,7 @@ public class ConsoleDisplayer implements Displayer {
 	@Override
 	public void displayError(String message) {
 		System.err.println(message);
-		
+
 	}
 
 	public void displayGameTitle() {
@@ -42,37 +42,30 @@ public class ConsoleDisplayer implements Displayer {
 	}
 
 	@Override
-	public void displayStateGame(Game game) {
-
-	}
-
-
-	@Override
-	public void displayHelp(List<String> commmandList) {
-
-		this.displayMsg("Les actions disponible sont :");
-
-		for (String string : commmandList) {
-			this.displayMsg(" - " + string);
-		}
-
-		this.displayMsg("\n Signification des cases : ");
-		this.displayMsg(" - P = vous (Le player) ");
-		this.displayMsg(" - # = Les cases non visité\n");
-
-	}
-
-	@Override
-	public void displayCommand(List<String> choiseList) {
-		for (String string : choiseList) {
-			this.displayMsg(" - " + string);
-		}
-
-	}
-
-	@Override
 	public void displayEndGame() {
 		this.displayMsg("Fin de jeu ...\nMerci d'avoir jouer :)");
+
+	}
+
+	@Override
+	public void displayChoise(String firstSentence, List<String> listOfChoises) {
+
+		this.displayMsg(firstSentence);
+
+		for (String choise : listOfChoises) {
+			this.displayMsg("- " + choise);
+		}
+
+	}
+
+	@Override
+	public void displayHelp(List<String> keysList) {
+		this.displayMsg("Voici les actions possibles : ");
+
+		for (String choise : keysList) {
+			this.displayMsg("- " + choise);
+		}
+		Game.DISPLAYER.displayMsg("--------------------------------------------------");
 
 	}
 

@@ -1,5 +1,7 @@
 package mazegame.action;
 
+import mazegame.character.Character;
+
 public abstract class Action {
 
 	/**

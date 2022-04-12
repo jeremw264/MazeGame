@@ -1,9 +1,11 @@
 package mazegame.character;
 
-public abstract class Npc extends Character{
+import mazegame.Map;
 
-	public Npc(int x, int y) {
-		super(x, y);
+public abstract class Npc extends Character {
+
+	public Npc(int x, int y, Map map) {
+		super(x, y, map);
 		// TODO Auto-generated constructor stub
 	}
 
