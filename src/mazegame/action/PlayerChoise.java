@@ -44,7 +44,7 @@ public class PlayerChoise extends Action {
 				if (choise.equals("aide")) {
 					Game.DISPLAYER.displayHelp(keysList);
 				} else {
-					Game.DISPLAYER.displayError("Choix not valide\n");
+					Game.DISPLAYER.displayError("Choix non valide\n");
 				}
 			}
 

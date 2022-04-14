@@ -57,6 +57,7 @@ public class Game {
 
 	public void run() {
 		Game.DISPLAYER.displayMap(this.map);
+		
 		new LookAround().run(this.player);
 		
 		while (!this.quest.isComplete()) {
@@ -66,7 +67,6 @@ public class Game {
 			for (Character character : listOfCharacters) {
 				character.getAction().run(character);
 			}
-			
 		}
 		
 		Game.DISPLAYER.displayEndGame();

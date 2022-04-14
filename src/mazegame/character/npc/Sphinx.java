@@ -2,6 +2,7 @@ package mazegame.character.npc;
 
 import mazegame.Map;
 import mazegame.action.Action;
+import mazegame.action.DoNothing;
 import mazegame.character.Npc;
 
 public class Sphinx extends Npc {
@@ -13,8 +14,7 @@ public class Sphinx extends Npc {
 
 	@Override
 	public Action getAction() {
-		// TODO Auto-generated method stub
-		return null;
+		return new DoNothing();
 	}
 
 }
