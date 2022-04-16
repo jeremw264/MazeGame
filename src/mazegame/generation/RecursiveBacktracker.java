@@ -7,10 +7,19 @@ import java.util.Stack;
 
 import mazegame.*;
 
+/**
+ * Classe RecursiveBacktracker.
+ * 
+ * Algorithme de génération.
+ *
+ */
 public class RecursiveBacktracker extends GenerationAlgorithm {
 
+	// Point de départ verticale.
 	private final int seedX;
+	// Point de départ horizontale.
 	private final int seedY;
+
 	private Stack<Cell> stack = new Stack<Cell>();
 
 	/**
@@ -26,12 +35,14 @@ public class RecursiveBacktracker extends GenerationAlgorithm {
 	}
 
 	/**
-	 * Génération du labyrinthe avec l'algorithme Recursive Backtracker.
-	 *
-	 * @param maze Le labyrinthe qu'on veut modifié.
+	 * Renvoie un carte (Map) générer avec l'algorithme RecursiveBacktracker.
+	 * 
+	 * @param width  La largeur de la carte à générer.
+	 * @param height La hauteur de la carte à générer.
+	 * @return La carte généré.
 	 */
-	public Map generation(int width,int heigth) {
-		
+	public Map generation(int width, int heigth) {
+
 		this.map = new Map(width, heigth);
 
 		Cell startCell = this.map.getCell(this.seedX, this.seedY);
@@ -42,12 +53,6 @@ public class RecursiveBacktracker extends GenerationAlgorithm {
 			Cell currentCell = this.stack.peek();
 			List<Cell> unvisitedNeightboursCells = this.getUntreatedNeighborsCells(currentCell);
 
-			/*
-			 * uncomment for see step by step and uncomment in method carvePath
-			 */
-			// System.out.println(currentCell);
-			// System.out.println(maze);
-
 			if (!unvisitedNeightboursCells.isEmpty()) {
 				Cell nextCell = this.getRandomNeighBor(currentCell, unvisitedNeightboursCells); //
 				this.carvePath(currentCell, nextCell);
@@ -57,7 +62,7 @@ public class RecursiveBacktracker extends GenerationAlgorithm {
 				this.stack.pop();
 			}
 		}
-		
+
 		return this.map;
 	}
 

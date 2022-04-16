@@ -1,17 +1,28 @@
 package mazegame;
 
+/**
+ * 
+ * Classe Direction
+ *
+ */
 public enum Direction {
 	/*
 	 * N : Nord, S : Sud, O : Ouest, E : Est
 	 */
 	N("Nord"), S("Sud"), O("Ouest"), E("Est");
-	
+
+	// Description de la direction
 	private final String directionDescription;
 
+	/**
+	 * Constructeur de l'objet Direction
+	 * 
+	 * @param stringValue Chaîne de caractère qui décrit la direction.
+	 */
 	private Direction(String stringValue) {
 		this.directionDescription = stringValue;
 	}
-	
+
 	/**
 	 * Renvoie la direction d'une cellule par rapport à une autre.
 	 * 
@@ -36,7 +47,10 @@ public enum Direction {
 		return null;
 
 	}
-	
+
+	/**
+	 * Renvoie une chaîne de caractère qui décrit la direction.
+	 */
 	@Override
 	public String toString() {
 		return this.directionDescription;

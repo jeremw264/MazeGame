@@ -1,6 +1,7 @@
 package mazegame;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Map {
@@ -13,8 +14,8 @@ public class Map {
 	/**
 	 * Constructeur de l'objet Grid.
 	 * 
-	 * @param width  Largeur de la grille.
-	 * @param heigth Hauteur de la grille.
+	 * @param width  Largeur de la carte.
+	 * @param heigth Hauteur de la carte.
 	 */
 	public Map(int width, int heigth) {
 		this.width = width;
@@ -25,8 +26,8 @@ public class Map {
 	/**
 	 * Constructeur de l'objet Grid.
 	 * 
-	 * @param width      Largeur de la grille.
-	 * @param heigth     Hauteur de la grille.
+	 * @param width      Largeur de la carte.
+	 * @param heigth     Hauteur de la carte.
 	 * @param wallsExist true il les murs interne doivent être généré, false dans le
 	 *                   cas contraire.
 	 */
@@ -37,18 +38,18 @@ public class Map {
 	}
 
 	/**
-	 * Renvoie la largeur de la grille.
+	 * Renvoie la largeur de la carte.
 	 * 
-	 * @return la largeur de la grille.
+	 * @return la largeur de la carte.
 	 */
 	public int getWidth() {
 		return width;
 	}
 
 	/**
-	 * Renvoie la hauteur de la grille.
+	 * Renvoie la hauteur de la carte.
 	 * 
-	 * @return la hauteur de la grille.
+	 * @return la hauteur de la carte.
 	 */
 	public int getHeight() {
 		return height;
@@ -68,7 +69,8 @@ public class Map {
 	 * 
 	 * @param y Coordonne horizontale
 	 * @param x Coordonne verticale
-	 * @return la case qui correspont au coordonne
+	 * @return la case qui correspont au coordonne, null si elle n'est pas dans la
+	 *         carte.
 	 */
 	public Cell getCell(int x, int y) {
 
@@ -96,7 +98,9 @@ public class Map {
 	 * @param cell      la cellule courante
 	 * @param direction la direction de la cellule voisine par rapport a la cellule
 	 *                  courante
-	 * @return La cellule voisine
+	 * 
+	 * @return La cellule voisine dans la direction choisie, null si la cellule
+	 *         n'existe pas
 	 */
 	public Cell getCellWithDirection(Cell cell, Direction direction) {
 
@@ -112,7 +116,10 @@ public class Map {
 		if (direction == Direction.O)
 			return this.getCell(x - 1, y);
 
-		return this.getCell(x + 1, y);
+		if (direction == Direction.E)
+			return this.getCell(x + 1, y);
+
+		return null;
 
 	}
 
@@ -120,11 +127,12 @@ public class Map {
 	 * Renvoie une liste des cellules voisines de la cellule en paramètre.
 	 * 
 	 * @param currentCell La cellule courante de la quelle on veux obtenir les
-	 *                    voisines
-	 * @return une liste des cellules voisines.
+	 *                    voisines.
+	 * 
+	 * @return Une liste des cellules voisines.
 	 */
 	public List<Cell> getNeighborsCells(Cell currentCell) {
-		List<Cell> neighborsCells = new ArrayList<>(4);
+		List<Cell> neighborsCells = new LinkedList<Cell>();
 		int x = currentCell.getX();
 		int y = currentCell.getY();
 
@@ -143,7 +151,7 @@ public class Map {
 
 		return neighborsCells;
 	}
-	
+
 	/**
 	 * Renvoie la représentation du labyrinte en chaine de caractère.
 	 * 
@@ -153,7 +161,7 @@ public class Map {
 
 		StringBuilder mazeStringBuilder = new StringBuilder();
 
-		// First Line
+		// La premiere ligne
 
 		for (int x = 0; x < this.width; x++) {
 			mazeStringBuilder.append("+---");
@@ -161,7 +169,7 @@ public class Map {
 
 		mazeStringBuilder.append("+\n");
 
-		// Other Line
+		// Les autres ligne
 
 		for (int y = 0; y < this.height; y++) {
 
@@ -203,9 +211,9 @@ public class Map {
 	}
 
 	/**
-	 * Crée une représentation de la grille sous la forme d'une liste de cellule.
+	 * Crée une représentation de la carte sous la forme d'une liste de cellule.
 	 * 
-	 * @param wallsExist true si la grille crée doit contenir de mur interne, false
+	 * @param wallsExist true si la carte crée doit contenir de mur interne, false
 	 *                   dans le cas contraire.
 	 */
 	private void initMap(boolean wallsExist) {

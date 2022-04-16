@@ -76,7 +76,7 @@ public class Cell {
 	}
 
 	/**
-	 * Definit la cellule a visité.
+	 * Definit que la cellule est visité.
 	 */
 	public void setVisited() {
 		this.visited = true;

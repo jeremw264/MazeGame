@@ -5,38 +5,47 @@ import java.util.List;
 
 import mazegame.*;
 
+/**
+ * Classe GenerationAlgorithm
+ * 
+ * Représente les algorithmes de génération
+ */
 abstract public class GenerationAlgorithm {
 
+	// La carte qui est en construction ou terminé.
 	protected Map map;
-	
+
+	// Les cellules déja traité par les algorithmes.
 	protected List<Cell> cellsTreat;
-	
+
 	/**
-	 * Méthode de génération de grille de labyrinthe.
+	 * Méthode de génération de grille de carte.
 	 * 
-	 * @param width largueur du labyrinthe.
-	 * @param heigth hauteur du labyrinthe.
-	 * @return grille qui représente le labyrinthe.
+	 * @param width  La largeur de la carte à générer.
+	 * @param heigth La hauteur de la carte à générer
+	 * @return La carte générer
 	 */
-	public abstract Map generation(int width,int heigth);
-	
+	public abstract Map generation(int width, int heigth);
+
 	/**
 	 * Ajoute la cellule au cellule traité .
-	 * @param cell Cellule traité. 
+	 * 
+	 * @param cell Cellule traité.
 	 */
 	protected void addToTreatment(Cell cell) {
 		this.cellsTreat.add(cell);
 	}
-	
+
 	/**
 	 * Renvoie si la cellule en paramètre est traiter ou non.
+	 * 
 	 * @param cell La cellule dont on veut connaitre l'etat de traitement
 	 * @return True si la cellule est traité, False dans le cas contraire.
 	 */
 	protected boolean isTreated(Cell cell) {
 		return this.cellsTreat.contains(cell);
 	}
-	
+
 	/**
 	 * Renvoie une liste des cellules voisines non visité de la cellule en
 	 * paramètre.
@@ -59,7 +68,7 @@ abstract public class GenerationAlgorithm {
 
 		return untreatedNeighborsCells;
 	}
-	
+
 	/**
 	 * Détruit les murs entre deux cellule.
 	 * 
@@ -73,7 +82,7 @@ abstract public class GenerationAlgorithm {
 		cell2.eraseWall(directionCurrentCell);
 
 	}
-	
+
 	/**
 	 * Créé les murs entre deux cellule.
 	 * 

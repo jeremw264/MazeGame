@@ -7,18 +7,15 @@ import mazegame.Game;
  */
 public class MainGame {
 
-	
 	/**
-	 * Class d'execution du programme
+	 * Point d'entré du programme.
 	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		
+
 		Game game = new Game(5, 5);
 		game.run();
 	}
-	
-	
 
 }

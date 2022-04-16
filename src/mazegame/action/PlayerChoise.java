@@ -9,14 +9,23 @@ import mazegame.Game;
 import mazegame.character.Player;
 import mazegame.character.Character;
 
+/**
+ * Classe PlayerChoise
+ */
 public class PlayerChoise extends Action {
 
 	private Map<String, Action> actionsMap;
 
+	/**
+	 * Constructeur de l'objet PlayerChoise.
+	 */
 	public PlayerChoise() {
 		this.initPlayerActions();
 	}
 
+	/**
+	 * Initialise les actions possible pour le joueur.
+	 */
 	private void initPlayerActions() {
 		this.actionsMap = new HashMap<String, Action>();
 
@@ -24,6 +33,11 @@ public class PlayerChoise extends Action {
 
 	}
 
+	/**
+	 * Demande au joueur de faire un choix d'action.
+	 * 
+	 * @param character Le personnage qui doit faire le choix.
+	 */
 	@Override
 	public void run(Character character) {
 		if (!(character instanceof Player)) {

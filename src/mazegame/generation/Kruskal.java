@@ -5,11 +5,27 @@ import java.util.*;
 import mazegame.*;
 import mazegame.Map;
 
+/**
+ * Classe Kruskal.
+ * 
+ * Algorithme de génération.
+ *
+ */
 public class Kruskal extends GenerationAlgorithm {
 
+	// Représente la liste des murs.
 	private List<List<Cell>> wallsList;
+
+	// Représente les ensemble de cellules.
 	private List<HashSet<Cell>> cellListSets;
 
+	/**
+	 * Renvoie un carte (Map) générer avec l'algorithme de kruskal.
+	 * 
+	 * @param width  La largeur de la carte à générer.
+	 * @param height La hauteur de la carte à générer.
+	 * @return La carte généré.
+	 */
 	public Map generation(int width, int heigth) {
 		this.map = new Map(width, heigth);
 

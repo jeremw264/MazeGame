@@ -16,6 +16,9 @@ import mazegame.utils.Displayer;
 import mazegame.utils.Input;
 import mazegame.character.Character;
 
+/**
+ * Classe Game qui va représenter le jeu.
+ */
 public class Game {
 
 	public static final Displayer DISPLAYER = new ConsoleDisplayer();
@@ -27,6 +30,12 @@ public class Game {
 
 	private Player player;
 
+	/**
+	 * Constructeur de l'objet Game
+	 * 
+	 * @param width  La largueur du jeu.
+	 * @param height La hauteur du jeu.
+	 */
 	public Game(int width, int height) {
 		this.map = new Kruskal().generation(width, height);
 
@@ -57,22 +66,22 @@ public class Game {
 
 	public void run() {
 		Game.DISPLAYER.displayMap(this.map);
-		
+
 		new LookAround().run(this.player);
-		
+
 		while (!this.quest.isComplete()) {
 
 			Game.DISPLAYER.displayMsg("--------------------------------------------------");
-			
+
 			for (Character character : listOfCharacters) {
 				character.getAction().run(character);
 			}
 		}
-		
+
 		Game.DISPLAYER.displayEndGame();
 		this.closeGame();
 	}
-	
+
 	private void closeGame() {
 		Game.INPUT.closeInput();
 	}
