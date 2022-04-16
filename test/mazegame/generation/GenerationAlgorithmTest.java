@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import mazegame.Cell;
 import mazegame.Direction;
 import mazegame.Map;
 
@@ -36,31 +37,35 @@ public class GenerationAlgorithmTest {
 	}
 
 	@Test
+	public void closePathTest() {
+
+		GenerationAlgorithm algorithm = new GenerationAlgorithm() {
+
+			@Override
+			public Map generation(int width, int heigth) {
+				return new Map(width, heigth, false);
+			}
+		};
+		
+		this.map = algorithm.generation(2, 1);
+		assertEquals(this.map.getWidth(), 2);
+		assertEquals(this.map.getHeight(), 1);
+
+		Cell cell1 = this.map.getCell(0, 0);
+		Cell cell2 = this.map.getCell(1, 0);
+
+		assertFalse(cell1.wallExist(Direction.E));
+		assertFalse(cell2.wallExist(Direction.O));
+
+		algorithm.closePath(cell1, cell2);
+
+		assertTrue(cell1.wallExist(Direction.E));
+		assertTrue(cell2.wallExist(Direction.O));
+	}
+
+	@Test
 	public void verifyPerfectMaze() {
 		PerfectMazeValidator validator = new PerfectMazeValidator(this.map);
-		assertEquals(validator.verify(0, 0),this.gridHeigth*this.gridWidth);
+		assertEquals(validator.verify(0, 0), this.gridHeigth * this.gridWidth);
 	}
-	
-	/*
-	@Test
-	public void cellHasNeighborsUnvisited() {
-		Cell currentCell = new Cell(0, 0);
-		Cell neighborXCell = new Cell(1, 0);
-		this.grid.getCell(0, 1).setVisited();
-		List<Cell> neighborsCells = this.getUnvisitedNeighborsCells(currentCell);
-
-		assertTrue(neighborsCells.contains(neighborXCell));
-		assertTrue(neighborsCells.size() == 1);
-	}
-
-	@Test
-	public void cellHasNotNeighborsUnvisited() {
-		Cell currentCell = new Cell(0, 0);
-		this.grid.getCell(1, 0).setVisited();
-		this.grid.getCell(0, 1).setVisited();
-		List<Cell> neighborsCells = this.getUnvisitedNeighborsCells(currentCell);
-
-		assertTrue(neighborsCells.size() == 0);
-	}
-	*/
 }

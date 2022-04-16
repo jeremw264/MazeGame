@@ -158,10 +158,22 @@ public class MapTest {
 	@Test
 	public void getCellWithDirection() {
 		Cell currentCell = this.map.getCell(2, 2);
-		Cell nextCell = this.map.getCell(2, 1);
-		Cell directionCell = this.map.getCellWithDirection(currentCell, Direction.N);
-		assertSame(nextCell, directionCell);
-		assertEquals(currentCell.getY() - 1, directionCell.getY());
+		
+		Cell nextCellN = this.map.getCell(2, 1);
+		Cell nextCellS = this.map.getCell(2, 3);
+		Cell nextCellO = this.map.getCell(1, 2);
+		Cell nextCellE = this.map.getCell(3, 2);
+		
+		Cell directionCellN = this.map.getCellWithDirection(currentCell, Direction.N);
+		Cell directionCellS = this.map.getCellWithDirection(currentCell, Direction.S);
+		Cell directionCellO = this.map.getCellWithDirection(currentCell, Direction.O);
+		Cell directionCellE = this.map.getCellWithDirection(currentCell, Direction.E);
+
+		assertSame(nextCellN, directionCellN);
+		assertSame(nextCellS, directionCellS);
+		assertSame(nextCellO, directionCellO);
+		assertSame(nextCellE, directionCellE);
+		
 	}
 
 	@Test
@@ -175,5 +187,13 @@ public class MapTest {
 		assertTrue(neighborsCells.contains(neighborYCell));
 		assertEquals(neighborsCells.size() ,2);
 	}
+	
+	@Test
+	public void toStringSizeIsCorrect() {
+		String mapString = this.map.toString();
+		int targetSize = (this.map.getWidth() * 4 +1) * (this.map.getHeight()*2+1) + (2*this.map.getHeight()+1);
+		assertEquals(mapString.length(), targetSize);
+	}
+
 
 }

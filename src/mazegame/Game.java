@@ -6,7 +6,6 @@ import java.util.List;
 import mazegame.action.LookAround;
 import mazegame.challenge.Challenge;
 import mazegame.challenge.WaitRound;
-import mazegame.challenge.WaitThreeRounds;
 import mazegame.character.Player;
 import mazegame.character.player.Hero;
 import mazegame.generation.Kruskal;
@@ -58,7 +57,7 @@ public class Game {
 		/*
 		 * Ajouter les Challenges
 		 */
-		listOfChallenges.add(new WaitRound(this.player));
+		listOfChallenges.add(new WaitRound(this.player,3));
 
 		this.quest = new Quest(listOfChallenges);
 

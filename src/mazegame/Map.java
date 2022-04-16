@@ -116,10 +116,7 @@ public class Map {
 		if (direction == Direction.O)
 			return this.getCell(x - 1, y);
 
-		if (direction == Direction.E)
-			return this.getCell(x + 1, y);
-
-		return null;
+		return this.getCell(x + 1, y);
 
 	}
 
