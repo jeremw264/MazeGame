@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import mazegame.character.Character;
+import mazegame.character.Player;
 
 /**
  * Class Cell
@@ -146,6 +147,22 @@ public class Cell {
 	 */
 	public void removeCharacter(Character character) {
 		this.characters.remove(character);
+	}
+
+	/**
+	 * Renvoie si un Joueur est présent sur la case.
+	 * 
+	 * @return true si un Joueur est présent sur la case, false sinon.
+	 */
+	public boolean containsPlayer() {
+
+		for (Character character : characters) {
+			if (character instanceof Player) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	/**
