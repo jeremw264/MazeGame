@@ -122,13 +122,13 @@ public abstract class Character {
 	 * 
 	 * @param o L'objet à ajouter.
 	 */
-	public void addInv(Item o) {
+	public void addInv(Item item) {
 		if (this.inventory != null) {
-			this.inventory.add((Item) o);	
+			this.inventory.add((Item) item);	
 		}
 		else {
 			this.inventory = new LinkedList<Item>();
-			this.inventory.add((Item) o);
+			this.inventory.add((Item) item);
 		}
 		
 	}
@@ -138,8 +138,8 @@ public abstract class Character {
 	 * 
 	 * @param o L'objet à enlever.
 	 */
-	public void removeInv(Item o) {
-		this.inventory.remove(o);
+	public void removeInv(Item item) {
+		this.inventory.remove(item);
 	}
 
 	/**
