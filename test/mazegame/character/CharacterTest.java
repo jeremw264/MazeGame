@@ -71,7 +71,7 @@ public class CharacterTest {
 
 	@Test
 	public void addItemInList() {
-		Item item = new Scroll();
+		Item item = new Scroll("indice");
 
 		this.character.addInv(item);
 
@@ -80,7 +80,7 @@ public class CharacterTest {
 
 	@Test
 	public void removeElementFromInventory() {
-		Item item = new Scroll();
+		Item item = new Scroll("indice");
 
 		assertTrue(this.character.getListOfItems().isEmpty());
 
@@ -96,7 +96,7 @@ public class CharacterTest {
 
 	@Test
 	public void elementIsInInventory() {
-		Item item = new Scroll();
+		Item item = new Scroll("indice");
 
 		this.character.addInv(item);
 
@@ -110,8 +110,8 @@ public class CharacterTest {
 	
 	@Test
 	public void elementIsNotInInventory() {
-		Item item = new Scroll();
-		Item badItem = new Scroll();
+		Item item = new Scroll("indice");
+		Item badItem = new Scroll("indice");
 
 		this.character.addInv(item);
 
