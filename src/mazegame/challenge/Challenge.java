@@ -11,7 +11,7 @@ public abstract class Challenge {
 	private boolean finished;
 
 	// Le joueur courant
-	private Player player;
+	protected Player player;
 
 	/**
 	 * Constructeur de l'objet Challenge
