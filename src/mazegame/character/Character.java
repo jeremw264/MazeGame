@@ -19,7 +19,7 @@ public abstract class Character {
 
 	private int x;
 	private int y;
-	public Cell currentCell;
+	private Cell currentCell;
 	private Map map;
 
 	public List<Item> inventory;
