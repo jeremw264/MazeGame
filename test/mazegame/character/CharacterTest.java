@@ -28,6 +28,12 @@ public class CharacterTest {
 			public Action getAction() {
 				return new DoNothing();
 			}
+
+			@Override
+			public Cell computeNextCell() {
+				// TODO Auto-generated method stub
+				return new Cell(getX(), getY());
+			}
 		};
 	}
 

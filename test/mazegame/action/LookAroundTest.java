@@ -10,6 +10,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import mazegame.Cell;
 import mazegame.Direction;
 import mazegame.Map;
 import mazegame.character.Character;
@@ -27,6 +28,12 @@ public class LookAroundTest extends ActionTest {
 	public void characterIsNotPlayer() {
 		Map map = new Map(2, 2);
 		Character npcCharacter = new Npc(0, 0, map) {
+
+			@Override
+			public Cell computeNextCell() {
+				// TODO Auto-generated method stub
+				return new Cell(getX(), getY());
+			}
 		};
 
 		this.action.run(npcCharacter);

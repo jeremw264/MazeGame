@@ -36,6 +36,8 @@ public abstract class Character {
 		this.y = y;
 		this.map = map;
 		this.currentCell = map.getCell(x, y);
+
+		this.currentCell.setCharacter(this);
 	}
 
 	/**
@@ -130,6 +132,27 @@ public abstract class Character {
 	 */
 	public void removeInv(Object o) {
 		inventory.remove(o);
+	}
+
+	/**
+	 * Renvoie la prochaine cellule où le personnage doit ce déplacer.
+	 * 
+	 * @return La prochaine cellule où le personnage doit ce déplacer.
+	 */
+	abstract public Cell computeNextCell();
+
+	/**
+	 * Déplace le joueur sur la carte.
+	 */
+	public void move() {
+		Cell nextCell = this.computeNextCell();
+
+		this.currentCell.removeCharacter(this);
+		this.setCell(nextCell);
+		this.x = this.currentCell.getX();
+		this.y = this.currentCell.getY();
+
+		this.currentCell.setCharacter(this);
 	}
 
 	/**

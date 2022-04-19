@@ -16,7 +16,14 @@ public abstract class Player extends Character {
 	 */
 	public Player(int x, int y, Map map) {
 		super(x, y, map);
+		this.getCell().setVisited();
 		// TODO Auto-generated constructor stub
+	}
+	
+	@Override
+	public void move() {
+		super.move();
+		this.getCell().setVisited();
 	}
 
 }

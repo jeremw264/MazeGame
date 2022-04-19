@@ -26,6 +26,8 @@ public class LookAround extends Action {
 			Game.DISPLAYER.displayError("Cette action doit être executé par un Player");
 			return;
 		}
+		
+		Game.DISPLAYER.displayMap(character.getMap());
 
 		final int currentX = character.getX();
 		final int currentY = character.getY();

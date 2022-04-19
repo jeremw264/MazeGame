@@ -5,6 +5,7 @@ import java.util.List;
 
 import mazegame.action.LookAround;
 import mazegame.challenge.Challenge;
+import mazegame.challenge.FinalCase;
 import mazegame.challenge.WaitRound;
 import mazegame.character.Player;
 import mazegame.character.player.Hero;
@@ -57,14 +58,14 @@ public class Game {
 		/*
 		 * Ajouter les Challenges
 		 */
-		listOfChallenges.add(new WaitRound(this.player,3));
+		listOfChallenges.add(new WaitRound(this.player, 1));
+		listOfChallenges.add(new FinalCase(player));
 
 		this.quest = new Quest(listOfChallenges);
 
 	}
 
 	public void run() {
-		Game.DISPLAYER.displayMap(this.map);
 
 		new LookAround().run(this.player);
 

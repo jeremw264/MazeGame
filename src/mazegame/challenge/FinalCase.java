@@ -51,6 +51,9 @@ public class FinalCase extends Challenge {
 
 		cellX = r.nextInt(mapWidth);
 		cellY = r.nextInt(mapHeight);
+		
+		// Affichage dev
+		System.out.println(new Cell(cellX, cellY));
 
 		return new Cell(cellX, cellY);
 	}
