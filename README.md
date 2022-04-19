@@ -171,9 +171,9 @@ Nous avons donc décider :
 - De réorganiser la génération du labyrinthe.
 - Bien réorganiser le projet et les classes
 
-Franck : Pour le 27/03/22 Commencer l'impl�mentation des Personnages. 
-	Cr�ation de la class abstraite Character. Cr�ation des class concrete des npc.  
-Timothe : Pour le 27/03/22 Commencer l'implémentation des Objets
+Franck : Pour le 27/03/22 Commencer l'impl�mentation des Personnages. 
+	Cr�ation de la class abstraite Character. Cr�ation des class concrete des npc.  
+Timothe : Pour le 27/03/22 Commencer l'implémentation des Objets  
 Jérémy : Pour le 27/03/22 Refonte de la structure du projet et du Plateau de jeu + Nettoyage du code
 
 #### Difficulté 
@@ -182,8 +182,11 @@ Comment gerer les differentes interation entre personnage quand on attends des s
 
 ## Semaine 9
 
+Jérémy : Quest et Challenge 
+
 ## Semaine 10
 
 ## Semaine 11
+Jérémy : Action lookaround et doNothing + Implémentation de game + Ecriture des tests
 
 ## Semaine 12
