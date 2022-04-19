@@ -10,6 +10,9 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
+import mazegame.character.Player;
+import mazegame.character.player.Hero;
+
 /**
  * @author jeremy
  *
@@ -81,6 +84,23 @@ public class CellTest {
 		assertFalse(this.cell.isVisited());
 		this.cell.setVisited();
 		assertTrue(this.cell.isVisited());
+	}
+
+	@Test
+	public void cellContainsPlayer() {
+		Map map = new Map(2, 2);
+		Player player = new Hero(0, 0, map);
+		Cell cell = new Cell(0, 0);
+		
+		cell.setCharacter(player);
+		
+		assertTrue(cell.containsPlayer());
+	}
+
+	@Test
+	public void cellNotContainsPlayer() {
+		Cell cell = new Cell(0, 0);
+		assertFalse(cell.containsPlayer());
 	}
 
 	@Test
