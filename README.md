@@ -184,9 +184,16 @@ Comment gerer les differentes interation entre personnage quand on attends des s
 
 Jérémy : Quest et Challenge 
 
+
 ## Semaine 10
 
+Timothe: Doit faire Action ramaser et utiliser (pour les objet)
+
+Franck: Doit faire Action discuter et ce déplacer 
+
+Jérémy : Doit faire Action regarder
+
 ## Semaine 11
-Jérémy : Action lookaround et doNothing + Implémentation de game + Ecriture des tests
+Jérémy : Action lookaround et doNothing + Implémentation de game + Ecriture des tests + Challenge FinalCase
 
 ## Semaine 12
