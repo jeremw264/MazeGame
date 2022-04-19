@@ -7,6 +7,11 @@ import org.junit.Test;
 
 import mazegame.action.Action;
 import mazegame.action.DoNothing;
+import mazegame.character.player.Hero;
+import mazegame.item.Item;
+import mazegame.item.Scroll;
+import mazegame.Cell;
+import mazegame.Direction;
 import mazegame.Map;
 
 public class CharacterTest {
@@ -37,8 +42,117 @@ public class CharacterTest {
 	}
 
 	@Test
+	public void getCellTest() {
+		int x = this.character.getX();
+		int y = this.character.getY();
+		Cell correctCell = new Cell(x, y);
+
+		assertEquals(this.character.getCell(), correctCell);
+	}
+
+	@Test
+	public void setCellTest() {
+		Cell cell = new Cell(5, 2);
+
+		this.character.setCell(cell);
+
+		assertEquals(cell, this.character.getCell());
+	}
+
+	@Test
 	public void getMapTest() {
 		assertSame(this.map, this.character.getMap());
+	}
+
+	@Test
+	public void listOfItemIsEmptyToConstruction() {
+		assertTrue(this.character.getListOfItems().isEmpty());
+	}
+
+	@Test
+	public void addItemInList() {
+		Item item = new Scroll();
+
+		this.character.addInv(item);
+
+		assertTrue(this.character.getListOfItems().contains(item));
+	}
+
+	@Test
+	public void removeElementFromInventory() {
+		Item item = new Scroll();
+
+		assertTrue(this.character.getListOfItems().isEmpty());
+
+		this.character.addInv(item);
+
+		assertFalse(this.character.getListOfItems().isEmpty());
+
+		this.character.removeInv(item);
+
+		assertTrue(this.character.getListOfItems().isEmpty());
+
+	}
+
+	@Test
+	public void elementIsInInventory() {
+		Item item = new Scroll();
+
+		this.character.addInv(item);
+
+		assertFalse(this.character.getListOfItems().isEmpty());
+
+		assertEquals(this.character.getListOfItems().size(), 1);
+		assertTrue(this.character.checkItems(item));
+		assertSame(this.character.getListOfItems().get(0), item);
+
+	}
+	
+	@Test
+	public void elementIsNotInInventory() {
+		Item item = new Scroll();
+		Item badItem = new Scroll();
+
+		this.character.addInv(item);
+
+		assertFalse(this.character.getListOfItems().isEmpty());
+
+		assertEquals(this.character.getListOfItems().size(), 1);
+		assertTrue(this.character.checkItems(badItem));
+		assertSame(this.character.getListOfItems().get(0), item);
+	}
+
+	@Test
+	public void correctAccessibleDirection() {
+		Map map = new Map(2, 2);
+		Player player = new Hero(0, 0, map);
+
+		assertFalse(player.getAccessibleDirections().contains(Direction.S));
+		assertFalse(player.getAccessibleDirections().contains(Direction.N));
+		assertFalse(player.getAccessibleDirections().contains(Direction.O));
+		assertFalse(player.getAccessibleDirections().contains(Direction.E));
+
+		map.getCell(0, 0).eraseWall(Direction.S);
+
+		assertTrue(player.getAccessibleDirections().contains(Direction.S));
+		assertFalse(player.getAccessibleDirections().contains(Direction.N));
+		assertFalse(player.getAccessibleDirections().contains(Direction.O));
+		assertFalse(player.getAccessibleDirections().contains(Direction.E));
+
+		map.getCell(0, 0).eraseWall(Direction.E);
+
+		assertTrue(player.getAccessibleDirections().contains(Direction.S));
+		assertTrue(player.getAccessibleDirections().contains(Direction.E));
+		assertFalse(player.getAccessibleDirections().contains(Direction.N));
+		assertFalse(player.getAccessibleDirections().contains(Direction.O));
+
+		map.getCell(0, 0).createWall(Direction.S);
+
+		assertTrue(player.getAccessibleDirections().contains(Direction.E));
+		assertFalse(player.getAccessibleDirections().contains(Direction.N));
+		assertFalse(player.getAccessibleDirections().contains(Direction.O));
+		assertFalse(player.getAccessibleDirections().contains(Direction.S));
+
 	}
 
 }
