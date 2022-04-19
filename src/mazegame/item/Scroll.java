@@ -10,9 +10,12 @@ public class Scroll extends Item {
 	/**
 	 * Constructeur de l'objet Scroll.
 	 */
-	public Scroll() {
+	
+	
+	public Scroll(String hint) {
 		this.value = 0;
 		this.sellability = false;
+		this.hint = hint;
 	}
 
 	/**

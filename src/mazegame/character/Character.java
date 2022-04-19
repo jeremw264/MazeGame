@@ -19,10 +19,10 @@ public abstract class Character {
 
 	private int x;
 	private int y;
-	private Cell currentCell;
+	public Cell currentCell;
 	private Map map;
 
-	private List<Item> inventory;
+	public List<Item> inventory;
 
 	/**
 	 * Constructeur de l'objet Character
@@ -36,6 +36,7 @@ public abstract class Character {
 		this.y = y;
 		this.map = map;
 		this.currentCell = map.getCell(x, y);
+		this.inventory = inventory;
 	}
 
 	/**

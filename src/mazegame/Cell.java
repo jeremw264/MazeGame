@@ -1,6 +1,7 @@
 package mazegame;
 
 import java.util.EnumMap;
+import mazegame.item.Item;
 
 /**
  * Class Cell
@@ -16,6 +17,8 @@ public class Cell {
 
 	// Etat de visite de la cellule.
 	private boolean visited;
+	
+	public Item item;
 
 	/**
 	 * Constructeur de la classe Cell, les murs sont généré par défault.
@@ -32,7 +35,8 @@ public class Cell {
 		this.walls.put(Direction.S, true);
 		this.walls.put(Direction.O, true);
 		this.walls.put(Direction.E, true);
-
+		
+		this.item = null;
 		this.visited = false;
 	}
 

@@ -1,5 +1,7 @@
 package mazegame.item;
 
+import mazegame.Cell;
+
 /**
  * Classe Item.
  * 
@@ -9,12 +11,20 @@ abstract public class Item {
 
 	protected int value;
 	protected boolean sellability;
+	private int x,y;
 
 	/**
 	 * Constructeur de l'objet Item.
 	 */
+	
+	public String hint;
+	
+	
 	public Item() {
 		this.sellability = false;
+		this.x = 0;
+		this.y = 0;
+		this.hint = null;
 	}
 
 	/**
@@ -37,6 +47,14 @@ abstract public class Item {
 	 */
 	protected int getValue() {
 		return this.value;
+	}
+	
+	protected void setLocation(int newX, int newY) {
+		this.x = newX;
+		this.y = newY;
+		
+		Cell cell = new Cell(this.x,this.y);
+		cell.item = this;
 	}
 
 	/**
