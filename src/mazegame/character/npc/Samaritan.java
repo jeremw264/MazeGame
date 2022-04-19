@@ -33,7 +33,14 @@ public class Samaritan extends Npc {
 	public Cell computeNextCell() {
 		return new Cell(getX(), getY());
 	}
-	
+
+	/**
+	 * Renvoie une action du personnage.
+	 * 
+	 * Par défault il ne peut que bouger.
+	 * 
+	 * @return Une action du personnage.
+	 */
 	@Override
 	public Action getAction() {
 		return new Move();
