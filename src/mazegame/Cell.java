@@ -2,6 +2,11 @@ package mazegame;
 
 import java.util.EnumMap;
 import mazegame.item.Item;
+import java.util.LinkedList;
+import java.util.List;
+
+import mazegame.character.Character;
+import mazegame.character.Player;
 
 /**
  * Class Cell
@@ -17,8 +22,11 @@ public class Cell {
 
 	// Etat de visite de la cellule.
 	private boolean visited;
-	
+
 	public Item item;
+
+	// Liste des personnages sur la case.
+	private List<Character> characters;
 
 	/**
 	 * Constructeur de la classe Cell, les murs sont généré par défault.
@@ -35,9 +43,11 @@ public class Cell {
 		this.walls.put(Direction.S, true);
 		this.walls.put(Direction.O, true);
 		this.walls.put(Direction.E, true);
-		
+
 		this.item = null;
 		this.visited = false;
+
+		this.characters = new LinkedList<Character>();
 	}
 
 	/**
@@ -59,6 +69,8 @@ public class Cell {
 		this.walls.put(Direction.E, wallsExist);
 
 		this.visited = false;
+
+		this.characters = new LinkedList<Character>();
 	}
 
 	/**
@@ -121,6 +133,40 @@ public class Cell {
 	 */
 	public boolean wallExist(Direction direction) {
 		return this.walls.get(direction);
+	}
+
+	/**
+	 * Enregistre un personnage sur la cellule.
+	 * 
+	 * @param character Le personnage à ajouter.
+	 */
+	public void setCharacter(Character character) {
+		this.characters.add(character);
+	}
+
+	/**
+	 * Supprime un personnage de la cellule.
+	 * 
+	 * @param character Le personnage à supprimer.
+	 */
+	public void removeCharacter(Character character) {
+		this.characters.remove(character);
+	}
+
+	/**
+	 * Renvoie si un Joueur est présent sur la case.
+	 * 
+	 * @return true si un Joueur est présent sur la case, false sinon.
+	 */
+	public boolean containsPlayer() {
+
+		for (Character character : characters) {
+			if (character instanceof Player) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	/**

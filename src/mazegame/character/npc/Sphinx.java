@@ -1,5 +1,6 @@
 package mazegame.character.npc;
 
+import mazegame.Cell;
 import mazegame.Map;
 import mazegame.action.Action;
 import mazegame.action.DoNothing;
@@ -22,4 +23,13 @@ public class Sphinx extends Npc {
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * Renvoie la prochaine cellule où le personnage doit ce déplacer.
+	 * 
+	 * @return La prochaine cellule où le personnage doit ce déplacer.
+	 */
+	@Override
+	public Cell computeNextCell() {
+		return new Cell(getX(), getY());
+	}
 }

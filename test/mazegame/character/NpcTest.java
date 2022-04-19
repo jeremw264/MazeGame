@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import mazegame.Cell;
 import mazegame.Map;
 import mazegame.action.Action;
 import mazegame.action.DoNothing;
@@ -19,6 +20,12 @@ public class NpcTest {
 	@Before
 	public void setUp() {
 		this.npc = new Npc(this.x, this.y, this.map) {
+
+			@Override
+			public Cell computeNextCell() {
+				// TODO Auto-generated method stub
+				return new Cell(x, y);
+			}
 		};
 	}
 

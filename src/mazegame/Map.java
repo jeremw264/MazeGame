@@ -174,19 +174,19 @@ public class Map {
 
 			for (int x = 0; x < this.width; x++) {
 				Cell cell = this.getCell(x, y);
+				String symString = " ";
+				if (cell.containsPlayer()) {
+					symString = "P";
+				} else if (!cell.isVisited()) {
+					symString = "#";
+				}
+
 				if (cell.wallExist(Direction.E)) {
 
-					if (cell.isVisited()) {
-						mazeStringBuilder.append("   |");
-					} else {
-						mazeStringBuilder.append(" # |");
-					}
+					mazeStringBuilder.append(" " + symString + " |");
+
 				} else {
-					if (cell.isVisited()) {
-						mazeStringBuilder.append("    ");
-					} else {
-						mazeStringBuilder.append(" #  ");
-					}
+					mazeStringBuilder.append(" " + symString + "  ");
 				}
 			}
 
