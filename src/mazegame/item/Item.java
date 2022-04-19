@@ -14,6 +14,7 @@ abstract public class Item {
 	 * Constructeur de l'objet Item.
 	 */
 	public Item() {
+		this.sellability = false;
 	}
 
 	/**

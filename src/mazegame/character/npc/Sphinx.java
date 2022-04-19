@@ -22,14 +22,4 @@ public class Sphinx extends Npc {
 		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * Renvoie une action du personnage.
-	 * 
-	 * @return Une action du personnage.
-	 */
-	@Override
-	public Action getAction() {
-		return new DoNothing();
-	}
-
 }

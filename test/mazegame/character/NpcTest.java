@@ -7,24 +7,18 @@ import org.junit.Test;
 
 import mazegame.Map;
 import mazegame.action.Action;
+import mazegame.action.DoNothing;
 
 public class NpcTest {
 
-	private Npc npc;
-	private Map map;
-	private final int x = 0;
-	private final int y = 1;
-	
+	protected Npc npc;
+	protected Map map = new Map(1, 2);
+	protected final int x = 0;
+	protected final int y = 1;
+
 	@Before
 	public void setUp() {
-		this.map = new Map(1, 2);
-		this.npc = new Npc(this.x,this.y,this.map) {
-			
-			@Override
-			public Action getAction() {
-				// TODO Auto-generated method stub
-				return null;
-			}
+		this.npc = new Npc(this.x, this.y, this.map) {
 		};
 	}
 
@@ -33,6 +27,11 @@ public class NpcTest {
 		assertEquals(this.npc.getX(), this.x);
 		assertEquals(this.npc.getY(), this.y);
 		assertSame(this.npc.getMap(), this.map);
+	}
+
+	@Test
+	public void getActionTest() {
+		assertTrue(this.npc.getAction() instanceof DoNothing);
 	}
 
 }
