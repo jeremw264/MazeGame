@@ -20,7 +20,7 @@
 			"correct":[],
 			"nextCorrect":[2],
 			"nextIncorrect":[]
-		}
+		},
 		"4":{
 			"content": "J’ai des choses rares en soldes étranger !",
 			"answers":[],
@@ -28,6 +28,7 @@
 			"nextCorrect":[2],
 			"nextIncorrect":[]
 		}
+	},
 	"2" : {
 		"1":{
 			"content": " He he he… Merci.",
@@ -35,7 +36,7 @@
 			"correct":[],
 			"nextCorrect":[],
 			"nextIncorrect":[]
-		}
+		},
 		"2":{
 			"content": "C’est tout étranger ?",
 			"answers":[],
@@ -43,5 +44,6 @@
 			"nextCorrect":[],
 			"nextIncorrect":[]
 		}
+	}
 
 }
