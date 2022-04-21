@@ -8,6 +8,7 @@ import mazegame.challenge.Challenge;
 import mazegame.challenge.FinalCase;
 import mazegame.challenge.WaitRound;
 import mazegame.character.Player;
+import mazegame.character.npc.*;
 import mazegame.character.player.Hero;
 import mazegame.generation.Kruskal;
 import mazegame.utils.ConsoleDisplayer;
@@ -47,8 +48,16 @@ public class Game {
 	private void initCharacter() {
 		this.listOfCharacters = new LinkedList<Character>();
 		Player player = new Hero(0, 0, this.map);
+		Character imp = new Imp(0, 0, this.map);
+		Character samaritan = new Samaritan(0, 0, this.map);
+		Character sphinx = new Sphinx(0, 0, this.map);
+		Character vendor = new Vendor(0, 0, this.map);
 
 		listOfCharacters.add(player);
+		listOfCharacters.add(imp);
+		listOfCharacters.add(samaritan);
+		listOfCharacters.add(sphinx);
+		listOfCharacters.add(vendor);
 
 		this.player = player;
 	}
