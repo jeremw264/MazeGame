@@ -5,8 +5,10 @@ import mazegame.character.Character;
 public class Move extends Action {
 
 	@Override
-	public void run(Character character) {
+	public boolean run(Character character) {
 		character.move();
+		
+		return true;
 	}
 
 }

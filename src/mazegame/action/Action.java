@@ -12,5 +12,5 @@ public abstract class Action {
 	 * 
 	 * @param character Le personnage qui execute l'action
 	 */
-	public abstract void run(Character character);
+	public abstract boolean run(Character character);
 }

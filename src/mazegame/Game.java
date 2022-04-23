@@ -76,14 +76,16 @@ public class Game {
 
 	public void run() {
 
+		boolean gameState = true;
+
 		new LookAround().run(this.player);
 
-		while (!this.quest.isComplete()) {
+		while (!this.quest.isComplete() && gameState) {
 
 			Game.DISPLAYER.displayMsg("--------------------------------------------------");
 
 			for (Character character : listOfCharacters) {
-				character.getAction().run(character);
+				gameState = !character.getAction().run(character);
 			}
 		}
 

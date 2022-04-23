@@ -41,13 +41,14 @@ public class PlayerChoise extends Action {
 	 * @param character Le personnage qui doit faire le choix.
 	 */
 	@Override
-	public void run(Character character) {
+	public boolean run(Character character) {
 		if (!(character instanceof Player)) {
 			Game.DISPLAYER.displayError("Cette action doit être executé par un Player");
-			return;
+			return false;
 		}
 
 		List<String> keysList = new LinkedList<String>(this.actionsMap.keySet());
+		keysList.add("quitter");
 
 		String choise;
 
@@ -59,6 +60,9 @@ public class PlayerChoise extends Action {
 			if (!this.actionsMap.containsKey(choise)) {
 				if (choise.equals("aide")) {
 					Game.DISPLAYER.displayHelp(keysList);
+				} else if (choise.equals("quitter")) {
+					return false;
+					
 				} else {
 					Game.DISPLAYER.displayError("Choix non valide\n");
 				}
@@ -68,6 +72,8 @@ public class PlayerChoise extends Action {
 
 		this.actionsMap.get(choise).run(character);
 
+		return true;
+		
 	}
 
 }

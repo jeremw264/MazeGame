@@ -20,11 +20,11 @@ public class LookAround extends Action {
 	 * Affiche une description de ce que le joueur peut voir.
 	 */
 	@Override
-	public void run(Character character) {
+	public boolean run(Character character) {
 		
 		if (!(character instanceof Player)) {
 			Game.DISPLAYER.displayError("Cette action doit être executé par un Player");
-			return;
+			return false;
 		}
 		
 		Game.DISPLAYER.displayMap(character.getMap());
@@ -41,6 +41,8 @@ public class LookAround extends Action {
 		Game.DISPLAYER.displayMsg("Vous êtes sur la case ("+currentX+","+currentY+")");
 		Game.DISPLAYER.displayChoise("Les directions accessible sont : ",directionNameList);
 
+		return true;
+		
 	}
 
 }

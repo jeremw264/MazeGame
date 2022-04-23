@@ -13,8 +13,8 @@ public class DoNothing extends Action {
 	 * Ne fait rien faire au personnage.
 	 */
 	@Override
-	public void run(Character character) {
-		return;
+	public boolean run(Character character) {
+		return true;
 
 	}
 

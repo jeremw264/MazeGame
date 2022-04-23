@@ -12,8 +12,10 @@ import org.json.simple.parser.*;
 
 public class Talk extends Action {
 	@Override
-	public void run(Character character) {
+	public boolean run(Character character) {
 		// TODO Auto-generated method stub
 		Player.talk();
+		
+		return true;
 	}
 }
