@@ -67,8 +67,8 @@ public class Game {
 		/*
 		 * Ajouter les Challenges
 		 */
-		listOfChallenges.add(new WaitRound(this.player, 1));
-		listOfChallenges.add(new FinalCase(player));
+		listOfChallenges.add(new WaitRound(this.player, 3));
+		//listOfChallenges.add(new FinalCase(player));
 
 		this.quest = new Quest(listOfChallenges);
 
@@ -80,12 +80,17 @@ public class Game {
 
 		new LookAround().run(this.player);
 
-		while (!this.quest.isComplete() && gameState) {
+		while (gameState && !this.quest.isComplete()) {
 
 			Game.DISPLAYER.displayMsg("--------------------------------------------------");
 
 			for (Character character : listOfCharacters) {
 				gameState = character.getAction().run(character);
+				
+				if (!gameState) {
+					break;
+				}
+				
 			}
 		}
 
