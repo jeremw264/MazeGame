@@ -173,7 +173,7 @@ public class Cell {
 	 * Description de la cellule sous forme de chaîne de caractère.
 	 */
 	public String toString() {
-		return "Case de coordonnée: x = " + this.x + " y = " + this.y;
+		return "Case (" + this.x + "," + this.y+")";
 	}
 
 	/**

@@ -1,6 +1,10 @@
 package mazegame.character.npc;
 
+import java.util.Collections;
+import java.util.List;
+
 import mazegame.Cell;
+import mazegame.Direction;
 import mazegame.Map;
 import mazegame.action.Action;
 import mazegame.action.DoNothing;
@@ -33,7 +37,12 @@ public class Imp extends Npc {
 	 */
 	@Override
 	public Cell computeNextCell() {
-		return new Cell(getX(), getY());
+		
+		List<Direction> accessibleDirections = this.getAccessibleDirections();
+		
+		Collections.shuffle(accessibleDirections);
+		
+		return this.getMap().getCellWithDirection(this.getCell(), accessibleDirections.get(0));
 	}
 
 	/**

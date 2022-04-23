@@ -85,7 +85,7 @@ public class Game {
 			Game.DISPLAYER.displayMsg("--------------------------------------------------");
 
 			for (Character character : listOfCharacters) {
-				gameState = !character.getAction().run(character);
+				gameState = character.getAction().run(character);
 			}
 		}
 
