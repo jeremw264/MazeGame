@@ -31,6 +31,8 @@ public class PlayerChoise extends Action {
 
 		this.actionsMap.put("regarder", new LookAround());
 		this.actionsMap.put("bouger", new Move());
+		this.actionsMap.put("utiliser", new UseItem());
+		this.actionsMap.put("ramasser", new PickUp());
 		//this.actionsMap.put("discuter", new Talk());
 
 	}

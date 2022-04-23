@@ -3,7 +3,6 @@ package mazegame.character;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.PrimitiveIterator.OfDouble;
-
 import javax.swing.text.StyledEditorKit.ForegroundAction;
 
 import mazegame.Cell;

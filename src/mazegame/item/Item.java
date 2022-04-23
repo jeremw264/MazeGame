@@ -9,7 +9,7 @@ import mazegame.Cell;
  */
 abstract public class Item {
 
-	protected int value;
+	public int value;
 	protected boolean sellability;
 	private int x,y;
 
@@ -54,7 +54,8 @@ abstract public class Item {
 		this.y = newY;
 		
 		Cell cell = new Cell(this.x,this.y);
-		cell.item = this;
+		cell.items.add(this);
+		cell.itemMap.put(this.toString(), this);
 	}
 
 	/**

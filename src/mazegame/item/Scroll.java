@@ -22,6 +22,6 @@ public class Scroll extends Item {
 	 * Renvoie une représentation de l'objet sous forme de chaine de caractère.
 	 */
 	public String toString() {
-		return "Cet objet n'est pas vendable";
+		return "parchemin";
 	}
 }
