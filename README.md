@@ -196,4 +196,8 @@ Jérémy : Doit faire Action regarder
 ## Semaine 11
 Jérémy : Action lookaround et doNothing + Implémentation de game + Ecriture des tests + Challenge FinalCase
 
+Jérémy : Création d'un google drive pour upload des vidéo pour aider le groupe avec des commentaire vidéo, des conseils et des exemples
+
+[Lien du drive](https://drive.google.com/drive/folders/1TQ4cVKrRmaQw1deNeURHc44K0_ArsCkl?usp=sharing)
+
 ## Semaine 12
