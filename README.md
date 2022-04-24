@@ -200,4 +200,6 @@ Jérémy : Création d'un google drive pour upload des vidéo pour aider le grou
 
 [Lien du drive](https://drive.google.com/drive/folders/1TQ4cVKrRmaQw1deNeURHc44K0_ArsCkl?usp=sharing)
 
+Timothé : Avec l'aide de Jérémy pour le code java, Actions PickUp et UseItem faite en modifiant l'implementation de la cellule pour l'action PickUp
+
 ## Semaine 12
