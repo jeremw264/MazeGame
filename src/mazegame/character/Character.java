@@ -21,7 +21,7 @@ public abstract class Character {
 	private Cell currentCell;
 	private Map map;
 
-	public List<Item> inventory;
+	private List<Item> inventory;
 
 	/**
 	 * Constructeur de l'objet Character

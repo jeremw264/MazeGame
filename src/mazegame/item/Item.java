@@ -1,7 +1,5 @@
 package mazegame.item;
 
-import mazegame.Cell;
-
 /**
  * Classe Item.
  * 
@@ -11,7 +9,7 @@ abstract public class Item {
 
 	public int value;
 	protected boolean sellability;
-	private int x,y;
+	protected boolean usability;
 
 	/**
 	 * Constructeur de l'objet Item.
@@ -22,8 +20,7 @@ abstract public class Item {
 	
 	public Item() {
 		this.sellability = false;
-		this.x = 0;
-		this.y = 0;
+		this.usability = false;
 		this.hint = null;
 	}
 
@@ -39,6 +36,11 @@ abstract public class Item {
 	protected void switchSellability() {
 		this.sellability = !(this.sellability);
 	}
+	
+	public boolean isUsable() {
+		return this.usability;
+	}
+	
 
 	/**
 	 * Renvoie la valeur de vente de l'objet.
@@ -49,14 +51,6 @@ abstract public class Item {
 		return this.value;
 	}
 	
-	protected void setLocation(int newX, int newY) {
-		this.x = newX;
-		this.y = newY;
-		
-		Cell cell = new Cell(this.x,this.y);
-		cell.items.add(this);
-		cell.itemMap.put(this.toString(), this);
-	}
 
 	/**
 	 * Définit la valeur de vente de l'objet.
@@ -66,6 +60,9 @@ abstract public class Item {
 	protected void setValue(int newValue) {
 		this.value = newValue;
 	}
+	
+	abstract public void use(); 
+		
 
 	/**
 	 * Renvoie si l'objet en paramètre est egal à l'objet courant.

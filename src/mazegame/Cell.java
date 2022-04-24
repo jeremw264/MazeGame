@@ -1,13 +1,11 @@
 package mazegame;
 
 import java.util.EnumMap;
-import java.util.HashMap;
 
 import mazegame.item.Item;
 import java.util.LinkedList;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import mazegame.character.Character;
 import mazegame.character.Player;
@@ -28,10 +26,7 @@ public class Cell {
 	private boolean visited;
 	
 	//List des objets présents sur la cellule
-	public List<Item> items;
-	
-	//Map des objets présents sur la cellule
-	public Map<String, Item> itemMap;		
+	private List<Item> items;		
 		
 	// Liste des personnages sur la case.
 	private List<Character> characters;
@@ -53,7 +48,6 @@ public class Cell {
 		this.walls.put(Direction.E, true);
 
 		this.items = new ArrayList<Item>();
-		this.itemMap = new HashMap<>();
 		this.visited = false;
 
 		this.characters = new LinkedList<Character>();
@@ -176,6 +170,18 @@ public class Cell {
 		}
 
 		return false;
+	}
+	
+	public List<Item> getItemList(){
+		return this.items;
+	}
+	
+	public void addItem(Item item) {
+		this.items.add(item);
+	}
+	
+	public void rmvItem(Item item) {
+		this.items.remove(item);
 	}
 
 	/**
