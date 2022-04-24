@@ -14,6 +14,12 @@ public class ItemTest {
 	@Before
 	public void setUp() throws Exception {
 		this.item = new Item() {
+
+			@Override
+			public void use() {
+				return;
+				
+			}
 		};
 	}
 
@@ -51,9 +57,21 @@ public class ItemTest {
 	@Test
 	public void equalsTest() {
 		Item item1 = new Item() {
+
+			@Override
+			public void use() {
+				// TODO Auto-generated method stub
+				
+			}
 		};
 
 		Item item2 = new Item() {
+
+			@Override
+			public void use() {
+				// TODO Auto-generated method stub
+				
+			}
 		};
 
 		int value = 5;
@@ -67,9 +85,21 @@ public class ItemTest {
 	@Test
 	public void notEqualsTest() {
 		Item item1 = new Item() {
+
+			@Override
+			public void use() {
+				// TODO Auto-generated method stub
+				
+			}
 		};
 
 		Item item2 = new Item() {
+
+			@Override
+			public void use() {
+				// TODO Auto-generated method stub
+				
+			}
 		};
 
 		item1.switchSellability();
@@ -86,6 +116,12 @@ public class ItemTest {
 	@Test
 	public void notEqualsWithOtherObject() {
 		Item item1 = new Item() {
+
+			@Override
+			public void use() {
+				// TODO Auto-generated method stub
+				
+			}
 		};
 
 
