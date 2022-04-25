@@ -18,7 +18,7 @@ import mazegame.action.DoNothing;
  */
 public abstract class Npc extends Character {
 	
-	private String DataFileName;
+	private String DataFileName = getClass().getSimpleName()+".json";
 
 	/**
 	 * Constructeur de l'objet Npc.
@@ -27,7 +27,7 @@ public abstract class Npc extends Character {
 	 * @param y   Position horizontale de départ.
 	 * @param map La carte sur laquelle le personnage non joueur ce déplace.
 	 */
-	public Npc(int x, int y, Map map) {
+	public Npc(int x, int y, Map map, String DataFileName) {
 		super(x, y, map);
 		// TODO Auto-generated constructor stub
 	}
@@ -56,14 +56,16 @@ public abstract class Npc extends Character {
        do {
       	 Game.DISPLAYER.displayMsg(content);
       	 Game.DISPLAYER.displayMsg(answer);
-      	 String rp = Game.INPUT.getString().toLowerCase();
-      	 if (rp.equals(c)) {
+      	 String responce = Game.INPUT.getString().toLowerCase();
+      	 if (responce.equals(c)) {
       		 Game.DISPLAYER.displayMsg(nc);
+      		 return true;
       		 }
       	 else {
       		 Game.DISPLAYER.displayMsg(nic);
+      		 return false;
       		 }
-      	 } while(!((sphinx.get("nextCorrect") == null) && (sphinx.get("nextIncorrect") == null)));
+      	 } while(!((npc.get("nextCorrect") == null) && (npc.get("nextIncorrect") == null)));
        } 
     catch (FileNotFoundException e) {
   	  e.printStackTrace();

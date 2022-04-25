@@ -17,9 +17,11 @@ public class Sphinx extends Npc {
 	 * @param x   Position verticale de départ.
 	 * @param y   Position horizontale de départ.
 	 * @param map La carte sur laquelle le sphinx ce déplace.
+	 * @param DataFileName 
 	 */
-	public Sphinx(int x, int y, Map map) {
-		super(x, y, map);
+	public Sphinx(int x, int y, Map map, String DataFileName) {
+		super(x, y, map, DataFileName);
+		
 		// TODO Auto-generated constructor stub
 	}
 
