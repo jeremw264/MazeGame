@@ -155,6 +155,10 @@ public class Cell {
 	public void removeCharacter(Character character) {
 		this.characters.remove(character);
 	}
+	
+	public List<Character> CharactersList() {
+		return this.characters;
+	}
 
 	/**
 	 * Renvoie si un Joueur est présent sur la case.

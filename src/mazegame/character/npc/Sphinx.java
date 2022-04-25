@@ -32,4 +32,5 @@ public class Sphinx extends Npc {
 	public Cell computeNextCell() {
 		return new Cell(getX(), getY());
 	}
+	
 }

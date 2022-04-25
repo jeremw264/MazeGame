@@ -1,5 +1,14 @@
 package mazegame.character;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+import org.json.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import mazegame.Game;
 import mazegame.Map;
 import mazegame.action.Action;
 import mazegame.action.DoNothing;
@@ -8,6 +17,8 @@ import mazegame.action.DoNothing;
  * Classe Npc.
  */
 public abstract class Npc extends Character {
+	
+	private String DataFileName;
 
 	/**
 	 * Constructeur de l'objet Npc.
@@ -29,6 +40,40 @@ public abstract class Npc extends Character {
 	@Override
 	public Action getAction() {
 		return new DoNothing();
+	}
+	public boolean talk() {
+		
+	JSONParser npc = new JSONParser();
+    try {
+       JSONObject sphinx = (JSONObject)npc.parse(new FileReader(System.getProperty("user.dir")+"/data/"+this.DataFileName+".json"));
+       
+       
+       String content = (String) npc.get("content");
+       String answer = (String) npc.get("answers");
+       String c = (String) npc.get("correct");
+       String nc = (String) npc.get("nextCorrect");
+       String nic = (String) npc.get("nextIncorrect");
+       do {
+      	 Game.DISPLAYER.displayMsg(content);
+      	 Game.DISPLAYER.displayMsg(answer);
+      	 String rp = Game.INPUT.getString().toLowerCase();
+      	 if (rp.equals(c)) {
+      		 Game.DISPLAYER.displayMsg(nc);
+      		 }
+      	 else {
+      		 Game.DISPLAYER.displayMsg(nic);
+      		 }
+      	 } while(!((sphinx.get("nextCorrect") == null) && (sphinx.get("nextIncorrect") == null)));
+       } 
+    catch (FileNotFoundException e) {
+  	  e.printStackTrace();
+  	  }
+    catch (IOException e) {
+  	  e.printStackTrace();
+  	  }
+    catch (ParseException e) {
+        e.printStackTrace();
+     }
 	}
 
 }
