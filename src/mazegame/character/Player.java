@@ -3,9 +3,9 @@ package mazegame.character;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-
-import org.json.JSONObject;
-import org.json.simple.parser.*;
+import org.json.simple.*;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import mazegame.Game;
 import mazegame.Map;
@@ -38,7 +38,7 @@ public abstract class Player extends Character {
 		// TODO Auto-generated method stub
 		JSONParser jsonP = new JSONParser();
 	      try {
-	         JSONObject sphinx = (JSONObject)jsonP.parse(new FileReader("Sphinx.json"));
+	         JSONObject sphinx = (JSONObject)jsonP.parse(new FileReader(System.getProperty("user.dir")+"/data/Sphinx.json"));
 	         /*JSONObject imp = (JSONObject)jsonP.parse(new FileReader("Imp.json"));
 	         JSONObject vendor = (JSONObject)jsonP.parse(new FileReader("Vendor.json"));
 	         JSONObject data = (JSONObject)jsonP.parse(new FileReader("data.json"));*/
@@ -57,7 +57,7 @@ public abstract class Player extends Character {
 	        	 else {
 	        		 Game.DISPLAYER.displayMsg(nic);
 	        		 }
-	        	 } while(!(sphinx.isNull("nextCorrect") && sphinx.isNull("nextIncorrect")));
+	        	 } while(!((sphinx.get("nextCorrect") == null) && (sphinx.get("nextIncorrect") == null)));
 	         } 
 	      catch (FileNotFoundException e) {
 	    	  e.printStackTrace();

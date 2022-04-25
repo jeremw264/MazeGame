@@ -16,6 +16,7 @@ import mazegame.utils.ConsoleInput;
 import mazegame.utils.Displayer;
 import mazegame.utils.Input;
 import mazegame.character.Character;
+import mazegame.character.Npc;
 
 /**
  * Classe Game qui va représenter le jeu.
@@ -48,10 +49,10 @@ public class Game {
 	private void initCharacter() {
 		this.listOfCharacters = new LinkedList<Character>();
 		Player player = new Hero(0, 0, this.map);
-		Character imp = new Imp(0, 0, this.map);
-		Character samaritan = new Samaritan(0, 0, this.map);
-		Character sphinx = new Sphinx(0, 0, this.map);
-		Character vendor = new Vendor(0, 0, this.map);
+		Npc imp = new Imp(0, 0, this.map);
+		Npc samaritan = new Samaritan(0, 0, this.map);
+		Npc sphinx = new Sphinx(0, 0, this.map);
+		Npc vendor = new Vendor(0, 0, this.map);
 
 		listOfCharacters.add(player);
 		listOfCharacters.add(imp);

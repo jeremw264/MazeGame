@@ -35,7 +35,7 @@ public abstract class Character {
 		this.y = y;
 		this.map = map;
 		this.currentCell = map.getCell(x, y);
-		this.inventory = new LinkedList<Item>();
+		//this.inventory = new LinkedList<Item>();
 
 		this.currentCell.setCharacter(this);
 	}
@@ -100,6 +100,22 @@ public abstract class Character {
 	public List<Item> getListOfItems() {
 		return this.inventory;
 	}
+	
+	/**
+	 * Ajoute un objet a la liste des objets que le personnage possède.
+	 * 
+	 * @param o L'objet à ajouter.
+	 */
+	public void addInv(Item item) {
+		if (this.inventory != null) {
+			this.inventory.add(item);	
+		}
+		else {
+			this.inventory = new LinkedList<Item>();
+			this.inventory.add( item);
+		}
+		
+	}
 
 	/**
 	 * Renvoie si le personnage possède cette objet ou non.
@@ -108,29 +124,15 @@ public abstract class Character {
 	 * @return true si le personnage possède cette objet, false dans le cas
 	 *         contraire.
 	 */
-	public boolean checkItems(Object o) {
+	public boolean checkItems(Item item) {
 		// for(int i = 0; i < inventory.size(); i++){
-		if (inventory.contains(o))
+		if (inventory.contains(item))
 			return true;
 		else
 			return false;
 	}
 
-	/**
-	 * Ajoute un objet a la liste des objets que le personnage possède.
-	 * 
-	 * @param o L'objet à ajouter.
-	 */
-	public void addInv(Item item) {
-		if (this.inventory != null) {
-			this.inventory.add((Item) item);	
-		}
-		else {
-			this.inventory = new LinkedList<Item>();
-			this.inventory.add((Item) item);
-		}
-		
-	}
+	
 
 	/**
 	 * Supprime l'objet passé en paramètre de son inventaire.
