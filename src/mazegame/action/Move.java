@@ -3,60 +3,51 @@ package mazegame.action;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import mazegame.Cell;
 import mazegame.Direction;
-import mazegame.Game;
 import mazegame.State;
 import mazegame.character.Character;
 import mazegame.character.Npc;
 import mazegame.character.Player;
+import mazegame.utils.UserInteration;
 
 public class Move extends Action {
 
 	@Override
 	public State run(Character character) {
 		if (character instanceof Npc) {
-			Npc npc = (Npc)character;
+			Npc npc = (Npc) character;
 			npc.move();
-			
+
 			return State.Ok;
 		}
-		
-		Player player = (Player)character;
-		
-		String choise;
 
-		java.util.Map<String, Direction> directionChoiseMap = new HashMap<>();
+		Player player = (Player) character;
+		Map<String, Direction> directionChoiseMap = this.extractMap(character.getAccessibleDirections());
+		List<String> keysList = new LinkedList<String>(directionChoiseMap.keySet());
+		final Map<String, Object> responceMap = UserInteration.getChoise("Dans quelle direction voulez-vous aller", keysList);
 
-		for (Direction direction : character.getAccessibleDirections()) {
+		if (responceMap.get("STATE") != State.Ok) {
+			return (State) responceMap.get("STATE");
+		}
+
+		final Cell nextCell = player.computeNextCell(directionChoiseMap.get((String) responceMap.get("choice")));
+
+		player.move(nextCell);
+
+		return State.Ok;
+	}
+
+	private Map<String, Direction> extractMap(List<Direction> directions) {
+		Map<String, Direction> directionChoiseMap = new HashMap<>();
+
+		for (Direction direction : directions) {
 			directionChoiseMap.put(direction.toString().toLowerCase(), direction);
 		}
 
-		List<String> keysList = new LinkedList<String>();
-		keysList.add("None");
-		keysList.addAll(directionChoiseMap.keySet());
-
-		do {
-
-			Game.DISPLAYER.displayChoise("Dans quelle direction voulez-vous aller", keysList);
-
-			choise = Game.INPUT.getString().toLowerCase();
-
-			if (choise.equals("none")) {
-				return State.Cancel;
-			}
-			if (!directionChoiseMap.containsKey(choise)) {
-				Game.DISPLAYER.displayError("Choix non valide\n");
-			}
-
-		} while (!directionChoiseMap.containsKey(choise));
-
-		Cell nextCell = player.computeNextCell(directionChoiseMap.get(choise));
-		
-		player.move(nextCell);
-		
-		return State.Ok;
+		return directionChoiseMap;
 	}
 
 }

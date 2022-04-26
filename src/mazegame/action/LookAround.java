@@ -2,7 +2,6 @@ package mazegame.action;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 import mazegame.Direction;
 import mazegame.Game;

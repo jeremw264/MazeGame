@@ -8,6 +8,7 @@ import java.util.Map;
 import mazegame.Game;
 import mazegame.State;
 import mazegame.character.Player;
+import mazegame.utils.UserInteration;
 import mazegame.character.Character;
 
 /**
@@ -51,30 +52,21 @@ public class PlayerChoise extends Action {
 		}
 
 		List<String> keysList = new LinkedList<String>(this.actionsMap.keySet());
-		keysList.add("quitter");
 
-		String choise;
-
-		do {
-			Game.DISPLAYER.displayMsg("Que voulez-vous faire ? (taper 'aide' pour plus d'info)");
-
-			choise = Game.INPUT.getString().toLowerCase().strip();
-
-			if (!this.actionsMap.containsKey(choise)) {
-				if (choise.equals("aide")) {
-					Game.DISPLAYER.displayHelp(keysList);
-				} else if (choise.equals("quitter")) {
-					return State.Exit;
-
-				} else {
-					Game.DISPLAYER.displayError("Choix non valide\n");
-				}
-			}
-
-		} while (!this.actionsMap.containsKey(choise));
-
-		if (this.actionsMap.get(choise).run(character) == State.Cancel) {
+		Map<String, Object> responceMap = UserInteration.getChoise("Que voulez-vous faire ? ", keysList);
+		
+		if (responceMap.get("STATE") != State.Ok) {
+			return (State) responceMap.get("STATE");
+		}
+		
+		String choise = (String) responceMap.get("choice");
+		
+		State state = this.actionsMap.get(choise).run(character);
+		
+		if (state == State.Cancel) {
 			this.run(character);
+		}else if (state == State.Exit) {
+			return State.Exit;
 		}
 
 		return State.Ok;

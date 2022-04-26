@@ -1,0 +1,55 @@
+package mazegame.utils;
+
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
+import mazegame.Game;
+import mazegame.State;
+
+public class UserInteration {
+
+	private static final String EXITWORD_STRING = "quitter";
+	private static final String RETURNWORD_STRING = "retour";
+	private static final String INVALIDCHOISE_STRING = "Choix incorrect";
+
+	public static Map<String, Object> getChoise(String firstSentence, List<String> listOfChoises) {
+
+		Map<String, Object> responceObjects = new HashMap<String, Object>();
+		responceObjects.put("STATE", State.Ok);
+
+		List<String> choises = new LinkedList<String>();
+		choises.add(UserInteration.RETURNWORD_STRING);
+		choises.addAll(listOfChoises);
+
+		String choise;
+
+		do {
+			
+			Game.DISPLAYER.displayMsg("--------------------------------------------------");
+			
+			Game.DISPLAYER.displayChoise(firstSentence, choises);
+
+			choise = Game.INPUT.getString().toLowerCase().strip();
+
+			if (choise.equals(UserInteration.EXITWORD_STRING)) {
+				responceObjects.put("STATE", State.Exit);
+				break;
+			} else if (choise.equals(UserInteration.RETURNWORD_STRING)) {
+				responceObjects.put("STATE", State.Cancel);
+			}
+
+			if (!choises.contains(choise)) {
+				Game.DISPLAYER.displayError(UserInteration.INVALIDCHOISE_STRING);
+			}
+
+		} while (!choises.contains(choise));
+
+		responceObjects.put("choice", choise);
+
+		return responceObjects;
+
+	}
+
+}

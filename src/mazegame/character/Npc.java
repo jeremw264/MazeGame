@@ -21,7 +21,7 @@ import mazegame.action.DoNothing;
  * Classe Npc.
  */
 public abstract class Npc extends Character {
-	
+
 	protected String dataFileName;
 
 	/**
@@ -46,14 +46,14 @@ public abstract class Npc extends Character {
 	public Action getAction() {
 		return new DoNothing();
 	}
-	
+
 	/**
 	 * Renvoie la prochaine cellule où le personnage doit ce déplacer.
 	 * 
 	 * @return La prochaine cellule où le personnage doit ce déplacer.
 	 */
 	abstract public Cell computeNextCell();
-	
+
 	/**
 	 * Déplace le joueur sur la carte.
 	 */
@@ -66,44 +66,40 @@ public abstract class Npc extends Character {
 
 		this.currentCell.setCharacter(this);
 	}
-	
+
+	@SuppressWarnings("unchecked")
 	public void talk() {
-		
-	JSONParser npcParse = new JSONParser();
-    try {
-       JSONArray npcData = (JSONArray)npcParse.parse(new FileReader(System.getProperty("user.dir")+"/data/"+this.dataFileName+".json"));
-       Collections.shuffle(npcData);
-       JSONObject npc = (JSONObject)npcData.get(0);
-       
-       String content = (String) npc.get("content");
-       List<String> answer = (JSONArray) npc.get("answer");
-       List<String> c = (JSONArray) npc.get("correct");
-       String responce;
-       String answerNpc = (String) npc.get("answerNpc");
-       String answerNpc2 = (String) npc.get("answerNpc2");
-  
-       do {
-      	 Game.DISPLAYER.displayMsg(content);
-      	 Game.DISPLAYER.displayChoise("Voici les réponses possibles : ",answer);
-      	 responce = Game.INPUT.getString();
-      	 if (c.contains(responce)) {
-      		 Game.DISPLAYER.displayMsg(answerNpc); 
-      		 }
-      	 else {
-      		 Game.DISPLAYER.displayMsg(answerNpc2);
-      		 return;
-      		 }
-      	 } while(!(answer.contains(responce)));
-       } 
-    catch (FileNotFoundException e) {
-  	  e.printStackTrace();
-  	  }
-    catch (IOException e) {
-  	  e.printStackTrace();
-  	  }
-    catch (ParseException e) {
-        e.printStackTrace();
-     }
+
+		JSONParser npcParse = new JSONParser();
+		try {
+			JSONArray npcData = (JSONArray) npcParse
+					.parse(new FileReader(System.getProperty("user.dir") + "/data/" + this.dataFileName + ".json"));
+			Collections.shuffle(npcData);
+			JSONObject npc = (JSONObject) npcData.get(0);
+
+			String content = (String) npc.get("content");
+			List<String> answer = (JSONArray) npc.get("answer");
+			List<String> c = (JSONArray) npc.get("correct");
+			String responce;
+			String answerNpc = (String) npc.get("answerNpc");
+			String answerNpc2 = (String) npc.get("answerNpc2");
+
+			Game.DISPLAYER.displayMsg(content);
+			Game.DISPLAYER.displayChoise("Voici les réponses possibles : ", answer);
+			responce = Game.INPUT.getString();
+			if (c.contains(responce)) {
+				Game.DISPLAYER.displayMsg(answerNpc);
+			} else {
+				Game.DISPLAYER.displayMsg(answerNpc2);
+				return;
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

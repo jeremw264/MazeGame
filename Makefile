@@ -6,7 +6,12 @@ JARNAME = mazegame.jar
 
 all: jar doc
 
-classes: mazegame generation character npc player item main utils
+classes: ex mazegame generation character npc player item main utils
+
+ex:
+	mkdir -p classes
+	cd ./classes
+	jar xvf jar/json-simple-1.1.1.jar
 
 mazegame: src/mazegame/*.java
 	$(JC) -sourcepath $(SOURCEPATH) -d $(CLASSPATH) $^
@@ -37,7 +42,8 @@ doc:
 	javadoc -sourcepath src -d docs -subpackages mazegame
 
 jar: classes
-	jar cvfe $(JARNAME) mazegame.main.MainGame -C classes mazegame
+	
+	jar cvfe $(JARNAME) mazegame.main.MainGame -C classes mazegame org.json.simple -C classes org
 
 run: jar
 	java -jar $(JARNAME)

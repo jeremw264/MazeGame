@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import mazegame.item.*;
+import mazegame.utils.UserInteration;
 
 public class PickUp extends Action {
 
@@ -18,13 +19,6 @@ public class PickUp extends Action {
 		// Cellule actuelle du joueur
 		final Cell cell = character.getCell();
 
-		// Verification qu'il y ait au moins 1 objet sur la cellule
-		/*
-		 * if (cell.getItemList().isEmpty()) {
-		 * Game.DISPLAYER.displayError("Il n'y a pas d'objet sur cette case"); return
-		 * State.Exit; }
-		 */
-
 		// Map des objets pr�sents sur la cellule
 		Map<String, Item> itemMap = new HashMap<>();
 
@@ -32,28 +26,17 @@ public class PickUp extends Action {
 			itemMap.put(item.toString(), item);
 		}
 
-		String choice;
-
-		List<String> itemStrings = new ArrayList<String>();
-		itemStrings.add("Retour");
-		itemStrings.addAll(itemMap.keySet());
+		List<String> itemStrings = new ArrayList<String>(itemMap.keySet());
 
 		// Choix du joueur
-		do {
-			Game.DISPLAYER.displayChoise("Voici les objets sur la case : ", itemStrings);
-			choice = Game.INPUT.getString().toLowerCase();
-			if (!(itemMap.containsKey(choice))) {
-				if (choice.equals("aide")) {
-					Game.DISPLAYER.displayHelp(itemStrings);
-				} else if (choice.equals("quitter")) {
-					return State.Exit;
-				} else if (choice.equals("retour")) {
-					return State.Cancel;
-				} else {
-					Game.DISPLAYER.displayError("Choix non valide\n");
-				}
-			}
-		} while (!(itemMap.containsKey(choice)));
+
+		Map<String, Object> responceMap = UserInteration.getChoise("Voici les objets sur la case : ", itemStrings);
+
+		if (responceMap.get("STATE") != State.Ok) {
+			return (State) responceMap.get("STATE");
+		}
+
+		String choice = (String) responceMap.get("choice");
 
 		Item choseItem = itemMap.get(choice);
 

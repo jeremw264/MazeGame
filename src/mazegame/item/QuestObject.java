@@ -17,9 +17,9 @@ public class QuestObject extends Item {
 	}
 	
 	
-	//Methode use quand meme affichée au cas ou on veuille passer l'objet en usable
+	//Methode use quand meme affiche au cas ou on veuille passer l'objet en usable
 	public void use() {
-		Game.DISPLAYER.displayMsg("Cet objet n'est pas vendable, Il vous sera utile dans votre quête");
+		Game.DISPLAYER.displayMsg("Cet objet n'est pas vendable, Il vous sera utile dans votre quete");
 	}
 	
 	
@@ -28,6 +28,6 @@ public class QuestObject extends Item {
 	 */
 	
 	public String toString() {
-		return "objet de quête";
+		return "objet de quete";
 	}
 }

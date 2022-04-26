@@ -18,7 +18,7 @@ public class Jewel extends Item {
 	}
 
 	
-	//Methode use quand meme affichée au cas ou on veuille passer l'objet en usable
+	//Methode use quand meme affiche au cas ou on veuille passer l'objet en usable
 	public void use() {
 		if (this.value <= 20) {
 			Game.DISPLAYER.displayMsg("Cette Ã©meraude pÃ¨se " + this.value / 4 + " et vaut " + this.value);
@@ -40,15 +40,15 @@ public class Jewel extends Item {
 	 */
 	public String toString() {
 		if (this.value <= 20) {
-			return "émeraude";
+			return "emeraude";
 		} else if (this.value <= 50) {
 			return "saphir";
 		} else if (this.value <= 100) {
 			return "rubis";
 		} else if (this.value <= 250) {
-			return "améthyste";
+			return "amethyste";
 		} else if (this.value <= 500) {
-			return "pépite d'or";
+			return "pepite d'or";
 		} else {
 			return "sac de joyaux";
 		}

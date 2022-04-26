@@ -1,24 +1,24 @@
 package mazegame;
 
-import java.awt.event.KeyEvent;
-import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.List;
 
 import mazegame.action.LookAround;
 import mazegame.challenge.Challenge;
-import mazegame.challenge.FinalCase;
 import mazegame.challenge.WaitRound;
+import mazegame.character.Character;
+import mazegame.character.Npc;
 import mazegame.character.Player;
-import mazegame.character.npc.*;
+import mazegame.character.npc.Imp;
+import mazegame.character.npc.Samaritan;
+import mazegame.character.npc.Sphinx;
+import mazegame.character.npc.Vendor;
 import mazegame.character.player.Hero;
 import mazegame.generation.Kruskal;
 import mazegame.utils.ConsoleDisplayer;
 import mazegame.utils.ConsoleInput;
 import mazegame.utils.Displayer;
 import mazegame.utils.Input;
-import mazegame.character.Character;
-import mazegame.character.Npc;
 
 /**
  * Classe Game qui va représenter le jeu.
@@ -85,8 +85,6 @@ public class Game {
 
 		while (gameState && !this.quest.isComplete()) {
 
-			Game.DISPLAYER.displayMsg("--------------------------------------------------");
-
 			for (Character character : listOfCharacters) {
 				State status = character.getAction().run(character);
 
@@ -94,9 +92,7 @@ public class Game {
 					gameState = false;
 					break;
 				}
-
 			}
-
 		}
 
 		Game.DISPLAYER.displayEndGame();
