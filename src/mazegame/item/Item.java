@@ -7,21 +7,16 @@ package mazegame.item;
  */
 abstract public class Item {
 
-	public int value;
+	protected int value;
 	protected boolean sellability;
 	protected boolean usability;
-
+	
 	/**
 	 * Constructeur de l'objet Item.
 	 */
-	
-	public String hint;
-	
-	
 	public Item() {
 		this.sellability = false;
 		this.usability = false;
-		this.hint = null;
 	}
 
 	/**
@@ -47,7 +42,7 @@ abstract public class Item {
 	 * 
 	 * @return La valeur de vente de l'objet.
 	 */
-	protected int getValue() {
+	public int getValue() {
 		return this.value;
 	}
 	
@@ -57,7 +52,7 @@ abstract public class Item {
 	 * 
 	 * @param newValue La nouvelle valeur de vente de l'objet
 	 */
-	protected void setValue(int newValue) {
+	public void setValue(int newValue) {
 		this.value = newValue;
 	}
 	
