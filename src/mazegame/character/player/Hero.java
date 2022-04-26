@@ -38,38 +38,15 @@ public class Hero extends Player {
 	public Action getAction() {
 		return new PlayerChoise();
 	}
-
+	
 	/**
 	 * Demande à l'utilisateur dans quelle direction déplacer le joueur.
 	 * 
 	 * @return La cellule où le joueur doit ce déplacer.
 	 */
 	@Override
-	public Cell computeNextCell() {
-
-		String choise;
-
-		java.util.Map<String, Direction> directionChoiseMap = new HashMap<>();
-
-		for (Direction direction : this.getAccessibleDirections()) {
-			directionChoiseMap.put(direction.toString().toLowerCase(), direction);
-		}
-
-		List<String> keysList = new LinkedList<String>(directionChoiseMap.keySet());
-
-		do {
-
-			Game.DISPLAYER.displayChoise("Dans quelle direction voulez-vous aller", keysList);
-
-			choise = Game.INPUT.getString().toLowerCase();
-
-			if (!directionChoiseMap.containsKey(choise)) {
-				Game.DISPLAYER.displayError("Choix non valide\n");
-			}
-
-		} while (!directionChoiseMap.containsKey(choise));
-
-		return this.getMap().getCellWithDirection(this.getCell(), directionChoiseMap.get(choise));
+	public Cell computeNextCell(Direction direction) {
+		return this.getMap().getCellWithDirection(this.getCell(), direction);
 	}
 
 }

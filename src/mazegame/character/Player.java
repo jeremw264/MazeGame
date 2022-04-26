@@ -7,6 +7,8 @@ import org.json.simple.*;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import mazegame.Cell;
+import mazegame.Direction;
 import mazegame.Game;
 import mazegame.Map;
 
@@ -28,9 +30,24 @@ public abstract class Player extends Character {
 		// TODO Auto-generated constructor stub
 	}
 	
-	@Override
-	public void move() {
-		super.move();
-		this.getCell().setVisited();
+	/**
+	 * Renvoie la prochaine cellule où le personnage doit ce déplacer.
+	 * 
+	 * @param Direction La direction de la prochaine cellule.	
+	 * 
+	 * @return La prochaine cellule où le personnage doit ce déplacer.
+	 */
+	abstract public Cell computeNextCell(Direction direction);
+	
+	/**
+	 * Déplace le joueur sur la carte.
+	 */
+	public void move(Cell nextCell) {
+		this.currentCell.removeCharacter(this);
+		this.setCell(nextCell);
+		this.x = this.currentCell.getX();
+		this.y = this.currentCell.getY();
+
+		this.currentCell.setCharacter(this);
 	}
 }

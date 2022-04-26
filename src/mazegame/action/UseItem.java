@@ -1,15 +1,18 @@
 package mazegame.action;
 
 import mazegame.Game;
+import mazegame.State;
 import mazegame.character.Character;
 import mazegame.item.*;
 import java.util.Map;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 
 public class UseItem extends Action{
 	
-	public boolean run(Character character) {
+	public State run(Character character) {
 	
 		
 		//Map des objets utilisables
@@ -20,14 +23,23 @@ public class UseItem extends Action{
             	itemMap.put(item.toString(), item);
         }
 		
-		
+        List<String> choisePossibility = new LinkedList<String>();
+		choisePossibility.add("Retour");
+		choisePossibility.addAll(itemMap.keySet());
+        
+        
 		String choice;
 		
 		//Choix du joueur
 		do {
+			Game.DISPLAYER.displayChoise("Voila les objets disponible : ", choisePossibility);
+			
 			choice = Game.INPUT.getString().toLowerCase();
 
 	        if (!(itemMap.containsKey(choice))) {
+	        	if (choice.equals("retour")) {
+					return State.Cancel;
+				}
 	            if (choice.equals("aide")) {
 	                Game.DISPLAYER.displayHelp(new ArrayList<String>(itemMap.keySet()));
 	            } else {
@@ -46,10 +58,10 @@ public class UseItem extends Action{
 		//Suppression de l'objet de l'inventaire du personnage
 	    character.removeInv(choseItem);
 	    
-	    Game.DISPLAYER.displayMsg("l'objet utilisé a été supprimé de votre inventaire");
+	    Game.DISPLAYER.displayMsg("l'objet utilisï¿½ a ï¿½tï¿½ supprimï¿½ de votre inventaire");
         
 		
-        return true;
+        return State.Ok;
         
 	}
 		

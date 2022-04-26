@@ -27,7 +27,7 @@ public class LookAroundTest extends ActionTest {
 	@Test
 	public void characterIsNotPlayer() {
 		Map map = new Map(2, 2);
-		Character npcCharacter = new Npc(0, 0, map) {
+		Character npcCharacter = new Npc(0, 0, map, null) {
 
 			@Override
 			public Cell computeNextCell() {

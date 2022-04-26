@@ -6,6 +6,7 @@ import java.util.concurrent.ExecutionException;
 
 import mazegame.Direction;
 import mazegame.Game;
+import mazegame.State;
 import mazegame.character.Character;
 import mazegame.character.Player;
 
@@ -20,11 +21,11 @@ public class LookAround extends Action {
 	 * Affiche une description de ce que le joueur peut voir.
 	 */
 	@Override
-	public boolean run(Character character) {
+	public State run(Character character) {
 		
 		if (!(character instanceof Player)) {
 			Game.DISPLAYER.displayError("Cette action doit être executé par un Player");
-			return false;
+			return State.Exit;
 		}
 		
 		Game.DISPLAYER.displayMap(character.getMap());
@@ -41,7 +42,7 @@ public class LookAround extends Action {
 		Game.DISPLAYER.displayMsg("Vous êtes sur la case ("+currentX+","+currentY+")");
 		Game.DISPLAYER.displayChoise("Les directions accessible sont : ",directionNameList);
 
-		return true;
+		return State.Ok;
 		
 	}
 

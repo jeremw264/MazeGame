@@ -72,6 +72,7 @@ public class Cell {
 		this.walls.put(Direction.E, wallsExist);
 
 		this.visited = false;
+		this.items = new ArrayList<Item>();
 
 		this.characters = new LinkedList<Character>();
 	}

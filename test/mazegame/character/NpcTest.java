@@ -19,7 +19,7 @@ public class NpcTest {
 
 	@Before
 	public void setUp() {
-		this.npc = new Npc(this.x, this.y, this.map) {
+		this.npc = new Npc(this.x, this.y, this.map, null) {
 
 			@Override
 			public Cell computeNextCell() {

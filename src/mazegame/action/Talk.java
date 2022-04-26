@@ -6,13 +6,14 @@ import java.util.LinkedList;
 import java.util.List;
 
 import mazegame.Game;
+import mazegame.State;
 import mazegame.character.Character;
 import mazegame.character.Npc;
 import mazegame.character.Player;
 
 
 public class Talk extends Action {
-	public boolean run(Character character) {
+	public State run(Character character) {
 				
 		List<Character> characters = character.getCell().charactersList();
 		
@@ -22,7 +23,9 @@ public class Talk extends Action {
 				npcMap.put(character2.toString(), (Npc)character2);
 			}
 		}
-		List<String>npcOnCell = new LinkedList<>(npcMap.keySet());
+		List<String>npcOnCell = new LinkedList<>();
+		npcOnCell.add("Retour");
+		npcOnCell.addAll(npcMap.keySet());
 		String choice;
 		
 		//Choix du joueur
@@ -30,6 +33,9 @@ public class Talk extends Action {
 			Game.DISPLAYER.displayChoise("A qui souhaitez vous parler ?", npcOnCell);
 			choice = Game.INPUT.getString().toLowerCase();
 	        if (!(npcMap.containsKey(choice))) {
+	        	if (choice.equals("retour")) {
+					return State.Cancel;
+				}
 	            if (choice.equals("aide")) {
 	                Game.DISPLAYER.displayHelp(new ArrayList<String>(npcMap.keySet()));
 	            } else {
@@ -50,7 +56,7 @@ public class Talk extends Action {
 		else {
 			Game.DISPLAYER.displayMsg("Mauvaise r�ponse");
 		}*/
-		return true;
+		return State.Ok;
 	}
 	
 	

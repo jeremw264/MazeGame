@@ -1,5 +1,7 @@
 package mazegame;
 
+import java.awt.event.KeyEvent;
+import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -69,7 +71,7 @@ public class Game {
 		 * Ajouter les Challenges
 		 */
 		listOfChallenges.add(new WaitRound(this.player, 3));
-		//listOfChallenges.add(new FinalCase(player));
+		// listOfChallenges.add(new FinalCase(player));
 
 		this.quest = new Quest(listOfChallenges);
 
@@ -86,13 +88,15 @@ public class Game {
 			Game.DISPLAYER.displayMsg("--------------------------------------------------");
 
 			for (Character character : listOfCharacters) {
-				gameState = character.getAction().run(character);
-				
-				if (!gameState) {
+				State status = character.getAction().run(character);
+
+				if (!(status == State.Ok)) {
+					gameState = false;
 					break;
 				}
-				
+
 			}
+
 		}
 
 		Game.DISPLAYER.displayEndGame();

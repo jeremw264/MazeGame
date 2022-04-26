@@ -11,6 +11,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import mazegame.Cell;
 import mazegame.Game;
 import mazegame.Map;
 import mazegame.action.Action;
@@ -45,6 +46,27 @@ public abstract class Npc extends Character {
 	public Action getAction() {
 		return new DoNothing();
 	}
+	
+	/**
+	 * Renvoie la prochaine cellule où le personnage doit ce déplacer.
+	 * 
+	 * @return La prochaine cellule où le personnage doit ce déplacer.
+	 */
+	abstract public Cell computeNextCell();
+	
+	/**
+	 * Déplace le joueur sur la carte.
+	 */
+	public void move() {
+		Cell nextCell = this.computeNextCell();
+		this.currentCell.removeCharacter(this);
+		this.setCell(nextCell);
+		this.x = this.currentCell.getX();
+		this.y = this.currentCell.getY();
+
+		this.currentCell.setCharacter(this);
+	}
+	
 	public void talk() {
 		
 	JSONParser npcParse = new JSONParser();
