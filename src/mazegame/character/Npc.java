@@ -3,8 +3,11 @@ package mazegame.character;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
 
-import org.json.JSONObject;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
@@ -18,7 +21,7 @@ import mazegame.action.DoNothing;
  */
 public abstract class Npc extends Character {
 	
-	private String DataFileName = getClass().getSimpleName()+".json";
+	protected String dataFileName;
 
 	/**
 	 * Constructeur de l'objet Npc.
@@ -27,8 +30,9 @@ public abstract class Npc extends Character {
 	 * @param y   Position horizontale de départ.
 	 * @param map La carte sur laquelle le personnage non joueur ce déplace.
 	 */
-	public Npc(int x, int y, Map map, String DataFileName) {
+	public Npc(int x, int y, Map map, String dataFileName) {
 		super(x, y, map);
+		this.dataFileName = dataFileName;
 		// TODO Auto-generated constructor stub
 	}
 
@@ -41,31 +45,33 @@ public abstract class Npc extends Character {
 	public Action getAction() {
 		return new DoNothing();
 	}
-	public boolean talk() {
+	public void talk() {
 		
-	JSONParser npc = new JSONParser();
+	JSONParser npcParse = new JSONParser();
     try {
-       JSONObject sphinx = (JSONObject)npc.parse(new FileReader(System.getProperty("user.dir")+"/data/"+this.DataFileName+".json"));
-       
+       JSONArray npcData = (JSONArray)npcParse.parse(new FileReader(System.getProperty("user.dir")+"/data/"+this.dataFileName+".json"));
+       Collections.shuffle(npcData);
+       JSONObject npc = (JSONObject)npcData.get(0);
        
        String content = (String) npc.get("content");
-       String answer = (String) npc.get("answers");
-       String c = (String) npc.get("correct");
-       String nc = (String) npc.get("nextCorrect");
-       String nic = (String) npc.get("nextIncorrect");
+       List<String> answer = (JSONArray) npc.get("answer");
+       List<String> c = (JSONArray) npc.get("correct");
+       String responce;
+       String answerNpc = (String) npc.get("answerNpc");
+       String answerNpc2 = (String) npc.get("answerNpc2");
+  
        do {
       	 Game.DISPLAYER.displayMsg(content);
-      	 Game.DISPLAYER.displayMsg(answer);
-      	 String responce = Game.INPUT.getString().toLowerCase();
-      	 if (responce.equals(c)) {
-      		 Game.DISPLAYER.displayMsg(nc);
-      		 return true;
+      	 Game.DISPLAYER.displayChoise("Voici les réponses possibles : ",answer);
+      	 responce = Game.INPUT.getString();
+      	 if (c.contains(responce)) {
+      		 Game.DISPLAYER.displayMsg(answerNpc); 
       		 }
       	 else {
-      		 Game.DISPLAYER.displayMsg(nic);
-      		 return false;
+      		 Game.DISPLAYER.displayMsg(answerNpc2);
+      		 return;
       		 }
-      	 } while(!((npc.get("nextCorrect") == null) && (npc.get("nextIncorrect") == null)));
+      	 } while(!(answer.contains(responce)));
        } 
     catch (FileNotFoundException e) {
   	  e.printStackTrace();

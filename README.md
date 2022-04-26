@@ -189,7 +189,7 @@ Jérémy : Quest et Challenge
 
 Timothe: Doit faire Action ramaser et utiliser (pour les objet)
 
-Franck: Doit faire Action discuter et ce déplacer 
+Franck: Doit faire Action discuter et se déplacer 
 
 Jérémy : Doit faire Action regarder
 
@@ -201,5 +201,7 @@ Jérémy : Création d'un google drive pour upload des vidéo pour aider le grou
 [Lien du drive](https://drive.google.com/drive/folders/1TQ4cVKrRmaQw1deNeURHc44K0_ArsCkl?usp=sharing)
 
 Timothé : Avec l'aide de Jérémy pour le code java, Actions PickUp et UseItem faite en modifiant l'implementation de la cellule pour l'action PickUp
+
+Franck : Création de l'Action Discuter, Modification de celle-ci ( débugg etc ) avec l'aide de Jeremy. L'action se déplacer a était réalisé par Jeremy suite à un problème de pc que j'ai lors des semaines pédagogiques.
 
 ## Semaine 12

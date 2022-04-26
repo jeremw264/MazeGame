@@ -1,5 +1,7 @@
 package mazegame.action;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -10,21 +12,45 @@ import mazegame.character.Player;
 
 
 public class Talk extends Action {
-	public void run(Character character) {
+	public boolean run(Character character) {
 				
-		List<Character> characters = character.getCell().CharactersList();
-		//characters.removeIf(c -> (c));
-		characters.remove(character);
+		List<Character> characters = character.getCell().charactersList();
 		
-		Game.DISPLAYER.displayChoise("A qui souhaitez vous parler ?", List<characters>);
-		boolean responceBoolean = Npc.talk();
+		java.util.Map<String, Npc> npcMap = new HashMap<String, Npc>();
+		for (Character character2 : characters) {
+			if(character2 instanceof Npc) {
+				npcMap.put(character2.toString(), (Npc)character2);
+			}
+		}
+		List<String>npcOnCell = new LinkedList<>(npcMap.keySet());
+		String choice;
+		
+		//Choix du joueur
+		do {
+			Game.DISPLAYER.displayChoise("A qui souhaitez vous parler ?", npcOnCell);
+			choice = Game.INPUT.getString().toLowerCase();
+	        if (!(npcMap.containsKey(choice))) {
+	            if (choice.equals("aide")) {
+	                Game.DISPLAYER.displayHelp(new ArrayList<String>(npcMap.keySet()));
+	            } else {
+	                Game.DISPLAYER.displayError("Choix non valide\n");
+	            }
+	        }
+		}while (!(npcMap.containsKey(choice)));
+		
+		Npc npc = npcMap.get(choice);
+		
+		npc.talk();
+		
+		//boolean responceBoolean = Npc.talk();
 		
 		/*if(responceBoolean) {
-			Game.DISPLAYER.displayMsg("Bonne réponse");
+			Game.DISPLAYER.displayMsg("Bonne rï¿½ponse");
 		}
 		else {
-			Game.DISPLAYER.displayMsg("Mauvaise réponse");
+			Game.DISPLAYER.displayMsg("Mauvaise rï¿½ponse");
 		}*/
+		return true;
 	}
 	
 	

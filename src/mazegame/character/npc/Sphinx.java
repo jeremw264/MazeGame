@@ -19,8 +19,8 @@ public class Sphinx extends Npc {
 	 * @param map La carte sur laquelle le sphinx ce déplace.
 	 * @param DataFileName 
 	 */
-	public Sphinx(int x, int y, Map map, String DataFileName) {
-		super(x, y, map, DataFileName);
+	public Sphinx(int x, int y, Map map) {
+		super(x, y, map, "Sphinx");
 		
 		// TODO Auto-generated constructor stub
 	}
@@ -33,6 +33,11 @@ public class Sphinx extends Npc {
 	@Override
 	public Cell computeNextCell() {
 		return new Cell(getX(), getY());
-	}
+	}	
 	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "sphinx";
+	}
 }

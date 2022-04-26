@@ -24,7 +24,7 @@ public class Samaritan extends Npc {
 	 * @param map La carte sur laquelle le samaritain ce déplace.
 	 */
 	public Samaritan(int x, int y, Map map) {
-		super(x, y, map);
+		super(x, y, map, "Samaritan");
 		// TODO Auto-generated constructor stub
 	}
 
@@ -53,6 +53,11 @@ public class Samaritan extends Npc {
 	@Override
 	public Action getAction() {
 		return new Move();
+	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "samaritan";
 	}
 
 }

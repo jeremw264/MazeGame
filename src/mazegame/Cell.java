@@ -25,7 +25,7 @@ public class Cell {
 	// Etat de visite de la cellule.
 	private boolean visited;
 	
-	//List des objets présents sur la cellule
+	//List des objets prï¿½sents sur la cellule
 	private List<Item> items;		
 		
 	// Liste des personnages sur la case.
@@ -156,7 +156,7 @@ public class Cell {
 		this.characters.remove(character);
 	}
 	
-	public List<Character> CharactersList() {
+	public List<Character> charactersList() {
 		return this.characters;
 	}
 

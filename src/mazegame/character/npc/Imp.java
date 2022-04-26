@@ -26,7 +26,7 @@ public class Imp extends Npc {
 	 * @param map La carte sur laquelle l'imposteur ce déplace.
 	 */
 	public Imp(int x, int y, Map map) {
-		super(x, y, map);
+		super(x, y, map, "Imp");
 		// TODO Auto-generated constructor stub
 	}
 

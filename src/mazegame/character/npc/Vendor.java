@@ -26,7 +26,7 @@ public class Vendor extends Npc {
 	 * @param map La carte sur laquelle le marchand ce déplace.
 	 */
 	public Vendor(int x, int y, Map map) {
-		super(x, y, map);
+		super(x, y, map, "Vendor");
 		// TODO Auto-generated constructor stub
 	}
 
