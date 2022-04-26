@@ -9,11 +9,12 @@ import mazegame.Game;
  */
 public class Scroll extends Item {
 
+	
+	private String hint;
+	
 	/**
 	 * Constructeur de l'objet Scroll.
 	 */
-	
-	
 	public Scroll(String hint) {
 		this.value = 0;
 		this.usability = true;
