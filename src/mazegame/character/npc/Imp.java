@@ -56,5 +56,10 @@ public class Imp extends Npc {
 	public Action getAction() {
 		return new Move();
 	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "imp";
+	}
 
 }
