@@ -1,15 +1,28 @@
 package mazegame.character.npc;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import mazegame.Cell;
 import mazegame.Direction;
+import mazegame.Game;
 import mazegame.Map;
 import mazegame.action.Action;
-import mazegame.action.DoNothing;
 import mazegame.action.Move;
 import mazegame.character.Npc;
+import mazegame.character.Player;
+import mazegame.character.Character;
+import mazegame.item.Item;
 
 /**
  * Classe Vendor
@@ -59,6 +72,56 @@ public class Vendor extends Npc {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "Vendor";
+		return "vendor";
+	}	 
+	
+	@Override
+	public void talk() {
+		JSONParser npcParse = new JSONParser();
+		try {
+			JSONArray npcData = (JSONArray) npcParse
+					.parse(new FileReader(System.getProperty("user.dir") + "/data/" + this.dataFileName + ".json"));
+			Collections.shuffle(npcData);
+			JSONObject npc = (JSONObject) npcData.get(0);
+
+			String content = (String) npc.get("content");
+			List<String> answer = (JSONArray) npc.get("answer");
+			List<String> c = (JSONArray) npc.get("correct");
+			String answerNpc = (String) npc.get("answerNpc");
+			String answerNpc2 = (String) npc.get("answerNpc2");
+			String achatList = this.getListOfItems().toString();
+			
+			/*HashMap<String, Item> venteMap = new HashMap<>();
+			for (Item item : .getListOfItems()) {
+				if (item.isUsable() == true)
+					venteMap.put(item.toString(), item);
+			}*/
+		 
+			
+
+			Game.DISPLAYER.displayMsg(content);
+			Game.DISPLAYER.displayChoise("Voici les réponses possibles : ", answer);
+			String responce = Game.INPUT.getString();
+			String achat = Game.INPUT.getString();
+			if (c.contains(responce)) {
+				Game.DISPLAYER.displayMsg(achatList);
+				if(achatList.contains(achat)) {
+					//Player.inventory.put();
+					
+					//this.removeInv();
+				}
+				Game.DISPLAYER.displayMsg(answerNpc);
+			} else {
+				//Game.DISPLAYER.displayMsg(venteList);
+				Game.DISPLAYER.displayMsg(answerNpc2);
+				
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 	}
 }

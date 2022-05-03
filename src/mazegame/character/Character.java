@@ -98,7 +98,7 @@ public abstract class Character {
 	 * @return La liste des objets que le personnage possède.
 	 */
 	public List<Item> getListOfItems() {
-		return this.inventory;
+		return this.getInventory();
 	}
 	
 	/**
@@ -107,12 +107,12 @@ public abstract class Character {
 	 * @param o L'objet à ajouter.
 	 */
 	public void addInv(Item item) {
-		if (this.inventory != null) {
-			this.inventory.add(item);	
+		if (this.getInventory() != null) {
+			this.getInventory().add(item);	
 		}
 		else {
 			this.inventory = new LinkedList<Item>();
-			this.inventory.add( item);
+			this.getInventory().add( item);
 		}
 		
 	}
@@ -126,7 +126,7 @@ public abstract class Character {
 	 */
 	public boolean checkItems(Item item) {
 		// for(int i = 0; i < inventory.size(); i++){
-		if (inventory.contains(item))
+		if (getInventory().contains(item))
 			return true;
 		else
 			return false;
@@ -140,7 +140,7 @@ public abstract class Character {
 	 * @param o L'objet à enlever.
 	 */
 	public void removeInv(Item item) {
-		this.inventory.remove(item);
+		this.getInventory().remove(item);
 	}
 
 	/**
@@ -159,6 +159,10 @@ public abstract class Character {
 
 		return accesibleDirections;
 
+	}
+
+	public List<Item> getInventory() {
+		return inventory;
 	}
 
 }
