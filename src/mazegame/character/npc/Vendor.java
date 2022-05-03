@@ -1,30 +1,14 @@
 package mazegame.character.npc;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-import org.junit.Ignore;
 
 import mazegame.Cell;
 import mazegame.Direction;
-import mazegame.Game;
 import mazegame.Map;
 import mazegame.action.Action;
 import mazegame.action.Move;
 import mazegame.character.Npc;
-import mazegame.character.Player;
-import mazegame.character.player.Hero;
-import mazegame.character.Character;
-import mazegame.item.Item;
 
 /**
  * Classe Vendor
@@ -77,7 +61,7 @@ public class Vendor extends Npc {
 		return "vendor";
 	}	 
 	
-	@Override
+	/*@Override
 	public void talk() {
 		JSONParser npcParse = new JSONParser();
 		try {
@@ -142,5 +126,5 @@ public class Vendor extends Npc {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-	}
+	}*/
 }

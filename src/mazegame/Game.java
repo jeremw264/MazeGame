@@ -16,7 +16,6 @@ import mazegame.character.npc.Sphinx;
 import mazegame.character.npc.Vendor;
 import mazegame.character.player.Hero;
 import mazegame.generation.GenerationAlgorithm;
-import mazegame.generation.Kruskal;
 import mazegame.utils.ConsoleDisplayer;
 import mazegame.utils.ConsoleInput;
 import mazegame.utils.Displayer;
