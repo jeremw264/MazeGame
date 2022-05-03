@@ -14,7 +14,7 @@ public class QuestObjectTest extends ItemTest{
 	
 	@Test
 	public void toStringTest() {
-		assertEquals("Cet objet n'est pas vendable", this.item.toString());
+		assertEquals("objet de quete", this.item.toString());
 	}
 
 }

@@ -107,7 +107,7 @@ public class CellTest {
 	public void toStringTest() {
 		int x = this.cell.getX();
 		int y = this.cell.getY();
-		String resString = "Case de coordonnée: x = " + x + " y = " + y;
+		String resString = "Case (" + x + ","+ y+")";
 		assertEquals(resString, this.cell.toString());
 	}
 

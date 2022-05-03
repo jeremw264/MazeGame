@@ -1,5 +1,6 @@
 package mazegame.item;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -43,13 +44,12 @@ public class JewelTest extends ItemTest {
 		jewel5.setValue(400);
 		jewel6.setValue(1000);
 
-		assertTrue(jewel1.toString().contains("Cette émeraude pèse "));
-		assertTrue(jewel2.toString().contains("Ce saphir pèse "));
-		assertTrue(jewel3.toString().contains("Ce rubis pèse "));
-		assertTrue(jewel4.toString().contains("Cette améthyste pèse "));
-		assertTrue(jewel5.toString().contains("Cette pépite d'or pèse "));
-		assertTrue(jewel6.toString().contains("Ce sac de joyaux "));
-
+		assertEquals(jewel1.toString(), "emeraude");
+		assertEquals(jewel2.toString(), "saphir");
+		assertEquals(jewel3.toString(), "rubis");
+		assertEquals(jewel4.toString(), "amethyste");
+		assertEquals(jewel5.toString(), "pepite d'or");
+		assertEquals(jewel6.toString(), "sac de joyaux");
 	}
 
 }

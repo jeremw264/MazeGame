@@ -14,7 +14,7 @@ public class ScrollTest extends ItemTest{
 
 	@Test
 	public void toStringTest() {
-		assertEquals("Cet objet n'est pas vendable", this.item.toString());
+		assertEquals("parchemin", this.item.toString());
 	}
 
 }

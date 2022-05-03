@@ -13,8 +13,10 @@ import org.junit.Test;
 import mazegame.Cell;
 import mazegame.Direction;
 import mazegame.Map;
+import mazegame.State;
 import mazegame.character.Character;
 import mazegame.character.Npc;
+import mazegame.character.npc.Sphinx;
 import mazegame.character.player.Hero;
 
 public class LookAroundTest extends ActionTest {
@@ -36,7 +38,9 @@ public class LookAroundTest extends ActionTest {
 			}
 		};
 
-		this.action.run(npcCharacter);
+		State state = this.action.run(npcCharacter);
+		
+		assertEquals(state, State.Exit);
 
 		assertEquals("Cette action doit être executé par un Player\n", this.errContent.toString());
 	}
@@ -51,7 +55,7 @@ public class LookAroundTest extends ActionTest {
 		assertTrue(this.outContent.toString().contains("Vous êtes sur la case"));
 		assertTrue(this.outContent.toString().contains("Les directions accessible sont"));
 	}
-
+	
 	@Test
 	public void diretionIsCorrect() {
 		Map map = new Map(2, 2);
