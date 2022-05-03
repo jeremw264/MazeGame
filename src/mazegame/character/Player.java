@@ -44,6 +44,7 @@ public abstract class Player extends Character {
 	 */
 	public void move(Cell nextCell) {
 		this.currentCell.removeCharacter(this);
+		nextCell.setVisited();
 		this.setCell(nextCell);
 		this.x = this.currentCell.getX();
 		this.y = this.currentCell.getY();
