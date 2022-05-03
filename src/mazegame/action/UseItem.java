@@ -27,7 +27,7 @@ public class UseItem extends Action {
 
 		// Choix du joueur
 
-		Map<String, Object> responceMap = UserInteration.getChoise("Voila les objets disponible : ", choisePossibility);
+		Map<String, Object> responceMap = UserInteration.getChoise("Voila les objets disponible : ", choisePossibility,true);
 
 		if (responceMap.get("STATE") != State.Ok) {
 			return (State) responceMap.get("STATE");

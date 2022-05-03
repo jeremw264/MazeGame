@@ -14,21 +14,26 @@ public class UserInteration {
 	private static final String RETURNWORD_STRING = "retour";
 	private static final String INVALIDCHOISE_STRING = "Choix incorrect";
 
-	public static Map<String, Object> getChoise(String firstSentence, List<String> listOfChoises) {
+	public static Map<String, Object> getChoise(String firstSentence, List<String> listOfChoises, boolean canCancel) {
 
 		Map<String, Object> responceObjects = new HashMap<String, Object>();
 		responceObjects.put("STATE", State.Ok);
 
 		List<String> choises = new LinkedList<String>();
-		choises.add(UserInteration.RETURNWORD_STRING);
+
+		// Ajouter le choix de pouvoir revenir en arrière
+		if (canCancel) {
+			choises.add(UserInteration.RETURNWORD_STRING);
+		}
+
 		choises.addAll(listOfChoises);
 
 		String choise;
 
 		do {
-			
+
 			Game.DISPLAYER.displayMsg("--------------------------------------------------");
-			
+
 			Game.DISPLAYER.displayChoise(firstSentence, choises);
 
 			choise = Game.INPUT.getString().toLowerCase().strip();

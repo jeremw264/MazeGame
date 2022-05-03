@@ -30,7 +30,7 @@ public class PickUp extends Action {
 
 		// Choix du joueur
 
-		Map<String, Object> responceMap = UserInteration.getChoise("Voici les objets sur la case : ", itemStrings);
+		Map<String, Object> responceMap = UserInteration.getChoise("Voici les objets sur la case : ", itemStrings,true);
 
 		if (responceMap.get("STATE") != State.Ok) {
 			return (State) responceMap.get("STATE");

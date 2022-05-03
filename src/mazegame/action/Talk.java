@@ -25,7 +25,7 @@ public class Talk extends Action {
 
 		// Choix du joueur
 
-		Map<String, Object> responceMap = UserInteration.getChoise("A qui souhaitez vous parler ?", npcOnCell);
+		Map<String, Object> responceMap = UserInteration.getChoise("A qui souhaitez vous parler ?", npcOnCell,true);
 
 		if (responceMap.get("STATE") != State.Ok) {
 			return (State) responceMap.get("STATE");

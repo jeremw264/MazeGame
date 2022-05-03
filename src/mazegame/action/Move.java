@@ -27,7 +27,8 @@ public class Move extends Action {
 		Player player = (Player) character;
 		Map<String, Direction> directionChoiseMap = this.extractMap(character.getAccessibleDirections());
 		List<String> keysList = new LinkedList<String>(directionChoiseMap.keySet());
-		final Map<String, Object> responceMap = UserInteration.getChoise("Dans quelle direction voulez-vous aller", keysList);
+		
+		final Map<String, Object> responceMap = UserInteration.getChoise("Dans quelle direction voulez-vous aller", keysList,true);
 
 		if (responceMap.get("STATE") != State.Ok) {
 			return (State) responceMap.get("STATE");
