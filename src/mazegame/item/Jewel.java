@@ -20,6 +20,9 @@ public class Jewel extends Item {
 	
 	//Methode use quand meme affiche au cas ou on veuille passer l'objet en usable
 	public void use() {
+		if (!usability) {
+			return;
+		}
 		if (this.value <= 20) {
 			Game.DISPLAYER.displayMsg("Cette émeraude pèse " + this.value / 4 + " et vaut " + this.value);
 		} else if (this.value <= 50) {

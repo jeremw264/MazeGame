@@ -126,10 +126,7 @@ public abstract class Character {
 	 */
 	public boolean checkItems(Item item) {
 		// for(int i = 0; i < inventory.size(); i++){
-		if (getInventory().contains(item))
-			return true;
-		else
-			return false;
+		return getInventory().contains(item);
 	}
 
 	

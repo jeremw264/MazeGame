@@ -57,7 +57,6 @@ public class Vendor extends Npc {
 	}
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
 		return "vendor";
 	}	 
 	

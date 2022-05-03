@@ -37,7 +37,6 @@ public class Sphinx extends Npc {
 	
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
 		return "sphinx";
 	}
 }
