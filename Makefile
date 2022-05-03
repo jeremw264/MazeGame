@@ -2,26 +2,27 @@
 JC = javac
 SOURCEPATH = src/
 CLASSPATH = classes/
+JARPATH = jar/
 JARNAME = jeu.jar
 
-all: jar
+all: jeu.jar
 
-cls: mazegame 
+cls: mazegame
 
 mazegame: src/mazegame/main/MainGame.java
 	$(JC) -sourcepath $(SOURCEPATH) -d $(CLASSPATH) $^ -cp jar/json-simple-1.1.1.jar
 
 doc: 
-	javadoc -sourcepath src -d docs -subpackages mazegame 
+	javadoc -sourcepath $(SOURCEPATH) -d docs mazegame mazegame.action mazegame.challenge mazegame.character mazegame.generation mazegame.item mazegame.main mazegame.utils -cp jar/json-simple-1.1.1.jar
 
-jar: cls
+jeu.jar: cls
 	cd classes/ && jar xvf ../jar/json-simple-1.1.1.jar
-	jar cvfe $(JARNAME) mazegame.main.MainGame -C classes ./
+	jar cvfe $(JARPATH)$@ mazegame.main.MainGame -C classes ./
 
 
 clean:
 	$(RM) -r $(CLASSPATH)
 	$(RM) -r docs/
-	$(RM) $(JARNAME)
+	$(RM) $(JARPATH)$(JARNAME)
 
 .PHONY: clean doc
