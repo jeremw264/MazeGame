@@ -13,7 +13,7 @@ public class Jewel extends Item {
 	 * Constructeur de l'objet Jewel.
 	 */
 	public Jewel() {
-		this.value = (int) Math.floor(Math.random() * 10000);
+		this.value = (int) Math.floor(Math.random() * 1000);
 		this.sellability = true;
 	}
 
@@ -31,7 +31,7 @@ public class Jewel extends Item {
 		} else if (this.value <= 500) {
 			Game.DISPLAYER.displayMsg("Cette pépite d'or pèse " + this.value + " et vaut donc " + this.value);
 		} else {
-			Game.DISPLAYER.displayMsg("Ce sac de joyaux " + this.value / 15 + " et vaut " + this.value);
+			Game.DISPLAYER.displayMsg("Ce sac de joyaux contient" + Math.floor(this.value / 15) + " et vaut " + this.value);
 		}
 	}
 	

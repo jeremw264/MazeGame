@@ -10,15 +10,16 @@ public class Prim extends GenerationAlgorithm{
 
     private int x, y;
     /*Création d'une liste de cases frontières non traitées,*/
-    List<Cell> neighbors;
+    private List<Cell> neighbors;
     /* Cellule de départ choisi aléatoirement*/
-    Cell start;
+    private Cell start;
 
     public Prim(){
         
     	this.cellsTreat = new ArrayList<>();
         this.neighbors = new ArrayList<Cell>();
         
+        this.init();
 
     }
     
@@ -28,9 +29,8 @@ public class Prim extends GenerationAlgorithm{
         this.x = (int)Math.random()*(this.map.getWidth());
         this.y = (int)Math.random()*(this.map.getHeight());
         this.start = new Cell(this.x,this.y,true);
-        System.out.println(this.x);
-        System.out.println(this.y);
-        this.neighbors.addAll(this.getUntreatedNeighborsCells(start));
+
+        this.neighbors.addAll(this.getUntreatedNeighborsCells(this.start));
         
         this.init();
         return this.map;
@@ -52,12 +52,10 @@ public class Prim extends GenerationAlgorithm{
 
 
     public void init() {
-    	List<Cell> emptyList = new ArrayList<Cell>();
     	Cell cell = getRandomUntreatedNeighbor();
     	this.carvePath(start,cell);
     	this.addToTreatment(start);
-    	while (neighbors != emptyList){
-        	Cell cell1 = getRandomTreatedCell();
+    	while (! neighbors.isEmpty()){
         	System.out.println(cell);
         	 Cell cell2 = getRandomUntreatedNeighbor();
              this.carvePath(cell,cell2);
