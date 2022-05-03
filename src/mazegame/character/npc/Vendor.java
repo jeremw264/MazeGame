@@ -12,6 +12,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.junit.Ignore;
 
 import mazegame.Cell;
 import mazegame.Direction;
@@ -21,6 +22,7 @@ import mazegame.action.Action;
 import mazegame.action.Move;
 import mazegame.character.Npc;
 import mazegame.character.Player;
+import mazegame.character.player.Hero;
 import mazegame.character.Character;
 import mazegame.item.Item;
 
@@ -89,30 +91,47 @@ public class Vendor extends Npc {
 			List<String> c = (JSONArray) npc.get("correct");
 			String answerNpc = (String) npc.get("answerNpc");
 			String answerNpc2 = (String) npc.get("answerNpc2");
-			String achatList = this.getListOfItems().toString();
+			String buyList = this.getListOfItems().toString();
 			
-			/*HashMap<String, Item> venteMap = new HashMap<>();
-			for (Item item : .getListOfItems()) {
-				if (item.isUsable() == true)
-					venteMap.put(item.toString(), item);
-			}*/
-		 
 			
+			HashMap<String, Item> sellMap = new HashMap<>();
+			for (Item item : player.getListOfItems()) {
+				if (item.canSell() == true)
+					sellMap.put(item.toString(), item);
+			}	
 
 			Game.DISPLAYER.displayMsg(content);
 			Game.DISPLAYER.displayChoise("Voici les réponses possibles : ", answer);
 			String responce = Game.INPUT.getString();
-			String achat = Game.INPUT.getString();
 			if (c.contains(responce)) {
-				Game.DISPLAYER.displayMsg(achatList);
-				if(achatList.contains(achat)) {
-					//Player.inventory.put();
-					
-					//this.removeInv();
+				Game.DISPLAYER.displayMsg("Voici les objects disponible à la vente" + buyList);
+				responce = Game.INPUT.getString();
+				if(buyList.contains(responce)) {
+					Game.DISPLAYER.displayMsg("Le prix de cette object est :" +item.getValue().toString()+ " Souhaitez vous l'acheter ?(oui/non)");
+					responce = Game.INPUT.getString();
+					if(responce == "oui") {
+						Player.inventory.put(item);
+						this.removeInv(item);
+					}
+					else {
+						return;
+					}
 				}
 				Game.DISPLAYER.displayMsg(answerNpc);
 			} else {
-				//Game.DISPLAYER.displayMsg(venteList);
+				Game.DISPLAYER.displayMsg("Qu'aimeriez vous vendre ?" + sellMap);
+				responce = Game.INPUT.getString();
+				if(sellMap.containsValue(responce)) {
+					Game.DISPLAYER.displayMsg("Souhaitez vous vendre cette object pour : " +item.getValue+ "(oui/non)");
+					responce = Game.INPUT.getString();
+					if(responce == "oui") {
+						this.addInv(item);
+						player.removeInv(item);
+					}
+					else {
+						return;
+					}
+				}
 				Game.DISPLAYER.displayMsg(answerNpc2);
 				
 			}

@@ -24,7 +24,7 @@ abstract public class Item {
 	 * 
 	 * @return true si il peut être vendu, false sinon.
 	 */
-	protected boolean canSell() {
+	public boolean canSell() {
 		return this.sellability;
 	}
 
