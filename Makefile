@@ -7,9 +7,7 @@ JARNAME = jeu.jar
 
 all: jeu.jar
 
-cls: mazegame
-
-mazegame: src/mazegame/main/MainGame.java
+cls: src/mazegame/main/MainGame.java
 	$(JC) -sourcepath $(SOURCEPATH) -d $(CLASSPATH) $^ -cp jar/json-simple-1.1.1.jar
 
 doc: 
@@ -18,6 +16,9 @@ doc:
 jeu.jar: cls
 	cd classes/ && jar xvf ../jar/json-simple-1.1.1.jar
 	jar cvfe $(JARPATH)$@ mazegame.main.MainGame -C classes ./
+
+run: jeu.jar
+	java -jar jar/jeu.jar
 
 
 clean:
