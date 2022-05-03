@@ -1,2 +1,14 @@
+# Dossier de configuration IDE
+/.settings/
+/.vscode/
+
+# Fichier de configuration IDE
+.project
+
+# Dossier de génération des .class
 /bin/
-/doc/
+/classes/
+.class
+
+# Documentation du projet
+docs/
