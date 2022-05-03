@@ -18,8 +18,6 @@ public class Prim extends GenerationAlgorithm{
         
     	this.cellsTreat = new ArrayList<>();
         this.neighbors = new ArrayList<Cell>();
-        
-        this.init();
 
     }
     
@@ -28,7 +26,7 @@ public class Prim extends GenerationAlgorithm{
         this.map = new Map(width, height);
         this.x = (int)Math.random()*(this.map.getWidth());
         this.y = (int)Math.random()*(this.map.getHeight());
-        this.start = new Cell(this.x,this.y,true);
+        this.start = this.map.getCell(this.x, this.y);
 
         this.neighbors.addAll(this.getUntreatedNeighborsCells(this.start));
         
@@ -40,9 +38,9 @@ public class Prim extends GenerationAlgorithm{
     
 
     /*Méthode de sélection d'une cellule traitable aléatoire*/
-   private Cell getRandomUntreatedNeighbor() {
-	   Collections.shuffle(neighbors);
-	   return neighbors.get(0);
+   private Cell getRandomUntreatedNeighbor(Cell cell) {
+	   Collections.shuffle(this.getUntreatedNeighborsCells(cell));
+	   return this.getUntreatedNeighborsCells(cell).get(0);
    }
    
    private Cell getRandomTreatedCell() {
@@ -52,17 +50,17 @@ public class Prim extends GenerationAlgorithm{
 
 
     public void init() {
-    	Cell cell = getRandomUntreatedNeighbor();
-    	this.carvePath(start,cell);
-    	this.addToTreatment(start);
+    	Cell cell = getRandomUntreatedNeighbor(this.start);
+    	this.carvePath(this.start,cell);
+    	this.addToTreatment(this.start);
     	while (! neighbors.isEmpty()){
-        	System.out.println(cell);
-        	 Cell cell2 = getRandomUntreatedNeighbor();
-             this.carvePath(cell,cell2);
-        	this.addToTreatment(cell);
+    		Cell cell1 = getRandomTreatedCell();
+        	Cell cell2 = getRandomUntreatedNeighbor(cell1);
+            this.carvePath(cell1,cell2);
+        	this.addToTreatment(cell1);
         	this.addToTreatment(cell2);
-        	if (cellsTreat.contains(cell)) {
-        		neighbors.remove(cell);
+        	if (cellsTreat.contains(cell1)) {
+        		neighbors.remove(cell1);
         	}
     	}
     }
