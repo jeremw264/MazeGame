@@ -54,18 +54,18 @@ public class PlayerChoise extends Action {
 		List<String> keysList = new LinkedList<String>(this.actionsMap.keySet());
 
 		Map<String, Object> responceMap = UserInteration.getChoise("Que voulez-vous faire ? ", keysList);
-		
+
 		if (responceMap.get("STATE") != State.Ok) {
 			return (State) responceMap.get("STATE");
 		}
-		
+
 		String choise = (String) responceMap.get("choice");
-		
+
 		State state = this.actionsMap.get(choise).run(character);
-		
+
 		if (state == State.Cancel) {
-			this.run(character);
-		}else if (state == State.Exit) {
+			return this.run(character);
+		} else if (state == State.Exit) {
 			return State.Exit;
 		}
 
