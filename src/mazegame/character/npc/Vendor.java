@@ -1,10 +1,16 @@
 package mazegame.character.npc;
 
+import java.io.FileReader;
 import java.util.Collections;
 import java.util.List;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
 import mazegame.Cell;
 import mazegame.Direction;
+import mazegame.Game;
 import mazegame.Map;
 import mazegame.action.Action;
 import mazegame.action.Move;
@@ -60,7 +66,9 @@ public class Vendor extends Npc {
 		return "vendor";
 	}	 
 	
-	/*@Override
+	/*
+	@SuppressWarnings("unchecked")
+	@Override
 	public void talk() {
 		JSONParser npcParse = new JSONParser();
 		try {
@@ -125,5 +133,8 @@ public class Vendor extends Npc {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-	}*/
+	}
+	*/
+	
+	
 }

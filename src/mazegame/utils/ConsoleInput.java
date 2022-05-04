@@ -1,5 +1,8 @@
 package mazegame.utils;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 /**
@@ -9,13 +12,15 @@ import java.util.Scanner;
  */
 public class ConsoleInput implements Input {
 
-	private Scanner userInput;
+	private BufferedReader userInput;
 
 	/**
 	 * Constructeur de l'objet ConsoleInput.
 	 */
 	public ConsoleInput() {
-		this.userInput = new Scanner(System.in);
+		// this.userInput = new Scanner(System.in);
+		//this.userInput = new Scanner(System.in);
+		
 	}
 
 	/**
@@ -23,7 +28,16 @@ public class ConsoleInput implements Input {
 	 */
 	@Override
 	public String getString() {
-		String data = this.userInput.nextLine();
+
+		this.userInput = new BufferedReader(new InputStreamReader(System.in));
+		String data = "";
+		try {
+			data = this.userInput.readLine();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 
 		return data;
 	}
@@ -33,7 +47,7 @@ public class ConsoleInput implements Input {
 	 */
 	@Override
 	public void closeInput() {
-		this.userInput.close();
+		//this.userInput.close();
 
 	}
 

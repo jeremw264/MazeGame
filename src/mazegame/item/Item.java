@@ -10,13 +10,14 @@ abstract public class Item {
 	protected int value;
 	protected boolean sellability;
 	protected boolean usability;
-	
+
 	/**
 	 * Constructeur de l'objet Item.
 	 */
-	public Item() {
-		this.sellability = false;
-		this.usability = false;
+	public Item(int value, boolean sellability, boolean usability) {
+		this.value = value;
+		this.sellability = sellability;
+		this.usability = usability;
 	}
 
 	/**
@@ -29,13 +30,12 @@ abstract public class Item {
 	}
 
 	protected void switchSellability() {
-		this.sellability = !(this.sellability);
+		this.sellability = !this.sellability;
 	}
-	
+
 	public boolean isUsable() {
 		return this.usability;
 	}
-	
 
 	/**
 	 * Renvoie la valeur de vente de l'objet.
@@ -45,7 +45,6 @@ abstract public class Item {
 	public int getValue() {
 		return this.value;
 	}
-	
 
 	/**
 	 * Définit la valeur de vente de l'objet.
@@ -55,9 +54,8 @@ abstract public class Item {
 	public void setValue(int newValue) {
 		this.value = newValue;
 	}
-	
-	abstract public void use(); 
-		
+
+	abstract public void use();
 
 	/**
 	 * Renvoie si l'objet en paramètre est egal à l'objet courant.
