@@ -41,8 +41,6 @@ public class InputConsoleTest {
 	public void getStringTest() {
 		try {
 			System.setIn(new ByteArrayInputStream("hello".getBytes()));
-			// Scanner scanner = new Scanner(System.in);
-			// System.out.println(scanner.nextLine());
 			System.out.println(this.input.getString());
 		} finally {
 			System.setIn(System.in);

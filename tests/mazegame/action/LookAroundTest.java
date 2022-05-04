@@ -17,6 +17,7 @@ import mazegame.State;
 import mazegame.character.Character;
 import mazegame.character.Npc;
 import mazegame.character.npc.Sphinx;
+import mazegame.character.npc.Vendor;
 import mazegame.character.player.Hero;
 
 public class LookAroundTest extends ActionTest {
@@ -82,6 +83,22 @@ public class LookAroundTest extends ActionTest {
 
 		}
 
+	}
+	
+	@Test
+	public void stateReturnedWithPlayer() {
+		Map map = new Map(2, 2);
+		Character playerCharacter = new Hero(0, 0, map);
+		State state = this.action.run(playerCharacter);
+		assertEquals(State.Ok, state);
+	}
+	
+	@Test
+	public void stateReturnedWithNpc() {
+		Map map = new Map(2, 2);
+		Character playerCharacter = new Vendor(0, 0, map);
+		State state = this.action.run(playerCharacter);
+		assertEquals(State.Exit, state);
 	}
 
 }

@@ -6,17 +6,20 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import mazegame.Cell;
+import mazegame.Direction;
 import mazegame.Game;
 import mazegame.Map;
 import mazegame.State;
 import mazegame.character.Character;
 import mazegame.character.Npc;
 import mazegame.character.player.Hero;
+import mazegame.utils.UserInteration;
 
 public class MoveTest extends ActionTest {
 
@@ -44,22 +47,45 @@ public class MoveTest extends ActionTest {
 	}
 
 	@Test
-	public void characterIsPlayerState() {
+	public void playerExitState() {
 		Map map = new Map(2, 2);
 		Character playerCharacter = new Hero(0, 0, map);
 
-		InputStream stdin = System.in;
-		ByteArrayInputStream d = new ByteArrayInputStream("quitter".getBytes());
-		System.setIn(d);
+		System.setIn(new ByteArrayInputStream(UserInteration.EXITWORD_STRING.getBytes()));
 		State state = this.action.run(playerCharacter);
-
-		ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-		PrintStream ps = new PrintStream(byteArrayOutputStream);
-		PrintStream stdout = System.out;
-		System.setOut(ps);
 		
 		assertEquals(state, State.Exit);
 
 	}
+
+	@Test
+	public void playerCancelState() {
+		Map map = new Map(2, 2);
+		Character playerCharacter = new Hero(0, 0, map);
+
+		System.setIn(new ByteArrayInputStream(UserInteration.RETURNWORD_STRING.getBytes()));
+		State state = this.action.run(playerCharacter);
+		
+		assertEquals(state, State.Cancel);
+
+	}
+	
+	@Test
+	public void playerCorrectChoiceState() {
+		Map map = new Map(2, 2);
+		map.getCell(0, 0).eraseWall(Direction.E);
+		map.getCell(1, 0).eraseWall(Direction.O);
+		Character playerCharacter = new Hero(0, 0, map);
+		
+		List<Direction> accessibleDirections = playerCharacter.getAccessibleDirections();
+
+		System.setIn(new ByteArrayInputStream(accessibleDirections.get(0).toString().getBytes()));
+		State state = this.action.run(playerCharacter);
+		
+		assertEquals(state, State.Ok);
+
+	}
+	
+	
 
 }
