@@ -2,18 +2,27 @@ package mazegame.item;
 
 import static org.junit.Assert.*;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.LinkedList;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 public class ItemTest {
+	
+	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
+	private final PrintStream originalOut = System.out;
+	private final PrintStream originalErr = System.err;
+
 
 	protected Item item;
 
 	@Before
 	public void setUp() throws Exception {
-		this.item = new Item() {
+		this.item = new Item(0,false,false) {
 
 			@Override
 			public void use() {
@@ -21,6 +30,18 @@ public class ItemTest {
 				
 			}
 		};
+	}
+	
+	@Before
+	public void setUpStreams() {
+		System.setOut(new PrintStream(this.outContent));
+		System.setErr(new PrintStream(this.errContent));
+	}
+
+	@After
+	public void restoreStreams() {
+		System.setOut(this.originalOut);
+		System.setErr(this.originalErr);
 	}
 
 	@Test
@@ -36,6 +57,11 @@ public class ItemTest {
 		this.item.switchSellability();
 		assertFalse(this.item.canSell());
 		
+	}
+	
+	@Test
+	public void isUsableTest() {
+		assertFalse(this.item.isUsable());
 	}
 
 	@Test
@@ -53,38 +79,38 @@ public class ItemTest {
 
 		assertEquals(this.item.getValue(), value);
 	}
+	
+	@Test
+	public void useTest() {
+		assertEquals("", this.outContent.toString());
+	}
 
 	@Test
 	public void equalsTest() {
-		Item item1 = new Item() {
+		Item item1 = new Item(5,false,false) {
 
 			@Override
 			public void use() {
-				// TODO Auto-generated method stub
 				
 			}
 		};
 
-		Item item2 = new Item() {
+		Item item2 = new Item(5,false,false) {
 
 			@Override
 			public void use() {
-				// TODO Auto-generated method stub
 				
 			}
 		};
 
-		int value = 5;
 
-		item1.setValue(value);
-		item2.setValue(value);
 
 		assertTrue(item1.equals(item2));
 	}
 
 	@Test
 	public void notEqualsTest() {
-		Item item1 = new Item() {
+		Item item1 = new Item(5,false,false) {
 
 			@Override
 			public void use() {
@@ -93,7 +119,7 @@ public class ItemTest {
 			}
 		};
 
-		Item item2 = new Item() {
+		Item item2 = new Item(10,true,false) {
 
 			@Override
 			public void use() {
@@ -101,10 +127,6 @@ public class ItemTest {
 				
 			}
 		};
-
-		item1.switchSellability();
-		item1.setValue(5);
-		item2.setValue(10);
 
 		assertFalse(item1.equals(item2));
 		
@@ -115,7 +137,7 @@ public class ItemTest {
 	
 	@Test
 	public void notEqualsWithOtherObject() {
-		Item item1 = new Item() {
+		Item item1 = new Item(0,false,false) {
 
 			@Override
 			public void use() {

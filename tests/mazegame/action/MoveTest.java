@@ -43,7 +43,7 @@ public class MoveTest extends ActionTest {
 
 	}
 
-	/*@Test
+	@Test
 	public void characterIsPlayerState() {
 		Map map = new Map(2, 2);
 		Character playerCharacter = new Hero(0, 0, map);
@@ -58,8 +58,8 @@ public class MoveTest extends ActionTest {
 		PrintStream stdout = System.out;
 		System.setOut(ps);
 		
-		//assertEquals(state, State.Cancel);
+		assertEquals(state, State.Exit);
 
-	}*/
+	}
 
 }

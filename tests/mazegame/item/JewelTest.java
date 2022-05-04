@@ -11,20 +11,18 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-
-
 public class JewelTest extends ItemTest {
 
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
 	private final PrintStream originalOut = System.out;
 	private final PrintStream originalErr = System.err;
-	
+
 	@Before
 	public void setUp() {
 		this.item = new Jewel();
 	}
-	
+
 	@Before
 	public void setUpStreams() {
 		System.setOut(new PrintStream(this.outContent));
@@ -36,7 +34,7 @@ public class JewelTest extends ItemTest {
 		System.setOut(this.originalOut);
 		System.setErr(this.originalErr);
 	}
-	
+
 	@Override
 	public void canSellTest() {
 		assertTrue(this.item.canSell());
@@ -74,66 +72,12 @@ public class JewelTest extends ItemTest {
 		assertEquals(jewel5.toString(), "pepite d'or");
 		assertEquals(jewel6.toString(), "sac de joyaux");
 	}
-	
+
 	@Test
 	public void useWithUsebilityEqualsFalse() {
 		this.item.use();
-		
-		assertEquals("", this.outContent.toString());
-	}
-	
-	@Test
-	public void useWithUsebilityEqualsTrue() {
-		Jewel jewel1 = new Jewel();
-		Jewel jewel2 = new Jewel();
-		Jewel jewel3 = new Jewel();
-		Jewel jewel4 = new Jewel();
-		Jewel jewel5 = new Jewel();
-		Jewel jewel6 = new Jewel();
 
-		jewel1.setValue(10);
-		jewel1.switchSellability();
-		jewel2.setValue(30);
-		jewel2.switchSellability();
-		jewel3.setValue(75);
-		jewel3.switchSellability();
-		jewel4.setValue(200);
-		jewel4.switchSellability();
-		jewel5.setValue(400);
-		jewel5.switchSellability();
-		jewel6.setValue(1000);
-		jewel6.switchSellability();
-		
-		jewel1.use();
-		assertEquals(this.outContent.toString(), "lol");
-		assertTrue(this.outContent.toString().contains("Cette émeraude pèse "));
-		
-		this.setUpStreams();
-		
-		jewel2.use();
-		assertTrue(this.outContent.toString().contains("Ce saphir pèse "));
-		
-		this.setUpStreams();
-		
-		jewel3.use();
-		assertTrue(this.outContent.toString().contains("Ce rubis pèse " ));
-		
-		this.setUpStreams();
-		
-		jewel4.use();
-		assertTrue(this.outContent.toString().contains("Cette améthyste pèse "));
-		
-		this.setUpStreams();
-		
-		jewel5.use();
-		assertTrue(this.outContent.toString().contains("Cette pépite d'or pèse "));
-		
-		this.setUpStreams();
-		
-		jewel6.use();
-		assertTrue(this.outContent.toString().contains("Ce sac de joyaux contient" ));
-		
-		
+		assertEquals("", this.outContent.toString());
 	}
 
 }
