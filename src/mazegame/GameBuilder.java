@@ -17,17 +17,22 @@ import mazegame.generation.GenerationAlgorithm;
 public class GameBuilder {
 
 	public static Logger LOGGER = Logger.getLogger("TestGetConstrutor");
-	public static String NOM_CLASSE = "mazegame.character.npc.Vendor";
+	// public static String NOM_CLASSE = "mazegame.character.npc.Vendor";
 
+	// La carte du jeu.
 	private Map map;
 
+	// La liste des Challenges
 	private List<Challenge> listOfChallenges;
 
+	// La liste des noms de classe Npc à crée dans le jeu
 	private List<String> npcClassName;
 
-	private List<Character> characters;
+	// La liste des noms de classe Npc à crée dans le jeu
+	private List<String> itemClassName;
 
-	private Game game;
+	// La liste de tous les personnage.
+	private List<Character> characters;
 
 	private Player player;
 
@@ -42,13 +47,22 @@ public class GameBuilder {
 		this.characters = new LinkedList<>();
 	}
 
-	// Source https://www.jmdoudoux.fr/java/dej/chap-introspection.htm
 	public void test() {
 
 		Map map = new Map(5, 5);
 
 	}
 
+	/**
+	 * Crée la carte du jeu avec l'algorithme passé en paramètre.
+	 * 
+	 * @param width     La largueur de la carte.
+	 * @param height    La hauteur de la carte.
+	 * @param algorithm L'algorithme à utilisé pour la génération.
+	 * @return L'instance courante.
+	 * 
+	 * @see Lors de plusieurs appel, seul le dernier sera pris en compte.
+	 */
 	public GameBuilder setMap(int width, int height, GenerationAlgorithm algorithm) {
 
 		this.nbOfCharacters = (this.nbOfItems = width * height / 2) / 2;
@@ -57,13 +71,32 @@ public class GameBuilder {
 		return this;
 	}
 
+	/**
+	 * Ajoute un Challenge dans le jeu.
+	 * 
+	 * @param challenge Le challenge à ajouter.
+	 * @return L'instance courante.
+	 * 
+	 */
 	public GameBuilder setChallenge(Challenge challenge) {
 		this.listOfChallenges.add(challenge);
 		return this;
 	}
 
+	/**
+	 * Ajoute un joueur dans le jeu.
+	 * 
+	 * @param className La classe du joueur à ajouter.
+	 * @return L'instance courante.
+	 * 
+	 * @see Lors de plusieurs appel, seul le dernier sera pris en compte.
+	 */
 	public GameBuilder setPlayer(String className) {
 		Character player = (Character) this.getInstanceOfCharacter(className, 0, 0, this.map);
+		if (this.player != null) {
+			this.characters.remove(this.player);
+			this.player = null;
+		}
 		if (!(player instanceof Player)) {
 			throw new Error("Le joueur doit être de type player");
 		} else {
@@ -81,17 +114,24 @@ public class GameBuilder {
 		return this;
 	}
 
+	/**
+	 * Renvoie une instance du jeu crée.
+	 * 
+	 * @return Le jeu créé.
+	 */
 	public Game build() {
 		this.generateNpc();
 
-		this.listOfChallenges.add(new WaitRound(player, 5));
+		this.listOfChallenges.add(new WaitRound(player, 1));
 
 		this.quest = new Quest(this.listOfChallenges);
 
-		this.game = new Game(map, this.characters, this.player, this.quest);
-		return this.game;
+		return new Game(map, this.characters, this.player, this.quest);
 	}
 
+	/**
+	 * Génére tous les NPC avec les bonne proportion
+	 */
 	private void generateNpc() {
 
 		int numberOfEachNpc = (this.nbOfCharacters - 1) / this.npcClassName.size();
@@ -109,6 +149,18 @@ public class GameBuilder {
 		}
 	}
 
+	private void generateItem() {
+		int numberOfEachItem = this.nbOfItems / this.npcClassName.size();
+
+		for (String itemClassName : this.itemClassName) {
+			for (int i = 0; i < numberOfEachItem; i++) {
+				// TODO
+				
+			}
+		}
+
+	}
+
 	/**
 	 * Renvoie une instance de la classe avec le nom en paramètre
 	 * 
@@ -119,6 +171,7 @@ public class GameBuilder {
 	 * @return L'instance de la classe.
 	 */
 	private Character getInstanceOfCharacter(String className, int x, int y, Map map) {
+		// Source https://www.jmdoudoux.fr/java/dej/chap-introspection.htm
 
 		Character character = null;
 
@@ -131,7 +184,7 @@ public class GameBuilder {
 				LOGGER.log(Level.SEVERE, "La classe " + className + " n'existe pas", cnfe);
 		} catch (NoSuchMethodException nme) {
 			if (LOGGER.isLoggable(Level.SEVERE))
-				LOGGER.log(Level.SEVERE, "Le constructeur de la classe " + NOM_CLASSE + " n'existe pas", nme);
+				LOGGER.log(Level.SEVERE, "Le constructeur de la classe " + className + " n'existe pas", nme);
 		} catch (InstantiationException ie) {
 			if (LOGGER.isLoggable(Level.SEVERE))
 				LOGGER.log(Level.SEVERE, "La classe " + className + " n'est pas instanciable", ie);
@@ -149,5 +202,7 @@ public class GameBuilder {
 
 		return character;
 	}
+	
+	
 
 }
