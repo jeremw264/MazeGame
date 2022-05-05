@@ -13,6 +13,7 @@ import mazegame.challenge.WaitRound;
 import mazegame.character.Npc;
 import mazegame.character.Player;
 import mazegame.generation.GenerationAlgorithm;
+import mazegame.item.Item;
 
 public class GameBuilder {
 
@@ -34,6 +35,8 @@ public class GameBuilder {
 	// La liste de tous les personnage.
 	private List<Character> characters;
 
+	private List<Item> items;
+
 	private Player player;
 
 	private Quest quest;
@@ -44,7 +47,9 @@ public class GameBuilder {
 	public GameBuilder() {
 		this.listOfChallenges = new LinkedList<Challenge>();
 		this.npcClassName = new LinkedList<String>();
-		this.characters = new LinkedList<>();
+		this.characters = new LinkedList<Character>();
+		this.itemClassName = new LinkedList<String>();
+		this.items = new LinkedList<Item>();
 	}
 
 	public void test() {
@@ -106,6 +111,11 @@ public class GameBuilder {
 		}
 		return this;
 	}
+	
+	public GameBuilder setItemClass(String className) {
+		this.itemClassName.add(className);
+		return this;
+	}
 
 	public GameBuilder setNpcClass(String className) {
 
@@ -149,13 +159,29 @@ public class GameBuilder {
 		}
 	}
 
+	private void setItemInMap() {
+		
+		this.generateItem();
+
+		Random random = new Random();
+
+		for (Item item : this.items) {
+			int x = random.nextInt(this.map.getWidth());
+			int y = random.nextInt(this.map.getHeight());
+
+			this.map.getCell(x, y).addItem(item);
+		}
+	}
+
 	private void generateItem() {
 		int numberOfEachItem = this.nbOfItems / this.npcClassName.size();
 
 		for (String itemClassName : this.itemClassName) {
 			for (int i = 0; i < numberOfEachItem; i++) {
-				// TODO
-				
+				Item item = this.getInstanceOfItem(itemClassName);
+
+				this.items.add(item);
+
 			}
 		}
 
@@ -202,7 +228,47 @@ public class GameBuilder {
 
 		return character;
 	}
-	
-	
+
+	/**
+	 * Renvoie une instance de la classe avec le nom en paramètre
+	 * 
+	 * @param className Nom de classe | exemple : "mazegame.action.npc.Vendor"
+	 * @param x         Position horizontale
+	 * @param y         Position Vertical
+	 * @param map       La carte sur laquelle il sera placer
+	 * @return L'instance de la classe.
+	 */
+	private Item getInstanceOfItem(String className) {
+		// Source https://www.jmdoudoux.fr/java/dej/chap-introspection.htm
+
+		Item character = null;
+
+		try {
+			Class<?> classe = Class.forName(className);
+			Constructor<?> constructeur = classe.getConstructor(new Class[] {});
+			character = (Item) constructeur.newInstance(new Object[] {});
+		} catch (ClassNotFoundException cnfe) {
+			if (LOGGER.isLoggable(Level.SEVERE))
+				LOGGER.log(Level.SEVERE, "La classe " + className + " n'existe pas", cnfe);
+		} catch (NoSuchMethodException nme) {
+			if (LOGGER.isLoggable(Level.SEVERE))
+				LOGGER.log(Level.SEVERE, "Le constructeur de la classe " + className + " n'existe pas", nme);
+		} catch (InstantiationException ie) {
+			if (LOGGER.isLoggable(Level.SEVERE))
+				LOGGER.log(Level.SEVERE, "La classe " + className + " n'est pas instanciable", ie);
+		} catch (IllegalAccessException iae) {
+			if (LOGGER.isLoggable(Level.SEVERE))
+				LOGGER.log(Level.SEVERE, "La classe " + className + " n'est pas accessible", iae);
+		} catch (java.lang.reflect.InvocationTargetException ite) {
+			if (LOGGER.isLoggable(Level.SEVERE))
+				LOGGER.log(Level.SEVERE, "Le constructueur de la classe " + className + " a leve une exception", ite);
+		} catch (IllegalArgumentException iae) {
+			if (LOGGER.isLoggable(Level.SEVERE))
+				LOGGER.log(Level.SEVERE,
+						"Un parametre du constructueur de la classe " + className + " n'est pas du bon type", iae);
+		}
+
+		return character;
+	}
 
 }
