@@ -5,9 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
-import mazegame.challenge.CaseEightTree;
 import mazegame.challenge.Challenge;
-import mazegame.challenge.WaitRound;
 import mazegame.character.Character;
 import mazegame.character.Npc;
 import mazegame.character.Player;
@@ -246,8 +244,8 @@ public class GameBuilder {
 		if (this.player == null) {
 			throw new GameBuilderException("Aucun joueur n'a été ajouter au jeu ! (Utilisé setPlayer)");
 		}
-		/*if (this.listOfChallenges.isEmpty()) {
+		if (this.listOfChallenges.isEmpty()) {
 			throw new GameBuilderException("Aucun défis n'a été ajouter au jeu ! (Utilisé setChallenge)");
-		}*/
+		}
 	}
 }
