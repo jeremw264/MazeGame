@@ -7,14 +7,13 @@ public class WaitRound extends Challenge {
 	private int nbOfRounds;
 	private final int nbOfRoundsWaiting;
 
-	public WaitRound(Player player, int nbOfRoundsWaiting) {
-		super(player);
+	public WaitRound(int nbOfRoundsWaiting) {
 		this.nbOfRounds = 0;
 		this.nbOfRoundsWaiting = nbOfRoundsWaiting;
 	}
 
 	@Override
-	public boolean isFinish() {
+	public boolean isFinish(Player player) {
 		if (this.nbOfRounds < this.nbOfRoundsWaiting) {
 			this.nbOfRounds++;
 			return false;

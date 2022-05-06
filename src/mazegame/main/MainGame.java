@@ -5,6 +5,7 @@ import java.lang.reflect.InvocationTargetException;
 import mazegame.Game;
 import mazegame.GameBuilder;
 import mazegame.Map;
+import mazegame.challenge.WaitRound;
 import mazegame.character.npc.Imp;
 import mazegame.character.npc.Samaritan;
 import mazegame.character.npc.Sphinx;
@@ -37,16 +38,18 @@ public class MainGame {
 			.setNpcClass(Imp.class)
 			.setNpcClass(Sphinx.class)
 			.setNpcClass(Samaritan.class)
-			.setItemClass(Jewel.class);
+			.setItemClass(Jewel.class)
+			.setChallenge(new WaitRound(5));
 
 		Game game = null;
 		try {
-			game = gameBuilder.build();
+			gameBuilder.build().run();
 		} catch (GameBuilderException e) {
 			e.printStackTrace();
 		}
 
-		game.run();
+		//Game game = new Game(5, 5, algorithm);
+		//game.run();
 
 	}
 }

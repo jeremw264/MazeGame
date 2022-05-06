@@ -10,16 +10,12 @@ public abstract class Challenge {
 	// Sauvegarde l'état du challenge si il a été validé.
 	private boolean finished;
 
-	// Le joueur courant
-	protected Player player;
-
 	/**
 	 * Constructeur de l'objet Challenge
 	 * 
 	 * @param player Le joueur courant.
 	 */
-	public Challenge(Player player) {
-		this.player = player;
+	public Challenge() {
 		this.finished = false;
 	}
 
@@ -28,11 +24,11 @@ public abstract class Challenge {
 	 * 
 	 * @return True si le challenge à déja été fini, False sinon.
 	 */
-	public boolean isCheck() {
+	public boolean isCheck(Player player) {
 		if (this.finished) {
 			return true;
 		} else {
-			this.finished = this.isFinish();
+			this.finished = this.isFinish(player);
 			return this.finished;
 		}
 	}
@@ -42,5 +38,5 @@ public abstract class Challenge {
 	 * 
 	 * @return True si le challenge est fini, False dans le cas contraire.
 	 */
-	public abstract boolean isFinish();
+	public abstract boolean isFinish(Player player);
 }

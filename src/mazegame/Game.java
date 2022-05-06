@@ -78,11 +78,11 @@ public class Game {
 		/*
 		 * Ajouter les Challenges
 		 */
-		listOfChallenges.add(new WaitRound(this.player, 3));
+		listOfChallenges.add(new WaitRound(3));
 		// listOfChallenges.add(new FinalCase(player));
-		listOfChallenges.add(new CaseEightTree(player));
+		listOfChallenges.add(new CaseEightTree());
 
-		this.quest = new Quest(listOfChallenges);
+		this.quest = new Quest(this.player, listOfChallenges);
 
 	}
 
@@ -93,7 +93,6 @@ public class Game {
 		new LookAround().run(this.player);
 
 		while (gameState && !this.quest.isComplete()) {
-
 			for (Character character : listOfCharacters) {
 				State status = character.getAction().run(character);
 

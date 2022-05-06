@@ -21,10 +21,7 @@ public class FinalCase extends Challenge {
 	 * 
 	 * @param player Le joueur qui doit validé le défi.
 	 */
-	public FinalCase(Player player) {
-		super(player);
-		this.finalCell = this.computeFinalCell();
-
+	public FinalCase() {
 	}
 
 	/**
@@ -33,8 +30,13 @@ public class FinalCase extends Challenge {
 	 * @return true si le joueur est sur la cellule de fin, false sinon.
 	 */
 	@Override
-	public boolean isFinish() {
-		return this.finalCell.equals(this.player.getCell());
+	public boolean isFinish(Player player) {
+		
+		if (this.finalCell == null) {
+			this.computeFinalCell(player);
+		}
+		
+		return this.finalCell.equals(player.getCell());
 	}
 
 	/**
@@ -42,9 +44,9 @@ public class FinalCase extends Challenge {
 	 * 
 	 * @return la cellule de fin.
 	 */
-	private Cell computeFinalCell() {
+	private Cell computeFinalCell(Player player) {
 		int cellX, cellY;
-		Map map = this.player.getMap();
+		Map map = player.getMap();
 		int mapWidth = map.getWidth();
 		int mapHeight = map.getHeight();
 		Random r = new Random();
