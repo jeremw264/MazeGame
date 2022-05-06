@@ -1,9 +1,19 @@
 package mazegame.main;
 
+import java.lang.reflect.InvocationTargetException;
+
 import mazegame.Game;
 import mazegame.GameBuilder;
+import mazegame.Map;
+import mazegame.character.npc.Imp;
+import mazegame.character.npc.Samaritan;
+import mazegame.character.npc.Sphinx;
+import mazegame.character.npc.Vendor;
+import mazegame.character.player.Hero;
+import mazegame.exception.GameBuilderException;
 import mazegame.generation.GenerationAlgorithm;
 import mazegame.generation.Kruskal;
+import mazegame.item.Jewel;
 
 /**
  * Class MainGame
@@ -20,19 +30,23 @@ public class MainGame {
 		GenerationAlgorithm algorithm = new Kruskal();
 		GameBuilder gameBuilder = new GameBuilder();
 
-		gameBuilder.setMap(10, 10, algorithm)
-				.setPlayer("mazegame.character.player.Hero")
-				.setNpcClass("mazegame.character.npc.Vendor")
-				.setNpcClass("mazegame.character.npc.Imp")
-				.setNpcClass("mazegame.character.npc.Sphinx")
-				.setNpcClass("mazegame.character.npc.Samaritan");
-		
-		gameBuilder.build().run();
+		gameBuilder
+			.setMap(10, 10, algorithm)
+			.setPlayer(Hero.class)
+			.setNpcClass(Vendor.class)
+			.setNpcClass(Imp.class)
+			.setNpcClass(Sphinx.class)
+			.setNpcClass(Samaritan.class)
+			.setItemClass(Jewel.class);
 
-		/*
-		 * GenerationAlgorithm algorithm = new Kruskal(); Game game = new Game(10, 10,
-		 * algorithm); game.run();
-		 */
+		Game game = null;
+		try {
+			game = gameBuilder.build();
+		} catch (GameBuilderException e) {
+			e.printStackTrace();
+		}
+
+		game.run();
+
 	}
-
 }

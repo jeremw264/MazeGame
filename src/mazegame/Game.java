@@ -54,14 +54,6 @@ public class Game {
 		this.quest = quest;
 		this.player = player;
 		this.listOfCharacters = characters;
-		
-		for (Character character : characters) {
-			System.out.println(character);
-			System.out.println(character.getCell());
-			System.out.println("");
-		}
-		
-		System.err.println(characters.size());
 	}
 
 	private void initCharacter() {
