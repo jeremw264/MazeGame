@@ -22,6 +22,7 @@ public abstract class Character {
 	private Map map;
 
 	private List<Item> inventory;
+	private int coins;
 
 	/**
 	 * Constructeur de l'objet Character
@@ -36,6 +37,7 @@ public abstract class Character {
 		this.map = map;
 		this.currentCell = map.getCell(x, y);
 		this.inventory = new LinkedList<Item>();
+		this.coins = 0;
 
 		this.currentCell.setCharacter(this);
 	}
@@ -139,6 +141,24 @@ public abstract class Character {
 	public void removeInv(Item item) {
 		this.getInventory().remove(item);
 	}
+	
+	/**
+	 * Renvoie le nombre de pièces que le personnage possède
+	 * 
+	 * @return nombre de pieces (int)
+	 */
+	public int getCoins() {
+		return this.coins;
+	}
+	
+	/**
+	 * Ajoute ou retire des pieces de "l'inventaire" du personnage
+	 * 
+	 * @param i : nombre de pieces a retirer ou ajouter ( negatif si retirer, positif si ajouter)
+	 */
+	public void changeCoins(int i) {
+		this.coins += i;
+	}
 
 	/**
 	 * Renvoie toute les directions accesible dupuis la case courante du personnage.
@@ -157,7 +177,7 @@ public abstract class Character {
 		return accesibleDirections;
 
 	}
-
+	 
 	public List<Item> getInventory() {
 		return inventory;
 	}
