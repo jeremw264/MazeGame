@@ -16,7 +16,7 @@ import mazegame.item.Item;
 /**
  * Classe GameBuilder
  * 
- * Construit le jeu
+ * Construit le jeu.
  * 
  */
 public class GameBuilder {
@@ -57,8 +57,8 @@ public class GameBuilder {
 	// Le nombre de personnages à mettre dans le jeu
 
 	private int nbOfCharacters;
-	// Le nombre d'objets à mettre dans le jeu
 
+	// Le nombre d'objets à mettre dans le jeu
 	private int nbOfItems;
 
 	public GameBuilder() {
@@ -74,7 +74,7 @@ public class GameBuilder {
 	 * @param width     La largueur de la carte.
 	 * @param height    La hauteur de la carte.
 	 * @param algorithm L'algorithme à utilisé pour la génération.
-	 * @return L'instance courante.
+	 * @return L'instance courante du GameBuilder
 	 * 
 	 * @see Lors de plusieurs appel, seul le dernier sera pris en compte.
 	 */
@@ -90,7 +90,7 @@ public class GameBuilder {
 	 * Ajoute un Challenge dans le jeu.
 	 * 
 	 * @param challenge Le challenge à ajouter.
-	 * @return L'instance courante.
+	 * @return L'instance courante du GameBuilder
 	 * 
 	 */
 	public GameBuilder setChallenge(Challenge challenge) {
@@ -103,7 +103,7 @@ public class GameBuilder {
 	 * 
 	 * @param <T>
 	 * @param className La classe du joueur à ajouter.
-	 * @return L'instance courante.
+	 * @return L'instance courante du GameBuilder
 	 * 
 	 * @see Lors de plusieurs appel, seul le dernier sera pris en compte.
 	 */
@@ -112,26 +112,44 @@ public class GameBuilder {
 
 		return this;
 	}
-	
+
+	/**
+	 * Ajoute un type de Npc qui sera présent dans le jeu.
+	 * 
+	 * @param npcClass La classe du Npc choisie.
+	 * @return L'instance courante du GameBuilder
+	 */
 	public GameBuilder setNpcClass(Class<? extends Npc> npcClass) {
 
-		this.npcsClasses.add(npcClass);
-
-		return this;
-	}
-
-	public GameBuilder setItemClass(Class<? extends Item> itemClass) {
-
-		this.itemsClasses.add(itemClass);
+		// Si la classe est déja présente on ne l'ajoute pas , car sinon on n'aura pas
+		// les bonne proportion dans le jeu.
+		if (!this.npcsClasses.contains(npcClass)) {
+			this.npcsClasses.add(npcClass);
+		}
 
 		return this;
 	}
 
 	/**
-	 * Renvoie une instance du jeu crée.
+	 * Ajoute un type d'Item qui sera présent dans le jeu.
+	 * 
+	 * @param itemClass La classe de l'Item choisie.
+	 * @return L'instance courante du GameBuilder
+	 */
+	public GameBuilder setItemClass(Class<? extends Item> itemClass) {
+
+		if (!this.itemsClasses.contains(itemClass)) {
+			this.itemsClasses.add(itemClass);
+		}
+
+		return this;
+	}
+
+	/**
+	 * Construit une instance du jeu et la renvoie.
 	 * 
 	 * @return Le jeu créé.
-	 * @throws GameBuilderException
+	 * @throws GameBuilderException Si il y a un problème pendant la construction.
 	 */
 	public Game build() throws GameBuilderException {
 
@@ -145,14 +163,15 @@ public class GameBuilder {
 		if (this.itemsClasses.size() > 0) {
 			this.generateItem();
 		}
-		
-		this.quest = new Quest(this.player,this.listOfChallenges);
-		
+
+		this.quest = new Quest(this.player, this.listOfChallenges);
+
 		return new Game(this.map, this.characters, this.player, this.quest);
 	}
 
 	/**
-	 * Génére tous les NPC avec les bonne proportion
+	 * Génére tous les NPC avec les bonne proportion, les place et les ajoute dans
+	 * la liste des personnages.
 	 */
 	private void generateNpc() {
 
@@ -171,6 +190,10 @@ public class GameBuilder {
 		}
 	}
 
+	/**
+	 * Génére tous les Item avec les bonne proportion, les place et les ajoute sur
+	 * la carte.
+	 */
 	private void generateItem() {
 		int numberOfEachItem = this.nbOfItems / this.itemsClasses.size();
 
@@ -192,10 +215,11 @@ public class GameBuilder {
 	 * @param x              La position horizontale.
 	 * @param y              La position vertical.
 	 * @param map            La carte où le personnage sera placé.
-	 * @return L'instance du personnage.
+	 * @return L'instance du personnage, null si il y a un problème.
 	 */
-	public Character constructCharacter(Class<? extends Character> characterClass, int x, int y, Map map) {
+	private Character constructCharacter(Class<? extends Character> characterClass, int x, int y, Map map) {
 		try {
+			// Recupère le constructeur du personnage et crée une instance.
 			return characterClass.getDeclaredConstructor(int.class, int.class, Map.class).newInstance(x, y, map);
 		} catch (NoSuchMethodException | InstantiationException | IllegalAccessException
 				| InvocationTargetException e) {
@@ -211,7 +235,7 @@ public class GameBuilder {
 	 * @param itemClass le nom de la classe qui hérite de item.
 	 * @return L'instance de l'objet.
 	 */
-	public Item constructItem(Class<? extends Item> itemClass) {
+	private Item constructItem(Class<? extends Item> itemClass) {
 		try {
 			return itemClass.getDeclaredConstructor().newInstance();
 		} catch (NoSuchMethodException | InstantiationException | IllegalAccessException
@@ -235,6 +259,11 @@ public class GameBuilder {
 		return this.map.getCell(x, y);
 	}
 
+	/**
+	 * Vérifie si le jeu peu bien être construit.
+	 * 
+	 * @throws GameBuilderException Si le jeu ne peut pas être construit.
+	 */
 	private void verify() throws GameBuilderException {
 		if (this.map == null) {
 			throw new GameBuilderException("La carte n'a pas été ajouter au jeu ! (Utilisé setMap)");
