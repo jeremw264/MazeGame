@@ -112,7 +112,7 @@ public class GameBuilder {
 
 		return this;
 	}
-
+	
 	public GameBuilder setNpcClass(Class<? extends Npc> npcClass) {
 
 		this.npcsClasses.add(npcClass);
@@ -246,5 +246,4 @@ public class GameBuilder {
 			throw new GameBuilderException("Aucun défis n'a été ajouter au jeu ! (Utilisé setChallenge)");
 		}
 	}
-
 }

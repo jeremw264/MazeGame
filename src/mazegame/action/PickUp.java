@@ -39,15 +39,24 @@ public class PickUp extends Action {
 		String choice = (String) responceMap.get("choice");
 
 		Item choseItem = itemMap.get(choice);
+		
+		// Ajout d'une piece au nombre d'or que le personnage possede
+		if (choseItem instanceof GoldCoin) {
+			character.changeCoins(choseItem.getValue());
+			
+			Game.DISPLAYER.displayMsg("Vous possedez maintenant "+ character.getCoins() + " pieces");
+		}
+		else {
+			// Ajout de l'objet choisi a l'inventaire du personnage si ce n'est pas une pièce
+			character.getListOfItems().add(choseItem);
 
-		// Ajout de l'objet choisi a l'inventaire du personnage
-		character.getListOfItems().add(choseItem);
+			// Suppression de l'objet de la liste d'objets de la cellule actuelle
+			cell.rmvItem(choseItem);
 
-		// Suppression de l'objet de la liste d'objets de la cellule actuelle
-		cell.rmvItem(choseItem);
-
-		Game.DISPLAYER.displayMsg("L'objet a vos pieds a ï¿½tï¿½ ramassï¿½");
-
+			Game.DISPLAYER.displayMsg("L'objet a vos pieds a ete ramasse");
+		
+		}
+		
 		return State.Ok;
 
 	}

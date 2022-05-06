@@ -1,7 +1,5 @@
 package mazegame.item;
 
-import mazegame.Game;
-
 /**
  * Classe Jewel.
  *
@@ -40,10 +38,10 @@ public class Jewel extends Item {
 	 * .displayMsg("Ce sac de joyaux contient" + Math.floor(this.value / 15) +
 	 * " et vaut " + this.value); }
 	 * 
-	 * return; }/
-	 * 
-	 * /** Renvoie une représentation de l'objet sous forme de chaine de caractère.
-	 */
+	 * return; }*/
+	  
+	  /** Renvoie une représentation de l'objet sous forme de chaine de caractère.
+	  */
 	public String toString() {
 		if (this.value <= 20) {
 			return "emeraude";
