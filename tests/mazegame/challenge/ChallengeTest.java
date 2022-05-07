@@ -13,16 +13,18 @@ public class ChallengeTest {
 
 	private Challenge challenge;
 
+	private Player player;
+
 	@Before
 	public void setUp() throws Exception {
 		Map map = new Map(5, 5);
-		Player player = new Hero(0, 0, map);
-		this.challenge = new Challenge(player) {
-
+		this.player = new Hero(0, 0, map);
+		this.challenge = new Challenge() {
+			
 			private int i = 0;
 
 			@Override
-			public boolean isFinish() {
+			public boolean isFinish(Player player) {
 				this.i++;
 				if (this.i == 2) {
 					return true;
@@ -35,10 +37,10 @@ public class ChallengeTest {
 
 	@Test
 	public void isCheckTest() {
-		assertFalse(this.challenge.isCheck());
+		assertFalse(this.challenge.isCheck(this.player));
 
 		for (int i = 0; i < 5; i++) {
-			assertTrue(this.challenge.isCheck());
+			assertTrue(this.challenge.isCheck(this.player));
 
 		}
 	}
