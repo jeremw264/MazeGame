@@ -12,6 +12,9 @@ import java.util.List;
 import mazegame.item.*;
 import mazegame.utils.UserInteration;
 
+/**
+ * Action : ramasser un objet sur la case.
+ */
 public class PickUp extends Action {
 
 	@Override
@@ -19,7 +22,7 @@ public class PickUp extends Action {
 		// Cellule actuelle du joueur
 		final Cell cell = character.getCell();
 
-		// Map des objets prï¿½sents sur la cellule
+		// Map des objets presents sur la cellule
 		Map<String, Item> itemMap = new HashMap<>();
 
 		for (Item item : character.getCell().getItemList()) {
@@ -47,7 +50,7 @@ public class PickUp extends Action {
 			Game.DISPLAYER.displayMsg("Vous possedez maintenant "+ character.getCoins() + " pieces");
 		}
 		else {
-			// Ajout de l'objet choisi a l'inventaire du personnage si ce n'est pas une pièce
+			// Ajout de l'objet choisi a l'inventaire du personnage si ce n'est pas une piece
 			character.getListOfItems().add(choseItem);
 
 			// Suppression de l'objet de la liste d'objets de la cellule actuelle

@@ -37,8 +37,11 @@ public class LookAround extends Action {
 		for (Direction direction : character.getAccessibleDirections()) {
 			directionNameList.add(direction.toString());
 		}
+		
+		System.err.println(character.getCoins());
 
 		Game.DISPLAYER.displayMsg("Vous êtes sur la case ("+currentX+","+currentY+")");
+		Game.DISPLAYER.displayMsg("Vous avez "+character.getCoins()+" or sur vous.");
 		Game.DISPLAYER.displayChoise("Les directions accessible sont : ",directionNameList);
 
 		return State.Ok;
