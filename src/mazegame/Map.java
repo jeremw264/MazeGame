@@ -4,11 +4,18 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Classe qui represente la carte du jeu.
+ */
 public class Map {
 
+	// Largueur de la carte.
 	private int width;
+
+	// Hauteur de la carte.
 	private int height;
 
+	// Liste des cases qui compose la carte.
 	private List<Cell> cellsList;
 
 	/**

@@ -3,7 +3,7 @@ package mazegame.item;
 /**
  * Classe GoldCoin
  * 
- * Objet pièce d'or
+ * Objet piï¿½ce d'or
  */
 public class GoldCoin extends Item{
 
@@ -16,7 +16,7 @@ public class GoldCoin extends Item{
 	
 	
 	/**
-	 * Objet non utilisable donc pas de méthode use allouée
+	 * Objet non utilisable donc pas de methode use allouee
 	 */
 	@Override
 	public void use() {

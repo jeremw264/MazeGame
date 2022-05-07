@@ -24,10 +24,10 @@ public class Cell {
 
 	// Etat de visite de la cellule.
 	private boolean visited;
-	
-	//List des objets pr�sents sur la cellule
-	private List<Item> items;		
-		
+
+	// List des objets pr�sents sur la cellule
+	private List<Item> items;
+
 	// Liste des personnages sur la case.
 	private List<Character> characters;
 
@@ -156,7 +156,12 @@ public class Cell {
 	public void removeCharacter(Character character) {
 		this.characters.remove(character);
 	}
-	
+
+	/**
+	 * Renvoie la liste des personnages sur la cellule.
+	 * 
+	 * @return la liste des personnages sur la cellule
+	 */
 	public List<Character> charactersList() {
 		return this.characters;
 	}
@@ -176,15 +181,30 @@ public class Cell {
 
 		return false;
 	}
-	
-	public List<Item> getItemList(){
+
+	/**
+	 * Renvoie la liste des objets (Item) présent sur la case.
+	 * 
+	 * @return la liste des objets
+	 */
+	public List<Item> getItemList() {
 		return this.items;
 	}
-	
+
+	/**
+	 * Ajoute un objet sur la case.
+	 * 
+	 * @param item
+	 */
 	public void addItem(Item item) {
 		this.items.add(item);
 	}
-	
+
+	/**
+	 * Supprime un objet de la case.
+	 * 
+	 * @param item L'objet à supprimer.
+	 */
 	public void rmvItem(Item item) {
 		this.items.remove(item);
 	}
@@ -193,7 +213,7 @@ public class Cell {
 	 * Description de la cellule sous forme de chaîne de caractère.
 	 */
 	public String toString() {
-		return "Case (" + this.x + "," + this.y+")";
+		return "Case (" + this.x + "," + this.y + ")";
 	}
 
 	/**

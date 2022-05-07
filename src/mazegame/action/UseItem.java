@@ -8,9 +8,13 @@ import java.util.Map;
 import mazegame.Game;
 import mazegame.State;
 import mazegame.character.Character;
+import mazegame.item.GoldCoin;
 import mazegame.item.Item;
 import mazegame.utils.UserInteration;
 
+/**
+ * Action : Utiliser un objet.
+ */
 public class UseItem extends Action {
 
 	public State run(Character character) {
@@ -27,7 +31,8 @@ public class UseItem extends Action {
 
 		// Choix du joueur
 
-		Map<String, Object> responceMap = UserInteration.getChoise("Voila les objets disponible : ", choisePossibility,true);
+		Map<String, Object> responceMap = UserInteration.getChoise("Voila les objets disponible : ", choisePossibility,
+				true);
 
 		if (responceMap.get("STATE") != State.Ok) {
 			return (State) responceMap.get("STATE");
@@ -37,6 +42,10 @@ public class UseItem extends Action {
 
 		// Objet choisi
 		Item choseItem = itemMap.get(choice);
+
+		if (choseItem instanceof GoldCoin) {
+			character.changeCoins(choseItem.getValue());
+		}
 
 		// Utilisation de l'objet choisi (DISPLAYER)
 		choseItem.use();

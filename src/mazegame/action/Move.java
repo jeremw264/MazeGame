@@ -13,6 +13,9 @@ import mazegame.character.Npc;
 import mazegame.character.Player;
 import mazegame.utils.UserInteration;
 
+/**
+ * Action de déplacement.
+ */
 public class Move extends Action {
 
 	@Override
@@ -27,8 +30,9 @@ public class Move extends Action {
 		Player player = (Player) character;
 		Map<String, Direction> directionChoiseMap = this.extractMap(character.getAccessibleDirections());
 		List<String> keysList = new LinkedList<String>(directionChoiseMap.keySet());
-		
-		final Map<String, Object> responceMap = UserInteration.getChoise("Dans quelle direction voulez-vous aller", keysList,true);
+
+		final Map<String, Object> responceMap = UserInteration.getChoise("Dans quelle direction voulez-vous aller",
+				keysList, true);
 
 		if (responceMap.get("STATE") != State.Ok) {
 			return (State) responceMap.get("STATE");
@@ -41,6 +45,13 @@ public class Move extends Action {
 		return State.Ok;
 	}
 
+	/**
+	 * Renvoie une java.util.Map avec en clé les description string des direction et
+	 * en valeur les directions.
+	 * 
+	 * @param directions Liste des directions.
+	 * @return La java.util.map
+	 */
 	private Map<String, Direction> extractMap(List<Direction> directions) {
 		Map<String, Direction> directionChoiseMap = new HashMap<>();
 

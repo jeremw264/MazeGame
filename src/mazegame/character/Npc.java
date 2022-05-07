@@ -67,6 +67,9 @@ public abstract class Npc extends Character {
 		this.currentCell.setCharacter(this);
 	}
 
+	/**
+	 * Parler avec le joueur.
+	 */
 	@SuppressWarnings("unchecked")
 	public void talk() {
 
@@ -78,7 +81,7 @@ public abstract class Npc extends Character {
 			JSONObject npc = (JSONObject) npcData.get(0);
 
 			String content = (String) npc.get("content");
-			List<String> answer = (JSONArray) npc.get("answer");
+			List<String> answer = (JSONArray) npc.get("answer"); 
 			List<String> c = (JSONArray) npc.get("correct");
 			String responce;
 			String answerNpc = (String) npc.get("answerNpc");

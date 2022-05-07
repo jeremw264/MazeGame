@@ -26,13 +26,26 @@ import mazegame.utils.Input;
  */
 public class Game {
 
+	/**
+	 * Objet qui est responsable des affichage du jeu.
+	 */
 	public static final Displayer DISPLAYER = new ConsoleDisplayer();
+	
+	/**
+	 * Objet qui est responsable des entrées utilisateur du jeu.
+	 */
 	public static final Input INPUT = new ConsoleInput();
 
+	// La carte du jeu.
 	private Map map;
+	
+	// La liste des personnages présent dans le jeu.
 	private List<Character> listOfCharacters;
+	
+	// La quête à accomplir dans jeu. 
 	private Quest quest;
 
+	// Le joueur que controle l'utilisateur.
 	private Player player;
 
 	/**
@@ -49,6 +62,16 @@ public class Game {
 
 	}
 
+	/**
+	 * Constructeur de l'objet Game
+	 * 
+	 * @param map La carte du jeu.
+	 * @param characters La liste des joueur dans le jeu.
+	 * @param player Le joueur que controle l'utilisateur.
+	 * @param quest La quête a accomplir pour finir le jeu.
+	 * 
+	 * @see Ce contructeur est utilisé par le GameBuilder.
+	 */
 	public Game(Map map, List<Character> characters, Player player, Quest quest) {
 		this.map = map;
 		this.quest = quest;
@@ -56,6 +79,9 @@ public class Game {
 		this.listOfCharacters = characters;
 	}
 
+	/**
+	 * Initialise la liste des personnages.
+	 */
 	private void initCharacter() {
 		this.listOfCharacters = new LinkedList<Character>();
 		Player player = new Hero(0, 0, this.map);
@@ -72,7 +98,10 @@ public class Game {
 
 		this.player = player;
 	}
-
+	
+	/**
+	 * Initialise la quête du jeu.
+	 */
 	private void initQuest() {
 		List<Challenge> listOfChallenges = new LinkedList<Challenge>();
 		/*
@@ -86,6 +115,9 @@ public class Game {
 
 	}
 
+	/**
+	 * Démare le jeu.
+	 */
 	public void run() {
 
 		boolean gameState = true;
@@ -107,6 +139,9 @@ public class Game {
 		this.closeGame();
 	}
 
+	/**
+	 * Instruction a executer à la fin du jeu.
+	 */
 	private void closeGame() {
 		Game.INPUT.closeInput();
 	}

@@ -11,7 +11,7 @@ public class Jewel extends Item {
 	 * Constructeur de l'objet Jewel.
 	 */
 	public Jewel() {
-		super((int) Math.floor(Math.random() * 1000), true, false);
+		super((int) Math.floor(Math.random() * 1000)+1, true, false);
 	}
 
 	/**

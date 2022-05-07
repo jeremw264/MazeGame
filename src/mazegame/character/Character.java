@@ -102,7 +102,7 @@ public abstract class Character {
 	public List<Item> getListOfItems() {
 		return this.getInventory();
 	}
-	
+
 	/**
 	 * Ajoute un objet a la liste des objets que le personnage poss√®de.
 	 * 
@@ -110,13 +110,12 @@ public abstract class Character {
 	 */
 	public void addInv(Item item) {
 		if (this.getInventory() != null) {
-			this.getInventory().add(item);	
-		}
-		else {
+			this.getInventory().add(item);
+		} else {
 			this.inventory = new LinkedList<Item>();
-			this.getInventory().add( item);
+			this.getInventory().add(item);
 		}
-		
+
 	}
 
 	/**
@@ -131,8 +130,6 @@ public abstract class Character {
 		return getInventory().contains(item);
 	}
 
-	
-
 	/**
 	 * Supprime l'objet pass√© en param√®tre de son inventaire.
 	 * 
@@ -141,20 +138,21 @@ public abstract class Character {
 	public void removeInv(Item item) {
 		this.getInventory().remove(item);
 	}
-	
+
 	/**
-	 * Renvoie le nombre de piËces que le personnage possËde
+	 * Renvoie le nombre de pieces que le personnage possede
 	 * 
 	 * @return nombre de pieces (int)
 	 */
 	public int getCoins() {
 		return this.coins;
 	}
-	
+
 	/**
 	 * Ajoute ou retire des pieces de "l'inventaire" du personnage
 	 * 
-	 * @param i : nombre de pieces a retirer ou ajouter ( negatif si retirer, positif si ajouter)
+	 * @param i : nombre de pieces a retirer ou ajouter ( negatif si retirer,
+	 *          positif si ajouter)
 	 */
 	public void changeCoins(int i) {
 		this.coins += i;
@@ -177,7 +175,12 @@ public abstract class Character {
 		return accesibleDirections;
 
 	}
-	 
+
+	/**
+	 * Renvoie l'inventaire du personnages
+	 * 
+	 * @return Une liste des objets du personnage.
+	 */
 	public List<Item> getInventory() {
 		return inventory;
 	}

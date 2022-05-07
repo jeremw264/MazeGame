@@ -10,6 +10,9 @@ import mazegame.character.Character;
 import mazegame.character.Npc;
 import mazegame.utils.UserInteration;
 
+/**
+ * Action : Parler avec un Npc
+ */
 public class Talk extends Action {
 	public State run(Character character) {
 
