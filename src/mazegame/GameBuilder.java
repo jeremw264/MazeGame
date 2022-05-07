@@ -11,7 +11,6 @@ import mazegame.character.Npc;
 import mazegame.character.Player;
 import mazegame.exception.GameBuilderException;
 import mazegame.generation.GenerationAlgorithm;
-import mazegame.item.GoldCoin;
 import mazegame.item.Item;
 
 /**

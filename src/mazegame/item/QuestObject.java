@@ -1,7 +1,5 @@
 package mazegame.item;
 
-import mazegame.Game;
-
 /**
  * Classe QuestObject.
  * 

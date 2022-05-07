@@ -7,7 +7,6 @@ import mazegame.Cell;
 import mazegame.Direction;
 import mazegame.Map;
 import mazegame.action.Action;
-import mazegame.action.DoNothing;
 import mazegame.action.Move;
 import mazegame.character.Npc;
 
@@ -54,6 +53,7 @@ public class Samaritan extends Npc {
 	public Action getAction() {
 		return new Move();
 	}
+
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub

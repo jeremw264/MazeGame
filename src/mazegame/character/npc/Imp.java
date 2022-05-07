@@ -7,7 +7,6 @@ import mazegame.Cell;
 import mazegame.Direction;
 import mazegame.Map;
 import mazegame.action.Action;
-import mazegame.action.DoNothing;
 import mazegame.action.Move;
 import mazegame.character.Npc;
 
@@ -37,11 +36,11 @@ public class Imp extends Npc {
 	 */
 	@Override
 	public Cell computeNextCell() {
-		
+
 		List<Direction> accessibleDirections = this.getAccessibleDirections();
-		
+
 		Collections.shuffle(accessibleDirections);
-		
+
 		return this.getMap().getCellWithDirection(this.getCell(), accessibleDirections.get(0));
 	}
 
@@ -56,6 +55,7 @@ public class Imp extends Npc {
 	public Action getAction() {
 		return new Move();
 	}
+
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub

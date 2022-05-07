@@ -1,12 +1,7 @@
 package mazegame.character.player;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-
 import mazegame.Cell;
 import mazegame.Direction;
-import mazegame.Game;
 import mazegame.Map;
 import mazegame.action.Action;
 import mazegame.action.PlayerChoise;
@@ -38,7 +33,7 @@ public class Hero extends Player {
 	public Action getAction() {
 		return new PlayerChoise();
 	}
-	
+
 	/**
 	 * Demande à l'utilisateur dans quelle direction déplacer le joueur.
 	 * 
