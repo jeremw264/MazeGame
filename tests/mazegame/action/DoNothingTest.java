@@ -13,7 +13,7 @@ import mazegame.character.player.Hero;
 public class DoNothingTest extends ActionTest {
 
 	@Before
-	public void setUp() throws Exception {
+	public void setUp() {
 		this.action = new DoNothing();
 	}
 
@@ -23,6 +23,17 @@ public class DoNothingTest extends ActionTest {
 		Character playerCharacter = new Hero(0, 0, map);
 		
 		assertEquals(this.action.run(playerCharacter), State.Ok);
+	}
+	
+	// override test inutile
+	
+	@Override
+	public void playerCancelState() {
+	}
+	
+	
+	@Override
+	public void playerExitState() {
 	}
 
 }

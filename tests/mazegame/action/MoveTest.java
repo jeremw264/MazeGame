@@ -24,7 +24,7 @@ import mazegame.utils.UserInteration;
 public class MoveTest extends ActionTest {
 
 	@Before
-	public void setUp() throws Exception {
+	public void setUp(){
 		this.action = new Move();
 	}
 
@@ -46,30 +46,6 @@ public class MoveTest extends ActionTest {
 
 	}
 
-	@Test
-	public void playerExitState() {
-		Map map = new Map(2, 2);
-		Character playerCharacter = new Hero(0, 0, map);
-
-		System.setIn(new ByteArrayInputStream(UserInteration.EXITWORD_STRING.getBytes()));
-		State state = this.action.run(playerCharacter);
-		
-		assertEquals(state, State.Exit);
-
-	}
-
-	@Test
-	public void playerCancelState() {
-		Map map = new Map(2, 2);
-		Character playerCharacter = new Hero(0, 0, map);
-
-		System.setIn(new ByteArrayInputStream(UserInteration.RETURNWORD_STRING.getBytes()));
-		State state = this.action.run(playerCharacter);
-		
-		assertEquals(state, State.Cancel);
-
-	}
-	
 	@Test
 	public void playerCorrectChoiceState() {
 		Map map = new Map(2, 2);

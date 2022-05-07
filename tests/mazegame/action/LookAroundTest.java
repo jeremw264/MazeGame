@@ -23,7 +23,7 @@ import mazegame.character.player.Hero;
 public class LookAroundTest extends ActionTest {
 
 	@Before
-	public void setUp() throws Exception {
+	public void setUp(){
 		this.action = new LookAround();
 	}
 
@@ -59,7 +59,7 @@ public class LookAroundTest extends ActionTest {
 	
 	@Test
 	public void diretionIsCorrect() {
-		Map map = new Map(2, 2);
+		Map map = new Map(4, 4);
 		Character playerCharacter = new Hero(0, 0, map);
 		List<Direction> accessibleDirections = new LinkedList<Direction>();
 		List<Direction> notAccessibleDirections = new LinkedList<Direction>();
@@ -99,6 +99,15 @@ public class LookAroundTest extends ActionTest {
 		Character playerCharacter = new Vendor(0, 0, map);
 		State state = this.action.run(playerCharacter);
 		assertEquals(State.Exit, state);
+	}
+	
+	// Overide test inutile
+	@Override
+	public void playerCancelState() {
+	}
+	
+	@Override
+	public void playerExitState() {
 	}
 
 }
