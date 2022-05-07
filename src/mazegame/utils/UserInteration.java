@@ -10,9 +10,9 @@ import mazegame.State;
 
 public class UserInteration {
 
-	private static final String EXITWORD_STRING = "quitter";
-	private static final String RETURNWORD_STRING = "retour";
-	private static final String INVALIDCHOISE_STRING = "Choix incorrect";
+	public static final String EXITWORD_STRING = "quitter";
+	public static final String RETURNWORD_STRING = "retour";
+	public static final String INVALIDCHOISE_STRING = "Choix incorrect";
 
 	public static Map<String, Object> getChoise(String firstSentence, List<String> listOfChoises, boolean canCancel) {
 
