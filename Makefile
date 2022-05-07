@@ -11,7 +11,7 @@ cls: src/mazegame/main/MainGame.java
 	$(JC) -sourcepath $(SOURCEPATH) -d $(CLASSPATH) $^ -cp jar/json-simple-1.1.1.jar
 
 doc: 
-	javadoc -sourcepath $(SOURCEPATH) -d docs mazegame mazegame.action mazegame.challenge mazegame.character mazegame.generation mazegame.item mazegame.main mazegame.utils -cp jar/json-simple-1.1.1.jar
+	javadoc -sourcepath $(SOURCEPATH) -d docs mazegame mazegame.action mazegame.challenge mazegame.character mazegame.character.npc mazegame.character.player mazegame.generation mazegame.item mazegame.main mazegame.utils -cp jar/json-simple-1.1.1.jar
 
 jeu.jar: cls
 	cd classes/ && jar xvf ../jar/json-simple-1.1.1.jar
