@@ -2,12 +2,16 @@ package mazegame.challenge;
 
 import static org.junit.Assert.*;
 
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 
 import mazegame.Map;
+import mazegame.character.Character;
 import mazegame.character.Player;
 import mazegame.character.player.Hero;
+import mazegame.item.Item;
 
 public class ChallengeTest {
 
@@ -20,7 +24,7 @@ public class ChallengeTest {
 		Map map = new Map(5, 5);
 		this.player = new Hero(0, 0, map);
 		this.challenge = new Challenge() {
-			
+
 			private int i = 0;
 
 			@Override
@@ -31,6 +35,12 @@ public class ChallengeTest {
 				}
 
 				return false;
+			}
+
+			@Override
+			public boolean isPossible(List<Character> characters, List<Item> items) {
+				// TODO Auto-generated method stub
+				return true;
 			}
 		};
 	}
