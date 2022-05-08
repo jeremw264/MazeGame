@@ -29,7 +29,7 @@ public class Move extends Action {
 
 		Player player = (Player) character;
 		Map<String, Direction> directionChoiseMap = this.extractMap(character.getAccessibleDirections());
-		List<String> keysList = new LinkedList<String>(directionChoiseMap.keySet());
+		List<String> keysList = new LinkedList<>(directionChoiseMap.keySet());
 
 		final Map<String, Object> responceMap = UserInteration.getChoise("Dans quelle direction voulez-vous aller",
 				keysList, true);
@@ -38,7 +38,7 @@ public class Move extends Action {
 			return (State) responceMap.get("STATE");
 		}
 
-		final Cell nextCell = player.computeNextCell(directionChoiseMap.get((String) responceMap.get("choice")));
+		final Cell nextCell = player.computeNextCell(directionChoiseMap.get(responceMap.get("choice")));
 
 		player.move(nextCell);
 
@@ -48,7 +48,7 @@ public class Move extends Action {
 	/**
 	 * Renvoie une java.util.Map avec en clé les description string des direction et
 	 * en valeur les directions.
-	 * 
+	 *
 	 * @param directions Liste des directions.
 	 * @return La java.util.map
 	 */

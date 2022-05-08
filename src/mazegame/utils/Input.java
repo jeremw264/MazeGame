@@ -2,7 +2,7 @@ package mazegame.utils;
 
 /**
  * Interface Input.
- * 
+ *
  * Interface à implémnter pour géré les entrées utilisateur.
  */
 public interface Input {

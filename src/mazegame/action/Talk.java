@@ -14,11 +14,12 @@ import mazegame.utils.UserInteration;
  * Action : Parler avec un Npc
  */
 public class Talk extends Action {
+	@Override
 	public State run(Character character) {
 
 		List<Character> characters = character.getCell().charactersList();
 
-		Map<String, Npc> npcMap = new HashMap<String, Npc>();
+		Map<String, Npc> npcMap = new HashMap<>();
 		for (Character character2 : characters) {
 			if (character2 instanceof Npc) {
 				npcMap.put(character2.toString(), (Npc) character2);

@@ -12,14 +12,14 @@ import mazegame.character.Npc;
 
 /**
  * Classe Vendor
- * 
+ *
  * Personnage Marchand
  */
 public class Vendor extends Npc {
 
 	/**
 	 * Constructeur de l'objet Vendor.
-	 * 
+	 *
 	 * @param x   Position verticale de départ.
 	 * @param y   Position horizontale de départ.
 	 * @param map La carte sur laquelle le marchand ce déplace.
@@ -31,7 +31,7 @@ public class Vendor extends Npc {
 
 	/**
 	 * Renvoie la prochaine cellule où le personnage doit ce déplacer.
-	 * 
+	 *
 	 * @return La prochaine cellule où le personnage doit ce déplacer.
 	 */
 	@Override
@@ -46,9 +46,9 @@ public class Vendor extends Npc {
 
 	/**
 	 * Renvoie une action du personnage.
-	 * 
+	 *
 	 * Par défault il ne peut que bouger.
-	 * 
+	 *
 	 * @return Une action du personnage.
 	 */
 	@Override
@@ -63,24 +63,24 @@ public class Vendor extends Npc {
 
 	/*
 	 * @SuppressWarnings("unchecked")
-	 * 
+	 *
 	 * @Override public void talk() { JSONParser npcParse = new JSONParser(); try {
 	 * JSONArray npcData = (JSONArray) npcParse .parse(new
 	 * FileReader(System.getProperty("user.dir") + "/data/" + this.dataFileName +
 	 * ".json")); Collections.shuffle(npcData); JSONObject npc = (JSONObject)
 	 * npcData.get(0);
-	 * 
+	 *
 	 * String content = (String) npc.get("content"); List<String> answer =
 	 * (JSONArray) npc.get("answer"); List<String> c = (JSONArray)
 	 * npc.get("correct"); String answerNpc = (String) npc.get("answerNpc"); String
 	 * answerNpc2 = (String) npc.get("answerNpc2"); String buyList =
 	 * this.getListOfItems().toString();
-	 * 
-	 * 
+	 *
+	 *
 	 * HashMap<String, Item> sellMap = new HashMap<>(); for (Item item :
 	 * player.getListOfItems()) { if (item.canSell() == true)
 	 * sellMap.put(item.toString(), item); }
-	 * 
+	 *
 	 * Game.DISPLAYER.displayMsg(content);
 	 * Game.DISPLAYER.displayChoise("Voici les réponses possibles : ", answer);
 	 * String responce = Game.INPUT.getString(); if (c.contains(responce)) {
@@ -97,7 +97,7 @@ public class Vendor extends Npc {
 	 * +item.getValue+ "(oui/non)"); responce = Game.INPUT.getString(); if(responce
 	 * == "oui") { this.addInv(item); player.removeInv(item); } else { return; } }
 	 * Game.DISPLAYER.displayMsg(answerNpc2);
-	 * 
+	 *
 	 * } } catch (FileNotFoundException e) { e.printStackTrace(); } catch
 	 * (IOException e) { e.printStackTrace(); } catch (ParseException e) {
 	 * e.printStackTrace(); } }

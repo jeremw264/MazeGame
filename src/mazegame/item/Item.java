@@ -4,7 +4,7 @@ import mazegame.character.Character;
 
 /**
  * Classe Item.
- * 
+ *
  * Représentation des objets.
  */
 abstract public class Item {
@@ -24,7 +24,7 @@ abstract public class Item {
 
 	/**
 	 * Renvoie si l'objet peut être vendu.
-	 * 
+	 *
 	 * @return true si il peut être vendu, false sinon.
 	 */
 	public boolean canSell() {
@@ -41,7 +41,7 @@ abstract public class Item {
 
 	/**
 	 * Renvoie la valeur de vente de l'objet.
-	 * 
+	 *
 	 * @return La valeur de vente de l'objet.
 	 */
 	public int getValue() {
@@ -50,7 +50,7 @@ abstract public class Item {
 
 	/**
 	 * Définit la valeur de vente de l'objet.
-	 * 
+	 *
 	 * @param newValue La nouvelle valeur de vente de l'objet
 	 */
 	public void setValue(int newValue) {
@@ -61,10 +61,11 @@ abstract public class Item {
 
 	/**
 	 * Renvoie si l'objet en paramètre est egal à l'objet courant.
-	 * 
+	 *
 	 * @param L'objet à comparé.
 	 * @return true si les deux objets sont égaux.
 	 */
+	@Override
 	public boolean equals(Object o) {
 		if (o instanceof Item) {
 			Item other = ((Item) o);

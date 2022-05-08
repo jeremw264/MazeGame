@@ -1,15 +1,16 @@
 package mazegame.action;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import mazegame.Cell;
 import mazegame.Game;
 import mazegame.State;
 import mazegame.character.Character;
-import mazegame.Cell;
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.List;
-
-import mazegame.item.*;
+import mazegame.item.GoldCoin;
+import mazegame.item.Item;
 import mazegame.utils.UserInteration;
 
 /**
@@ -29,7 +30,7 @@ public class PickUp extends Action {
 			itemMap.put(item.toString(), item);
 		}
 
-		List<String> itemStrings = new ArrayList<String>(itemMap.keySet());
+		List<String> itemStrings = new ArrayList<>(itemMap.keySet());
 
 		// Choix du joueur
 
@@ -42,11 +43,11 @@ public class PickUp extends Action {
 		String choice = (String) responceMap.get("choice");
 
 		Item choseItem = itemMap.get(choice);
-		
+
 		// Ajout d'une piece au nombre d'or que le personnage possede
 		if (choseItem instanceof GoldCoin) {
 			character.changeCoins(choseItem.getValue());
-			
+
 			Game.DISPLAYER.displayMsg("Vous possedez maintenant "+ character.getCoins() + " pieces");
 		}
 		else {
@@ -57,9 +58,9 @@ public class PickUp extends Action {
 			cell.rmvItem(choseItem);
 
 			Game.DISPLAYER.displayMsg("L'objet a vos pieds a ete ramasse");
-		
+
 		}
-		
+
 		return State.Ok;
 
 	}

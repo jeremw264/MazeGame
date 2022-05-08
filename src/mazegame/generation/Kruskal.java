@@ -1,13 +1,16 @@
 package mazegame.generation;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
 
-import mazegame.*;
+import mazegame.Cell;
 import mazegame.Map;
 
 /**
  * Classe Kruskal.
- * 
+ *
  * Algorithme de génération.
  *
  */
@@ -21,11 +24,12 @@ public class Kruskal extends GenerationAlgorithm {
 
 	/**
 	 * Renvoie un carte (Map) générer avec l'algorithme de kruskal.
-	 * 
+	 *
 	 * @param width  La largeur de la carte à générer.
 	 * @param height La hauteur de la carte à générer.
 	 * @return La carte généré.
 	 */
+	@Override
 	public Map generation(int width, int heigth) {
 		this.map = new Map(width, heigth);
 
@@ -45,11 +49,11 @@ public class Kruskal extends GenerationAlgorithm {
 
 	/**
 	 * Renvoie une liste de tout les murs existant dans le labyrinthe
-	 * 
+	 *
 	 * @return une liste de tout les murs existant dans le labyrinthe
 	 */
 	private List<List<Cell>> initWallList() {
-		List<List<Cell>> wallList = new ArrayList<List<Cell>>();
+		List<List<Cell>> wallList = new ArrayList<>();
 
 		for (Cell cell : this.map.getListsOfCells()) {
 			for (Cell neighbor : this.map.getNeighborsCells(cell)) {
@@ -65,7 +69,7 @@ public class Kruskal extends GenerationAlgorithm {
 
 	/**
 	 * Renvoie une liste où chaque cellule est contenu dans un set
-	 * 
+	 *
 	 * @return une liste où chaque cellule est contenu dans un set
 	 */
 	private List<HashSet<Cell>> initCellSets() {
@@ -74,7 +78,7 @@ public class Kruskal extends GenerationAlgorithm {
 
 		for (Cell cell : this.map.getListsOfCells()) {
 
-			HashSet<Cell> set = new HashSet<Cell>();
+			HashSet<Cell> set = new HashSet<>();
 			set.add(cell);
 			cellSets.add(set);
 		}
@@ -85,7 +89,7 @@ public class Kruskal extends GenerationAlgorithm {
 	/**
 	 * Fusionne les ensembles de cellule si les deux cellule en paramètre sont dans
 	 * des ensembles disjoint
-	 * 
+	 *
 	 * @param cell1
 	 * @param cell2
 	 */

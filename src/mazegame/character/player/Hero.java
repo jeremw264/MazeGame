@@ -14,7 +14,7 @@ public class Hero extends Player {
 
 	/**
 	 * Constructeur de l'objet Hero.
-	 * 
+	 *
 	 * @param x   Position verticale de départ.
 	 * @param y   Position horizontale de départ.
 	 * @param map La carte sur laquelle le héro ce déplace.
@@ -26,7 +26,7 @@ public class Hero extends Player {
 
 	/**
 	 * Renvoie une action du personnage.
-	 * 
+	 *
 	 * @return Une action du personnage.
 	 */
 	@Override
@@ -36,7 +36,7 @@ public class Hero extends Player {
 
 	/**
 	 * Demande à l'utilisateur dans quelle direction déplacer le joueur.
-	 * 
+	 *
 	 * @return La cellule où le joueur doit ce déplacer.
 	 */
 	@Override

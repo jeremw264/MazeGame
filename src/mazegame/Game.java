@@ -39,12 +39,12 @@ public class Game {
 
 	/**
 	 * Constructeur de l'objet Game
-	 * 
+	 *
 	 * @param map        La carte du jeu.
 	 * @param characters La liste des joueur dans le jeu.
 	 * @param player     Le joueur que controle l'utilisateur.
 	 * @param quest      La quête a accomplir pour finir le jeu.
-	 * 
+	 *
 	 * @see Ce contructeur est utilisé par le GameBuilder.
 	 */
 	public Game(Map map, List<Character> characters, Player player, Quest quest) {
@@ -60,13 +60,13 @@ public class Game {
 	public void run() {
 
 		boolean gameState = true;
-		
+
 		Game.DISPLAYER.displayStartGame();
 
 		new LookAround().run(this.player);
 
 		while (gameState && !this.quest.isComplete()) {
-			
+
 			for (Character character : listOfCharacters) {
 				State status = character.getAction().run(character);
 

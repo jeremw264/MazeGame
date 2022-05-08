@@ -12,12 +12,12 @@ public class Quest {
 
 	// La liste des défis afin de finir la quête.
 	private List<Challenge> listOfChallenges;
-	
+
 	private Player player;
 
 	/**
 	 * Constructeur de l'objet Quest
-	 * 
+	 *
 	 * @param listOfChallenges La liste des défis afin de finir la quête.
 	 */
 	public Quest(Player player,List<Challenge> listOfChallenges) {
@@ -27,7 +27,7 @@ public class Quest {
 
 	/**
 	 * Renvoie true si la quete est terminé, False sinon
-	 * 
+	 *
 	 * @return true si la quete est terminé, False sinon
 	 */
 	public boolean isComplete() {

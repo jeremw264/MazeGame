@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 
 /**
  * Classe ConsoleInput.
- * 
+ *
  * Classe responsable des entrées en console.
  */
 public class ConsoleInput implements Input {
@@ -19,7 +19,7 @@ public class ConsoleInput implements Input {
 	public ConsoleInput() {
 		// this.userInput = new Scanner(System.in);
 		//this.userInput = new Scanner(System.in);
-		
+
 	}
 
 	/**
@@ -36,7 +36,7 @@ public class ConsoleInput implements Input {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 
 		return data;
 	}

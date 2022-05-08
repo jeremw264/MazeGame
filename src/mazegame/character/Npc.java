@@ -6,8 +6,8 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 
-import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
@@ -26,7 +26,7 @@ public abstract class Npc extends Character {
 
 	/**
 	 * Constructeur de l'objet Npc.
-	 * 
+	 *
 	 * @param x   Position verticale de départ.
 	 * @param y   Position horizontale de départ.
 	 * @param map La carte sur laquelle le personnage non joueur ce déplace.
@@ -39,7 +39,7 @@ public abstract class Npc extends Character {
 
 	/**
 	 * Renvoie une action du personnage.
-	 * 
+	 *
 	 * @return Une action du personnage.
 	 */
 	@Override
@@ -49,7 +49,7 @@ public abstract class Npc extends Character {
 
 	/**
 	 * Renvoie la prochaine cellule où le personnage doit ce déplacer.
-	 * 
+	 *
 	 * @return La prochaine cellule où le personnage doit ce déplacer.
 	 */
 	abstract public Cell computeNextCell();
@@ -81,7 +81,7 @@ public abstract class Npc extends Character {
 			JSONObject npc = (JSONObject) npcData.get(0);
 
 			String content = (String) npc.get("content");
-			List<String> answer = (JSONArray) npc.get("answer"); 
+			List<String> answer = (JSONArray) npc.get("answer");
 			List<String> c = (JSONArray) npc.get("correct");
 			String responce;
 			String answerNpc = (String) npc.get("answerNpc");

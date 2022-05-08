@@ -12,14 +12,14 @@ import mazegame.character.Npc;
 
 /**
  * Classe Imp
- * 
+ *
  * Personnage Imposteur
  */
 public class Imp extends Npc {
 
 	/**
 	 * Constructeur de l'objet Imp.
-	 * 
+	 *
 	 * @param x   Position verticale de départ.
 	 * @param y   Position horizontale de départ.
 	 * @param map La carte sur laquelle l'imposteur ce déplace.
@@ -31,7 +31,7 @@ public class Imp extends Npc {
 
 	/**
 	 * Renvoie la prochaine cellule où le personnage doit ce déplacer.
-	 * 
+	 *
 	 * @return La prochaine cellule où le personnage doit ce déplacer.
 	 */
 	@Override
@@ -46,9 +46,9 @@ public class Imp extends Npc {
 
 	/**
 	 * Renvoie une action du personnage.
-	 * 
+	 *
 	 * Par défault il ne peut que bouger.
-	 * 
+	 *
 	 * @return Une action du personnage.
 	 */
 	@Override

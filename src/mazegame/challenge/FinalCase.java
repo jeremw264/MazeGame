@@ -12,7 +12,7 @@ import mazegame.item.Item;
 
 /**
  * Classe Final Case
- * 
+ *
  * Challenge Pour arriver sur une case calculer aléatoirement.
  */
 public class FinalCase extends Challenge {
@@ -22,7 +22,7 @@ public class FinalCase extends Challenge {
 
 	/**
 	 * Constructeur de l'objet FinalCase.
-	 * 
+	 *
 	 * @param player Le joueur qui doit validé le défi.
 	 */
 	public FinalCase() {
@@ -30,22 +30,22 @@ public class FinalCase extends Challenge {
 
 	/**
 	 * Renvoie si le joueur est sur la cellule de fin.
-	 * 
+	 *
 	 * @return true si le joueur est sur la cellule de fin, false sinon.
 	 */
 	@Override
 	public boolean isFinish(Player player) {
-		
+
 		if (this.finalCell == null) {
 			this.computeFinalCell(player);
 		}
-		
+
 		return this.finalCell.equals(player.getCell());
 	}
 
 	/**
 	 * Renvoie la cellule de fin.
-	 * 
+	 *
 	 * @return la cellule de fin.
 	 */
 	private Cell computeFinalCell(Player player) {

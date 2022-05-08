@@ -16,10 +16,10 @@ public class UserInteration {
 
 	public static Map<String, Object> getChoise(String firstSentence, List<String> listOfChoises, boolean canCancel) {
 
-		Map<String, Object> responceObjects = new HashMap<String, Object>();
+		Map<String, Object> responceObjects = new HashMap<>();
 		responceObjects.put("STATE", State.Ok);
 
-		List<String> choises = new LinkedList<String>();
+		List<String> choises = new LinkedList<>();
 
 		// Ajouter le choix de pouvoir revenir en arrière
 		if (canCancel) {

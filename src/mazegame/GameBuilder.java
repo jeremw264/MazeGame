@@ -11,24 +11,23 @@ import mazegame.character.Npc;
 import mazegame.character.Player;
 import mazegame.exception.GameBuilderException;
 import mazegame.generation.GenerationAlgorithm;
-import mazegame.item.GoldCoin;
 import mazegame.item.Item;
 
 /**
  * Classe GameBuilder
- * 
+ *
  * Construit le jeu.
- * 
+ *
  */
 public class GameBuilder {
 
 	/**
 	 * Ressource utiliser pour Conception de la classe
-	 * 
+	 *
 	 * Type Générique :
 	 * https://www.fil.univ-lille.fr/~quinton/coo/cours/generics.pdf Création des
 	 * instance : https://www.jmdoudoux.fr/java/dej/chap-introspection.htm
-	 * 
+	 *
 	 */
 
 	// La carte du jeu.
@@ -66,7 +65,7 @@ public class GameBuilder {
 	private int nbOfItems;
 
 	public GameBuilder() {
-		this.listOfChallenges = new LinkedList<Challenge>();
+		this.listOfChallenges = new LinkedList<>();
 		this.characters = new LinkedList<>();
 		this.items = new LinkedList<>();
 		this.npcsClasses = new LinkedList<>();
@@ -75,12 +74,12 @@ public class GameBuilder {
 
 	/**
 	 * Crée la carte du jeu avec l'algorithme passé en paramètre.
-	 * 
+	 *
 	 * @param width     La largueur de la carte.
 	 * @param height    La hauteur de la carte.
 	 * @param algorithm L'algorithme à utilisé pour la génération.
 	 * @return L'instance courante du GameBuilder
-	 * 
+	 *
 	 * @see Lors de plusieurs appel, seul le dernier sera pris en compte.
 	 */
 	public GameBuilder setMap(int width, int height, GenerationAlgorithm algorithm) {
@@ -93,10 +92,10 @@ public class GameBuilder {
 
 	/**
 	 * Ajoute un Challenge dans le jeu.
-	 * 
+	 *
 	 * @param challenge Le challenge à ajouter.
 	 * @return L'instance courante du GameBuilder
-	 * 
+	 *
 	 */
 	public GameBuilder setChallenge(Challenge challenge) {
 		this.listOfChallenges.add(challenge);
@@ -105,11 +104,11 @@ public class GameBuilder {
 
 	/**
 	 * Ajoute un joueur dans le jeu.
-	 * 
+	 *
 	 * @param <T>
 	 * @param className La classe du joueur à ajouter.
 	 * @return L'instance courante du GameBuilder
-	 * 
+	 *
 	 * @see Lors de plusieurs appel, seul le dernier sera pris en compte.
 	 */
 	public GameBuilder setPlayer(Class<? extends Player> className) {
@@ -120,7 +119,7 @@ public class GameBuilder {
 
 	/**
 	 * Ajoute un type de Npc qui sera présent dans le jeu.
-	 * 
+	 *
 	 * @param npcClass La classe du Npc choisie.
 	 * @return L'instance courante du GameBuilder
 	 */
@@ -137,7 +136,7 @@ public class GameBuilder {
 
 	/**
 	 * Ajoute un type d'Item qui sera présent dans le jeu.
-	 * 
+	 *
 	 * @param itemClass La classe de l'Item choisie.
 	 * @return L'instance courante du GameBuilder
 	 */
@@ -152,7 +151,7 @@ public class GameBuilder {
 
 	/**
 	 * Construit une instance du jeu et la renvoie.
-	 * 
+	 *
 	 * @return Le jeu créé.
 	 * @throws GameBuilderException Si il y a un problème pendant la construction.
 	 */
@@ -171,11 +170,7 @@ public class GameBuilder {
 		}
 
 		this.checksChallengesAreAchievable();
-		
-		for (int i = 0; i < 5; i++) {
-			this.map.getCell(0, 0).addItem(new GoldCoin());
-		}
-		
+
 		this.quest = new Quest(this.player, this.listOfChallenges);
 
 		return new Game(this.map, this.characters, this.player, this.quest);
@@ -221,7 +216,7 @@ public class GameBuilder {
 
 	/**
 	 * Renvoie une instance d'un perssonage grâce à la classe.
-	 * 
+	 *
 	 * @param characterClass Le nom de la classe qui hérite de Character.
 	 * @param x              La position horizontale.
 	 * @param y              La position vertical.
@@ -242,7 +237,7 @@ public class GameBuilder {
 
 	/**
 	 * Renvoie une instance d'un objet du jeu grâce à la classe.
-	 * 
+	 *
 	 * @param itemClass le nom de la classe qui hérite de item.
 	 * @return L'instance de l'objet.
 	 */
@@ -269,7 +264,7 @@ public class GameBuilder {
 
 	/**
 	 * Renvoie une cellule aleatoire dans la carte.
-	 * 
+	 *
 	 * @return
 	 */
 	private Cell getRandomCellInMap() {
@@ -282,7 +277,7 @@ public class GameBuilder {
 
 	/**
 	 * Vérifie si le jeu peu bien être construit.
-	 * 
+	 *
 	 * @throws GameBuilderException Si le jeu ne peut pas être construit.
 	 */
 	private void verify() throws GameBuilderException {
@@ -301,7 +296,7 @@ public class GameBuilder {
 
 	/**
 	 * Verifie que tous les challenges sont réalisable.
-	 * 
+	 *
 	 * @return true si ils sont réalisable, false sinon.
 	 * @throws GameBuilderException Déclanche une exception si un des challenges
 	 *                              n'est pas réalisable.

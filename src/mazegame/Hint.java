@@ -41,7 +41,7 @@ public class Hint {
 
 	/**
 	 * Renvoie le bon indice
-	 * 
+	 *
 	 * @return String : good hint
 	 */
 	public void displayHint(Character character) {

@@ -12,16 +12,17 @@ public class ConsoleDisplayer implements Displayer {
 
 	/**
 	 * Affiche un message en console.
-	 * 
+	 *
 	 * @param message Le message à afficher
 	 */
+	@Override
 	public void displayMsg(String message) {
 		System.out.println(message);
 	}
 
 	/**
 	 * Affiche un message d'erreur en console.
-	 * 
+	 *
 	 * @param message Le message à afficher
 	 */
 	@Override
@@ -32,7 +33,7 @@ public class ConsoleDisplayer implements Displayer {
 
 	/**
 	 * Affiche la carte en console.
-	 * 
+	 *
 	 * @param map La carte à afficher
 	 */
 	@Override
@@ -45,9 +46,9 @@ public class ConsoleDisplayer implements Displayer {
 	 */
 	@Override
 	public void displayEndGame() {
-		
+
 		// Source : https://patorjk.com/software/taag/#p=display&f=Ghost&t=Fin%20de%20Jeu
-		
+
 		this.displayMsg("                       .-') _        _ .-') _     ('-.                    ('-.               \n"
 				+ "                      ( OO ) )      ( (  OO) )  _(  OO)                 _(  OO)              \n"
 				+ "   ,------.,-.-') ,--./ ,--,'        \\     .'_ (,------.           ,--.(,------. ,--. ,--.   \n"
@@ -67,7 +68,7 @@ public class ConsoleDisplayer implements Displayer {
 
 	/**
 	 * Affiche une liste de choix en console.
-	 * 
+	 *
 	 * @param firstSentece  La premiere phrase à afficher.
 	 * @param listOfChoises La liste des choix possible.
 	 */
@@ -84,7 +85,7 @@ public class ConsoleDisplayer implements Displayer {
 
 	/**
 	 * Affiche l'aide d'utilisation en console.
-	 * 
+	 *
 	 * @param commandsList La liste des commandes possible.
 	 */
 	@Override
@@ -100,9 +101,9 @@ public class ConsoleDisplayer implements Displayer {
 
 	@Override
 	public void displayStartGame() {
-		
+
 		// Source : https://patorjk.com/software/taag/#p=display&f=Ghost&t=The%20MazeGame
-		
+
 		Game.DISPLAYER.displayMsg(" .-') _    ('-. .-.   ('-.         _   .-')      ('-.       .-') _   ('-.                ('-.     _   .-')       ('-.   \n"
 				+ "(  OO) )  ( OO )  / _(  OO)       ( '.( OO )_   ( OO ).-.  (  OO) )_(  OO)              ( OO ).-.( '.( OO )_   _(  OO)  \n"
 				+ "/     '._ ,--. ,--.(,------.       ,--.   ,--.) / . --. /,(_)----.(,------. ,----.      / . --. / ,--.   ,--.)(,------. \n"
@@ -112,25 +113,25 @@ public class ConsoleDisplayer implements Displayer {
 				+ "   |  |   |  .-.  | |  .--'        |  |   |  |  |  .-.  | /   /___ |  .--'(|  | '. (_/  |  .-.  | |  |   |  |  |  .--'  \n"
 				+ "   |  |   |  | |  | |  `---.       |  |   |  |  |  | |  ||        ||  `---.|  '--'  |   |  | |  | |  |   |  |  |  `---. \n"
 				+ "   `--'   `--' `--' `------'       `--'   `--'  `--' `--'`--------'`------' `------'    `--' `--' `--'   `--'  `------' ");
-		
+
 	}
 
 	@Override
 	public void displayHint(String hintMessage) {
 		int sizeMessage = hintMessage.length();
-		
+
 		for (int i = 0; i < sizeMessage + 3; i++) {
 			 System.out.print("#");
 		}
 		System.out.print("#\n");
-		
+
 		this.displayMsg("# "+hintMessage+" #");
 		for (int i = 0; i < sizeMessage + 3; i++) {
 			System.out.print("#");
 		}
 		System.out.print("#\n");
 
-		
+
 	}
 
 }

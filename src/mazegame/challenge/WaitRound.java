@@ -15,7 +15,7 @@ public class WaitRound extends Challenge {
 
 	// Le nombre de tour attendu.
 	private int nbOfRounds;
-	
+
 	// Le nombre de tour à attendre
 	private final int nbOfRoundsWaiting;
 

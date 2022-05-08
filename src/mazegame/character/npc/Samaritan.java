@@ -17,7 +17,7 @@ public class Samaritan extends Npc {
 
 	/**
 	 * Constructeur de l'objet Samaritan.
-	 * 
+	 *
 	 * @param x   Position verticale de départ.
 	 * @param y   Position horizontale de départ.
 	 * @param map La carte sur laquelle le samaritain ce déplace.
@@ -29,7 +29,7 @@ public class Samaritan extends Npc {
 
 	/**
 	 * Renvoie la prochaine cellule où le personnage doit ce déplacer.
-	 * 
+	 *
 	 * @return La prochaine cellule où le personnage doit ce déplacer.
 	 */
 	@Override
@@ -44,9 +44,9 @@ public class Samaritan extends Npc {
 
 	/**
 	 * Renvoie une action du personnage.
-	 * 
+	 *
 	 * Par défault il ne peut que bouger.
-	 * 
+	 *
 	 * @return Une action du personnage.
 	 */
 	@Override

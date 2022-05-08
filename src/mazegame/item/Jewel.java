@@ -39,11 +39,12 @@ public class Jewel extends Item {
 	 * " et vaut donc " + this.value); } else { Game.DISPLAYER
 	 * .displayMsg("Ce sac de joyaux contient" + Math.floor(this.value / 15) +
 	 * " et vaut " + this.value); }
-	 * 
+	 *
 	 * return; }*/
-	  
+
 	  /** Renvoie une représentation de l'objet sous forme de chaine de caractère.
 	  */
+	@Override
 	public String toString() {
 		if (this.value <= 20) {
 			return "emeraude";

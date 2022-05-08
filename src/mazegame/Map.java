@@ -20,7 +20,7 @@ public class Map {
 
 	/**
 	 * Constructeur de l'objet Grid.
-	 * 
+	 *
 	 * @param width  Largeur de la carte.
 	 * @param heigth Hauteur de la carte.
 	 */
@@ -32,7 +32,7 @@ public class Map {
 
 	/**
 	 * Constructeur de l'objet Grid.
-	 * 
+	 *
 	 * @param width      Largeur de la carte.
 	 * @param heigth     Hauteur de la carte.
 	 * @param wallsExist true il les murs interne doivent être généré, false dans le
@@ -46,7 +46,7 @@ public class Map {
 
 	/**
 	 * Renvoie la largeur de la carte.
-	 * 
+	 *
 	 * @return la largeur de la carte.
 	 */
 	public int getWidth() {
@@ -55,7 +55,7 @@ public class Map {
 
 	/**
 	 * Renvoie la hauteur de la carte.
-	 * 
+	 *
 	 * @return la hauteur de la carte.
 	 */
 	public int getHeight() {
@@ -64,7 +64,7 @@ public class Map {
 
 	/**
 	 * Renvoie la liste des cellules.
-	 * 
+	 *
 	 * @return la liste des cellules.
 	 */
 	public List<Cell> getListsOfCells() {
@@ -73,7 +73,7 @@ public class Map {
 
 	/**
 	 * Renvoie la case qui corresponds au coordonnée passé en paramètre.
-	 * 
+	 *
 	 * @param y Coordonne horizontale
 	 * @param x Coordonne verticale
 	 * @return la case qui correspont au coordonne, null si elle n'est pas dans la
@@ -101,11 +101,11 @@ public class Map {
 
 	/**
 	 * Renvoie la cellule voisine de la cellule courante en fonction de la direction
-	 * 
+	 *
 	 * @param cell      la cellule courante
 	 * @param direction la direction de la cellule voisine par rapport a la cellule
 	 *                  courante
-	 * 
+	 *
 	 * @return La cellule voisine dans la direction choisie, null si la cellule
 	 *         n'existe pas
 	 */
@@ -129,14 +129,14 @@ public class Map {
 
 	/**
 	 * Renvoie une liste des cellules voisines de la cellule en paramètre.
-	 * 
+	 *
 	 * @param currentCell La cellule courante de la quelle on veux obtenir les
 	 *                    voisines.
-	 * 
+	 *
 	 * @return Une liste des cellules voisines.
 	 */
 	public List<Cell> getNeighborsCells(Cell currentCell) {
-		List<Cell> neighborsCells = new LinkedList<Cell>();
+		List<Cell> neighborsCells = new LinkedList<>();
 		int x = currentCell.getX();
 		int y = currentCell.getY();
 
@@ -158,9 +158,10 @@ public class Map {
 
 	/**
 	 * Renvoie la représentation du labyrinte en chaine de caractère.
-	 * 
+	 *
 	 * @return la représentation du labyrinte en chaine de caractère.
 	 */
+	@Override
 	public String toString() {
 
 		StringBuilder mazeStringBuilder = new StringBuilder();
@@ -216,7 +217,7 @@ public class Map {
 
 	/**
 	 * Crée une représentation de la carte sous la forme d'une liste de cellule.
-	 * 
+	 *
 	 * @param wallsExist true si la carte crée doit contenir de mur interne, false
 	 *                   dans le cas contraire.
 	 */

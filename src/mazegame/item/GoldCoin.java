@@ -4,7 +4,7 @@ import mazegame.character.Character;
 
 /**
  * Classe GoldCoin
- * 
+ *
  * Objet pi�ce d'or
  */
 public class GoldCoin extends Item{
@@ -15,8 +15,8 @@ public class GoldCoin extends Item{
 	public GoldCoin() {
 		super(1,false,false);
 	}
-	
-	
+
+
 	/**
 	 * Objet non utilisable donc pas de methode use allouee
 	 */
@@ -24,10 +24,11 @@ public class GoldCoin extends Item{
 	public void use(Character character) {
 		return ;
 	}
-	
+
 	/**
 	 * Retourne une representation de l'objet sous forme de chaine de caracteres
 	 */
+	@Override
 	public String toString() {
 		return "piece";
 	}

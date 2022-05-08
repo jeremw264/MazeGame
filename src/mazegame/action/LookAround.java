@@ -12,7 +12,7 @@ import mazegame.item.Item;
 
 /**
  * Classe LookAround
- * 
+ *
  * Action pour regarder
  */
 public class LookAround extends Action {
@@ -49,7 +49,7 @@ public class LookAround extends Action {
 	}
 
 	private void displayDirectionData(Character character) {
-		List<String> directionNameList = new LinkedList<String>();
+		List<String> directionNameList = new LinkedList<>();
 
 		for (Direction direction : character.getAccessibleDirections()) {
 			directionNameList.add(direction.toString());
@@ -60,7 +60,7 @@ public class LookAround extends Action {
 	}
 
 	private void displayNpcData(Character character) {
-		List<String> npcsNameList = new LinkedList<String>();
+		List<String> npcsNameList = new LinkedList<>();
 
 		for (Character c : character.getCell().charactersList()) {
 			if (!(c instanceof Player)) {
@@ -74,7 +74,7 @@ public class LookAround extends Action {
 	}
 
 	private void displayItemData(Character character) {
-		List<String> itemsNameList = new LinkedList<String>();
+		List<String> itemsNameList = new LinkedList<>();
 
 		for (Item item : character.getCell().getItemList()) {
 			itemsNameList.add(item.toString());

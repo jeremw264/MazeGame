@@ -5,7 +5,7 @@ import mazegame.character.Character;
 
 /**
  * Classe Scroll.
- * 
+ *
  * Objet Parchemin.
  */
 public class Scroll extends Item {
@@ -20,6 +20,7 @@ public class Scroll extends Item {
 		this.hint = hint;
 	}
 
+	@Override
 	public void use(Character character) {
 		this.hint.displayHint(character);
 	}
@@ -27,6 +28,7 @@ public class Scroll extends Item {
 	/**
 	 * Renvoie une représentation de l'objet sous forme de chaine de caractère.
 	 */
+	@Override
 	public String toString() {
 		return "parchemin";
 	}

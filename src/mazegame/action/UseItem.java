@@ -17,17 +17,18 @@ import mazegame.utils.UserInteration;
  */
 public class UseItem extends Action {
 
+	@Override
 	public State run(Character character) {
 
 		// Map des objets utilisables
 		Map<String, Item> itemMap = new HashMap<>();
 
 		for (Item item : character.getListOfItems()) {
-			if (item.isUsable() == true)
+			if (item.isUsable())
 				itemMap.put(item.toString(), item);
 		}
 
-		List<String> choisePossibility = new LinkedList<String>(itemMap.keySet());
+		List<String> choisePossibility = new LinkedList<>(itemMap.keySet());
 
 		// Choix du joueur
 

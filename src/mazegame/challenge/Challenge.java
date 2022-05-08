@@ -17,7 +17,7 @@ public abstract class Challenge {
 
 	/**
 	 * Constructeur de l'objet Challenge
-	 * 
+	 *
 	 * @param player Le joueur courant.
 	 */
 	public Challenge() {
@@ -26,7 +26,7 @@ public abstract class Challenge {
 
 	/**
 	 * Renvoie si le challenge a déja été fini
-	 * 
+	 *
 	 * @return True si le challenge à déja été fini, False sinon.
 	 */
 	public boolean isCheck(Player player) {
@@ -40,7 +40,7 @@ public abstract class Challenge {
 
 	/**
 	 * Renvoie si le challenge est fini
-	 * 
+	 *
 	 * @return True si le challenge est fini, False dans le cas contraire.
 	 */
 	public abstract boolean isFinish(Player player);
@@ -52,6 +52,6 @@ public abstract class Challenge {
 	 * @return true si le challenge est réalisable, false sinon.
 	 */
 	public abstract boolean isPossible(List<Character> characters,List<Item> items);
-	
+
 	public abstract Hint getHint();
 }

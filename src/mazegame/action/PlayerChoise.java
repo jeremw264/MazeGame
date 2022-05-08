@@ -7,9 +7,9 @@ import java.util.Map;
 
 import mazegame.Game;
 import mazegame.State;
+import mazegame.character.Character;
 import mazegame.character.Player;
 import mazegame.utils.UserInteration;
-import mazegame.character.Character;
 
 /**
  * Classe PlayerChoise
@@ -29,7 +29,7 @@ public class PlayerChoise extends Action {
 	 * Initialise les actions possible pour le joueur.
 	 */
 	private void initPlayerActions() {
-		this.actionsMap = new HashMap<String, Action>();
+		this.actionsMap = new HashMap<>();
 
 		this.actionsMap.put("regarder", new LookAround());
 		this.actionsMap.put("bouger", new Move());
@@ -41,7 +41,7 @@ public class PlayerChoise extends Action {
 
 	/**
 	 * Demande au joueur de faire un choix d'action.
-	 * 
+	 *
 	 * @param character Le personnage qui doit faire le choix.
 	 */
 	@Override
@@ -51,7 +51,7 @@ public class PlayerChoise extends Action {
 			return State.Exit;
 		}
 
-		List<String> keysList = new LinkedList<String>(this.actionsMap.keySet());
+		List<String> keysList = new LinkedList<>(this.actionsMap.keySet());
 
 		Map<String, Object> responceMap = UserInteration.getChoise("Que voulez-vous faire ? ", keysList,false);
 
