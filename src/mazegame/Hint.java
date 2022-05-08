@@ -5,16 +5,19 @@ import java.util.Random;
 import mazegame.character.Character;
 import mazegame.character.Npc;
 import mazegame.character.npc.Imp;
+import mazegame.item.Item;
 
 public class Hint {
 
 	private Cell destinationCell;
 	private Npc npcToMeet;
 	private int numberOfRoundsToWait;
+	private Item item;
+	private int nbOfItem;
 	private HintType type;
 
 	public enum HintType {
-		DIRECTION_HINT, OBJECT_HINT, NPC_HINT, CELL_HINT, TIME_HINT, NONE_HINT
+		OBJECT_HINT, NPC_HINT, CELL_HINT, TIME_HINT, NONE_HINT
 	}
 
 	/**
@@ -35,6 +38,11 @@ public class Hint {
 		this.numberOfRoundsToWait = numberOfRoundsToWait;
 	}
 
+	public Hint(Item item,int nbOfItem) {
+		this.type = HintType.OBJECT_HINT;
+		this.nbOfItem = nbOfItem;
+	}
+	
 	public Hint() {
 		this.type = HintType.NONE_HINT;
 	}
@@ -65,9 +73,9 @@ public class Hint {
 
 	private void displayObjectHint(Character character) {
 		if (character instanceof Imp) {
-			Game.DISPLAYER.displayHint("");
+			Game.DISPLAYER.displayHint("Tu dois ramasser 50 bout de calamar");
 		} else {
-			Game.DISPLAYER.displayHint("");
+			Game.DISPLAYER.displayHint("Tu dois ramasser "+this.nbOfItem+""+this.item);
 		}
 
 	}
