@@ -16,12 +16,12 @@ import mazegame.Map;
 import mazegame.State;
 import mazegame.character.Character;
 import mazegame.character.Npc;
-import mazegame.character.npc.Sphinx;
 import mazegame.character.npc.Vendor;
 import mazegame.character.player.Hero;
 
 public class LookAroundTest extends ActionTest {
 
+	@Override
 	@Before
 	public void setUp(){
 		this.action = new LookAround();
@@ -40,7 +40,7 @@ public class LookAroundTest extends ActionTest {
 		};
 
 		State state = this.action.run(npcCharacter);
-		
+
 		assertEquals(state, State.Exit);
 
 		assertEquals("Cette action doit être executé par un Player\n", this.errContent.toString());
@@ -56,14 +56,14 @@ public class LookAroundTest extends ActionTest {
 		assertTrue(this.outContent.toString().contains("Vous êtes sur la case"));
 		assertTrue(this.outContent.toString().contains("Les directions accessible sont"));
 	}
-	
+
 	@Test
 	public void diretionIsCorrect() {
 		Map map = new Map(4, 4);
 		Character playerCharacter = new Hero(0, 0, map);
-		List<Direction> accessibleDirections = new LinkedList<Direction>();
-		List<Direction> notAccessibleDirections = new LinkedList<Direction>();
-		
+		List<Direction> accessibleDirections = new LinkedList<>();
+		List<Direction> notAccessibleDirections = new LinkedList<>();
+
 		for (Direction direction : Direction.values()) {
 			if (playerCharacter.getAccessibleDirections().contains(direction)) {
 				accessibleDirections.add(direction);
@@ -73,7 +73,7 @@ public class LookAroundTest extends ActionTest {
 		}
 
 		this.action.run(playerCharacter);
-		
+
 		for (Direction direction : accessibleDirections) {
 			assertTrue(this.outContent.toString().contains(direction.toString()));
 		}
@@ -84,7 +84,7 @@ public class LookAroundTest extends ActionTest {
 		}
 
 	}
-	
+
 	@Test
 	public void stateReturnedWithPlayer() {
 		Map map = new Map(2, 2);
@@ -92,7 +92,7 @@ public class LookAroundTest extends ActionTest {
 		State state = this.action.run(playerCharacter);
 		assertEquals(State.Ok, state);
 	}
-	
+
 	@Test
 	public void stateReturnedWithNpc() {
 		Map map = new Map(2, 2);
@@ -100,12 +100,12 @@ public class LookAroundTest extends ActionTest {
 		State state = this.action.run(playerCharacter);
 		assertEquals(State.Exit, state);
 	}
-	
+
 	// Overide test inutile
 	@Override
 	public void playerCancelState() {
 	}
-	
+
 	@Override
 	public void playerExitState() {
 	}

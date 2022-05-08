@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package mazegame;
 
@@ -91,9 +91,9 @@ public class CellTest {
 		Map map = new Map(2, 2);
 		Player player = new Hero(0, 0, map);
 		Cell cell = new Cell(0, 0);
-		
+
 		cell.setCharacter(player);
-		
+
 		assertTrue(cell.containsPlayer());
 	}
 

@@ -44,10 +44,10 @@ public class GameTest {
 	/*
 	 * @Test public void runTest() { this.game.run(); System.setIn(new
 	 * ByteArrayInputStream("regarder".getBytes()));
-	 * 
+	 *
 	 * assertEquals(this.outContent.toString(),
 	 * "Fin de jeu ...\nMerci d'avoir jouer :)\n");
-	 * 
+	 *
 	 * }
 	 */
 

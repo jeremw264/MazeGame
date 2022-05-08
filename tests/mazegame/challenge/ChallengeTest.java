@@ -1,12 +1,14 @@
 package mazegame.challenge;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import mazegame.Hint;
 import mazegame.Map;
 import mazegame.character.Character;
 import mazegame.character.Player;
@@ -41,6 +43,12 @@ public class ChallengeTest {
 			public boolean isPossible(List<Character> characters, List<Item> items) {
 				// TODO Auto-generated method stub
 				return true;
+			}
+
+			@Override
+			public Hint getHint() {
+				// TODO Auto-generated method stub
+				return new Hint();
 			}
 		};
 	}

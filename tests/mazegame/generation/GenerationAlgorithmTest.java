@@ -1,6 +1,8 @@
 package mazegame.generation;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -46,7 +48,7 @@ public class GenerationAlgorithmTest {
 				return new Map(width, heigth, false);
 			}
 		};
-		
+
 		this.map = algorithm.generation(2, 1);
 		assertEquals(this.map.getWidth(), 2);
 		assertEquals(this.map.getHeight(), 1);

@@ -11,7 +11,7 @@ import mazegame.Map;
 /**
  * Permet de vérifier si un labyrinthe est parfait (toute les cases sont
  * accessible)
- * 
+ *
  * @author jeremy
  *
  */
@@ -23,7 +23,7 @@ public class PerfectMazeValidator {
 
 	/**
 	 * Constructeur de l'objet PerfectMaze
-	 * 
+	 *
 	 * @param maze le labyrinthe aprés génération
 	 */
 	public PerfectMazeValidator(Map map) {
@@ -35,7 +35,7 @@ public class PerfectMazeValidator {
 
 	/**
 	 * Vérifie si le labyrinthe est parfait
-	 * 
+	 *
 	 * @param seedX Point de départ horizontale
 	 * @param seedY Point de départ verticale
 	 */
@@ -57,7 +57,7 @@ public class PerfectMazeValidator {
 				this.stack.pop();
 			}
 		}
-		
+
 
 		return  this.cellsTreat.size();
 
@@ -65,7 +65,7 @@ public class PerfectMazeValidator {
 
 	/**
 	 * Renvoie la prochaine cellule a traité
-	 * 
+	 *
 	 * @param currentCell la cellule courante
 	 * @return la prochaine cellule a traité
 	 */
@@ -84,7 +84,7 @@ public class PerfectMazeValidator {
 
 	/**
 	 * Renvoie les directions accesible
-	 * 
+	 *
 	 * @param cell La cellule courante
 	 * @return Une liste qui contient les direction accessible
 	 */
@@ -100,6 +100,6 @@ public class PerfectMazeValidator {
 		return accesibleDirections;
 	}
 
-	
+
 
 }

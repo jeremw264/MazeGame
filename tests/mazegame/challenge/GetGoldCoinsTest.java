@@ -1,6 +1,8 @@
 package mazegame.challenge;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -124,7 +126,7 @@ public class GetGoldCoinsTest {
 		assertFalse(this.challenge.isCheck(player));
 
 		player.changeCoins(2);
-		
+
 
 		assertEquals(3, player.getCoins());
 		assertTrue(this.challenge.isCheck(player));
@@ -132,8 +134,8 @@ public class GetGoldCoinsTest {
 
 	@Test
 	public void getGoldCoinsIsPossible() {
-		List<Character> characters = new LinkedList<Character>();
-		List<Item> items = new LinkedList<Item>();
+		List<Character> characters = new LinkedList<>();
+		List<Item> items = new LinkedList<>();
 
 		for (int i = 0; i < 5; i++) {
 			items.add(new GoldCoin());
@@ -145,8 +147,8 @@ public class GetGoldCoinsTest {
 
 	@Test
 	public void getGoldCoinsIsNotPossible() {
-		List<Character> characters = new LinkedList<Character>();
-		List<Item> items = new LinkedList<Item>();
+		List<Character> characters = new LinkedList<>();
+		List<Item> items = new LinkedList<>();
 
 		assertFalse(this.challenge.isPossible(characters, items));
 

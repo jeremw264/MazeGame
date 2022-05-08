@@ -1,19 +1,22 @@
 package mazegame.character;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import mazegame.Cell;
+import mazegame.Direction;
+import mazegame.Hint;
+import mazegame.Map;
 import mazegame.action.Action;
 import mazegame.action.DoNothing;
 import mazegame.character.player.Hero;
 import mazegame.item.Item;
 import mazegame.item.Scroll;
-import mazegame.Cell;
-import mazegame.Direction;
-import mazegame.Map;
-import mazegame.Hint;
 
 public class CharacterTest {
 
@@ -72,7 +75,7 @@ public class CharacterTest {
 
 	@Test
 	public void addItemInList() {
-		Item item = new Scroll(new Hint("indice", "mauvais indice"));
+		Item item = new Scroll(new Hint());
 
 		this.character.addInv(item);
 
@@ -81,7 +84,7 @@ public class CharacterTest {
 
 	@Test
 	public void removeElementFromInventory() {
-		Item item = new Scroll(new Hint("indice", "mauvais indice"));
+		Item item = new Scroll(new Hint());
 
 		assertTrue(this.character.getListOfItems().isEmpty());
 
@@ -97,7 +100,7 @@ public class CharacterTest {
 
 	@Test
 	public void elementIsInInventory() {
-		Item item = new Scroll(new Hint("indice", "mauvais indice"));
+		Item item = new Scroll(new Hint());
 
 		this.character.addInv(item);
 
@@ -108,11 +111,11 @@ public class CharacterTest {
 		assertSame(this.character.getListOfItems().get(0), item);
 
 	}
-	
+
 	@Test
 	public void elementIsNotInInventory() {
-		Item item = new Scroll(new Hint("indice", "mauvais indice"));
-		Item badItem = new Scroll(new Hint("indice", "mauvais indice"));
+		Item item = new Scroll(new Hint());
+		Item badItem = new Scroll(new Hint());
 
 		this.character.addInv(item);
 

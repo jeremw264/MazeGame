@@ -60,7 +60,7 @@ public class GameBuilderTest {
 			.setPlayer(Hero.class)
 			.setItemClass(Jewel.class)
 			.setNpcClass(Vendor.class);
-		
+
 		assertTrue(gameBuilder.build() instanceof Game);
 	}
 

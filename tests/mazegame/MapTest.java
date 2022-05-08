@@ -1,6 +1,10 @@
 package mazegame;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
@@ -49,9 +53,9 @@ public class MapTest {
 	public void borderIsNotOpen(boolean containsWall) {
 
 		int l = Math.max(this.width, this.height)-1;
-			
+
 		this.cornersIsNotOpen(containsWall);
-		
+
 		for (int i = 1; i < l; i++) {
 			for (Direction direction : Direction.values()) {
 				if (i < this.height - 1) {
@@ -89,13 +93,13 @@ public class MapTest {
 			}
 		}
 	}
-	
+
 	public void cornersIsNotOpen(boolean containsWall) {
 		Cell c1 = this.map.getCell(0, 0);
 		Cell c2 = this.map.getCell(this.width - 1, 0);
 		Cell c3 = this.map.getCell(0, this.height - 1);
 		Cell c4 = this.map.getCell(this.width - 1, this.height - 1);
-		
+
 		assertTrue(c1.wallExist(Direction.O));
 		assertTrue(c1.wallExist(Direction.N));
 		assertTrue(c2.wallExist(Direction.N));
@@ -104,7 +108,7 @@ public class MapTest {
 		assertTrue(c3.wallExist(Direction.S));
 		assertTrue(c4.wallExist(Direction.S));
 		assertTrue(c4.wallExist(Direction.E));
-		
+
 		assertEquals(c1.wallExist(Direction.S), containsWall);
 		assertEquals(c1.wallExist(Direction.E), containsWall);
 		assertEquals(c2.wallExist(Direction.O), containsWall);
@@ -158,12 +162,12 @@ public class MapTest {
 	@Test
 	public void getCellWithDirection() {
 		Cell currentCell = this.map.getCell(2, 2);
-		
+
 		Cell nextCellN = this.map.getCell(2, 1);
 		Cell nextCellS = this.map.getCell(2, 3);
 		Cell nextCellO = this.map.getCell(1, 2);
 		Cell nextCellE = this.map.getCell(3, 2);
-		
+
 		Cell directionCellN = this.map.getCellWithDirection(currentCell, Direction.N);
 		Cell directionCellS = this.map.getCellWithDirection(currentCell, Direction.S);
 		Cell directionCellO = this.map.getCellWithDirection(currentCell, Direction.O);
@@ -173,7 +177,7 @@ public class MapTest {
 		assertSame(nextCellS, directionCellS);
 		assertSame(nextCellO, directionCellO);
 		assertSame(nextCellE, directionCellE);
-		
+
 	}
 
 	@Test
@@ -187,7 +191,7 @@ public class MapTest {
 		assertTrue(neighborsCells.contains(neighborYCell));
 		assertEquals(neighborsCells.size() ,2);
 	}
-	
+
 	@Test
 	public void toStringSizeIsCorrect() {
 		String mapString = this.map.toString();

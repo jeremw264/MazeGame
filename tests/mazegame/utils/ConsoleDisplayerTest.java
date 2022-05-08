@@ -17,10 +17,10 @@ import mazegame.Map;
 public class ConsoleDisplayerTest {
 
 	/**
-	 * 
+	 *
 	 * Pour tester les sorties en console j'ai utiliser le code de cette source !
 	 * https://stackoverflow.com/questions/1119385/junit-test-for-system-out-println
-	 * 
+	 *
 	 */
 
 	private Displayer displayer;
@@ -65,11 +65,11 @@ public class ConsoleDisplayerTest {
 
 	@Test
 	public void endGameMessage() {
-		String messageString = "Fin de jeu ...\nMerci d'avoir jouer :)";
+		String messageString = "\nMerci d'avoir jouer :)";
 		this.displayer.displayEndGame();
-		;
 
-		assertEquals(messageString + "\n", this.outContent.toString());
+
+		assertTrue(this.outContent.toString().contains(messageString));
 	}
 
 	@Test
@@ -83,7 +83,7 @@ public class ConsoleDisplayerTest {
 	@Test
 	public void choise() {
 		String sentence = "On fait un choix";
-		List<String> list = new LinkedList<String>();
+		List<String> list = new LinkedList<>();
 		list.add("Hello");
 		list.add("World");
 
@@ -99,7 +99,7 @@ public class ConsoleDisplayerTest {
 	@Test
 	public void help() {
 
-		List<String> list = new LinkedList<String>();
+		List<String> list = new LinkedList<>();
 		list.add("Hello");
 		list.add("World");
 

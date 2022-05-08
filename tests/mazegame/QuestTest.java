@@ -1,6 +1,7 @@
 package mazegame;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -12,7 +13,6 @@ import mazegame.action.Action;
 import mazegame.challenge.Challenge;
 import mazegame.challenge.WaitRound;
 import mazegame.character.Player;
-import mazegame.character.player.Hero;
 
 public class QuestTest {
 
@@ -25,7 +25,7 @@ public class QuestTest {
 
 	@Test
 	public void emptyListChallengeFinishedTest() {
-		List<Challenge> challenges = new LinkedList<Challenge>();
+		List<Challenge> challenges = new LinkedList<>();
 		Map map = new Map(5, 5);
 		this.player = new Player(0, 0, map) {
 
@@ -51,7 +51,7 @@ public class QuestTest {
 
 		Map map = new Map(2, 2);
 
-		List<Challenge> challenges = new LinkedList<Challenge>();
+		List<Challenge> challenges = new LinkedList<>();
 
 		challenges.add(new WaitRound(2));
 
@@ -65,7 +65,7 @@ public class QuestTest {
 
 		Map map = new Map(2, 2);
 
-		List<Challenge> challenges = new LinkedList<Challenge>();
+		List<Challenge> challenges = new LinkedList<>();
 
 		challenges.add(new WaitRound(2));
 

@@ -16,6 +16,7 @@ import mazegame.character.NpcTest;
 
 public class SamaritanTest extends NpcTest {
 
+	@Override
 	@Before
 	public void setUp() {
 		this.map.getCell(0, 0).eraseWall(Direction.E);
@@ -32,7 +33,7 @@ public class SamaritanTest extends NpcTest {
 	@Test
 	public void computeNextCellTest() {
 		List<Direction> accessibleDirections = this.npc.getAccessibleDirections();
-		List<Cell> possibleCells = new LinkedList<Cell>();
+		List<Cell> possibleCells = new LinkedList<>();
 		boolean isCell = false;
 		for (Direction direction : accessibleDirections) {
 			possibleCells.add(this.npc.getMap().getCellWithDirection(this.npc.getCell(), direction));

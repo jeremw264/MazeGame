@@ -1,6 +1,7 @@
 package mazegame.challenge;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -8,11 +9,11 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import mazegame.Map;
 import mazegame.character.Character;
 import mazegame.character.Player;
 import mazegame.character.player.Hero;
 import mazegame.item.Item;
-import mazegame.Map;
 
 public class WaitRoundTest {
 
@@ -37,8 +38,8 @@ public class WaitRoundTest {
 
 	@Test
 	public void waitRoundIsPossible() {
-		List<Character> characters = new LinkedList<Character>();
-		List<Item> items = new LinkedList<Item>();
+		List<Character> characters = new LinkedList<>();
+		List<Item> items = new LinkedList<>();
 		assertTrue(this.challenge.isPossible(characters, items));
 	}
 

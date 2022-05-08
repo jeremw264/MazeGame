@@ -1,11 +1,8 @@
 package mazegame.utils;
 
-import static org.junit.Assert.*;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.Scanner;
 
 import org.junit.After;
 import org.junit.Before;

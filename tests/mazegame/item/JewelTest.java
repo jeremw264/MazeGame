@@ -11,6 +11,10 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import mazegame.Map;
+import mazegame.action.Action;
+import mazegame.character.Character;
+
 public class JewelTest extends ItemTest {
 
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -18,17 +22,20 @@ public class JewelTest extends ItemTest {
 	private final PrintStream originalOut = System.out;
 	private final PrintStream originalErr = System.err;
 
+	@Override
 	@Before
 	public void setUp() {
 		this.item = new Jewel();
 	}
 
+	@Override
 	@Before
 	public void setUpStreams() {
 		System.setOut(new PrintStream(this.outContent));
 		System.setErr(new PrintStream(this.errContent));
 	}
 
+	@Override
 	@After
 	public void restoreStreams() {
 		System.setOut(this.originalOut);
@@ -39,7 +46,7 @@ public class JewelTest extends ItemTest {
 	public void canSellTest() {
 		assertTrue(this.item.canSell());
 	}
-	
+
 	@Override
 	public void switchSellabilityTest() {
 		assertTrue(this.item.canSell());
@@ -75,7 +82,16 @@ public class JewelTest extends ItemTest {
 
 	@Test
 	public void useWithUsebilityEqualsFalse() {
-		this.item.use();
+		Map map = new Map(4, 5);
+		Character character = new Character(0,0,map) {
+
+			@Override
+			public Action getAction() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+		};
+		this.item.use(character);
 
 		assertEquals("", this.outContent.toString());
 	}

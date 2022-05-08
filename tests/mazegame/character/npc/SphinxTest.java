@@ -10,6 +10,7 @@ import mazegame.character.NpcTest;
 
 public class SphinxTest extends NpcTest {
 
+	@Override
 	@Before
 	public void setUp() {
 

@@ -1,20 +1,20 @@
 package mazegame.character;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import mazegame.Cell;
-import mazegame.Direction;
 import mazegame.Map;
-import mazegame.action.Action;
 import mazegame.action.DoNothing;
 
 public class NpcTest {
 
 	protected Npc npc;
-	protected Map map = new Map(1, 2);;
+	protected Map map = new Map(1, 2);
 	protected final int x = 0;
 	protected final int y = 1;
 

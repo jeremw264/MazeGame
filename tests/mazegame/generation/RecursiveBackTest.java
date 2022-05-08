@@ -4,6 +4,7 @@ import org.junit.Before;
 
 public class RecursiveBackTest extends GenerationAlgorithmTest {
 
+	@Override
 	@Before
 	public void setUp() {
 		GenerationAlgorithm algorithm = new RecursiveBacktracker(0, 0);

@@ -8,7 +8,6 @@ import java.io.PrintStream;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import mazegame.Game;
@@ -30,25 +29,25 @@ public class ActionTest {
 	@Before
 	public void setUp() {
 		this.action = new Action() {
-			
+
 			@Override
 			public State run(Character character) {
-				
+
 				String choiseString = Game.INPUT.getString();
-				
+
 				if (choiseString.equals(UserInteration.EXITWORD_STRING) ) {
 					return State.Exit;
 				}
 				else if (choiseString.equals(UserInteration.RETURNWORD_STRING)) {
 					return State.Cancel;
 				}else {
-					
+
 					return State.Ok;
 				}
 			}
 		};
 	}
-	
+
 	@Before
 	public void setUpStreams() {
 		System.setOut(new PrintStream(this.outContent));
@@ -60,7 +59,7 @@ public class ActionTest {
 		System.setOut(this.originalOut);
 		System.setErr(this.originalErr);
 	}
-	
+
 	@Test
 	public void playerExitState() {
 		Map map = new Map(2, 2);
@@ -68,7 +67,7 @@ public class ActionTest {
 
 		System.setIn(new ByteArrayInputStream(UserInteration.EXITWORD_STRING.getBytes()));
 		State state = this.action.run(playerCharacter);
-		
+
 		assertEquals(state, State.Exit);
 
 	}
@@ -80,7 +79,7 @@ public class ActionTest {
 
 		System.setIn(new ByteArrayInputStream(UserInteration.RETURNWORD_STRING.getBytes()));
 		State state = this.action.run(playerCharacter);
-		
+
 		assertEquals(state, State.Cancel);
 
 	}
