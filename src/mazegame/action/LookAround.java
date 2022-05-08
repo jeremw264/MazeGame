@@ -21,31 +21,29 @@ public class LookAround extends Action {
 	 */
 	@Override
 	public State run(Character character) {
-		
+
 		if (!(character instanceof Player)) {
 			Game.DISPLAYER.displayError("Cette action doit être executé par un Player");
 			return State.Exit;
 		}
-		
+
 		Game.DISPLAYER.displayMap(character.getMap());
 
 		final int currentX = character.getX();
 		final int currentY = character.getY();
-		
+
 		List<String> directionNameList = new LinkedList<String>();
 
 		for (Direction direction : character.getAccessibleDirections()) {
 			directionNameList.add(direction.toString());
 		}
-		
-		System.err.println(character.getCoins());
 
-		Game.DISPLAYER.displayMsg("Vous êtes sur la case ("+currentX+","+currentY+")");
-		Game.DISPLAYER.displayMsg("Vous avez "+character.getCoins()+" or sur vous.");
-		Game.DISPLAYER.displayChoise("Les directions accessible sont : ",directionNameList);
+		Game.DISPLAYER.displayMsg("Vous êtes sur la case (" + currentX + "," + currentY + ")");
+		Game.DISPLAYER.displayMsg("Vous avez " + character.getCoins() + " or sur vous.");
+		Game.DISPLAYER.displayChoise("Les directions accessible sont : ", directionNameList);
 
 		return State.Ok;
-		
+
 	}
 
 }

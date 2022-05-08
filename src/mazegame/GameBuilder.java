@@ -45,6 +45,9 @@ public class GameBuilder {
 	// La liste de tous les personnage.
 	private List<Character> characters;
 
+	// La liste des objets dans le jeu.
+	private List<Item> items;
+
 	// Le joueur.
 	private Player player;
 
@@ -64,6 +67,7 @@ public class GameBuilder {
 	public GameBuilder() {
 		this.listOfChallenges = new LinkedList<Challenge>();
 		this.characters = new LinkedList<>();
+		this.items = new LinkedList<>();
 		this.npcsClasses = new LinkedList<>();
 		this.itemsClasses = new LinkedList<>();
 	}
@@ -162,7 +166,10 @@ public class GameBuilder {
 		}
 		if (this.itemsClasses.size() > 0) {
 			this.generateItem();
+			this.dispatchItemInMap();
 		}
+
+		this.checksChallengesAreAchievable();
 		
 		this.quest = new Quest(this.player, this.listOfChallenges);
 
@@ -200,9 +207,8 @@ public class GameBuilder {
 		for (Class<? extends Item> itemClassName : this.itemsClasses) {
 			for (int i = 0; i < numberOfEachItem; i++) {
 				Item item = this.constructItem(itemClassName);
-				Cell cell = this.getRandomCellInMap();
-				cell.addItem(item);
 
+				items.add(item);
 			}
 		}
 
@@ -247,6 +253,16 @@ public class GameBuilder {
 	}
 
 	/**
+	 * Répartie les objets sur la carte.
+	 */
+	private void dispatchItemInMap() {
+		for (Item item : items) {
+			Cell cell = this.getRandomCellInMap();
+			cell.addItem(item);
+		}
+	}
+
+	/**
 	 * Renvoie une cellule aleatoire dans la carte.
 	 * 
 	 * @return
@@ -276,5 +292,22 @@ public class GameBuilder {
 		if (this.listOfChallenges.isEmpty()) {
 			throw new GameBuilderException("Aucun défis n'a été ajouter au jeu ! (Utilisé setChallenge)");
 		}
+	}
+
+	/**
+	 * Verifie que tous les challenges sont réalisable.
+	 * 
+	 * @return true si ils sont réalisable, false sinon.
+	 * @throws GameBuilderException Déclanche une exception si un des challenges
+	 *                              n'est pas réalisable.
+	 */
+	private void checksChallengesAreAchievable() throws GameBuilderException {
+		for (Challenge challenge : this.listOfChallenges) {
+			if (!challenge.isPossible(this.characters, this.items)) {
+				throw new GameBuilderException("Le challenge " + challenge
+						+ " n'est pas réalisable avec les personnages et les objets ajouté !");
+			}
+		}
+
 	}
 }

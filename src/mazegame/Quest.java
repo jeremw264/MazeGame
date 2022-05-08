@@ -21,6 +21,7 @@ public class Quest {
 	 * @param listOfChallenges La liste des défis afin de finir la quête.
 	 */
 	public Quest(Player player,List<Challenge> listOfChallenges) {
+		this.player = player;
 		this.listOfChallenges = listOfChallenges;
 	}
 

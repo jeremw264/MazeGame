@@ -1,6 +1,11 @@
 package mazegame.challenge;
 
+import java.util.List;
+import java.util.Map;
+
+import mazegame.character.Character;
 import mazegame.character.Player;
+import mazegame.item.Item;
 
 /**
  * Classe Challenge.
@@ -39,4 +44,12 @@ public abstract class Challenge {
 	 * @return True si le challenge est fini, False dans le cas contraire.
 	 */
 	public abstract boolean isFinish(Player player);
+
+	/**
+	 * Renvoie si le challenge est réalisable.
+	 * @param characters Liste des personnages dans le jeu.
+	 * @param items Liste des objets dans le jeu.
+	 * @return true si le challenge est réalisable, false sinon.
+	 */
+	public abstract boolean isPossible(List<Character> characters,List<Item> items);
 }

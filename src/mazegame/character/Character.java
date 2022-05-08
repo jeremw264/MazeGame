@@ -39,6 +39,7 @@ public abstract class Character {
 		this.inventory = new LinkedList<Item>();
 		this.coins = 0;
 
+		// Place le personnage sur la case à la construction.
 		this.currentCell.setCharacter(this);
 	}
 

@@ -5,6 +5,7 @@ import java.lang.reflect.InvocationTargetException;
 import mazegame.Game;
 import mazegame.GameBuilder;
 import mazegame.Map;
+import mazegame.challenge.GetGoldCoins;
 import mazegame.challenge.WaitRound;
 import mazegame.character.npc.Imp;
 import mazegame.character.npc.Samaritan;
@@ -14,6 +15,7 @@ import mazegame.character.player.Hero;
 import mazegame.exception.GameBuilderException;
 import mazegame.generation.GenerationAlgorithm;
 import mazegame.generation.Kruskal;
+import mazegame.item.GoldCoin;
 import mazegame.item.Jewel;
 
 /**
@@ -39,9 +41,10 @@ public class MainGame {
 			.setNpcClass(Sphinx.class)
 			.setNpcClass(Samaritan.class)
 			.setItemClass(Jewel.class)
-			.setChallenge(new WaitRound(5));
+			.setItemClass(GoldCoin.class)
+			.setChallenge(new WaitRound(5))
+			.setChallenge(new GetGoldCoins(5));
 
-		Game game = null;
 		try {
 			gameBuilder.build().run();
 		} catch (GameBuilderException e) {

@@ -1,10 +1,13 @@
 package mazegame.challenge;
 
+import java.util.List;
 import java.util.Random;
 
 import mazegame.Cell;
 import mazegame.Map;
+import mazegame.character.Character;
 import mazegame.character.Player;
+import mazegame.item.Item;
 
 /**
  * Classe Final Case
@@ -55,5 +58,10 @@ public class FinalCase extends Challenge {
 		cellY = r.nextInt(mapHeight);
 
 		return new Cell(cellX, cellY);
+	}
+
+	@Override
+	public boolean isPossible(List<Character> characters, List<Item> items) {
+		return characters.get(0).getMap().getListsOfCells().contains(this.finalCell);
 	}
 }

@@ -1,6 +1,10 @@
 package mazegame.challenge;
 
+import java.util.List;
+
+import mazegame.character.Character;
 import mazegame.character.Player;
+import mazegame.item.Item;
 
 /**
  * Challenge : Attendre le nombre de tours passé en paramètre dans le
@@ -27,6 +31,11 @@ public class WaitRound extends Challenge {
 		} else {
 			return true;
 		}
+	}
+
+	@Override
+	public boolean isPossible(List<Character> characters, List<Item> items) {
+		return true;
 	}
 
 }
