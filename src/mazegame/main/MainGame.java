@@ -15,8 +15,11 @@ import mazegame.character.player.Hero;
 import mazegame.exception.GameBuilderException;
 import mazegame.generation.GenerationAlgorithm;
 import mazegame.generation.Kruskal;
+import mazegame.generation.RecursiveBacktracker;
 import mazegame.item.GoldCoin;
 import mazegame.item.Jewel;
+import mazegame.utils.ConsoleDisplayer;
+import mazegame.utils.Displayer;
 
 /**
  * Class MainGame
@@ -29,8 +32,31 @@ public class MainGame {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		
+		Displayer displayer = new ConsoleDisplayer();
 
-		GenerationAlgorithm algorithm = new Kruskal();
+		GenerationAlgorithm algorithm;
+		
+		if (args.length != 1) {
+			displayer.displayMsg("Utilisation du programme\n\n\t Paramètre: <numéro de l'algo de génération (1 ou 2)>\n");
+			displayer.displayMsg("\t Exemple : \n\t - java -jar jeu.jar 1 \n\t - java -jar jeu.jar 2");
+			displayer.displayMsg("\nFermeture du programme.");
+			return;
+		}
+
+		switch (args[0]) {
+		case "1":
+			algorithm = new Kruskal();
+			break;
+		case "2":
+			algorithm = new RecursiveBacktracker(0, 0);
+			break;
+
+		default:
+			algorithm = new Kruskal();
+			break;
+		}
+
 		GameBuilder gameBuilder = new GameBuilder();
 
 		gameBuilder
@@ -51,8 +77,8 @@ public class MainGame {
 			e.printStackTrace();
 		}
 
-		//Game game = new Game(5, 5, algorithm);
-		//game.run();
+		// Game game = new Game(5, 5, algorithm);
+		// game.run();
 
 	}
 }
