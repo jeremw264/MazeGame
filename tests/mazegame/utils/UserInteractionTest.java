@@ -1,19 +1,10 @@
 package mazegame.utils;
 
-import static org.junit.Assert.*;
-
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
-
-import mazegame.Game;
 
 public class UserInteractionTest {
 

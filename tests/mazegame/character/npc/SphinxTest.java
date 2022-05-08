@@ -6,8 +6,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import mazegame.Cell;
-import mazegame.Direction;
-import mazegame.Map;
 import mazegame.character.NpcTest;
 
 public class SphinxTest extends NpcTest {

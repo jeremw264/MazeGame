@@ -1,5 +1,7 @@
 package mazegame.item;
 
+import mazegame.character.Character;
+
 /**
  * Classe Item.
  * 
@@ -55,7 +57,7 @@ abstract public class Item {
 		this.value = newValue;
 	}
 
-	abstract public String use();
+	abstract public void use(Character character);
 
 	/**
 	 * Renvoie si l'objet en paramètre est egal à l'objet courant.

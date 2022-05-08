@@ -1,5 +1,7 @@
 package mazegame.item;
 
+import mazegame.character.Character;
+
 /**
  * Classe Jewel.
  *
@@ -18,8 +20,8 @@ public class Jewel extends Item {
 	 * L'objet n'est pas utilisable donc return direct.
 	 */
 	@Override
-	public String use() {
-		return "";
+	public void use(Character character) {
+		return ;
 	}
 
 	// Methode use quand meme affiche au cas ou on veuille passer l'objet en usable

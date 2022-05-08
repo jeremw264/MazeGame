@@ -1,6 +1,7 @@
 package mazegame.item;
 
 import mazegame.Hint;
+import mazegame.character.Character;
 
 /**
  * Classe Scroll.
@@ -19,8 +20,8 @@ public class Scroll extends Item {
 		this.hint = hint;
 	}
 
-	public String use() {
-		return this.hint.getGoodHint();
+	public void use(Character character) {
+		this.hint.displayHint(character);
 	}
 
 	/**

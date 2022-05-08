@@ -1,8 +1,8 @@
 package mazegame.challenge;
 
 import java.util.List;
-import java.util.Map;
 
+import mazegame.Hint;
 import mazegame.character.Character;
 import mazegame.character.Player;
 import mazegame.item.Item;
@@ -52,4 +52,6 @@ public abstract class Challenge {
 	 * @return true si le challenge est réalisable, false sinon.
 	 */
 	public abstract boolean isPossible(List<Character> characters,List<Item> items);
+	
+	public abstract Hint getHint();
 }

@@ -54,4 +54,6 @@ public interface Displayer {
 	 * @param commandsList La liste des commandes possible.
 	 */
 	public void displayHelp(List<String> commandsList);
+	
+	public void displayHint(String hintMessage);
 }

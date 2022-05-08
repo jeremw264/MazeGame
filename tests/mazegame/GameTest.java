@@ -1,21 +1,16 @@
 package mazegame;
 
-import static org.junit.Assert.*;
-
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
 
 import mazegame.challenge.WaitRound;
 import mazegame.character.npc.Vendor;
 import mazegame.character.player.Hero;
 import mazegame.generation.Kruskal;
 import mazegame.item.Jewel;
-import mazegame.utils.UserInteration;
 
 public class GameTest {
 

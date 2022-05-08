@@ -2,11 +2,15 @@ package mazegame.main;
 
 import java.lang.reflect.InvocationTargetException;
 
+import mazegame.Cell;
 import mazegame.Game;
 import mazegame.GameBuilder;
+import mazegame.Hint;
 import mazegame.Map;
 import mazegame.challenge.GetGoldCoins;
 import mazegame.challenge.WaitRound;
+import mazegame.character.Npc;
+import mazegame.character.Player;
 import mazegame.character.npc.Imp;
 import mazegame.character.npc.Samaritan;
 import mazegame.character.npc.Sphinx;
@@ -18,6 +22,7 @@ import mazegame.generation.Kruskal;
 import mazegame.generation.RecursiveBacktracker;
 import mazegame.item.GoldCoin;
 import mazegame.item.Jewel;
+import mazegame.item.Scroll;
 import mazegame.utils.ConsoleDisplayer;
 import mazegame.utils.Displayer;
 
@@ -68,14 +73,17 @@ public class MainGame {
 			.setNpcClass(Samaritan.class)
 			.setItemClass(Jewel.class)
 			.setItemClass(GoldCoin.class)
+			//.setItemClass(Scroll.class)
 			.setChallenge(new WaitRound(5))
 			.setChallenge(new GetGoldCoins(5));
 
-		try {
+		/*try {
 			gameBuilder.build().run();
 		} catch (GameBuilderException e) {
 			e.printStackTrace();
-		}
+		}*/
+		
+		displayer.displayHint("hello je suis un indice");
 
 		// Game game = new Game(5, 5, algorithm);
 		// game.run();

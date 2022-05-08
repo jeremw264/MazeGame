@@ -115,4 +115,22 @@ public class ConsoleDisplayer implements Displayer {
 		
 	}
 
+	@Override
+	public void displayHint(String hintMessage) {
+		int sizeMessage = hintMessage.length();
+		
+		for (int i = 0; i < sizeMessage + 3; i++) {
+			 System.out.print("#");
+		}
+		System.out.print("#\n");
+		
+		this.displayMsg("# "+hintMessage+" #");
+		for (int i = 0; i < sizeMessage + 3; i++) {
+			System.out.print("#");
+		}
+		System.out.print("#\n");
+
+		
+	}
+
 }

@@ -1,5 +1,7 @@
 package mazegame.item;
 
+import mazegame.character.Character;
+
 /**
  * Classe GoldCoin
  * 
@@ -19,8 +21,8 @@ public class GoldCoin extends Item{
 	 * Objet non utilisable donc pas de methode use allouee
 	 */
 	@Override
-	public String use() {
-		return "";
+	public void use(Character character) {
+		return ;
 	}
 	
 	/**

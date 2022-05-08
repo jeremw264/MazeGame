@@ -2,6 +2,7 @@ package mazegame.challenge;
 
 import java.util.List;
 
+import mazegame.Hint;
 import mazegame.character.Character;
 import mazegame.character.Player;
 import mazegame.item.GoldCoin;
@@ -44,6 +45,12 @@ public class GetGoldCoins extends Challenge {
 		}
 
 		return nbOfGoldCoins >= this.nbOfGoldCoinsToFinish;
+	}
+
+	@Override
+	public Hint getHint() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -2,6 +2,7 @@ package mazegame.challenge;
 
 import java.util.List;
 
+import mazegame.Hint;
 import mazegame.character.Character;
 import mazegame.character.Player;
 import mazegame.item.Item;
@@ -36,6 +37,12 @@ public class WaitRound extends Challenge {
 	@Override
 	public boolean isPossible(List<Character> characters, List<Item> items) {
 		return true;
+	}
+
+	@Override
+	public Hint getHint() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

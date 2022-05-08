@@ -1,5 +1,7 @@
 package mazegame.item;
 
+import mazegame.character.Character;
+
 /**
  * Classe QuestObject.
  * 
@@ -13,19 +15,18 @@ public class QuestObject extends Item {
 	public QuestObject() {
 		super(0, false, false);
 	}
-	
-	
-	//Cette objet n'est pas utilisable
-	public String use() {
-		return "";
+
+	// Cette objet n'est pas utilisable
+	public void use(Character character) {
+		return ;
 	}
-	
-	
+
 	/**
 	 * Renvoie une représentation de l'objet sous forme de chaine de caractère.
 	 */
-	
+
 	public String toString() {
 		return "objet de quete";
 	}
+
 }

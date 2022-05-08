@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import mazegame.Cell;
+import mazegame.Hint;
 import mazegame.Map;
 import mazegame.character.Character;
 import mazegame.character.Player;
@@ -63,5 +64,10 @@ public class FinalCase extends Challenge {
 	@Override
 	public boolean isPossible(List<Character> characters, List<Item> items) {
 		return characters.get(0).getMap().getListsOfCells().contains(this.finalCell);
+	}
+
+	@Override
+	public Hint getHint() {
+		return new Hint(this.finalCell);
 	}
 }

@@ -11,6 +11,7 @@ import mazegame.character.Npc;
 import mazegame.character.Player;
 import mazegame.exception.GameBuilderException;
 import mazegame.generation.GenerationAlgorithm;
+import mazegame.item.GoldCoin;
 import mazegame.item.Item;
 
 /**
@@ -170,6 +171,10 @@ public class GameBuilder {
 		}
 
 		this.checksChallengesAreAchievable();
+		
+		for (int i = 0; i < 5; i++) {
+			this.map.getCell(0, 0).addItem(new GoldCoin());
+		}
 		
 		this.quest = new Quest(this.player, this.listOfChallenges);
 
