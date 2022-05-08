@@ -41,8 +41,7 @@ public class WaitRound extends Challenge {
 
 	@Override
 	public Hint getHint() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Hint(this.nbOfRounds);
 	}
 
 }

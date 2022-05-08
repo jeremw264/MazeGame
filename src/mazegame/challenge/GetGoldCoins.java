@@ -50,7 +50,7 @@ public class GetGoldCoins extends Challenge {
 	@Override
 	public Hint getHint() {
 		// TODO Auto-generated method stub
-		return null;
+		return new Hint(new GoldCoin(),this.nbOfGoldCoinsToFinish);
 	}
 
 }
