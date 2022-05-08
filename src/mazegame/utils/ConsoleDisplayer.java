@@ -45,7 +45,23 @@ public class ConsoleDisplayer implements Displayer {
 	 */
 	@Override
 	public void displayEndGame() {
-		this.displayMsg("Fin de jeu ...\nMerci d'avoir jouer :)");
+		
+		// Source : https://patorjk.com/software/taag/#p=display&f=Ghost&t=Fin%20de%20Jeu
+		
+		this.displayMsg("                       .-') _        _ .-') _     ('-.                    ('-.               \n"
+				+ "                      ( OO ) )      ( (  OO) )  _(  OO)                 _(  OO)              \n"
+				+ "   ,------.,-.-') ,--./ ,--,'        \\     .'_ (,------.           ,--.(,------. ,--. ,--.   \n"
+				+ "('-| _.---'|  |OO)|   \\ |  |\\        ,`'--..._) |  .---'       .-')| ,| |  .---' |  | |  |   \n"
+				+ "(OO|(_\\    |  |  \\|    \\|  | )       |  |  \\  ' |  |          ( OO |(_| |  |     |  | | .-') \n"
+				+ "/  |  '--. |  |(_/|  .     |/        |  |   ' |(|  '--.       | `-'|  |(|  '--.  |  |_|( OO )\n"
+				+ "\\_)|  .--',|  |_.'|  |\\    |         |  |   / : |  .--'       ,--. |  | |  .--'  |  | | `-' /\n"
+				+ "  \\|  |_)(_|  |   |  | \\   |         |  '--'  / |  `---.      |  '-'  / |  `---.('  '-'(_.-' \n"
+				+ "   `--'    `--'   `--'  `--'         `-------'  `------'       `-----'  `------'  `-----'    ");
+		this.displayMsg("Merci d'avoir jouer :)");
+		this.displayMsg("\nDéveloppé par : \n");
+		this.displayMsg("\t - Timothé Vanoverberghe");
+		this.displayMsg("\t - Woirhaye Jérémy");
+		this.displayMsg("\t - Franck Beyaert");
 
 	}
 
@@ -80,6 +96,23 @@ public class ConsoleDisplayer implements Displayer {
 		}
 		Game.DISPLAYER.displayMsg("--------------------------------------------------");
 
+	}
+
+	@Override
+	public void displayStartGame() {
+		
+		// Source : https://patorjk.com/software/taag/#p=display&f=Ghost&t=The%20MazeGame
+		
+		Game.DISPLAYER.displayMsg(" .-') _    ('-. .-.   ('-.         _   .-')      ('-.       .-') _   ('-.                ('-.     _   .-')       ('-.   \n"
+				+ "(  OO) )  ( OO )  / _(  OO)       ( '.( OO )_   ( OO ).-.  (  OO) )_(  OO)              ( OO ).-.( '.( OO )_   _(  OO)  \n"
+				+ "/     '._ ,--. ,--.(,------.       ,--.   ,--.) / . --. /,(_)----.(,------. ,----.      / . --. / ,--.   ,--.)(,------. \n"
+				+ "|'--...__)|  | |  | |  .---'       |   `.'   |  | \\-.  \\ |       | |  .---''  .-./-')   | \\-.  \\  |   `.'   |  |  .---' \n"
+				+ "'--.  .--'|   .|  | |  |           |         |.-'-'  |  |'--.   /  |  |    |  |_( O- ).-'-'  |  | |         |  |  |     \n"
+				+ "   |  |   |       |(|  '--.        |  |'.'|  | \\| |_.'  |(_/   /  (|  '--. |  | .--, \\ \\| |_.'  | |  |'.'|  | (|  '--.  \n"
+				+ "   |  |   |  .-.  | |  .--'        |  |   |  |  |  .-.  | /   /___ |  .--'(|  | '. (_/  |  .-.  | |  |   |  |  |  .--'  \n"
+				+ "   |  |   |  | |  | |  `---.       |  |   |  |  |  | |  ||        ||  `---.|  '--'  |   |  | |  | |  |   |  |  |  `---. \n"
+				+ "   `--'   `--' `--' `------'       `--'   `--'  `--' `--'`--------'`------' `------'    `--' `--' `--'   `--'  `------' ");
+		
 	}
 
 }

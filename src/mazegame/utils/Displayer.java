@@ -42,6 +42,11 @@ public interface Displayer {
 	 * Affiche la fin du jeu.
 	 */
 	public void displayEndGame();
+	
+	/**
+	 * Affiche du contenu au début du jeu.
+	 */
+	public void displayStartGame();
 
 	/**
 	 * Affiche l'aide d'utilisation.

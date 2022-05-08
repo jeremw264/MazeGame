@@ -60,10 +60,13 @@ public class Game {
 	public void run() {
 
 		boolean gameState = true;
+		
+		Game.DISPLAYER.displayStartGame();
 
 		new LookAround().run(this.player);
 
 		while (gameState && !this.quest.isComplete()) {
+			
 			for (Character character : listOfCharacters) {
 				State status = character.getAction().run(character);
 
