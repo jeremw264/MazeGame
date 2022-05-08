@@ -84,7 +84,14 @@ Ils restera à gerer les interactions entre item et character pour gérer les ve
 
 ### Atteinte des objectifs
 
+Ecriture de l'UML avant le dévelopement
+
+Création des objets de manière générique grâce a une classe abstraite pour pouvoir facilement ajouter des objet au jeu 
+
 ### Difficultés restant à résoudre
+
+Aucune difficultés restante à résoudre pour le troisieme livrable
+
 
 ## Livrable 4
 
@@ -205,3 +212,5 @@ Timothé : Avec l'aide de Jérémy pour le code java, Actions PickUp et UseItem 
 Franck : Création de l'Action Discuter, Modification de celle-ci ( débugg etc ) avec l'aide de Jeremy. L'action se déplacer a était réalisé par Jeremy suite à un problème de pc que j'ai lors des semaines pédagogiques.
 
 ## Semaine 12
+
+Jérémy : Création d'un game builder, Ecriture des tests utitaire, Modification de l'affichage, Maj de l'action regarder, Maj du makefile, Maj Main pour rendu, Ecriture Javadoc et Maj géstion saisie utilisateur.

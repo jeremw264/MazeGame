@@ -108,21 +108,6 @@ Character:
 	
 ```
 
-#### Interaction Utilisateur
-
-Ici dans la classe Game nous allons utiliser deux objet un displayer et un input mais pourquoi ce choix ?
-
-Il est très simple et pratique. Il nous permet de garder une ouverture vers les extensions et garde le principe ouvert-fermer car si dans le futur on ne veut plus faire un affichage en console, il suffira de crée une nouvelle classe qui implémente Displayer et qui s'occupera des affichages le même fonctionnement pour Input.
-
-Les gestion avec l'utilisateur sont un peu complique, car part exemple prenons l'exemple des discutions avec les personnages si on veut centraliser les saisie utilisateur il faut donc que le personnage nous parle puis il doit attendre que l'utilisateur réponds et le probleme est ici. Donc si on veut garder un code facilement testable il faut bien faire attention a ce que l'entre de l'utilisateur soit prise en compte. Il faudra donc gerer cela au plus haut niveau du jeu donc dans Game 
-
-
-#### Discuter 
-
-#### Achat-vente
-
-#### Deplacement
-
 
    
 
