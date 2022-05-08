@@ -13,6 +13,7 @@ import mazegame.item.Scroll;
 import mazegame.Cell;
 import mazegame.Direction;
 import mazegame.Map;
+import mazegame.Hint;
 
 public class CharacterTest {
 
@@ -71,7 +72,7 @@ public class CharacterTest {
 
 	@Test
 	public void addItemInList() {
-		Item item = new Scroll("indice");
+		Item item = new Scroll(new Hint("indice", "mauvais indice"));
 
 		this.character.addInv(item);
 
@@ -80,7 +81,7 @@ public class CharacterTest {
 
 	@Test
 	public void removeElementFromInventory() {
-		Item item = new Scroll("indice");
+		Item item = new Scroll(new Hint("indice", "mauvais indice"));
 
 		assertTrue(this.character.getListOfItems().isEmpty());
 
@@ -96,7 +97,7 @@ public class CharacterTest {
 
 	@Test
 	public void elementIsInInventory() {
-		Item item = new Scroll("indice");
+		Item item = new Scroll(new Hint("indice", "mauvais indice"));
 
 		this.character.addInv(item);
 
@@ -110,8 +111,8 @@ public class CharacterTest {
 	
 	@Test
 	public void elementIsNotInInventory() {
-		Item item = new Scroll("indice");
-		Item badItem = new Scroll("indice");
+		Item item = new Scroll(new Hint("indice", "mauvais indice"));
+		Item badItem = new Scroll(new Hint("indice", "mauvais indice"));
 
 		this.character.addInv(item);
 

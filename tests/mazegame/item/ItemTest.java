@@ -25,8 +25,8 @@ public class ItemTest {
 		this.item = new Item(0,false,false) {
 
 			@Override
-			public void use() {
-				return;
+			public String use() {
+				return "";
 				
 			}
 		};
@@ -90,16 +90,16 @@ public class ItemTest {
 		Item item1 = new Item(5,false,false) {
 
 			@Override
-			public void use() {
-				
+			public String use() {
+				return "";
 			}
 		};
 
 		Item item2 = new Item(5,false,false) {
 
 			@Override
-			public void use() {
-				
+			public String use() {
+				return "";
 			}
 		};
 
@@ -113,8 +113,8 @@ public class ItemTest {
 		Item item1 = new Item(5,false,false) {
 
 			@Override
-			public void use() {
-				// TODO Auto-generated method stub
+			public String use() {
+				return "";
 				
 			}
 		};
@@ -122,8 +122,8 @@ public class ItemTest {
 		Item item2 = new Item(10,true,false) {
 
 			@Override
-			public void use() {
-				// TODO Auto-generated method stub
+			public String use() {
+				return "";
 				
 			}
 		};
@@ -140,8 +140,8 @@ public class ItemTest {
 		Item item1 = new Item(0,false,false) {
 
 			@Override
-			public void use() {
-				// TODO Auto-generated method stub
+			public String use() {
+				return "";
 				
 			}
 		};

@@ -48,7 +48,7 @@ public class UseItem extends Action {
 		}
 
 		// Utilisation de l'objet choisi (DISPLAYER)
-		choseItem.use();
+		Game.DISPLAYER.displayMsg(choseItem.use());
 
 		// Suppression de l'objet de l'inventaire du personnage
 		character.removeInv(choseItem);

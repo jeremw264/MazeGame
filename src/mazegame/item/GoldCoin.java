@@ -19,8 +19,8 @@ public class GoldCoin extends Item{
 	 * Objet non utilisable donc pas de methode use allouee
 	 */
 	@Override
-	public void use() {
-		return;
+	public String use() {
+		return "";
 	}
 	
 	/**

@@ -1,6 +1,6 @@
 package mazegame.item;
 
-import mazegame.Game;
+import mazegame.Hint;
 
 /**
  * Classe Scroll.
@@ -9,18 +9,18 @@ import mazegame.Game;
  */
 public class Scroll extends Item {
 
-	private String hint;
+	private Hint hint;
 
 	/**
 	 * Constructeur de l'objet Scroll.
 	 */
-	public Scroll(String hint) {
+	public Scroll(Hint hint) {
 		super(0, false, true);
 		this.hint = hint;
 	}
 
-	public void use() {
-		Game.DISPLAYER.displayMsg(this.hint);
+	public String use() {
+		return this.hint.getGoodHint();
 	}
 
 	/**

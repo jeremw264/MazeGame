@@ -11,6 +11,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import mazegame.Hint;
+
 public class ScrollTest extends ItemTest{
 
 	
@@ -21,7 +23,7 @@ public class ScrollTest extends ItemTest{
 
 	@Before
 	public void setUp() {
-		this.item = new Scroll("la case finale est en (0,0)");
+		this.item = new Scroll(new Hint("la case finale est en (0,0)","la case finale est en (1,1)"));
 	}
 
 	@Before

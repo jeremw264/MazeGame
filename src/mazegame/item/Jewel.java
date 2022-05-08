@@ -18,8 +18,8 @@ public class Jewel extends Item {
 	 * L'objet n'est pas utilisable donc return direct.
 	 */
 	@Override
-	public void use() {
-		return;
+	public String use() {
+		return "";
 	}
 
 	// Methode use quand meme affiche au cas ou on veuille passer l'objet en usable

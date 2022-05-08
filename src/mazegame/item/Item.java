@@ -55,7 +55,7 @@ abstract public class Item {
 		this.value = newValue;
 	}
 
-	abstract public void use();
+	abstract public String use();
 
 	/**
 	 * Renvoie si l'objet en paramètre est egal à l'objet courant.

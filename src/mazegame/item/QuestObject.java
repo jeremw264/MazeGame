@@ -16,8 +16,8 @@ public class QuestObject extends Item {
 	
 	
 	//Cette objet n'est pas utilisable
-	public void use() {
-		
+	public String use() {
+		return "";
 	}
 	
 	
