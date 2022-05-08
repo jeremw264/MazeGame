@@ -18,7 +18,8 @@ jeu.jar: cls
 	jar cvfe $(JARPATH)$@ mazegame.main.MainGame -C classes ./
 
 run: jeu.jar
-	java -jar jar/jeu.jar
+	clear
+	@java -jar jar/jeu.jar 1
 
 
 clean:
