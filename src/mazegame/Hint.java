@@ -40,6 +40,7 @@ public class Hint {
 
 	public Hint(Item item,int nbOfItem) {
 		this.type = HintType.OBJECT_HINT;
+		this.item = item;
 		this.nbOfItem = nbOfItem;
 	}
 	
@@ -75,7 +76,7 @@ public class Hint {
 		if (character instanceof Imp) {
 			Game.DISPLAYER.displayHint("Tu dois ramasser 50 bout de calamar");
 		} else {
-			Game.DISPLAYER.displayHint("Tu dois ramasser "+this.nbOfItem+""+this.item);
+			Game.DISPLAYER.displayHint("Tu dois ramasser "+this.nbOfItem+" "+this.item);
 		}
 
 	}

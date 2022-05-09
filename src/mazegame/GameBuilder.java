@@ -4,6 +4,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
+import java.util.Stack;
 
 import mazegame.challenge.Challenge;
 import mazegame.character.Character;
@@ -12,6 +13,7 @@ import mazegame.character.Player;
 import mazegame.exception.GameBuilderException;
 import mazegame.generation.GenerationAlgorithm;
 import mazegame.item.Item;
+import mazegame.item.Scroll;
 
 /**
  * Classe GameBuilder
@@ -30,6 +32,8 @@ public class GameBuilder {
 	 *
 	 */
 
+	private final int nbOfHint = 20;
+
 	// La carte du jeu.
 	private Map map;
 
@@ -41,6 +45,9 @@ public class GameBuilder {
 
 	// La liste des classe Npc à crée dans le jeu
 	private List<Class<? extends Item>> itemsClasses;
+
+	// Liste des indices du jeu
+	private Stack<Hint> hints;
 
 	// La liste de tous les personnage.
 	private List<Character> characters;
@@ -70,6 +77,7 @@ public class GameBuilder {
 		this.items = new LinkedList<>();
 		this.npcsClasses = new LinkedList<>();
 		this.itemsClasses = new LinkedList<>();
+		this.hints = new Stack<>();
 	}
 
 	/**
@@ -161,6 +169,8 @@ public class GameBuilder {
 
 		this.characters.add(this.player);
 
+		this.generateHint();
+
 		if (this.npcsClasses.size() > 0) {
 			this.generateNpc();
 		}
@@ -169,11 +179,33 @@ public class GameBuilder {
 			this.dispatchItemInMap();
 		}
 
+		this.dispatchHint();
 		this.checksChallengesAreAchievable();
+		
+		for (Cell cell : this.map.getListsOfCells()) {
+			for (Item item : cell.getItemList()) {
+				if (item instanceof Scroll) {
+					System.err.println(cell);
+				}
+			}
+		}
 
 		this.quest = new Quest(this.player, this.listOfChallenges);
 
 		return new Game(this.map, this.characters, this.player, this.quest);
+	}
+
+	private void dispatchHint() {
+
+	}
+
+	private void generateHint() {
+		for (int i = 0; i < this.nbOfHint / this.listOfChallenges.size(); i++) {
+			for (Challenge challenge : this.listOfChallenges) {
+				hints.push(challenge.getHint());
+			}
+		}
+
 	}
 
 	/**
@@ -243,7 +275,12 @@ public class GameBuilder {
 	 */
 	private Item constructItem(Class<? extends Item> itemClass) {
 		try {
-			return itemClass.getDeclaredConstructor().newInstance();
+			if (itemClass == Scroll.class) {
+				Hint hint = this.hints.pop();
+				return itemClass.getDeclaredConstructor(Hint.class).newInstance(hint);
+			} else {
+				return itemClass.getDeclaredConstructor().newInstance();
+			}
 		} catch (NoSuchMethodException | InstantiationException | IllegalAccessException
 				| InvocationTargetException e) {
 			e.printStackTrace();

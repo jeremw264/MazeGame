@@ -1,5 +1,7 @@
 package mazegame.utils;
 
+import static org.junit.Assert.assertEquals;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -38,7 +40,8 @@ public class InputConsoleTest {
 	public void getStringTest() {
 		try {
 			System.setIn(new ByteArrayInputStream("hello".getBytes()));
-			System.out.println(this.input.getString());
+			String messageString =  this.input.getString();
+			assertEquals(messageString, "hello");
 		} finally {
 			System.setIn(System.in);
 		}

@@ -1,6 +1,7 @@
 package mazegame.main;
 
 import mazegame.GameBuilder;
+import mazegame.challenge.CaseEightTree;
 import mazegame.challenge.GetGoldCoins;
 import mazegame.challenge.WaitRound;
 import mazegame.character.npc.Imp;
@@ -14,6 +15,7 @@ import mazegame.generation.Kruskal;
 import mazegame.generation.RecursiveBacktracker;
 import mazegame.item.GoldCoin;
 import mazegame.item.Jewel;
+import mazegame.item.Scroll;
 import mazegame.utils.ConsoleDisplayer;
 import mazegame.utils.Displayer;
 
@@ -64,8 +66,8 @@ public class MainGame {
 			.setNpcClass(Samaritan.class)
 			.setItemClass(Jewel.class)
 			.setItemClass(GoldCoin.class)
-			//.setItemClass(Scroll.class)
-			.setChallenge(new WaitRound(5))
+			.setItemClass(Scroll.class)
+			.setChallenge(new CaseEightTree())
 			.setChallenge(new GetGoldCoins(5));
 
 		try {
