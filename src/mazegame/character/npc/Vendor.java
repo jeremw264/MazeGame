@@ -1,14 +1,20 @@
 package mazegame.character.npc;
 
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 import mazegame.Cell;
 import mazegame.Direction;
+import mazegame.Game;
 import mazegame.Map;
 import mazegame.action.Action;
 import mazegame.action.Move;
+import mazegame.character.Character;
 import mazegame.character.Npc;
+import mazegame.character.Player;
+import mazegame.item.Item;
 
 /**
  * Classe Vendor
@@ -59,6 +65,67 @@ public class Vendor extends Npc {
 	@Override
 	public String toString() {
 		return "vendor";
+	}
+	
+	public void talk() {
+		
+		Character character = null;
+		Character player = null;
+		Item items = null;
+		List<Character> characters =character.getCell().charactersList();
+		
+		HashMap<String, Player> playerMap = new HashMap<String, Player>();
+		for (Character character1 : characters) {
+			if (character1 instanceof Player) {
+				playerMap.put(character1.toString(), (Player) character1);
+			}
+		}
+		
+		List<String> playerOnCell = new LinkedList<>(playerMap.keySet());
+		
+		
+		HashMap<String, Item> sellMap = new HashMap<>(); 
+		for (Item item : character.getListOfItems()) { 
+			if (item.canSell() == true)
+				sellMap.put(item.toString(), item); }
+		
+		String buyList = this.getListOfItems().toString();
+		String value = String.valueOf(items.getValue());
+		
+		Game.DISPLAYER.displayMsg("Weeeelllllcoooooommmmmeeee");
+		Game.DISPLAYER.displayMsg("J'ai des choses rares en soldes étranger !" + buyList);
+		String responce = Game.INPUT.getString();
+		if(buyList.contains(responce)) {
+			Game.DISPLAYER.displayMsg("Le prix de cette objet est :" +value );
+			Game.DISPLAYER.displayMsg("Souhaitez vous l'acheter ? (oui/non)");
+			responce = Game.INPUT.getString();
+			if(responce =="oui") {
+				player.addInv(items); 
+				this.removeInv(items); 
+				Game.DISPLAYER.displayMsg("He he he, Merci.");
+			}
+			else { 
+				return; 
+				} 
+			}
+		else {
+			Game.DISPLAYER.displayMsg("Qu'aimeriez vous vendre ?" + sellMap);
+			responce = Game.INPUT.getString();
+			if(sellMap.containsValue(responce)) {
+				Game.DISPLAYER.displayMsg("Souhaitez vous vendre cette object pour : " +value+ "(oui/non)");
+				responce = Game.INPUT.getString();
+				if(responce == "oui") { 
+					this.addInv(items); 
+					player.removeInv(items);
+					Game.DISPLAYER.displayMsg("He he he, Merci.");
+					}
+				else {
+					return;
+					
+				}
+			}
+		}
+		
 	}
 
 	/*
