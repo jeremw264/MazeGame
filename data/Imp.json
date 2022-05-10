@@ -9,12 +9,12 @@
             "ça serait avec plaisir"
         ],
         "answerNpc":
-        	"Parfait ! Alors tenez, prenez ce parchemin et suivez la direction donnée ! ",
+        	"Parfait ! Alors je vous conseille de vous dirigez dans la direction suivante !",
         "answerNpc2": 
         	"Oh ! Ce n'est pas grave, je vous souhaite bonne continuation et j'espère que vous trouverez ce que vous souhaitez ! "
     },
     {
-        "content": "Bonjour, on m'a offert ce parchemin il y'a quelques années, malheureusement j'ai reçu une fléche dans le genoux et ne peux plus me déplacer comme avant... Je vous l'offre si vous le voulez ?",
+        "content": "Bonjour, on m'a offert ce parchemin il y'a quelques années, malheureusement j'ai reçu une fléche dans le genoux et ne peux plus me déplacer comme avant... Que diriez vous d'aller voir pour moi ce qu'il se passe là-bas ?",
         "answer": [
             "avec plaisir",
             "sans façon, j'ai déjà ce qu'il me faut"
