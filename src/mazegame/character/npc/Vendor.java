@@ -9,12 +9,17 @@ import mazegame.Cell;
 import mazegame.Direction;
 import mazegame.Game;
 import mazegame.Map;
+import mazegame.State;
 import mazegame.action.Action;
 import mazegame.action.Move;
 import mazegame.character.Character;
 import mazegame.character.Npc;
 import mazegame.character.Player;
+import mazegame.item.GoldCoin;
 import mazegame.item.Item;
+import mazegame.item.Jewel;
+import mazegame.item.Scroll;
+import mazegame.utils.UserInteration;
 
 /**
  * Classe Vendor
@@ -32,7 +37,12 @@ public class Vendor extends Npc {
 	 */
 	public Vendor(int x, int y, Map map) {
 		super(x, y, map, "Vendor");
+		this.changeCoins(50);
 		// TODO Auto-generated constructor stub
+		this.addInv(new Jewel());
+		this.addInv(new Jewel());
+		this.addInv(new GoldCoin());
+		this.addInv(new Jewel());
 	}
 
 	/**
@@ -66,108 +76,114 @@ public class Vendor extends Npc {
 	public String toString() {
 		return "vendor";
 	}
-	
+
 	public void talk() {
+
+		Player player = null;
+		List<Character> characters = currentCell.charactersList();
+		HashMap<String, Item> sellableItems = new HashMap<>();
+		HashMap<String, Item> buyableItems = new HashMap<>();
+		List<String> descriptionSellableItems = new LinkedList<>();
+		List<String> descriptionBuyableItems = new LinkedList<>();
+		List<String> modeList = new LinkedList<>();
 		
-		Character character = null;
-		Character player = null;
-		Item items = null;
-		List<Character> characters =character.getCell().charactersList();
-		
-		HashMap<String, Player> playerMap = new HashMap<String, Player>();
-		for (Character character1 : characters) {
-			if (character1 instanceof Player) {
-				playerMap.put(character1.toString(), (Player) character1);
+		modeList.add("vendre");
+		modeList.add("acheter");
+
+		// Récupération du joueur
+		for (Character character : characters) {
+			if (character instanceof Player) {
+				player = (Player) character;
 			}
 		}
-		
-		List<String> playerOnCell = new LinkedList<>(playerMap.keySet());
-		
-		
-		HashMap<String, Item> sellMap = new HashMap<>(); 
-		for (Item item : character.getListOfItems()) { 
+
+		// Récupération des object vendable
+		for (Item item : player.getListOfItems()) {
 			if (item.canSell() == true)
-				sellMap.put(item.toString(), item); }
+				sellableItems.put(item.toString(), item);
+		}
 		
-		String buyList = this.getListOfItems().toString();
-		String value = String.valueOf(items.getValue());
-		
-		Game.DISPLAYER.displayMsg("Weeeelllllcoooooommmmmeeee");
-		Game.DISPLAYER.displayMsg("J'ai des choses rares en soldes �tranger !" + buyList);
-		String responce = Game.INPUT.getString();
-		if(buyList.contains(responce)) {
-			Game.DISPLAYER.displayMsg("Le prix de cette objet est :" +value );
-			Game.DISPLAYER.displayMsg("Souhaitez vous l'acheter ? (oui/non)");
-			responce = Game.INPUT.getString();
-			if(responce =="oui") {
-				player.addInv(items); 
-				this.removeInv(items); 
-				Game.DISPLAYER.displayMsg("He he he, Merci.");
-			}
-			else { 
-				return; 
-				} 
-			}
-		else {
-			Game.DISPLAYER.displayMsg("Qu'aimeriez vous vendre ?" + sellMap);
-			responce = Game.INPUT.getString();
-			if(sellMap.containsValue(responce)) {
-				Game.DISPLAYER.displayMsg("Souhaitez vous vendre cette object pour : " +value+ "(oui/non)");
-				responce = Game.INPUT.getString();
-				if(responce == "oui") { 
-					this.addInv(items); 
-					player.removeInv(items);
-					Game.DISPLAYER.displayMsg("He he he, Merci.");
-					}
-				else {
-					return;
-					
-				}
+		//Récupération des object achetable
+		for (Item item : this.getListOfItems()) {
+			if(item.canSell()) {
+				buyableItems.put(item.toString(), item);
 			}
 		}
 		
+		//List des descriptions des objets vendables
+		for (Item item : sellableItems.values()) {
+			descriptionSellableItems.add("Le prix de cette objet est : " +item.getValue());
+		}
+		
+		//List des descriptions des objets achetables
+		for (Item item : buyableItems.values()) {
+			descriptionBuyableItems.add("Le prix de cette objet est : " +item.getValue());
+		}
+		Game.DISPLAYER.displayMsg("Weeeelllllcoooooommmmmeeee");
+		java.util.Map<String, Object> responceMode = UserInteration.getChoise("Souhaitez vous acheter ou vendre ? : ", modeList,true);
+
+		if (responceMode.get("STATE") != State.Ok) {
+			Game.DISPLAYER.displayMsg("Arretez de me faire perdre mon temps, Etranger ! ");
+		}
+		
+		String modeChoice = (String) responceMode.get("choice");
+		
+		if(modeChoice.equals("acheter")) {
+			//Si le joueur choisis d'acheter un objet 
+			List<String> choiceBuy = new LinkedList<>(buyableItems.keySet());
+			java.util.Map<String, Object> responceBuy = UserInteration.getChoise("Que voulez vous acheter ?: ",choiceBuy,descriptionBuyableItems,true);
+
+			if (responceBuy.get("STATE") != State.Ok) {
+				Game.DISPLAYER.displayMsg("Vous êtes difficile satisfaire, etranger ! ");
+			}
+			
+			String buyChoice = (String) responceBuy.get("choice");
+			Item itemBought = buyableItems.get(buyChoice);
+			
+			//Vérifie si le joueur a assez d'argent
+			if (player.getCoins() >= itemBought.getValue()) {
+				this.changeCoins(itemBought.getValue()); // modifie l'argent du marchand
+				player.changeCoins(-itemBought.getValue()); // modifie l'argent du joueur
+				this.removeInv(itemBought); // supprime l'item de l'inventaire du marchand
+				player.addInv(itemBought); // ajoute l'item dans l'inventaire du joueur
+				Game.DISPLAYER.displayMsg("vous avez acheté "+itemBought.toString());
+				Game.DISPLAYER.displayMsg("Vous avez reçu "+itemBought.toString());
+			}
+			else {
+				Game.DISPLAYER.displayMsg("Pas assez d’argent etranger !");
+			}
+			
+		}
+		else {
+			//Si le joueur choisis de vendre un objet
+			List<String> choiceSell = new LinkedList<>(sellableItems.keySet()); // passe la HashMap sellableItem en List<String> choiseSell avec le contenu passé en element clé
+			// Fournit la liste d'objet à vendre avec leur description  
+			//récupére un objet dans une map
+			java.util.Map<String, Object> responceSell = UserInteration.getChoise("Que voulez vous vendre ? : ",choiceSell,descriptionSellableItems ,true); 
+
+			if (responceSell.get("STATE") != State.Ok) {
+				Game.DISPLAYER.displayMsg("C’est tout etranger ?");
+			}
+			
+			String sellChoice = (String) responceSell.get("choice");
+			
+			Item itemSold = sellableItems.get(sellChoice);
+			
+			//Vérifie si le marchand a assez d'argent
+			if (this.getCoins() >= itemSold.getValue()) {
+				this.changeCoins(-itemSold.getValue());
+				player.changeCoins(itemSold.getValue());
+				player.removeInv(itemSold);
+				this.addInv(itemSold);
+				Game.DISPLAYER.displayMsg("Ah ! Je vais acheter" +itemSold.toString()+ " a un tres bon prix !");
+				Game.DISPLAYER.displayMsg("Le marchand a bien reçu votre "+itemSold.toString());
+			} 
+			else {
+				Game.DISPLAYER.displayMsg("L'argent me manque etranger !");
+			}
+			
+		}
+		
+		Game.DISPLAYER.displayMsg("He he he, Merci.");
 	}
-
-	/*
-	 * @SuppressWarnings("unchecked")
-	 *
-	 * @Override public void talk() { JSONParser npcParse = new JSONParser(); try {
-	 * JSONArray npcData = (JSONArray) npcParse .parse(new
-	 * FileReader(System.getProperty("user.dir") + "/data/" + this.dataFileName +
-	 * ".json")); Collections.shuffle(npcData); JSONObject npc = (JSONObject)
-	 * npcData.get(0);
-	 *
-	 * String content = (String) npc.get("content"); List<String> answer =
-	 * (JSONArray) npc.get("answer"); List<String> c = (JSONArray)
-	 * npc.get("correct"); String answerNpc = (String) npc.get("answerNpc"); String
-	 * answerNpc2 = (String) npc.get("answerNpc2"); String buyList =
-	 * this.getListOfItems().toString();
-	 *
-	 *
-	 * HashMap<String, Item> sellMap = new HashMap<>(); for (Item item :
-	 * player.getListOfItems()) { if (item.canSell() == true)
-	 * sellMap.put(item.toString(), item); }
-	 *
-	 * Game.DISPLAYER.displayMsg(content);
-	 * Game.DISPLAYER.displayChoise("Voici les réponses possibles : ", answer);
-	 * String responce = Game.INPUT.getString(); if (c.contains(responce)) {
-	 * Game.DISPLAYER.displayMsg("Voici les objects disponible à la vente" +
-	 * buyList); responce = Game.INPUT.getString(); if(buyList.contains(responce)) {
-	 * Game.DISPLAYER.displayMsg("Le prix de cette object est :"
-	 * +item.getValue().toString()+ " Souhaitez vous l'acheter ?(oui/non)");
-	 * responce = Game.INPUT.getString(); if(responce == "oui") {
-	 * Player.inventory.put(item); this.removeInv(item); } else { return; } }
-	 * Game.DISPLAYER.displayMsg(answerNpc); } else {
-	 * Game.DISPLAYER.displayMsg("Qu'aimeriez vous vendre ?" + sellMap); responce =
-	 * Game.INPUT.getString(); if(sellMap.containsValue(responce)) {
-	 * Game.DISPLAYER.displayMsg("Souhaitez vous vendre cette object pour : "
-	 * +item.getValue+ "(oui/non)"); responce = Game.INPUT.getString(); if(responce
-	 * == "oui") { this.addInv(item); player.removeInv(item); } else { return; } }
-	 * Game.DISPLAYER.displayMsg(answerNpc2);
-	 *
-	 * } } catch (FileNotFoundException e) { e.printStackTrace(); } catch
-	 * (IOException e) { e.printStackTrace(); } catch (ParseException e) {
-	 * e.printStackTrace(); } }
-	 */
-
 }
