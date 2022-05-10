@@ -10,6 +10,7 @@ import mazegame.challenge.Challenge;
 import mazegame.character.Character;
 import mazegame.character.Npc;
 import mazegame.character.Player;
+import mazegame.character.npc.Vendor;
 import mazegame.exception.GameBuilderException;
 import mazegame.generation.GenerationAlgorithm;
 import mazegame.item.Item;
@@ -181,6 +182,9 @@ public class GameBuilder {
 
 		this.dispatchHint();
 		this.checksChallengesAreAchievable();
+		
+		this.characters.add(new Vendor(0, 0, this.map));
+		this.player.changeCoins(1000000);
 		
 		for (Cell cell : this.map.getListsOfCells()) {
 			for (Item item : cell.getItemList()) {

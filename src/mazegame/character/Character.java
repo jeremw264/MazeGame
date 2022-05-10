@@ -99,7 +99,7 @@ public abstract class Character {
 	 * @return La liste des objets que le personnage possède.
 	 */
 	public List<Item> getListOfItems() {
-		return this.getInventory();
+		return this.inventory;
 	}
 
 	/**

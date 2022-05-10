@@ -59,7 +59,7 @@ public class Imp extends Npc {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "imp";
+		return "samaritan";
 	}
 
 }
