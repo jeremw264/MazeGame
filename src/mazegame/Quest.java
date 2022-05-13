@@ -26,9 +26,9 @@ public class Quest {
 	}
 
 	/**
-	 * Renvoie true si la quete est terminé, False sinon
+	 * Renvoie true si la quête est terminée, False sinon
 	 *
-	 * @return true si la quete est terminé, False sinon
+	 * @return true si la quête est terminée, False sinon
 	 */
 	public boolean isComplete() {
 

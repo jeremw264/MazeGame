@@ -49,7 +49,7 @@ public enum Direction {
 	}
 
 	/**
-	 * Renvoie une chaîne de caractère qui décrit la direction.
+	 * Renvoie une chaîne de caractères qui décrit la direction.
 	 */
 	@Override
 	public String toString() {

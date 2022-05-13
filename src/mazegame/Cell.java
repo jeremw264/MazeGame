@@ -24,7 +24,7 @@ public class Cell {
 	// Etat de visite de la cellule.
 	private boolean visited;
 
-	// List des objets pr�sents sur la cellule
+	// List des objets présents sur la cellule.
 	private List<Item> items;
 
 	// Liste des personnages sur la case.

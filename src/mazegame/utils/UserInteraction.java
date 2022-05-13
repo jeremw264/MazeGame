@@ -8,7 +8,7 @@ import java.util.Map;
 import mazegame.Game;
 import mazegame.State;
 
-public class UserInteration {
+public class UserInteraction {
 
 	public static final String EXITWORD_STRING = "quitter";
 	public static final String RETURNWORD_STRING = "retour";
@@ -23,7 +23,7 @@ public class UserInteration {
 
 		// Ajouter le choix de pouvoir revenir en arrière
 		if (canCancel) {
-			choises.add(UserInteration.RETURNWORD_STRING);
+			choises.add(UserInteraction.RETURNWORD_STRING);
 		}
 
 		choises.addAll(listOfChoises);
@@ -38,15 +38,15 @@ public class UserInteration {
 
 			choise = Game.INPUT.getString().toLowerCase().strip();
 
-			if (choise.equals(UserInteration.EXITWORD_STRING)) {
+			if (choise.equals(UserInteraction.EXITWORD_STRING)) {
 				responceObjects.put("STATE", State.Exit);
 				break;
-			} else if (choise.equals(UserInteration.RETURNWORD_STRING)) {
+			} else if (choise.equals(UserInteraction.RETURNWORD_STRING)) {
 				responceObjects.put("STATE", State.Cancel);
 			}
 
 			if (!choises.contains(choise)) {
-				Game.DISPLAYER.displayError(UserInteration.INVALIDCHOISE_STRING);
+				Game.DISPLAYER.displayError(UserInteraction.INVALIDCHOISE_STRING);
 			}
 
 		} while (!choises.contains(choise));
@@ -66,7 +66,7 @@ public class UserInteration {
 
 		// Ajouter le choix de pouvoir revenir en arrière
 		if (canCancel) {
-			choises.add(UserInteration.RETURNWORD_STRING);
+			choises.add(UserInteraction.RETURNWORD_STRING);
 		}
 		
 		List<String> listOfChoisesAndDescription = new LinkedList<>();
@@ -88,15 +88,15 @@ public class UserInteration {
 
 			choise = Game.INPUT.getString().toLowerCase().strip();
 
-			if (choise.equals(UserInteration.EXITWORD_STRING)) {
+			if (choise.equals(UserInteraction.EXITWORD_STRING)) {
 				responceObjects.put("STATE", State.Exit);
 				break;
-			} else if (choise.equals(UserInteration.RETURNWORD_STRING)) {
+			} else if (choise.equals(UserInteraction.RETURNWORD_STRING)) {
 				responceObjects.put("STATE", State.Cancel);
 			}
 
 			if (!choises.contains(choise)) {
-				Game.DISPLAYER.displayError(UserInteration.INVALIDCHOISE_STRING);
+				Game.DISPLAYER.displayError(UserInteraction.INVALIDCHOISE_STRING);
 			}
 
 		} while (!choises.contains(choise));

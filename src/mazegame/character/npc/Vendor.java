@@ -19,7 +19,7 @@ import mazegame.item.GoldCoin;
 import mazegame.item.Item;
 import mazegame.item.Jewel;
 import mazegame.item.Scroll;
-import mazegame.utils.UserInteration;
+import mazegame.utils.UserInteraction;
 
 /**
  * Classe Vendor
@@ -122,7 +122,7 @@ public class Vendor extends Npc {
 		Game.DISPLAYER.displayMsg("--------------------------------------------------");
 		
 		Game.DISPLAYER.displayMsg("Weeeelllllcoooooommmmmeeee");
-		java.util.Map<String, Object> responceMode = UserInteration.getChoise("Souhaitez vous acheter ou vendre ? : ", modeList,true);
+		java.util.Map<String, Object> responceMode = UserInteraction.getChoise("Souhaitez vous acheter ou vendre ? : ", modeList,true);
 
 		if (responceMode.get("STATE") != State.Ok) {
 			Game.DISPLAYER.displayMsg("Arretez de me faire perdre mon temps, Etranger ! ");
@@ -134,7 +134,7 @@ public class Vendor extends Npc {
 		if(modeChoice.equals("acheter")) {
 			//Si le joueur choisis d'acheter un objet 
 			List<String> choiceBuy = new LinkedList<>(buyableItems.keySet());
-			java.util.Map<String, Object> responceBuy = UserInteration.getChoise("Que voulez vous acheter ?: ",choiceBuy,descriptionBuyableItems,true);
+			java.util.Map<String, Object> responceBuy = UserInteraction.getChoise("Que voulez vous acheter ?: ",choiceBuy,descriptionBuyableItems,true);
 
 			if (responceBuy.get("STATE") != State.Ok) {
 				Game.DISPLAYER.displayMsg("Vous êtes difficile satisfaire, etranger ! ");
@@ -167,7 +167,7 @@ public class Vendor extends Npc {
 			List<String> choiceSell = new LinkedList<>(sellableItems.keySet()); // passe la HashMap sellableItem en List<String> choiseSell avec le contenu passé en element clé
 			// Fournit la liste d'objet à vendre avec leur description  
 			//récupére un objet dans une map
-			java.util.Map<String, Object> responceSell = UserInteration.getChoise("Que voulez vous vendre ? : ",choiceSell,descriptionSellableItems ,true); 
+			java.util.Map<String, Object> responceSell = UserInteraction.getChoise("Que voulez vous vendre ? : ",choiceSell,descriptionSellableItems ,true); 
 
 			if (responceSell.get("STATE") != State.Ok) {
 				Game.DISPLAYER.displayMsg("C’est tout etranger ?");

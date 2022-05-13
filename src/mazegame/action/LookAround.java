@@ -64,7 +64,7 @@ public class LookAround extends Action {
 			directionNameList.add(direction.toString());
 		}
 
-		Game.DISPLAYER.displayChoise("Les directions accessible sont : ", directionNameList);
+		Game.DISPLAYER.displayChoise("Les directions accessibles sont : ", directionNameList);
 
 	}
 
@@ -78,7 +78,7 @@ public class LookAround extends Action {
 		}
 
 		if (npcsNameList.size() > 0) {
-			Game.DISPLAYER.displayChoise("Voici les personages autour de vous :", npcsNameList);
+			Game.DISPLAYER.displayChoise("Voici les personnages autour de vous :", npcsNameList);
 		}
 	}
 

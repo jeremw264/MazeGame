@@ -28,7 +28,7 @@ import mazegame.item.Scroll;
 public class GameBuilder {
 
 	/**
-	 * Ressource utiliser pour Conception de la classe
+	 * Ressource utilisée pour Conception de la classe
 	 *
 	 * Type Générique :
 	 * https://www.fil.univ-lille.fr/~quinton/coo/cours/generics.pdf Création des
@@ -39,16 +39,16 @@ public class GameBuilder {
 	// La liste des Challenges.
 	private List<Challenge> listOfChallenges;
 
-	// La liste des classe Npc à crée dans le jeu
+	// La liste des classe Npc à créer dans le jeu.
 	private List<Class<? extends Npc>> npcsClasses;
 
-	// La liste des classe Npc à crée dans le jeu
+	// La liste des classe Npc à créer dans le jeu.
 	private List<Class<? extends Item>> itemsClasses;
 
 	// La carte du jeu.
 	private Map map;
 
-	// Liste des indices du jeu
+	// Liste des indices du jeu.
 	private Stack<Hint> hints;
 
 	// La liste de tous les personnage.
@@ -63,17 +63,17 @@ public class GameBuilder {
 	// La classe du player
 	private Class<? extends Player> playerClass;
 
-	// La quete du jeu.
+	// La quête du jeu.
 	private Quest quest;
 
 	private final int nbOfHint = 20;
 
 	private final int nbItemVendor = 5;
 
-	// Le nombre de personnages à mettre dans le jeu
+	// Le nombre de personnages à mettre dans le jeu.
 	private int nbOfCharacters;
 
-	// Le nombre d'objets à mettre dans le jeu
+	// Le nombre d'objets à mettre dans le jeu.
 	private int nbOfItems;
 
 	/**
@@ -264,7 +264,7 @@ public class GameBuilder {
 	}
 
 	/**
-	 * Génére tous les NPC avec les bonne proportion, les place et les ajoute dans
+	 * Génère tous les NPC avec les bonnes proportions, les place et les ajoute dans
 	 * la liste des personnages.
 	 */
 	private void generateNpc() {
@@ -285,7 +285,7 @@ public class GameBuilder {
 	}
 
 	/**
-	 * Génére tous les Item avec les bonne proportion, les place et les ajoute sur
+	 * Génére tous les Item avec les bonnes proportions, les place et les ajoute sur
 	 * la carte.
 	 */
 	private void generateItem() {
@@ -302,7 +302,7 @@ public class GameBuilder {
 	}
 
 	/**
-	 * Renvoie une instance d'un perssonage grâce à la classe.
+	 * Renvoie une instance d'un personnage grâce à la classe.
 	 *
 	 * @param characterClass Le nom de la classe qui hérite de Character.
 	 * @param x              La position horizontale.
@@ -345,7 +345,7 @@ public class GameBuilder {
 	}
 
 	/**
-	 * Renvoie une cellule aleatoire dans la carte.
+	 * Renvoie une cellule aléatoire dans la carte.
 	 *
 	 * @return
 	 */
@@ -358,7 +358,7 @@ public class GameBuilder {
 	}
 
 	/**
-	 * Vérifie si le jeu peu bien être construit.
+	 * Vérifie si le jeu peut bien être construit.
 	 *
 	 * @throws GameBuilderException Si le jeu ne peut pas être construit.
 	 */
@@ -377,10 +377,10 @@ public class GameBuilder {
 	}
 
 	/**
-	 * Verifie que tous les challenges sont réalisable.
+	 * Vérifie que tous les challenges sont réalisables.
 	 *
-	 * @return true si ils sont réalisable, false sinon.
-	 * @throws GameBuilderException Déclanche une exception si un des challenges
+	 * @return true si ils sont réalisables, false sinon.
+	 * @throws GameBuilderException Déclenche une exception si un des challenges
 	 *                              n'est pas réalisable.
 	 */
 	private void checksChallengesAreAchievable() throws GameBuilderException {

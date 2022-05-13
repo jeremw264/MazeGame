@@ -9,24 +9,24 @@ import mazegame.Game;
 import mazegame.State;
 import mazegame.character.Character;
 import mazegame.character.Player;
-import mazegame.utils.UserInteration;
+import mazegame.utils.UserInteraction;
 
 /**
- * Classe PlayerChoise
+ * Classe PlayerChoice
  */
-public class PlayerChoise extends Action {
+public class PlayerChoice extends Action {
 
 	private Map<String, Action> actionsMap;
 
 	/**
 	 * Constructeur de l'objet PlayerChoise.
 	 */
-	public PlayerChoise() {
+	public PlayerChoice() {
 		this.initPlayerActions();
 	}
 
 	/**
-	 * Initialise les actions possible pour le joueur.
+	 * Initialise les actions possibles pour le joueur.
 	 */
 	private void initPlayerActions() {
 		this.actionsMap = new HashMap<>();
@@ -53,15 +53,15 @@ public class PlayerChoise extends Action {
 
 		List<String> keysList = new LinkedList<>(this.actionsMap.keySet());
 
-		Map<String, Object> responceMap = UserInteration.getChoise("Que voulez-vous faire ? ", keysList,false);
+		Map<String, Object> responseMap = UserInteraction.getChoise("Que voulez-vous faire ? ", keysList,false);
 
-		if (responceMap.get("STATE") != State.Ok) {
-			return (State) responceMap.get("STATE");
+		if (responseMap.get("STATE") != State.Ok) {
+			return (State) responseMap.get("STATE");
 		}
 
-		String choise = (String) responceMap.get("choice");
+		String choice = (String) responseMap.get("choice");
 
-		State state = this.actionsMap.get(choise).run(character);
+		State state = this.actionsMap.get(choice).run(character);
 
 		if (state == State.Cancel) {
 			return this.run(character);

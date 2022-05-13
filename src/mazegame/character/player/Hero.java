@@ -4,7 +4,7 @@ import mazegame.Cell;
 import mazegame.Direction;
 import mazegame.Map;
 import mazegame.action.Action;
-import mazegame.action.PlayerChoise;
+import mazegame.action.PlayerChoice;
 import mazegame.character.Player;
 
 /**
@@ -31,7 +31,7 @@ public class Hero extends Player {
 	 */
 	@Override
 	public Action getAction() {
-		return new PlayerChoise();
+		return new PlayerChoice();
 	}
 
 	/**
