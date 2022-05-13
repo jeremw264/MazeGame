@@ -21,36 +21,5 @@ public class UseItemTest extends ActionTest {
 	public void setUp() {
 		this.action = new UseItem();
 	}
-	
-	@Test
-	public void itemIsDestroy() {
-		Map map = new Map(2, 2);
-		Character playerCharacter = new Hero(0, 0, map);
-		Item item = new Item(2,true,true) {
-			
-			@Override
-			public void use(Character character) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public String toString() {
-				// TODO Auto-generated method stub
-				return "myItem";
-			}
-		};
-		
-		playerCharacter.addInv(item);
-		
-		System.setIn(new ByteArrayInputStream((item.toString()).getBytes()));
-		this.action.run(playerCharacter);
-		
-		assertEquals(playerCharacter.getListOfItems().size(),0);
-		
-		
-	}
-
-
 
 }
