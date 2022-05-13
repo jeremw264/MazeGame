@@ -197,12 +197,26 @@ Ecriture de l'UML avant le dévelopement
 
 Création des actions de manière générique grâce a une classe abstraite pour pouvoir facilement ajouter des actions au jeu 
 
+Modification des autres objets pour être cohérent avec la gestion d'actions.
+
+Actions créées:
+-Ne rien faire
+-Regarder aux alentours
+-Se déplacer
+-Ramasser un objet
+-Utiliser un objet
+-Parler
+
+De plus il y a PlayerChoice qui permet de gérer les actions où le joueur doit faire un choix
+
 ### Difficultés restant à résoudre
 
 Aucune difficultés restante à résoudre pour le troisieme livrable
 
 
 ## Livrable 4
+
+Il reste donc à faire le lien entre toutes les parties créées précédemment
 
 ### Atteinte des objectifs
 
@@ -341,6 +355,7 @@ Jérémy : Création d'un game builder, Ecriture des tests utitaire, Modificatio
 Jérémy : Ajout des affichage manquant pour l'utilisateur. 
 
 Timothé : Gestion des pièces d'or du joueur pour l'action de vente et les objectifs de quête
+Suppression de l'algorithme de génération Prim ( Algo non efficace ) pouvant être retrouvé au commit: 983b1500ed98af9eb1ecd46cece77fd471753082
 
 Franck : Override de l'action Discuter pour le vendor afin de faire un syst�me de vente
 
