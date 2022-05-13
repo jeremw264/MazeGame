@@ -20,6 +20,10 @@
 
 [Nos documents de conception de labyrinthe](conception/mazeConception.md)
 
+UML Livrable 1:
+
+![Livrable1 UML](./UML/Livrable1.png)
+
 ### Atteinte des objectifs
 
 Pour le premier livrable, tous les objectifs principale on été atteint:
@@ -93,7 +97,9 @@ Reste à faire la gestion des pièces d'or du joueur
 
 Ecriture de l'UML avant le dévelopement
 
-Création des objets de manière générique grâce a une classe abstraite pour pouvoir facilement ajouter des objet au jeu 
+![UML Action](./UML/Livrable3.png)
+
+Création des actions de manière générique grâce a une classe abstraite pour pouvoir facilement ajouter des actions au jeu 
 
 ### Difficultés restant à résoudre
 
@@ -103,6 +109,10 @@ Aucune difficultés restante à résoudre pour le troisieme livrable
 ## Livrable 4
 
 ### Atteinte des objectifs
+
+UML Final :  
+
+![UML final](./UML/UML.png)
 
 Nous avons fini tous ce qui étais prévu.
 
