@@ -78,7 +78,14 @@ Ils restera à gerer les interactions entre item et character pour gérer les ve
 
 ### Atteinte des objectifs
 
+Tous les objectifs pour les objets ont été atteints il restera des modifications à apporter pour faire le lien avec la gestion des actions.
+-Création de la classe abstraite Item qui donne le comportement que suit chaque objet et la méthode abstraite use
+-Création des sous classe ( Parchemin, Objet de quête et Joyau).
+
 ### Difficultés restant à résoudre
+
+Reste à faire la gestion des pièces d'or du joueur
+
 
 ## Livrable 3
 
@@ -188,8 +195,8 @@ Nous avons donc décider :
 - De réorganiser la génération du labyrinthe.
 - Bien réorganiser le projet et les classes
 
-Franck : Pour le 27/03/22 Commencer l'impl�mentation des Personnages. 
-	Cr�ation de la class abstraite Character. Cr�ation des class concrete des npc.  
+Franck : Pour le 27/03/22 Commencer l'implémentation des Personnages. 
+Création de la class abstraite Character. Création des class concrete des npc.  
 Timothe : Pour le 27/03/22 Commencer l'implémentation des Objets  
 Jérémy : Pour le 27/03/22 Refonte de la structure du projet et du Plateau de jeu + Nettoyage du code
 
@@ -204,7 +211,7 @@ Jérémy : Quest et Challenge
 
 ## Semaine 10
 
-Timothe: Doit faire Action ramaser et utiliser (pour les objet)
+Timothe: Doit faire Action ramasser et utiliser (pour les objet)
 
 Franck: Doit faire Action discuter et se déplacer 
 
@@ -226,3 +233,6 @@ Franck : Création de l'Action Discuter, Modification de celle-ci ( débugg etc 
 Jérémy : Création d'un game builder, Ecriture des tests utitaire, Modification de l'affichage, Maj de l'action regarder, Maj du makefile, Maj Main pour rendu, Ecriture Javadoc et Maj géstion saisie utilisateur.
 
 Jérémy : Ajout des affichage manquant pour l'utilisateur. 
+
+Timothé : Gestion des pièces d'or du joueur pour l'action de vente et les objectifs de quête
+
