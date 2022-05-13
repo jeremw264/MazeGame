@@ -1,6 +1,7 @@
 package mazegame;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
@@ -10,6 +11,7 @@ import mazegame.challenge.Challenge;
 import mazegame.character.Character;
 import mazegame.character.Npc;
 import mazegame.character.Player;
+import mazegame.character.npc.Imp;
 import mazegame.character.npc.Vendor;
 import mazegame.exception.GameBuilderException;
 import mazegame.generation.GenerationAlgorithm;
@@ -33,11 +35,6 @@ public class GameBuilder {
 	 *
 	 */
 
-	private final int nbOfHint = 20;
-
-	// La carte du jeu.
-	private Map map;
-
 	// La liste des Challenges.
 	private List<Challenge> listOfChallenges;
 
@@ -46,6 +43,9 @@ public class GameBuilder {
 
 	// La liste des classe Npc à crée dans le jeu
 	private List<Class<? extends Item>> itemsClasses;
+
+	// La carte du jeu.
+	private Map map;
 
 	// Liste des indices du jeu
 	private Stack<Hint> hints;
@@ -65,13 +65,19 @@ public class GameBuilder {
 	// La quete du jeu.
 	private Quest quest;
 
-	// Le nombre de personnages à mettre dans le jeu
+	private final int nbOfHint = 20;
 
+	private final int nbItemVendor = 5;
+
+	// Le nombre de personnages à mettre dans le jeu
 	private int nbOfCharacters;
 
 	// Le nombre d'objets à mettre dans le jeu
 	private int nbOfItems;
 
+	/**
+	 * Constructeur de l'objet GameBuilder.
+	 */
 	public GameBuilder() {
 		this.listOfChallenges = new LinkedList<>();
 		this.characters = new LinkedList<>();
@@ -114,7 +120,6 @@ public class GameBuilder {
 	/**
 	 * Ajoute un joueur dans le jeu.
 	 *
-	 * @param <T>
 	 * @param className La classe du joueur à ajouter.
 	 * @return L'instance courante du GameBuilder
 	 *
@@ -179,30 +184,73 @@ public class GameBuilder {
 			this.generateItem();
 			this.dispatchItemInMap();
 		}
+		
+		this.generateHintForNpc();
+		
+		if (this.npcsClasses.contains(Vendor.class)) {
+			this.fillVendorInventory();
+		}
 
-		this.dispatchHint();
 		this.checksChallengesAreAchievable();
-		
-		this.characters.add(new Vendor(0, 0, this.map));
-		this.player.changeCoins(1000000);
-		
-		for (Cell cell : this.map.getListsOfCells()) {
+
+		/*for (Cell cell : this.map.getListsOfCells()) {
 			for (Item item : cell.getItemList()) {
 				if (item instanceof Scroll) {
 					System.err.println(cell);
 				}
 			}
-		}
+		}*/
 
 		this.quest = new Quest(this.player, this.listOfChallenges);
 
 		return new Game(this.map, this.characters, this.player, this.quest);
 	}
 
-	private void dispatchHint() {
+	private void fillVendorInventory() {
+
+		List<Class<? extends Item>> sellableItemClasses = new LinkedList<>();
+
+		Random random = new Random();
+
+		for (Character character : characters) {
+			if (character instanceof Vendor) {
+				while (character.getListOfItems().size() < this.nbItemVendor) {
+					Class<? extends Item> itemClass = this.itemsClasses.get(random.nextInt(this.itemsClasses.size()));
+					if (itemClass != Scroll.class) {
+						Item item = constructItem(itemClass);
+						if (item.canSell()) {
+							character.addInv(item);
+						}
+					}
+				}
+			}
+		}
 
 	}
 
+
+	/**
+	 * Répartie les objets sur la carte.
+	 */
+	private void dispatchItemInMap() {
+		for (Item item : items) {
+			Cell cell = this.getRandomCellInMap();
+			cell.addItem(item);
+		}
+	}
+
+	private void generateHintForNpc() {
+		
+		int i = 0;
+		
+		for (Character character : characters) {
+			if (!(character instanceof Vendor || character instanceof Player)) {
+				Npc npc = (Npc)character;
+					npc.setHint(this.listOfChallenges.get(i%this.listOfChallenges.size()).getHint());
+				}
+		}
+	}
+	
 	private void generateHint() {
 		for (int i = 0; i < this.nbOfHint / this.listOfChallenges.size(); i++) {
 			for (Challenge challenge : this.listOfChallenges) {
@@ -291,16 +339,6 @@ public class GameBuilder {
 		}
 
 		return null;
-	}
-
-	/**
-	 * Répartie les objets sur la carte.
-	 */
-	private void dispatchItemInMap() {
-		for (Item item : items) {
-			Cell cell = this.getRandomCellInMap();
-			cell.addItem(item);
-		}
 	}
 
 	/**

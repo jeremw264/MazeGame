@@ -13,6 +13,7 @@ import org.json.simple.parser.ParseException;
 
 import mazegame.Cell;
 import mazegame.Game;
+import mazegame.Hint;
 import mazegame.Map;
 import mazegame.action.Action;
 import mazegame.action.DoNothing;
@@ -23,6 +24,7 @@ import mazegame.action.DoNothing;
 public abstract class Npc extends Character {
 
 	protected String dataFileName;
+	private Hint hint;
 
 	/**
 	 * Constructeur de l'objet Npc.
@@ -36,6 +38,21 @@ public abstract class Npc extends Character {
 		this.dataFileName = dataFileName;
 		// TODO Auto-generated constructor stub
 	}
+	
+	public void displayHint() {
+		if (this.hint != null) {
+			this.hint.displayHint(this);
+		} else {
+			Game.DISPLAYER.displayMsg("Désolé copain je n'ai pas d'indice pour toi :<");
+		}
+	}
+
+
+
+	public void setHint(Hint hint) {
+		this.hint = hint;
+	}
+	
 
 	/**
 	 * Renvoie une action du personnage.
@@ -92,6 +109,7 @@ public abstract class Npc extends Character {
 			responce = Game.INPUT.getString();
 			if (c.contains(responce)) {
 				Game.DISPLAYER.displayMsg(answerNpc);
+				this.displayHint();
 			} else {
 				Game.DISPLAYER.displayMsg(answerNpc2);
 				return;
