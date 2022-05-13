@@ -197,12 +197,26 @@ Ecriture de l'UML avant le dévelopement
 
 Création des actions de manière générique grâce a une classe abstraite pour pouvoir facilement ajouter des actions au jeu 
 
+Modification des autres objets pour être cohérent avec la gestion d'actions.
+
+Actions créées:
+-Ne rien faire
+-Regarder aux alentours
+-Se déplacer
+-Ramasser un objet
+-Utiliser un objet
+-Parler
+
+De plus il y a PlayerChoice qui permet de gérer les actions où le joueur doit faire un choix
+
 ### Difficultés restant à résoudre
 
 Aucune difficultés restante à résoudre pour le troisieme livrable
 
 
 ## Livrable 4
+
+Il reste donc à faire le lien entre toutes les parties créées précédemment
 
 ### Atteinte des objectifs
 
