@@ -53,6 +53,6 @@ public class ImpTest extends NpcTest {
 
 	@Test
 	public void toStringTest() {
-		assertEquals(this.npc.toString(), "imp");
+		assertEquals(this.npc.toString(), "samaritan");
 	}
 }
