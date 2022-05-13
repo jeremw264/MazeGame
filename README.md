@@ -355,6 +355,7 @@ Jérémy : Création d'un game builder, Ecriture des tests utitaire, Modificatio
 Jérémy : Ajout des affichage manquant pour l'utilisateur. 
 
 Timothé : Gestion des pièces d'or du joueur pour l'action de vente et les objectifs de quête
+Suppression de l'algorithme de génération Prim ( Algo non efficace ) pouvant être retrouvé au commit: 983b1500ed98af9eb1ecd46cece77fd471753082
 
 Franck : Override de l'action Discuter pour le vendor afin de faire un syst�me de vente
 
