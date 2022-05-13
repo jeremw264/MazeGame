@@ -99,6 +99,9 @@ public class ConsoleDisplayer implements Displayer {
 
 	}
 
+	/**
+	 * Affichage du début de partie
+	 */
 	@Override
 	public void displayStartGame() {
 
@@ -116,6 +119,9 @@ public class ConsoleDisplayer implements Displayer {
 
 	}
 
+	/**
+	 * Affichage de l'indice
+	 */
 	@Override
 	public void displayHint(String hintMessage) {
 		int sizeMessage = hintMessage.length();

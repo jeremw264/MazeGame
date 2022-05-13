@@ -13,7 +13,7 @@ public interface Input {
 	public String getString();
 
 	/**
-	 * Ferme l'entré.
+	 * Ferme l'entrée.
 	 */
 	public void closeInput();
 }

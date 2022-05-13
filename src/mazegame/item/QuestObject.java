@@ -16,7 +16,9 @@ public class QuestObject extends Item {
 		super(0, false, false);
 	}
 
-	// Cette objet n'est pas utilisable
+	/**
+	 * Cet objet n'est pas utilisable
+	 */
 	@Override
 	public void use(Character character) {
 		return ;

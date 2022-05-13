@@ -7,6 +7,9 @@ import mazegame.character.Npc;
 import mazegame.character.npc.Imp;
 import mazegame.item.Item;
 
+/**
+ * Classe Hint
+ */
 public class Hint {
 
 	// Case de destination de l'indice
@@ -52,17 +55,31 @@ public class Hint {
 		this.npcToMeet = npc;
 	}
 
+	/**
+	 * Constructeur de l'objet Hint pour un indice sur le nombre de tours à attendre
+	 * 
+	 * @param numberOfRoundsToWait
+	 */
 	public Hint(int numberOfRoundsToWait) {
 		this.type = HintType.TIME_HINT;
 		this.numberOfRoundsToWait = numberOfRoundsToWait;
 	}
 
+	/**
+	 * Constructeur de l'objet Hint pour un indice d'objet à trouver
+	 * 
+	 * @param item
+	 * @param nbOfItem
+	 */
 	public Hint(Item item,int nbOfItem) {
 		this.type = HintType.OBJECT_HINT;
 		this.item = item;
 		this.nbOfItem = nbOfItem;
 	}
 	
+	/**
+	 * Constructeur de l'objet Hint qui n'aide pas 
+	 */
 	public Hint() {
 		this.type = HintType.NONE_HINT;
 	}
@@ -86,11 +103,21 @@ public class Hint {
 		}
 	}
 
+	/**
+	 * Affichage d'un indice qui n'aide pas
+	 * 
+	 * @param character
+	 */
 	private void displayNoneHint(Character character) {
 		Game.DISPLAYER.displayHint("Malhuereusement tu devra trouvé par toi-même");
 
 	}
 
+	/**
+	 * Affichage d'un indice objet
+	 * 
+	 * @param character
+	 */
 	private void displayObjectHint(Character character) {
 		if (character instanceof Imp) {
 			Game.DISPLAYER.displayHint("Tu dois ramasser 50 bout de calamar");
@@ -100,6 +127,11 @@ public class Hint {
 
 	}
 
+	/**
+	 * Affichage d'un indice de tours à attendre
+	 * 
+	 * @param character
+	 */
 	private void displayTimeToWaitHint(Character character) {
 		if (character instanceof Imp) {
 			Game.DISPLAYER.displayHint("Tu dois ne plus bouger sinon tu meurs");
@@ -109,6 +141,11 @@ public class Hint {
 
 	}
 
+	/**
+	 * Affichage d'un indice menant à un npc
+	 * 
+	 * @param character
+	 */
 	private void displayNpcToMeetHint(Character character) {
 		if (character instanceof Imp) {
 			Game.DISPLAYER.displayHint("Tu dois te trouvéé héhé");
@@ -117,6 +154,11 @@ public class Hint {
 		}
 	}
 
+	/**
+	 * Affichage d'un indice menant à une cellule
+	 * 
+	 * @param character
+	 */
 	private void displayCellHint(Character character) {
 
 		if (character instanceof Imp) {

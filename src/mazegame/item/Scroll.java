@@ -20,6 +20,9 @@ public class Scroll extends Item {
 		this.hint = hint;
 	}
 
+	/**
+	 * Cet objet n'est pas utilisable
+	 */
 	@Override
 	public void use(Character character) {
 		this.hint.displayHint(character);

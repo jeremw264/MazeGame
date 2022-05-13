@@ -25,6 +25,9 @@ public class WaitRound extends Challenge {
 	}
 
 	@Override
+	/**
+	 * Méthode renvoyant un booléen pour savoir si le challenge est complété
+	 */
 	public boolean isFinish(Player player) {
 		if (this.nbOfRounds < this.nbOfRoundsWaiting) {
 			this.nbOfRounds++;
@@ -35,16 +38,25 @@ public class WaitRound extends Challenge {
 	}
 
 	@Override
+	/**
+	 * Méthode renvoyant un booléen pour savoir si le challenge est possible
+	 */
 	public boolean isPossible(List<Character> characters, List<Item> items) {
 		return true;
 	}
 
 	@Override
+	/**
+	 * Renvoies l'indice lié au challenge
+	 */
 	public Hint getHint() {
 		return new Hint(this.nbOfRounds);
 	}
 	
 	@Override
+	/**
+	 * Renvoies une représentation du challenge en chaîne de caractères
+	 */
 	public String toString() {
 		// TODO Auto-generated method stub
 		return "Défis : Attendre "+this.nbOfRoundsWaiting+" tours";

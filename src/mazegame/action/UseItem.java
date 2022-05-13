@@ -18,6 +18,9 @@ import mazegame.utils.UserInteraction;
 public class UseItem extends Action {
 
 	@Override
+	/**
+	 * Méthode exécutant l'action
+	 */
 	public State run(Character character) {
 
 		// Map des objets utilisables.

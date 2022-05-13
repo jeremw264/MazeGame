@@ -33,6 +33,9 @@ public class Sphinx extends Npc {
 		return new Cell(getX(), getY());
 	}
 
+	/**
+	 * Renvoie une représentation du npc en chaîne de caractères
+	 */
 	@Override
 	public String toString() {
 		return "sphinx";

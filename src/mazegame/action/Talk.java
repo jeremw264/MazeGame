@@ -15,6 +15,9 @@ import mazegame.utils.UserInteraction;
  */
 public class Talk extends Action {
 	@Override
+	/**
+	 * Méthode exécutant l'action
+	 */
 	public State run(Character character) {
 
 		List<Character> characters = character.getCell().charactersList();

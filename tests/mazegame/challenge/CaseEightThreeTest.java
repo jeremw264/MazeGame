@@ -28,7 +28,7 @@ public class CaseEightThreeTest {
 	public void setUp() throws Exception {
 		Map map = new Map(10, 10);
 		this.player = new Hero(0, 0, map);
-		this.challenge = new CaseEightTree();
+		this.challenge = new CaseEightThree();
 	}
 
 	@Test

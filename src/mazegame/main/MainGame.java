@@ -1,7 +1,7 @@
 package mazegame.main;
 
 import mazegame.GameBuilder;
-import mazegame.challenge.CaseEightTree;
+import mazegame.challenge.CaseEightThree;
 import mazegame.challenge.GetGoldCoins;
 import mazegame.challenge.WaitRound;
 import mazegame.character.npc.Imp;
@@ -67,7 +67,7 @@ public class MainGame {
 			.setItemClass(Jewel.class)
 			.setItemClass(GoldCoin.class)
 			.setItemClass(Scroll.class)
-			.setChallenge(new CaseEightTree())
+			.setChallenge(new CaseEightThree())
 			.setChallenge(new GetGoldCoins(5));
 
 		try {

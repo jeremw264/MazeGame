@@ -71,11 +71,17 @@ public class Vendor extends Npc {
 		return new Move();
 	}
 
+	/**
+	 * Renvoie une représentation du npc en chaîne de caractères
+	 */
 	@Override
 	public String toString() {
 		return "vendor";
 	}
 
+	/**
+	 * Gestion de la discussion avec ce npc
+	 */
 	public void talk() {
 
 		Player player = null;

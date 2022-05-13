@@ -22,6 +22,9 @@ public class GetGoldCoins extends Challenge {
 	}
 
 	@Override
+	/**
+	 * Méthode renvoyant un booléen pour savoir si le challenge est complété
+	 */
 	public boolean isFinish(Player player) {
 
 		if (player.getCoins() > this.tempNbOfPlayerGoldCoin) {
@@ -35,6 +38,9 @@ public class GetGoldCoins extends Challenge {
 	}
 
 	@Override
+	/**
+	 * Méthode renvoyant un booléen pour savoir si le challenge est possible
+	 */
 	public boolean isPossible(List<Character> characters, List<Item> items) {
 		int nbOfGoldCoins = 0;
 
@@ -48,12 +54,18 @@ public class GetGoldCoins extends Challenge {
 	}
 
 	@Override
+	/**
+	 * Renvoies l'indice lié au challenge
+	 */
 	public Hint getHint() {
 		// TODO Auto-generated method stub
 		return new Hint(new GoldCoin(),this.nbOfGoldCoinsToFinish);
 	}
 	
 	@Override
+	/**
+	 * Renvoies une représentation du challenge en chaîne de caractères
+	 */
 	public String toString() {
 		// TODO Auto-generated method stub
 		return "Défis : Ramasser "+this.nbOfGoldCoinsToFinish+" pièce";

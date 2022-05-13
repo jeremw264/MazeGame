@@ -56,6 +56,9 @@ public class Imp extends Npc {
 		return new Move();
 	}
 
+	/**
+	 * Renvoie une représentation du npc en chaîne de caractères
+	 */
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub

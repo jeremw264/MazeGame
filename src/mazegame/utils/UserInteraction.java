@@ -8,6 +8,9 @@ import java.util.Map;
 import mazegame.Game;
 import mazegame.State;
 
+/**
+ * Classe UserInteraction
+ */
 public class UserInteraction {
 
 	public static final String EXITWORD_STRING = "quitter";

@@ -5,7 +5,7 @@ import mazegame.character.Character;
 /**
  * Classe GoldCoin
  *
- * Objet pi�ce d'or
+ * Objet pièce d'or
  */
 public class GoldCoin extends Item{
 

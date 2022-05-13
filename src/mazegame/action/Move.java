@@ -20,6 +20,9 @@ import mazegame.utils.UserInteraction;
 public class Move extends Action {
 
 	@Override
+	/**
+	 * Méthode exécutant l'action
+	 */
 	public State run(Character character) {
 		if (character instanceof Npc) {
 			Npc npc = (Npc) character;

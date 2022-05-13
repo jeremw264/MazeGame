@@ -19,6 +19,9 @@ import mazegame.utils.UserInteraction;
 public class PickUp extends Action {
 
 	@Override
+	/**
+	 * Méthode exécutant l'action
+	 */
 	public State run(Character character) {
 		// Cellule actuelle du joueur.
 		final Cell cell = character.getCell();

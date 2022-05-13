@@ -39,6 +39,9 @@ public abstract class Npc extends Character {
 		// TODO Auto-generated constructor stub
 	}
 	
+	/**
+	 * Affiche l'indice donné par le npc
+	 */
 	public void displayHint() {
 		if (this.hint != null) {
 			this.hint.displayHint(this);
@@ -49,6 +52,11 @@ public abstract class Npc extends Character {
 
 
 
+	/**
+	 * Attribue l'indice en paramètre au npc
+	 * 
+	 * @param hint
+	 */
 	public void setHint(Hint hint) {
 		this.hint = hint;
 	}

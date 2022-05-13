@@ -31,10 +31,18 @@ abstract public class Item {
 		return this.sellability;
 	}
 
+	/**
+	 * Méthode pour changer la possiblité de vente d'un objet
+	 */
 	protected void switchSellability() {
 		this.sellability = !this.sellability;
 	}
 
+	/**
+	 * Méthode pour savoir si un objet est vendable
+	 * 
+	 * @return boolean
+	 */
 	public boolean isUsable() {
 		return this.usability;
 	}
@@ -57,6 +65,11 @@ abstract public class Item {
 		this.value = newValue;
 	}
 
+	/**
+	 * Méthode d'utilisation des objets
+	 * 
+	 * @param character
+	 */
 	abstract public void use(Character character);
 
 	/**
