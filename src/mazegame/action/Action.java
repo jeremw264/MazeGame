@@ -9,9 +9,9 @@ import mazegame.character.Character;
 public abstract class Action {
 
 	/**
-	 * Execute l'action.
+	 * Exécute l'action.
 	 *
-	 * @param character Le personnage qui execute l'action
+	 * @param character Le personnage qui exécute l'action
 	 */
 	public abstract State run(Character character);
 }

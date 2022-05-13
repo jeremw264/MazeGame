@@ -8,7 +8,7 @@ import org.junit.Before;
 
 public class UserInteractionTest {
 
-	private UserInteration userInteration;
+	private UserInteraction userInteration;
 
 	protected final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 	protected final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
@@ -17,7 +17,7 @@ public class UserInteractionTest {
 
 	@Before
 	public void setUp() throws Exception {
-		this.userInteration = new UserInteration();
+		this.userInteration = new UserInteraction();
 	}
 
 	@Before

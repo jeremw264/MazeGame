@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Classe qui represente la carte du jeu.
+ * Classe qui représente la carte du jeu.
  */
 public class Map {
 
@@ -15,7 +15,7 @@ public class Map {
 	// Hauteur de la carte.
 	private int height;
 
-	// Liste des cases qui compose la carte.
+	// Liste des cases qui composent la carte.
 	private List<Cell> cellsList;
 
 	/**
@@ -35,7 +35,7 @@ public class Map {
 	 *
 	 * @param width      Largeur de la carte.
 	 * @param heigth     Hauteur de la carte.
-	 * @param wallsExist true il les murs interne doivent être généré, false dans le
+	 * @param wallsExist true si les murs internes doivent être générés, false dans le
 	 *                   cas contraire.
 	 */
 	public Map(int width, int height, boolean wallsExist) {
@@ -72,11 +72,11 @@ public class Map {
 	}
 
 	/**
-	 * Renvoie la case qui corresponds au coordonnée passé en paramètre.
+	 * Renvoie la case qui correspond au coordonnées passées en paramètre.
 	 *
-	 * @param y Coordonne horizontale
-	 * @param x Coordonne verticale
-	 * @return la case qui correspont au coordonne, null si elle n'est pas dans la
+	 * @param y Coordonnée horizontale
+	 * @param x Coordonnée verticale
+	 * @return la case qui correspond au coordonnées, null si elle n'est pas dans la
 	 *         carte.
 	 */
 	public Cell getCell(int x, int y) {
@@ -103,7 +103,7 @@ public class Map {
 	 * Renvoie la cellule voisine de la cellule courante en fonction de la direction
 	 *
 	 * @param cell      la cellule courante
-	 * @param direction la direction de la cellule voisine par rapport a la cellule
+	 * @param direction la direction de la cellule voisine par rapport à la cellule
 	 *                  courante
 	 *
 	 * @return La cellule voisine dans la direction choisie, null si la cellule
@@ -128,9 +128,9 @@ public class Map {
 	}
 
 	/**
-	 * Renvoie une liste des cellules voisines de la cellule en paramètre.
+	 * Renvoie une liste de cellules voisines de la cellule en paramètre.
 	 *
-	 * @param currentCell La cellule courante de la quelle on veux obtenir les
+	 * @param currentCell La cellule courante à partir de laquelle on veut obtenir les
 	 *                    voisines.
 	 *
 	 * @return Une liste des cellules voisines.
@@ -157,16 +157,16 @@ public class Map {
 	}
 
 	/**
-	 * Renvoie la représentation du labyrinte en chaine de caractère.
+	 * Renvoie la représentation du labyrinthe en chaîne de caractères.
 	 *
-	 * @return la représentation du labyrinte en chaine de caractère.
+	 * @return la représentation du labyrinthe en chaîne de caractères.
 	 */
 	@Override
 	public String toString() {
 
 		StringBuilder mazeStringBuilder = new StringBuilder();
 
-		// La premiere ligne
+		// La première ligne.
 
 		for (int x = 0; x < this.width; x++) {
 			mazeStringBuilder.append("+---");
@@ -174,7 +174,7 @@ public class Map {
 
 		mazeStringBuilder.append("+\n");
 
-		// Les autres ligne
+		// Les autres lignes.
 
 		for (int y = 0; y < this.height; y++) {
 
@@ -216,9 +216,9 @@ public class Map {
 	}
 
 	/**
-	 * Crée une représentation de la carte sous la forme d'une liste de cellule.
+	 * Crée une représentation de la carte sous forme d'une liste de cellules.
 	 *
-	 * @param wallsExist true si la carte crée doit contenir de mur interne, false
+	 * @param wallsExist true si la carte créée doit contenir des murs internes, false
 	 *                   dans le cas contraire.
 	 */
 	private void initMap(boolean wallsExist) {

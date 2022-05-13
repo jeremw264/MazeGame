@@ -8,7 +8,7 @@ import java.util.Map;
 import mazegame.State;
 import mazegame.character.Character;
 import mazegame.character.Npc;
-import mazegame.utils.UserInteration;
+import mazegame.utils.UserInteraction;
 
 /**
  * Action : Parler avec un Npc
@@ -27,15 +27,15 @@ public class Talk extends Action {
 		}
 		List<String> npcOnCell = new LinkedList<>(npcMap.keySet());
 
-		// Choix du joueur
+		// Choix du joueur.
 
-		Map<String, Object> responceMap = UserInteration.getChoise("A qui souhaitez vous parler ?", npcOnCell,true);
+		Map<String, Object> responseMap = UserInteraction.getChoise("A qui souhaitez vous parler ?", npcOnCell,true);
 
-		if (responceMap.get("STATE") != State.Ok) {
-			return (State) responceMap.get("STATE");
+		if (responseMap.get("STATE") != State.Ok) {
+			return (State) responseMap.get("STATE");
 		}
 
-		String choice = (String) responceMap.get("choice");
+		String choice = (String) responseMap.get("choice");
 
 		Npc npc = npcMap.get(choice);
 

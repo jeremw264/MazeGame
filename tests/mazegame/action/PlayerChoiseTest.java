@@ -16,7 +16,7 @@ public class PlayerChoiseTest extends ActionTest {
 	@Override
 	@Before
 	public void setUp() {
-		this.action = new PlayerChoise();
+		this.action = new PlayerChoice();
 	}
 
 	@Test

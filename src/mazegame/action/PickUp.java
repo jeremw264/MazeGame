@@ -11,7 +11,7 @@ import mazegame.State;
 import mazegame.character.Character;
 import mazegame.item.GoldCoin;
 import mazegame.item.Item;
-import mazegame.utils.UserInteration;
+import mazegame.utils.UserInteraction;
 
 /**
  * Action : ramasser un objet sur la case.
@@ -20,10 +20,10 @@ public class PickUp extends Action {
 
 	@Override
 	public State run(Character character) {
-		// Cellule actuelle du joueur
+		// Cellule actuelle du joueur.
 		final Cell cell = character.getCell();
 
-		// Map des objets presents sur la cellule
+		// Map des objets présents sur la cellule.
 		Map<String, Item> itemMap = new HashMap<>();
 
 		for (Item item : character.getCell().getItemList()) {
@@ -32,32 +32,32 @@ public class PickUp extends Action {
 
 		List<String> itemStrings = new ArrayList<>(itemMap.keySet());
 
-		// Choix du joueur
+		// Choix du joueur.
 
-		Map<String, Object> responceMap = UserInteration.getChoise("Voici les objets sur la case : ", itemStrings,true);
+		Map<String, Object> responseMap = UserInteraction.getChoise("Voici les objets sur la case : ", itemStrings,true);
 
-		if (responceMap.get("STATE") != State.Ok) {
-			return (State) responceMap.get("STATE");
+		if (responseMap.get("STATE") != State.Ok) {
+			return (State) responseMap.get("STATE");
 		}
 
-		String choice = (String) responceMap.get("choice");
+		String choice = (String) responseMap.get("choice");
 
 		Item choseItem = itemMap.get(choice);
 
-		// Ajout d'une piece au nombre d'or que le personnage possede
+		// Ajout d'une pièce au nombre d'or que le personnage possède.
 		if (choseItem instanceof GoldCoin) {
 			character.changeCoins(choseItem.getValue());
 
-			Game.DISPLAYER.displayMsg("Vous possedez maintenant "+ character.getCoins() + " pieces");
+			Game.DISPLAYER.displayMsg("Vous possèdez maintenant "+ character.getCoins() + " pièces");
 		}
 		else {
-			// Ajout de l'objet choisi a l'inventaire du personnage si ce n'est pas une piece
+			// Ajout de l'objet choisi a l'inventaire du personnage si ce n'est pas une pièce
 			character.getListOfItems().add(choseItem);
 
 			// Suppression de l'objet de la liste d'objets de la cellule actuelle
 			cell.rmvItem(choseItem);
 
-			Game.DISPLAYER.displayMsg("L'objet a vos pieds a ete ramasse");
+			Game.DISPLAYER.displayMsg("L'objet a vos pieds a ete ramassé");
 
 		}
 

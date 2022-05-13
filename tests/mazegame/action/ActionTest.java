@@ -15,7 +15,7 @@ import mazegame.Map;
 import mazegame.State;
 import mazegame.character.Character;
 import mazegame.character.player.Hero;
-import mazegame.utils.UserInteration;
+import mazegame.utils.UserInteraction;
 
 public class ActionTest {
 
@@ -35,10 +35,10 @@ public class ActionTest {
 
 				String choiseString = Game.INPUT.getString();
 
-				if (choiseString.equals(UserInteration.EXITWORD_STRING) ) {
+				if (choiseString.equals(UserInteraction.EXITWORD_STRING) ) {
 					return State.Exit;
 				}
-				else if (choiseString.equals(UserInteration.RETURNWORD_STRING)) {
+				else if (choiseString.equals(UserInteraction.RETURNWORD_STRING)) {
 					return State.Cancel;
 				}else {
 
@@ -65,7 +65,7 @@ public class ActionTest {
 		Map map = new Map(2, 2);
 		Character playerCharacter = new Hero(0, 0, map);
 
-		System.setIn(new ByteArrayInputStream(UserInteration.EXITWORD_STRING.getBytes()));
+		System.setIn(new ByteArrayInputStream(UserInteraction.EXITWORD_STRING.getBytes()));
 		State state = this.action.run(playerCharacter);
 
 		assertEquals(state, State.Exit);
@@ -77,7 +77,7 @@ public class ActionTest {
 		Map map = new Map(2, 2);
 		Character playerCharacter = new Hero(0, 0, map);
 
-		System.setIn(new ByteArrayInputStream(UserInteration.RETURNWORD_STRING.getBytes()));
+		System.setIn(new ByteArrayInputStream(UserInteraction.RETURNWORD_STRING.getBytes()));
 		State state = this.action.run(playerCharacter);
 
 		assertEquals(state, State.Cancel);

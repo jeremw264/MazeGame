@@ -11,7 +11,7 @@ import org.junit.Test;
 import mazegame.Cell;
 import mazegame.Direction;
 import mazegame.Map;
-import mazegame.action.PlayerChoise;
+import mazegame.action.PlayerChoice;
 
 public class HeroTest {
 
@@ -28,7 +28,7 @@ public class HeroTest {
 
 	@Test
 	public void getActionTest() {
-		assertTrue(this.hero.getAction() instanceof PlayerChoise);
+		assertTrue(this.hero.getAction() instanceof PlayerChoice);
 	}
 
 	@Test
