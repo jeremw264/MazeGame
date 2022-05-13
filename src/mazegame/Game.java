@@ -45,7 +45,6 @@ public class Game {
 	 * @param player     Le joueur que contrôle l'utilisateur.
 	 * @param quest      La quête a accomplir pour finir le jeu.
 	 *
-	 * @see Ce contructeur est utilisé par le GameBuilder.
 	 */
 	public Game(Map map, List<Character> characters, Player player, Quest quest) {
 		this.map = map;
@@ -77,7 +76,7 @@ public class Game {
 			}
 		}
 		
-		if (!gameState) {
+		if (gameState) {
 			Game.DISPLAYER.displayMsg("Bravo tu as terminé la quête !!!");
 		}
 

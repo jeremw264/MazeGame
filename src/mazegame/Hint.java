@@ -9,25 +9,44 @@ import mazegame.item.Item;
 
 public class Hint {
 
+	// Case de destination de l'indice
 	private Cell destinationCell;
+	
+	// Npc à rencontrer.
 	private Npc npcToMeet;
+	
+	// Nombre de tour à attendre pour l'indice.
 	private int numberOfRoundsToWait;
+	
+	// L'objet à trouvé pour l'indice
 	private Item item;
+	
+	// Le nombre de l'objet à trouvé pour l'indice.
 	private int nbOfItem;
+	
+	// Le type de l'indice
 	private HintType type;
 
+	// Les types possible pour l'indice.
 	public enum HintType {
 		OBJECT_HINT, NPC_HINT, CELL_HINT, TIME_HINT, NONE_HINT
 	}
 
 	/**
-	 * Constructeur de l'objet Hint
+	 * Constructeur de l'objet Hint pour un indice jusqu'a une case à trouvé
+	 * 
+	 * @param La case sur laquelle donnée un indice
 	 */
 	public Hint(Cell cell) {
 		this.type = HintType.CELL_HINT;
 		this.destinationCell = cell;
 	}
 
+	/**
+	 * Constructeur de l'objet Hint pour un indice jusqu'a un npc à trouvé
+	 * 
+	 * @param npc Le Npc à trouver
+	 */
 	public Hint(Npc npc) {
 		this.type = HintType.NPC_HINT;
 		this.npcToMeet = npc;

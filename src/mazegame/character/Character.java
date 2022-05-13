@@ -108,13 +108,7 @@ public abstract class Character {
 	 * @param o L'objet à ajouter.
 	 */
 	public void addInv(Item item) {
-		if (this.getInventory() != null) {
-			this.getInventory().add(item);
-		} else {
-			this.inventory = new LinkedList<>();
-			this.getInventory().add(item);
-		}
-
+		this.getInventory().add(item);
 	}
 
 	/**

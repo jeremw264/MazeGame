@@ -48,9 +48,6 @@ public class GameBuilder {
 	// La carte du jeu.
 	private Map map;
 
-	// Liste des indices du jeu.
-	private Stack<Hint> hints;
-
 	// La liste de tous les personnage.
 	private List<Character> characters;
 
@@ -66,8 +63,10 @@ public class GameBuilder {
 	// La quête du jeu.
 	private Quest quest;
 
-	private final int nbOfHint = 20;
+	// Valeur utiliser pour récupérer un indice pour la génération des parchemins.
+	private int indexChallengeForNextHint = 0;
 
+	// Nombre d'objet que possède le marchand au début.
 	private final int nbItemVendor = 5;
 
 	// Le nombre de personnages à mettre dans le jeu.
@@ -85,7 +84,6 @@ public class GameBuilder {
 		this.items = new LinkedList<>();
 		this.npcsClasses = new LinkedList<>();
 		this.itemsClasses = new LinkedList<>();
-		this.hints = new Stack<>();
 	}
 
 	/**
@@ -176,8 +174,6 @@ public class GameBuilder {
 
 		this.characters.add(this.player);
 
-		this.generateHint();
-
 		if (this.npcsClasses.size() > 0) {
 			this.generateNpc();
 		}
@@ -185,33 +181,24 @@ public class GameBuilder {
 			this.generateItem();
 			this.dispatchItemInMap();
 		}
-		
+
 		this.generateHintForNpc();
-		
+
 		if (this.npcsClasses.contains(Vendor.class)) {
 			this.fillVendorInventory();
 		}
-		
-		this.player.addInv(new Jewel());
 
 		this.checksChallengesAreAchievable();
-
-		/*for (Cell cell : this.map.getListsOfCells()) {
-			for (Item item : cell.getItemList()) {
-				if (item instanceof Scroll) {
-					System.err.println(cell);
-				}
-			}
-		}*/
 
 		this.quest = new Quest(this.player, this.listOfChallenges);
 
 		return new Game(this.map, this.characters, this.player, this.quest);
 	}
 
+	/**
+	 * Remplit l'inventaire des marchands dans le jeu.
+	 */
 	private void fillVendorInventory() {
-
-		List<Class<? extends Item>> sellableItemClasses = new LinkedList<>();
 
 		Random random = new Random();
 
@@ -231,36 +218,32 @@ public class GameBuilder {
 
 	}
 
-
 	/**
 	 * Répartie les objets sur la carte.
 	 */
 	private void dispatchItemInMap() {
 		for (Item item : items) {
 			Cell cell = this.getRandomCellInMap();
+			while (cell.getItemList().size() > 0) {
+				cell = this.getRandomCellInMap();
+			}
 			cell.addItem(item);
 		}
 	}
 
+	/**
+	 * Attribue un indice pour chaque npc du jeu sauf au marchand.
+	 */
 	private void generateHintForNpc() {
-		
+
 		int i = 0;
-		
+
 		for (Character character : characters) {
 			if (!(character instanceof Vendor || character instanceof Player)) {
-				Npc npc = (Npc)character;
-					npc.setHint(this.listOfChallenges.get(i%this.listOfChallenges.size()).getHint());
-				}
-		}
-	}
-	
-	private void generateHint() {
-		for (int i = 0; i < this.nbOfHint / this.listOfChallenges.size(); i++) {
-			for (Challenge challenge : this.listOfChallenges) {
-				hints.push(challenge.getHint());
+				Npc npc = (Npc) character;
+				npc.setHint(this.listOfChallenges.get(i % this.listOfChallenges.size()).getHint());
 			}
 		}
-
 	}
 
 	/**
@@ -275,8 +258,12 @@ public class GameBuilder {
 		for (Class<? extends Character> npcClassName : this.npcsClasses) {
 			for (int i = 0; i < numberOfEachNpc; i++) {
 
-				Character npcCharacter = this.constructCharacter(npcClassName, random.nextInt(this.map.getWidth()),
-						random.nextInt(this.map.getHeight()), this.map);
+				Cell cell = this.getRandomCellInMap();
+				while (cell.charactersList().size() > 0) {
+					cell = this.getRandomCellInMap();
+				}
+
+				Character npcCharacter = this.constructCharacter(npcClassName, cell.getX(), cell.getY(), this.map);
 
 				this.characters.add(npcCharacter);
 
@@ -331,7 +318,9 @@ public class GameBuilder {
 	private Item constructItem(Class<? extends Item> itemClass) {
 		try {
 			if (itemClass == Scroll.class) {
-				Hint hint = this.hints.pop();
+				Hint hint = this.listOfChallenges.get(indexChallengeForNextHint % this.listOfChallenges.size())
+						.getHint();
+				this.indexChallengeForNextHint++;
 				return itemClass.getDeclaredConstructor(Hint.class).newInstance(hint);
 			} else {
 				return itemClass.getDeclaredConstructor().newInstance();
@@ -347,7 +336,7 @@ public class GameBuilder {
 	/**
 	 * Renvoie une cellule aléatoire dans la carte.
 	 *
-	 * @return
+	 * @return Une cellule aléatoire de la carte.
 	 */
 	private Cell getRandomCellInMap() {
 		Random random = new Random();

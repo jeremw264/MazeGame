@@ -24,7 +24,7 @@ public class Cell {
 	// Etat de visite de la cellule.
 	private boolean visited;
 
-	// List des objets présents sur la cellule.
+	// Liste des objets présents sur la cellule.
 	private List<Item> items;
 
 	// Liste des personnages sur la case.
@@ -209,7 +209,8 @@ public class Cell {
 	}
 
 	/**
-	 * Description de la cellule sous forme de chaîne de caractère.
+	 * Description des coordonnéesde la cellule sous forme de chaîne de caractère.
+	 * 
 	 */
 	@Override
 	public String toString() {
