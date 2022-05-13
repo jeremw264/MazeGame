@@ -27,3 +27,4 @@ Cette action permettra au joueur d'utiliser les items récolter via l'action Pick
 
 ## Conception détaillé
 
+Test
