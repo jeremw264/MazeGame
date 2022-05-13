@@ -39,10 +39,7 @@ public class Vendor extends Npc {
 		super(x, y, map, "Vendor");
 		this.changeCoins(50);
 		// TODO Auto-generated constructor stub
-		this.addInv(new Jewel());
-		this.addInv(new Jewel());
-		this.addInv(new GoldCoin());
-		this.addInv(new Jewel());
+		
 	}
 
 	/**
@@ -112,18 +109,22 @@ public class Vendor extends Npc {
 		
 		//List des descriptions des objets vendables
 		for (Item item : sellableItems.values()) {
-			descriptionSellableItems.add("Le prix de cette objet est : " +item.getValue());
+			descriptionSellableItems.add(" | Le prix de cette objet est : " +item.getValue());
 		}
 		
 		//List des descriptions des objets achetables
 		for (Item item : buyableItems.values()) {
-			descriptionBuyableItems.add("Le prix de cette objet est : " +item.getValue());
+			descriptionBuyableItems.add(" | Le prix de cette objet est : " +item.getValue());
 		}
+		
+		Game.DISPLAYER.displayMsg("--------------------------------------------------");
+		
 		Game.DISPLAYER.displayMsg("Weeeelllllcoooooommmmmeeee");
 		java.util.Map<String, Object> responceMode = UserInteration.getChoise("Souhaitez vous acheter ou vendre ? : ", modeList,true);
 
 		if (responceMode.get("STATE") != State.Ok) {
 			Game.DISPLAYER.displayMsg("Arretez de me faire perdre mon temps, Etranger ! ");
+			return;
 		}
 		
 		String modeChoice = (String) responceMode.get("choice");
@@ -135,6 +136,7 @@ public class Vendor extends Npc {
 
 			if (responceBuy.get("STATE") != State.Ok) {
 				Game.DISPLAYER.displayMsg("Vous êtes difficile satisfaire, etranger ! ");
+				return;
 			}
 			
 			String buyChoice = (String) responceBuy.get("choice");
@@ -148,9 +150,13 @@ public class Vendor extends Npc {
 				player.addInv(itemBought); // ajoute l'item dans l'inventaire du joueur
 				Game.DISPLAYER.displayMsg("vous avez acheté "+itemBought.toString());
 				Game.DISPLAYER.displayMsg("Vous avez reçu "+itemBought.toString());
+				Game.DISPLAYER.displayMsg("He he he, Merci.");
+				return;
 			}
 			else {
 				Game.DISPLAYER.displayMsg("Pas assez d’argent etranger !");
+				Game.DISPLAYER.displayMsg("He he he, Merci.");
+				return;
 			}
 			
 		}
@@ -163,6 +169,9 @@ public class Vendor extends Npc {
 
 			if (responceSell.get("STATE") != State.Ok) {
 				Game.DISPLAYER.displayMsg("C’est tout etranger ?");
+				Game.DISPLAYER.displayMsg("He he he, Merci.");
+
+				return;
 			}
 			
 			String sellChoice = (String) responceSell.get("choice");
@@ -177,13 +186,18 @@ public class Vendor extends Npc {
 				this.addInv(itemSold);
 				Game.DISPLAYER.displayMsg("Ah ! Je vais acheter" +itemSold.toString()+ " a un tres bon prix !");
 				Game.DISPLAYER.displayMsg("Le marchand a bien reçu votre "+itemSold.toString());
+				Game.DISPLAYER.displayMsg("He he he, Merci.");
+
+				return;
 			} 
 			else {
 				Game.DISPLAYER.displayMsg("L'argent me manque etranger !");
+				Game.DISPLAYER.displayMsg("He he he, Merci.");
+
+				return;
 			}
 			
 		}
 		
-		Game.DISPLAYER.displayMsg("He he he, Merci.");
 	}
 }
