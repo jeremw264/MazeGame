@@ -97,6 +97,16 @@ Aucune difficultés restante à résoudre pour le troisieme livrable
 
 ### Atteinte des objectifs
 
+Nous avons fini tous ce qui étais prévu.
+
+C'est à dire les implémentations qui été a finir :
+
+- Les indices  
+- Le sys de achat/vente du Marchands  
+- Ecriture des tests  
+
+
+
 ### Difficultés restant à résoudre
 
 # Journal de bord
@@ -214,3 +224,5 @@ Franck : Création de l'Action Discuter, Modification de celle-ci ( débugg etc 
 ## Semaine 12
 
 Jérémy : Création d'un game builder, Ecriture des tests utitaire, Modification de l'affichage, Maj de l'action regarder, Maj du makefile, Maj Main pour rendu, Ecriture Javadoc et Maj géstion saisie utilisateur.
+
+Jérémy : Ajout des affichage manquant pour l'utilisateur. 
