@@ -75,7 +75,10 @@ public class Vendor extends Npc {
 	public String toString() {
 		return "vendor";
 	}
-
+	
+	/**
+	 * Override Talk npc
+	 */
 	public void talk() {
 
 		Player player = null;

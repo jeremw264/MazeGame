@@ -246,3 +246,5 @@ Jérémy : Ajout des affichage manquant pour l'utilisateur.
 
 Timothé : Gestion des pièces d'or du joueur pour l'action de vente et les objectifs de quête
 
+Franck : Override de l'action Discuter pour le vendor afin de faire un syst�me de vente
+
