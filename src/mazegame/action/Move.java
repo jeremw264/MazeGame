@@ -7,6 +7,7 @@ import java.util.Map;
 
 import mazegame.Cell;
 import mazegame.Direction;
+import mazegame.Game;
 import mazegame.State;
 import mazegame.character.Character;
 import mazegame.character.Npc;
@@ -41,6 +42,8 @@ public class Move extends Action {
 		final Cell nextCell = player.computeNextCell(directionChoiseMap.get(responceMap.get("choice")));
 
 		player.move(nextCell);
+		
+		Game.DISPLAYER.displayMsg("Tu es sur la "+player.getCell());
 
 		return State.Ok;
 	}

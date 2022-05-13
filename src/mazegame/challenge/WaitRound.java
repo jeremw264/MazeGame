@@ -43,5 +43,11 @@ public class WaitRound extends Challenge {
 	public Hint getHint() {
 		return new Hint(this.nbOfRounds);
 	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Défis : Attendre "+this.nbOfRoundsWaiting+" tours";
+	}
 
 }

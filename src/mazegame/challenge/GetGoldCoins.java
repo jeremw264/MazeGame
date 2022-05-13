@@ -52,5 +52,11 @@ public class GetGoldCoins extends Challenge {
 		// TODO Auto-generated method stub
 		return new Hint(new GoldCoin(),this.nbOfGoldCoinsToFinish);
 	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Défis : Ramasser "+this.nbOfGoldCoinsToFinish+" pièce";
+	}
 
 }

@@ -41,10 +41,19 @@ public class LookAround extends Action {
 
 		final int currentX = character.getX();
 		final int currentY = character.getY();
+		List<String> itemListName = new LinkedList<>();
 
 		Game.DISPLAYER.displayMap(character.getMap());
 		Game.DISPLAYER.displayMsg("Vous êtes sur la case (" + currentX + "," + currentY + ").");
 		Game.DISPLAYER.displayMsg("Vous avez " + character.getCoins() + " or sur vous.");
+		if (character.getListOfItems().size() > 0) {
+			
+			for (Item item : character.getListOfItems()) {
+				itemListName.add(item.toString());
+			}
+			
+			Game.DISPLAYER.displayChoise("Tu as dans ton inventaire :", itemListName);
+		}
 
 	}
 

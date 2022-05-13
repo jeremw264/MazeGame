@@ -16,6 +16,7 @@ import mazegame.character.npc.Vendor;
 import mazegame.exception.GameBuilderException;
 import mazegame.generation.GenerationAlgorithm;
 import mazegame.item.Item;
+import mazegame.item.Jewel;
 import mazegame.item.Scroll;
 
 /**
@@ -190,6 +191,8 @@ public class GameBuilder {
 		if (this.npcsClasses.contains(Vendor.class)) {
 			this.fillVendorInventory();
 		}
+		
+		this.player.addInv(new Jewel());
 
 		this.checksChallengesAreAchievable();
 

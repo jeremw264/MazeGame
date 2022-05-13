@@ -76,6 +76,10 @@ public class Game {
 				}
 			}
 		}
+		
+		if (!gameState) {
+			Game.DISPLAYER.displayMsg("Bravo tu as terminé la quête !!!");
+		}
 
 		Game.DISPLAYER.displayEndGame();
 		this.closeGame();

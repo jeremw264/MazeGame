@@ -27,6 +27,8 @@ import mazegame.utils.UserInteration;
  * Personnage Marchand
  */
 public class Vendor extends Npc {
+	
+	private final int nbCoinStart = 1000;
 
 	/**
 	 * Constructeur de l'objet Vendor.
@@ -37,7 +39,7 @@ public class Vendor extends Npc {
 	 */
 	public Vendor(int x, int y, Map map) {
 		super(x, y, map, "Vendor");
-		this.changeCoins(50);
+		this.changeCoins(this.nbCoinStart);
 		// TODO Auto-generated constructor stub
 		
 	}

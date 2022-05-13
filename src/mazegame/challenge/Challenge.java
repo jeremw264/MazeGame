@@ -2,6 +2,7 @@ package mazegame.challenge;
 
 import java.util.List;
 
+import mazegame.Game;
 import mazegame.Hint;
 import mazegame.character.Character;
 import mazegame.character.Player;
@@ -34,6 +35,9 @@ public abstract class Challenge {
 			return true;
 		} else {
 			this.finished = this.isFinish(player);
+			if (this.finished) {
+				Game.DISPLAYER.displayMsg(this.toString()+", Terminéé Bravo! ");
+			}
 			return this.finished;
 		}
 	}

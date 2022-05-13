@@ -70,4 +70,10 @@ public class FinalCase extends Challenge {
 	public Hint getHint() {
 		return new Hint(this.finalCell);
 	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Défis : Arrivé sur la case ("+this.finalCell.getX()+","+this.finalCell.getY()+")";
+	}
 }

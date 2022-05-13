@@ -35,5 +35,11 @@ public class CaseEightTree extends Challenge {
 		// TODO Auto-generated method stub
 		return new Hint(this.finalCell);
 	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Défis : Arrivé sur la case (8,3)";
+	}
 
 }
