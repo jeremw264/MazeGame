@@ -201,7 +201,7 @@ Jérémy : Quest et Challenge
 
 ## Semaine 10
 
-Timothe: Doit faire Action ramaser et utiliser (pour les objet)
+Timothe: Doit faire Action ramasser et utiliser (pour les objet)
 
 Franck: Doit faire Action discuter et se déplacer 
 
@@ -221,3 +221,5 @@ Franck : Création de l'Action Discuter, Modification de celle-ci ( débugg etc 
 ## Semaine 12
 
 Jérémy : Création d'un game builder, Ecriture des tests utitaire, Modification de l'affichage, Maj de l'action regarder, Maj du makefile, Maj Main pour rendu, Ecriture Javadoc et Maj géstion saisie utilisateur.
+
+Timothé : Gestion des pièces d'or du joueur pour l'action de vente et les objectifs de quête
