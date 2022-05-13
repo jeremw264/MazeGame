@@ -16,14 +16,17 @@ import mazegame.Map;
 import mazegame.State;
 import mazegame.character.Character;
 import mazegame.character.Npc;
+import mazegame.character.npc.Samaritan;
 import mazegame.character.npc.Vendor;
 import mazegame.character.player.Hero;
+import mazegame.item.Item;
+import mazegame.item.Jewel;
 
 public class LookAroundTest extends ActionTest {
 
 	@Override
 	@Before
-	public void setUp(){
+	public void setUp() {
 		this.action = new LookAround();
 	}
 
@@ -54,7 +57,7 @@ public class LookAroundTest extends ActionTest {
 		this.action.run(playerCharacter);
 
 		assertTrue(this.outContent.toString().contains("Vous êtes sur la case"));
-		assertTrue(this.outContent.toString().contains("Les directions accessible sont"));
+		assertTrue(this.outContent.toString().contains("Les directions accessibles sont"));
 	}
 
 	@Test
@@ -67,7 +70,7 @@ public class LookAroundTest extends ActionTest {
 		for (Direction direction : Direction.values()) {
 			if (playerCharacter.getAccessibleDirections().contains(direction)) {
 				accessibleDirections.add(direction);
-			}else {
+			} else {
 				notAccessibleDirections.add(direction);
 			}
 		}
@@ -99,6 +102,76 @@ public class LookAroundTest extends ActionTest {
 		Character playerCharacter = new Vendor(0, 0, map);
 		State state = this.action.run(playerCharacter);
 		assertEquals(State.Exit, state);
+	}
+
+	@Test
+	public void inventoryIsNotEmpty() {
+		Map map = new Map(2, 2);
+		Character playerCharacter = new Hero(0, 0, map);
+		Item item = new Jewel();
+
+		playerCharacter.addInv(item);
+		this.action.run(playerCharacter);
+
+		assertTrue(this.outContent.toString().contains("Tu as dans ton inventaire :"));
+		assertTrue(this.outContent.toString().contains(item.toString()));
+	}
+
+	@Test
+	public void inventoryIsEmpty() {
+		Map map = new Map(2, 2);
+		Character playerCharacter = new Hero(0, 0, map);
+
+		this.action.run(playerCharacter);
+
+		assertFalse(this.outContent.toString().contains("Tu as dans ton inventaire :"));
+	}
+	
+	@Test
+	public void npcAround() {
+		Map map = new Map(2, 2);
+		Character playerCharacter = new Hero(0, 0, map);
+		Npc npc = new Samaritan(0, 0, map);
+
+		this.action.run(playerCharacter);
+
+		assertTrue(this.outContent.toString().contains("Voici les personnages autour de vous :"));
+		assertTrue(this.outContent.toString().contains(npc.toString()));
+
+	}
+	
+	@Test
+	public void npcNotAround() {
+		Map map = new Map(2, 2);
+		Character playerCharacter = new Hero(0, 0, map);
+
+		this.action.run(playerCharacter);
+
+		assertFalse(this.outContent.toString().contains("Voici les personnages autour de vous :"));
+	}
+	
+	@Test
+	public void itemAround() {
+		Map map = new Map(2, 2);
+		Character playerCharacter = new Hero(0, 0, map);
+		Item item = new Jewel();
+		map.getCell(0, 0).addItem(item);
+
+		this.action.run(playerCharacter);
+
+		assertTrue(this.outContent.toString().contains("Voici les objets autour de vous :"));
+		assertTrue(this.outContent.toString().contains(item.toString()));
+
+	}
+	
+	@Test
+	public void itemNotAround() {
+		Map map = new Map(2, 2);
+		Character playerCharacter = new Hero(0, 0, map);
+
+		this.action.run(playerCharacter);
+
+		assertFalse(this.outContent.toString().contains("Voici les objets autour de vous :"));
 	}
 
 	// Overide test inutile

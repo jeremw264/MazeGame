@@ -3,8 +3,11 @@ package mazegame.challenge;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.List;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,13 +17,14 @@ import mazegame.character.Character;
 import mazegame.character.Player;
 import mazegame.character.player.Hero;
 import mazegame.item.Item;
+import mazegame.utils.UserInteraction;
 
 public class ChallengeTest {
 
 	private Challenge challenge;
 
 	private Player player;
-
+	
 	@Before
 	public void setUp() throws Exception {
 		Map map = new Map(5, 5);
@@ -50,6 +54,12 @@ public class ChallengeTest {
 				// TODO Auto-generated method stub
 				return new Hint();
 			}
+			
+			@Override
+			public String toString() {
+				// TODO Auto-generated method stub
+				return "Défis :";
+			}
 		};
 	}
 
@@ -62,5 +72,5 @@ public class ChallengeTest {
 
 		}
 	}
-
+	
 }
