@@ -6,6 +6,102 @@
 - Franck Beyaert
 - Timothé Vanoverberghe
 
+# Comment ajouter de nouvelle chose au jeu ?
+
+## Algorithme de génération
+
+Pour ajouter un nouveau algorithme de génération il suffit de :  
+
+Etape 1 : Crée une nouvelle classe dans le package mazegame.generation
+Etape 2 : la classe crée doit hérité de la classe abstraite GenerationAlgorithm
+Etape 3 : la méthode generation hérité doit renvoyer **la carte finale** (Bien évidemment une instance de Map)
+Etape 4 : Crée un nouveau Test Case pour vérifier que l'algorithme génére bien un labyrinthe parfait
+Etape 5 : la classe de test doit hériter de GenerationAlgorithmTest
+Etape 6 : Crée une méthode setUp( avec @Before ) qui affecte la grille généré par le nouvel algorithme dans this.grid
+
+Si les tests sont au vert l'algo sera compatible avec le jeu
+
+## Personnages
+
+Pour ajouter un nouveau personnage il suffit de :  
+
+> Si c'est un nouveau joueur ->  
+
+Etape 1 : Crée la nouvelle classe dans le package mazegame.character.player   
+Etape 2 : Faire hériter la nouvelle classe de Player qui est une classe abstraite   
+Etape 3 : Ecrire les méthodes abstraite de la classe Player   
+Etape 4 : Surcharger les méthodes si vous voulez des modification plus pousser   
+
+> Si c'est un Npc ->
+
+Etape 1 : Crée la nouvelle classe dans le package mazegame.character.npc   
+Etape 2 : Faire hériter la nouvelle classe de Npc qui est une classe abstraite   
+Etape 3 : Ecrire les méthodes abstraite de la classe Npc   
+Etape 4 : Surcharger les méthodes si vous voulez des modification plus pousser   
+Etape 5 : Si vous utiliser la méthode talk de base il faudra crée un fichier de donnée en json dans le dossier data   
+Etape 6 : Fournir le nom du fichier à la nouvelle classe    
+
+Le fichier devra etre de la forme ci-dessous :     
+
+```json
+[
+    {
+        "content": "La question du npc",
+        "answer": [
+           "réponse possible 1",
+           "réponse possible 2"           
+        ],
+        "correct": [
+            "réponse possible 1 (qui corresponds a la bonne réponse)"
+        ],
+        "answerNpc":
+        	"La phrase affiché en cas de bonne réponse",
+        "answerNpc2": 
+        	"La phrase affiché en cas de mauvaise réponse"
+    },
+    ...
+]
+```
+
+## Objets
+
+Pour ajouter un nouveau objet il suffit de :  
+
+Etape 1 : Crée la nouvelle classe dans le package mazegame.item  
+Etape 2 : Faire hériter la nouvelle classe de Item qui est une classe abstraite   
+Etape 3 : Ecrire les méthodes abstraite de la classe Item   
+Etape 4 : Surcharger les méthodes si vous voulez des modification plus pousser   
+
+## Challenge ( pour les quêtes )
+
+Pour ajouter un nouveau challenge il suffit de :  
+
+Etape 1 : Crée la nouvelle classe dans le package mazegame.challenge  
+Etape 2 : Faire hériter la nouvelle classe de Challenge qui est une classe abstraite   
+Etape 3 : Ecrire les méthodes abstraite de la classe Challenge   
+Etape 4 : Surcharger les méthodes si vous voulez des modification plus pousser  
+
+## Action  
+
+Pour ajouter une nouvelle action il suffit de :  
+
+Etape 1 : Crée la nouvelle classe dans le package mazegame.action
+Etape 2 : Faire hériter la nouvelle classe de Action qui est une classe abstraite   
+Etape 3 : Ecrire la méthodes abstraite de la classe Challenge   ( public State run(Character character))  
+
+# Le makefile
+
+Le makefile est composée de 5 cible :  
+
+- cls : compilation des classes du projet.
+- doc : Génération de la javadoc.
+- jeu.jar : Construction du jar du jeu dans le dossier /jar/
+- run : Compile, construit le jar et l'éxécute avec en paramètre le premier algo de génération
+- clean : Nettoye le projet (Dossier avec .class, dossier docs, et supprime le /jar/jeu.jar)
+
+Par défault la cible all génére le jar du jeu.
+
+
 # Sujet
 
 [Le sujet 2022](https://www.fil.univ-lille1.fr/portail/index.php?dipl=L&sem=S4&ue=Projet&label=Documents)
@@ -19,6 +115,10 @@
 ## Livrable 1
 
 [Nos documents de conception de labyrinthe](conception/mazeConception.md)
+
+UML Livrable 1:
+
+![Livrable1 UML](./UML/Livrable1.png)
 
 ### Atteinte des objectifs
 
@@ -93,7 +193,9 @@ Reste à faire la gestion des pièces d'or du joueur
 
 Ecriture de l'UML avant le dévelopement
 
-Création des objets de manière générique grâce a une classe abstraite pour pouvoir facilement ajouter des objet au jeu 
+![UML Action](./UML/Livrable3.png)
+
+Création des actions de manière générique grâce a une classe abstraite pour pouvoir facilement ajouter des actions au jeu 
 
 ### Difficultés restant à résoudre
 
@@ -103,6 +205,10 @@ Aucune difficultés restante à résoudre pour le troisieme livrable
 ## Livrable 4
 
 ### Atteinte des objectifs
+
+UML Final :  
+
+![UML final](./UML/UML.png)
 
 Nous avons fini tous ce qui étais prévu.
 
@@ -236,5 +342,5 @@ Jérémy : Ajout des affichage manquant pour l'utilisateur.
 
 Timothé : Gestion des pièces d'or du joueur pour l'action de vente et les objectifs de quête
 
-Franck : Override de l'action Discuter pour le vendor afin de faire un syst�me de vente
+Franck : Override de l'action Discuter pour le vendor afin de faire un syst�me de vente
 
