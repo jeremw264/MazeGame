@@ -3,11 +3,13 @@ package mazegame.generation;
 import java.util.ArrayList;
 import java.util.List;
 
-import mazegame.*;
+import mazegame.Cell;
+import mazegame.Direction;
+import mazegame.Map;
 
 /**
  * Classe GenerationAlgorithm
- * 
+ *
  * Représente les algorithmes de génération
  */
 abstract public class GenerationAlgorithm {
@@ -20,7 +22,7 @@ abstract public class GenerationAlgorithm {
 
 	/**
 	 * Méthode de génération de grille de carte.
-	 * 
+	 *
 	 * @param width  La largeur de la carte à générer.
 	 * @param heigth La hauteur de la carte à générer
 	 * @return La carte générer
@@ -29,7 +31,7 @@ abstract public class GenerationAlgorithm {
 
 	/**
 	 * Ajoute la cellule au cellule traité .
-	 * 
+	 *
 	 * @param cell Cellule traité.
 	 */
 	protected void addToTreatment(Cell cell) {
@@ -38,7 +40,7 @@ abstract public class GenerationAlgorithm {
 
 	/**
 	 * Renvoie si la cellule en paramètre est traiter ou non.
-	 * 
+	 *
 	 * @param cell La cellule dont on veut connaitre l'etat de traitement
 	 * @return True si la cellule est traité, False dans le cas contraire.
 	 */
@@ -49,14 +51,14 @@ abstract public class GenerationAlgorithm {
 	/**
 	 * Renvoie une liste des cellules voisines non visité de la cellule en
 	 * paramètre.
-	 * 
+	 *
 	 * @param currentCell La cellule courante de la quelle on veux obtenir les
 	 *                    voisines
 	 * @return liste des cellules voisines non visité.
 	 */
 	protected List<Cell> getUntreatedNeighborsCells(Cell currentCell) {
 
-		List<Cell> untreatedNeighborsCells = new ArrayList<Cell>(4);
+		List<Cell> untreatedNeighborsCells = new ArrayList<>(4);
 
 		List<Cell> neighborsCells = this.map.getNeighborsCells(currentCell);
 
@@ -71,7 +73,7 @@ abstract public class GenerationAlgorithm {
 
 	/**
 	 * Détruit les murs entre deux cellule.
-	 * 
+	 *
 	 * @param currentCell La cellule actuelle.
 	 * @param nextCell    La cellule suivante.
 	 */
@@ -85,7 +87,7 @@ abstract public class GenerationAlgorithm {
 
 	/**
 	 * Créé les murs entre deux cellule.
-	 * 
+	 *
 	 * @param currentCell La cellule actuelle.
 	 * @param nextCell    La cellule suivante.
 	 */

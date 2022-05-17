@@ -5,11 +5,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
-import mazegame.*;
+import mazegame.Cell;
+import mazegame.Map;
 
 /**
  * Classe RecursiveBacktracker.
- * 
+ *
  * Algorithme de génération.
  *
  */
@@ -20,11 +21,11 @@ public class RecursiveBacktracker extends GenerationAlgorithm {
 	// Point de départ horizontale.
 	private final int seedY;
 
-	private Stack<Cell> stack = new Stack<Cell>();
+	private Stack<Cell> stack = new Stack<>();
 
 	/**
 	 * Constructeur de l'objet RecursiveBacktracker.
-	 * 
+	 *
 	 * @param seedX Point de départ en X.
 	 * @param seedY Point de départ en Y.
 	 */
@@ -36,11 +37,12 @@ public class RecursiveBacktracker extends GenerationAlgorithm {
 
 	/**
 	 * Renvoie un carte (Map) générer avec l'algorithme RecursiveBacktracker.
-	 * 
+	 *
 	 * @param width  La largeur de la carte à générer.
 	 * @param height La hauteur de la carte à générer.
 	 * @return La carte généré.
 	 */
+	@Override
 	public Map generation(int width, int heigth) {
 
 		this.map = new Map(width, heigth);
@@ -68,7 +70,7 @@ public class RecursiveBacktracker extends GenerationAlgorithm {
 
 	/**
 	 * Renvoie une cellule voisine aléatoire de la cellule en paramètre.
-	 * 
+	 *
 	 * @param currentCell               La cellule dont on veut récuperer une
 	 *                                  voisine.
 	 * @param unvisitedNeightboursCells Liste des cellule voisine.

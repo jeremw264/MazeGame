@@ -1,0 +1,32 @@
+[
+    {
+        "content": "Bonjour jeune aventurier, pourrais je me permettre de vous conseiller un endroit à visiter ?",
+        "answer": [
+           "ça serait avec plaisir",
+           "non merci, je sais déjà où me rendre"           
+        ],
+        "correct": [
+            "ça serait avec plaisir"
+        ],
+        "answerNpc":
+        	"Parfait ! Alors je vous conseille de vous dirigez dans la direction suivante ! ",
+        "answerNpc2": 
+        	"Oh ! Ce n'est pas grave, je vous souhaite bonne continuation et j'espère que vous trouverez ce que vous souhaitez ! "
+    },
+    {
+        "content": "Bonjour, on m'a offert ce parchemin il y'a quelques années, malheureusement j'ai reçu une fléche dans le genoux et ne peux plus me déplacer comme avant... Que diriez vous d'aller voir pour moi ce qu'il se passe là-bas ?",
+        "answer": [
+            "avec plaisir",
+            "sans façon, j'ai déjà ce qu'il me faut"
+        ],
+        "correct": [
+            "avec plaisir"
+        ],
+       
+        "answerNpc": 
+        	"Aaah, l'aventure, qu'est ce que ça me manque ! Profitez pour moi !",
+        "answerNpc2": 
+        	"Dommage, j'aurais bien aimé que quelqu'un reprenne le flambeau ! "
+        	
+    }
+]

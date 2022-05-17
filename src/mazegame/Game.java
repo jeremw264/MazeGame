@@ -1,104 +1,92 @@
 package mazegame;
 
-import java.util.LinkedList;
 import java.util.List;
 
 import mazegame.action.LookAround;
-import mazegame.challenge.Challenge;
-import mazegame.challenge.FinalCase;
-import mazegame.challenge.WaitRound;
+import mazegame.character.Character;
 import mazegame.character.Player;
-import mazegame.character.npc.*;
-import mazegame.character.player.Hero;
-import mazegame.generation.Kruskal;
 import mazegame.utils.ConsoleDisplayer;
 import mazegame.utils.ConsoleInput;
 import mazegame.utils.Displayer;
 import mazegame.utils.Input;
-import mazegame.character.Character;
-import mazegame.character.Npc;
 
 /**
  * Classe Game qui va représenter le jeu.
  */
 public class Game {
 
+	/**
+	 * Objet qui est responsable des affichages du jeu.
+	 */
 	public static final Displayer DISPLAYER = new ConsoleDisplayer();
+
+	/**
+	 * Objet qui est responsable des entrées utilisateur du jeu.
+	 */
 	public static final Input INPUT = new ConsoleInput();
 
+	// La carte du jeu.
 	private Map map;
+
+	// La liste des personnages présents dans le jeu.
 	private List<Character> listOfCharacters;
+
+	// La quête à accomplir dans jeu.
 	private Quest quest;
 
+	// Le joueur que contrôle l'utilisateur.
 	private Player player;
 
 	/**
 	 * Constructeur de l'objet Game
-	 * 
-	 * @param width  La largueur du jeu.
-	 * @param height La hauteur du jeu.
+	 *
+	 * @param map        La carte du jeu.
+	 * @param characters La liste des joueurs dans le jeu.
+	 * @param player     Le joueur que contrôle l'utilisateur.
+	 * @param quest      La quête a accomplir pour finir le jeu.
+	 *
 	 */
-	public Game(int width, int height) {
-		this.map = new Kruskal().generation(width, height);
-
-		this.initCharacter();
-		this.initQuest();
-
-	}
-
-	private void initCharacter() {
-		this.listOfCharacters = new LinkedList<Character>();
-		Player player = new Hero(0, 0, this.map);
-		Npc imp = new Imp(0, 0, this.map);
-		Npc samaritan = new Samaritan(0, 0, this.map);
-		Npc sphinx = new Sphinx(0, 0, this.map);
-		Npc vendor = new Vendor(0, 0, this.map);
-
-		listOfCharacters.add(player);
-		listOfCharacters.add(imp);
-		listOfCharacters.add(samaritan);
-		listOfCharacters.add(sphinx);
-		listOfCharacters.add(vendor);
-
+	public Game(Map map, List<Character> characters, Player player, Quest quest) {
+		this.map = map;
+		this.quest = quest;
 		this.player = player;
+		this.listOfCharacters = characters;
 	}
 
-	private void initQuest() {
-		List<Challenge> listOfChallenges = new LinkedList<Challenge>();
-		/*
-		 * Ajouter les Challenges
-		 */
-		listOfChallenges.add(new WaitRound(this.player, 3));
-		//listOfChallenges.add(new FinalCase(player));
-
-		this.quest = new Quest(listOfChallenges);
-
-	}
-
+	/**
+	 * Démarre le jeu.
+	 */
 	public void run() {
 
 		boolean gameState = true;
+
+		Game.DISPLAYER.displayStartGame();
 
 		new LookAround().run(this.player);
 
 		while (gameState && !this.quest.isComplete()) {
 
-			Game.DISPLAYER.displayMsg("--------------------------------------------------");
-
 			for (Character character : listOfCharacters) {
-				gameState = character.getAction().run(character);
-				
-				if (!gameState) {
+				State status = character.getAction().run(character);
+
+				if (!(status == State.Ok)) {
+					gameState = false;
 					break;
 				}
-				
 			}
+		}
+		
+		if (gameState) {
+			Game.DISPLAYER.displayMsg("Bravo tu as terminé la quête !!!");
 		}
 
 		Game.DISPLAYER.displayEndGame();
 		this.closeGame();
 	}
 
+	/**
+	 * Instruction a exécuter à la fin du jeu.
+	 */
 	private void closeGame() {
 		Game.INPUT.closeInput();
 	}

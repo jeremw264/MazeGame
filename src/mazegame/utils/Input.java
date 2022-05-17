@@ -2,7 +2,7 @@ package mazegame.utils;
 
 /**
  * Interface Input.
- * 
+ *
  * Interface à implémnter pour géré les entrées utilisateur.
  */
 public interface Input {
@@ -13,7 +13,7 @@ public interface Input {
 	public String getString();
 
 	/**
-	 * Ferme l'entré.
+	 * Ferme l'entrée.
 	 */
 	public void closeInput();
 }

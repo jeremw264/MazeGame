@@ -1,7 +1,7 @@
 package mazegame;
 
 /**
- * 
+ *
  * Classe Direction
  *
  */
@@ -16,7 +16,7 @@ public enum Direction {
 
 	/**
 	 * Constructeur de l'objet Direction
-	 * 
+	 *
 	 * @param stringValue Chaîne de caractère qui décrit la direction.
 	 */
 	private Direction(String stringValue) {
@@ -25,7 +25,7 @@ public enum Direction {
 
 	/**
 	 * Renvoie la direction d'une cellule par rapport à une autre.
-	 * 
+	 *
 	 * @param currentCell La cellule courante.
 	 * @param otherCell   La cellule dont on veut connaitre la direction.
 	 * @return La direction le l'autre cellule
@@ -49,7 +49,7 @@ public enum Direction {
 	}
 
 	/**
-	 * Renvoie une chaîne de caractère qui décrit la direction.
+	 * Renvoie une chaîne de caractères qui décrit la direction.
 	 */
 	@Override
 	public String toString() {

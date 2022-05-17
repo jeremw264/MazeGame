@@ -1,14 +1,13 @@
 package mazegame;
 
-import java.util.EnumMap;
-
-import mazegame.item.Item;
-import java.util.LinkedList;
 import java.util.ArrayList;
+import java.util.EnumMap;
+import java.util.LinkedList;
 import java.util.List;
 
 import mazegame.character.Character;
 import mazegame.character.Player;
+import mazegame.item.Item;
 
 /**
  * Class Cell
@@ -24,16 +23,16 @@ public class Cell {
 
 	// Etat de visite de la cellule.
 	private boolean visited;
-	
-	//List des objets pr�sents sur la cellule
-	private List<Item> items;		
-		
+
+	// Liste des objets présents sur la cellule.
+	private List<Item> items;
+
 	// Liste des personnages sur la case.
 	private List<Character> characters;
 
 	/**
 	 * Constructeur de la classe Cell, les murs sont généré par défault.
-	 * 
+	 *
 	 * @param y indice Horizontale de la case
 	 * @param x indice Verticale de la case
 	 */
@@ -47,15 +46,15 @@ public class Cell {
 		this.walls.put(Direction.O, true);
 		this.walls.put(Direction.E, true);
 
-		this.items = new ArrayList<Item>();
+		this.items = new ArrayList<>();
 		this.visited = false;
 
-		this.characters = new LinkedList<Character>();
+		this.characters = new LinkedList<>();
 	}
 
 	/**
 	 * Constructeur de la classe Cell.
-	 * 
+	 *
 	 * @param y          indice Horizontale de la case
 	 * @param x          indice Verticale de la case
 	 * @param wallsExist true si les murs doivent etre généré à la création, false
@@ -72,13 +71,14 @@ public class Cell {
 		this.walls.put(Direction.E, wallsExist);
 
 		this.visited = false;
+		this.items = new ArrayList<>();
 
-		this.characters = new LinkedList<Character>();
+		this.characters = new LinkedList<>();
 	}
 
 	/**
 	 * Renvoie la position Y (verticale) de la cellule.
-	 * 
+	 *
 	 * @return position Y (verticale) de la cellule.
 	 */
 	public int getY() {
@@ -87,7 +87,7 @@ public class Cell {
 
 	/**
 	 * Renvoie la position X (horizontale) de la cellule.
-	 * 
+	 *
 	 * @return position X (horizontale) de la cellule.
 	 */
 	public int getX() {
@@ -103,7 +103,7 @@ public class Cell {
 
 	/**
 	 * Renvoie si la cellule est visité ou non.
-	 * 
+	 *
 	 * @return true si la celulle est visité, false dans le cas contraire.
 	 */
 	public boolean isVisited() {
@@ -112,7 +112,7 @@ public class Cell {
 
 	/**
 	 * Efface le mur de la case qui corresponds à la direction en paramètre.
-	 * 
+	 *
 	 * @param orientation Direction, exemple: N, S, O, E
 	 */
 	public void eraseWall(Direction direction) {
@@ -121,7 +121,7 @@ public class Cell {
 
 	/**
 	 * Crée le mur de la case qui corresponds à la direction en paramètre.
-	 * 
+	 *
 	 * @param direction Direction
 	 */
 	public void createWall(Direction direction) {
@@ -130,7 +130,7 @@ public class Cell {
 
 	/**
 	 * Renvoie si un mur existe ou non dans la direction passer en paramètre.
-	 * 
+	 *
 	 * @param orientation Direction, exemple: N, S, O, E
 	 * @return true si le mur existe, false dans le cas contraire
 	 */
@@ -140,7 +140,7 @@ public class Cell {
 
 	/**
 	 * Enregistre un personnage sur la cellule.
-	 * 
+	 *
 	 * @param character Le personnage à ajouter.
 	 */
 	public void setCharacter(Character character) {
@@ -149,20 +149,25 @@ public class Cell {
 
 	/**
 	 * Supprime un personnage de la cellule.
-	 * 
+	 *
 	 * @param character Le personnage à supprimer.
 	 */
 	public void removeCharacter(Character character) {
 		this.characters.remove(character);
 	}
-	
-	public List<Character> CharactersList() {
+
+	/**
+	 * Renvoie la liste des personnages sur la cellule.
+	 *
+	 * @return la liste des personnages sur la cellule
+	 */
+	public List<Character> charactersList() {
 		return this.characters;
 	}
 
 	/**
 	 * Renvoie si un Joueur est présent sur la case.
-	 * 
+	 *
 	 * @return true si un Joueur est présent sur la case, false sinon.
 	 */
 	public boolean containsPlayer() {
@@ -175,31 +180,49 @@ public class Cell {
 
 		return false;
 	}
-	
-	public List<Item> getItemList(){
+
+	/**
+	 * Renvoie la liste des objets (Item) présent sur la case.
+	 *
+	 * @return la liste des objets
+	 */
+	public List<Item> getItemList() {
 		return this.items;
 	}
-	
+
+	/**
+	 * Ajoute un objet sur la case.
+	 *
+	 * @param item
+	 */
 	public void addItem(Item item) {
 		this.items.add(item);
 	}
-	
+
+	/**
+	 * Supprime un objet de la case.
+	 *
+	 * @param item L'objet à supprimer.
+	 */
 	public void rmvItem(Item item) {
 		this.items.remove(item);
 	}
 
 	/**
-	 * Description de la cellule sous forme de chaîne de caractère.
+	 * Description des coordonnéesde la cellule sous forme de chaîne de caractère.
+	 * 
 	 */
+	@Override
 	public String toString() {
-		return "Case (" + this.x + "," + this.y+")";
+		return "Case (" + this.x + "," + this.y + ")";
 	}
 
 	/**
 	 * Renvoie si la cellule courante est egal à l'objet en paramètre.
-	 * 
+	 *
 	 * @param obj L'objet à comparer.
 	 */
+	@Override
 	public boolean equals(Object obj) {
 		if (obj instanceof Cell) {
 			Cell otherCell = (Cell) obj;

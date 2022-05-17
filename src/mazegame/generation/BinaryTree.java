@@ -1,21 +1,24 @@
 package mazegame.generation;
 
-import mazegame.*;
+import mazegame.Cell;
+import mazegame.Direction;
+import mazegame.Map;
 
 /**
  * Class BinaryTree
- * 
+ *
  * Algorithme de génération
  */
 public class BinaryTree extends GenerationAlgorithm {
 
 	/**
 	 * Renvoie un carte (Map) générer avec l'algorithme par arbre binaire.
-	 * 
+	 *
 	 * @param width  La largeur de la carte à générer.
 	 * @param height La hauteur de la carte à générer.
 	 * @return La carte généré.
 	 */
+	@Override
 	public Map generation(int width, int heigth) {
 
 		this.map = new Map(width, heigth);

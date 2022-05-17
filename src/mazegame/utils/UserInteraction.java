@@ -1,0 +1,113 @@
+package mazegame.utils;
+
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
+import mazegame.Game;
+import mazegame.State;
+
+/**
+ * Classe UserInteraction
+ */
+public class UserInteraction {
+
+	public static final String EXITWORD_STRING = "quitter";
+	public static final String RETURNWORD_STRING = "retour";
+	public static final String INVALIDCHOISE_STRING = "Choix incorrect";
+
+	public static Map<String, Object> getChoise(String firstSentence, List<String> listOfChoises, boolean canCancel) {
+
+		Map<String, Object> responceObjects = new HashMap<>();
+		responceObjects.put("STATE", State.Ok);
+
+		List<String> choises = new LinkedList<>();
+
+		// Ajouter le choix de pouvoir revenir en arrière
+		if (canCancel) {
+			choises.add(UserInteraction.RETURNWORD_STRING);
+		}
+
+		choises.addAll(listOfChoises);
+
+		String choise;
+
+		do {
+
+			Game.DISPLAYER.displayMsg("--------------------------------------------------");
+
+			Game.DISPLAYER.displayChoise(firstSentence, choises);
+
+			choise = Game.INPUT.getString().toLowerCase().strip();
+
+			if (choise.equals(UserInteraction.EXITWORD_STRING)) {
+				responceObjects.put("STATE", State.Exit);
+				break;
+			} else if (choise.equals(UserInteraction.RETURNWORD_STRING)) {
+				responceObjects.put("STATE", State.Cancel);
+			}
+
+			if (!choises.contains(choise)) {
+				Game.DISPLAYER.displayError(UserInteraction.INVALIDCHOISE_STRING);
+			}
+
+		} while (!choises.contains(choise));
+
+		responceObjects.put("choice", choise);
+
+		return responceObjects;
+
+	}
+	
+	public static Map<String, Object> getChoise(String firstSentence, List<String> listOfChoises,List<String> descriptionList, boolean canCancel) {
+
+		Map<String, Object> responceObjects = new HashMap<>();
+		responceObjects.put("STATE", State.Ok);
+
+		List<String> choises = new LinkedList<>();
+
+		// Ajouter le choix de pouvoir revenir en arrière
+		if (canCancel) {
+			choises.add(UserInteraction.RETURNWORD_STRING);
+		}
+		
+		List<String> listOfChoisesAndDescription = new LinkedList<>();
+		
+		for (int i = 0; i < listOfChoises.size(); i++) {
+			listOfChoisesAndDescription.add(listOfChoises.get(i)+" "+descriptionList.get(i));
+			
+		}
+
+		choises.addAll(listOfChoises);
+
+		String choise;
+
+		do {
+
+			Game.DISPLAYER.displayMsg("--------------------------------------------------");
+
+			Game.DISPLAYER.displayChoise(firstSentence, listOfChoisesAndDescription);
+
+			choise = Game.INPUT.getString().toLowerCase().strip();
+
+			if (choise.equals(UserInteraction.EXITWORD_STRING)) {
+				responceObjects.put("STATE", State.Exit);
+				break;
+			} else if (choise.equals(UserInteraction.RETURNWORD_STRING)) {
+				responceObjects.put("STATE", State.Cancel);
+			}
+
+			if (!choises.contains(choise)) {
+				Game.DISPLAYER.displayError(UserInteraction.INVALIDCHOISE_STRING);
+			}
+
+		} while (!choises.contains(choise));
+
+		responceObjects.put("choice", choise);
+
+		return responceObjects;
+
+	}
+
+}

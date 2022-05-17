@@ -1,32 +1,37 @@
 package mazegame.item;
 
-import mazegame.Game;
+import mazegame.Hint;
+import mazegame.character.Character;
 
 /**
  * Classe Scroll.
- * 
+ *
  * Objet Parchemin.
  */
 public class Scroll extends Item {
 
+	private Hint hint;
+
 	/**
 	 * Constructeur de l'objet Scroll.
 	 */
-	
-	
-	public Scroll(String hint) {
-		this.value = 0;
-		this.usability = true;
+	public Scroll(Hint hint) {
+		super(0, false, true);
 		this.hint = hint;
 	}
-	
-	public void use() {
-		Game.DISPLAYER.displayMsg(this.hint);
+
+	/**
+	 * Cet objet n'est pas utilisable
+	 */
+	@Override
+	public void use(Character character) {
+		this.hint.displayHint(character);
 	}
-	
+
 	/**
 	 * Renvoie une représentation de l'objet sous forme de chaine de caractère.
 	 */
+	@Override
 	public String toString() {
 		return "parchemin";
 	}

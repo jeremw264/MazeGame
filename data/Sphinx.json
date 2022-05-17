@@ -2,48 +2,48 @@
     {
         "content": "Je commence la nuit et termine le matin, qui suis je ?",
         "answer": [
-           "La lune",
-           "Le n",
-           "La soir�e"
+           "la lune",
+           "le n",
+           "la soir�e"
         ],
         "correct": [
-            "Le n"
-        ]
+            "le n"
+        ],
+        "answerNpc":
+        	"Félicitations Héro ! Tu as trouvé la bonne réponse",
+        "answerNpc2": 
+        	"Désolé Héro ! Tu as échoué à l'énigme"
     },
     {
-        "content": "Il t'appartient compl�tement, cependant, tous le monde l'utilise... qu'est-ce ?",
+        "content": "Il t'appartient compl�tement, cependant, tous le monde l'utilise... qu'est-ce ?",
         "answer": [
-            Ton anniversaire",
-            "Ton corps",
-            "Ton nom
+            "ton anniversaire",
+            "ton corps",
+            "ton nom"
         ],
         "correct": [
-            "Ton nom"
-        ]
+            "ton nom"
+        ],
+        "answerNpc": 
+        	"Félicitations Héro ! Tu as trouvé la bonne réponse",
+        "answerNpc2": 
+        	"Désolé Héro ! Tu as échoué à l'énigme"
+        	
     },
     {
     	"content":"Quel objet peut avoir un visage mais pas de corps ?",
     	"answer":[
-    		"Une pi�ce",
-    		"Une peinture",
-    		"Un jeu de cartes"
+    		"une piece",
+    		"une peinture",
+    		"un jeu de cartes"
     		],
     	"correct":[
-    		"Une pi�ce"
-    		]    	
-    }
-     {
-		"content": "F�licitation jeune Hero, tu as trouv� la r�ponse � l'�nigme. Prend donc ceci",
-        "answer": [
-        ],
-        "correct": [
-        ]
-    },
-    {
-		"content": "Malheureusement jeune Hero, ceci n'�tait pas la r�ponse attendu. Je vais te demander de partir, Bon courage pour ta qu�te",
-        "answer": [
-        ],
-        "correct": [
-        ]
+    		"une piece"
+    		],
+        "answerNpc": 
+        	"Félicitations Héro ! Tu as trouvé la bonne réponse",
+        "answerNpc2": 
+        	"Désolé Héro ! Tu as échoué à l'énigme"
+        	 	
     }
 ]

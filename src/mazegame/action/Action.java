@@ -1,5 +1,6 @@
 package mazegame.action;
 
+import mazegame.State;
 import mazegame.character.Character;
 
 /**
@@ -8,9 +9,9 @@ import mazegame.character.Character;
 public abstract class Action {
 
 	/**
-	 * Execute l'action.
-	 * 
-	 * @param character Le personnage qui execute l'action
+	 * Exécute l'action.
+	 *
+	 * @param character Le personnage qui exécute l'action
 	 */
-	public abstract boolean run(Character character);
+	public abstract State run(Character character);
 }

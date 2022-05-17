@@ -1,10 +1,10 @@
 package mazegame.item;
 
-import mazegame.Game;
+import mazegame.character.Character;
 
 /**
  * Classe QuestObject.
- * 
+ *
  * Objet l'objet de la quÃªte.
  */
 public class QuestObject extends Item {
@@ -13,21 +13,24 @@ public class QuestObject extends Item {
 	 * Constructeur de l'objet QuestObject.
 	 */
 	public QuestObject() {
-		this.value = 0;
+		super(0, false, false);
 	}
-	
-	
-	//Methode use quand meme affichée au cas ou on veuille passer l'objet en usable
-	public void use() {
-		Game.DISPLAYER.displayMsg("Cet objet n'est pas vendable, Il vous sera utile dans votre quête");
+
+	/**
+	 * Cet objet n'est pas utilisable
+	 */
+	@Override
+	public void use(Character character) {
+		return ;
 	}
-	
-	
+
 	/**
 	 * Renvoie une reprÃ©sentation de l'objet sous forme de chaine de caractÃ¨re.
 	 */
-	
+
+	@Override
 	public String toString() {
-		return "objet de quête";
+		return "objet de quete";
 	}
+
 }
